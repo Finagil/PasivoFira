@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FBD1CEE1-8C86-48C6-A07C-E7AECADD61BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Fira_Cartera_Pasiva.My.MyApplication</StartupObject>
+    <RootNamespace>Fira_Cartera_Pasiva</RootNamespace>
+    <AssemblyName>Fira Cartera Pasiva</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Fira Cartera Pasiva.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Fira Cartera Pasiva.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MDI_Pasivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Pasivo.Designer.vb">
+      <DependentUpon>MDI_Pasivo.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\DescuentosDS.vb">
+      <DependentUpon>DescuentosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\FrmGarantiasEjercidas.Designer.vb">
+      <DependentUpon>FrmGarantiasEjercidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\FrmGarantiasEjercidas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\FrmGarantiasXEjercer.Designer.vb">
+      <DependentUpon>FrmGarantiasXEjercer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\FrmGarantiasXEjercer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_DescuentosTRA.Designer.vb">
+      <DependentUpon>Frm_DescuentosTRA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_DescuentosTRA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_garantias.Designer.vb">
+      <DependentUpon>frm_garantias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_garantias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_MinistracionesADD.Designer.vb">
+      <DependentUpon>Frm_MinistracionesADD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_MinistracionesADD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\DescuentosDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DescuentosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\DS_contratos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_contratos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\DS_contratos.vb">
+      <DependentUpon>DS_contratos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_contratos_alta.Designer.vb">
+      <DependentUpon>frm_contratos_alta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_contratos_alta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_DescuentosAV.Designer.vb">
+      <DependentUpon>Frm_DescuentosAV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_DescuentosAV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_ministraciones.Designer.vb">
+      <DependentUpon>frm_ministraciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_ministraciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_rpt_solicitud_cargo.Designer.vb">
+      <DependentUpon>frm_rpt_solicitud_cargo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_rpt_solicitud_cargo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_vencimientos.Designer.vb">
+      <DependentUpon>Frm_vencimientos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_vencimientos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\ModuleGlobal.vb" />
+    <Compile Include="modulo_contratos\rpt_solicitud_cargo.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_solicitud_cargo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="reportes\DS_reportes.vb">
+      <DependentUpon>DS_reportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_rpt_saldp.Designer.vb">
+      <DependentUpon>frm_rpt_saldp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_rpt_saldp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\rpt_saldos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_saldos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\rpt_subreport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_subreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\DS_reportes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_reportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_datos_contrato.Designer.vb">
+      <DependentUpon>frm_datos_contrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_datos_contrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\Frm_descuentos_porfecha.Designer.vb">
+      <DependentUpon>Frm_descuentos_porfecha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Frm_descuentos_porfecha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\frm_edo_cuenta.Designer.vb">
+      <DependentUpon>frm_edo_cuenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_edo_cuenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\frm_rpt_estado.Designer.vb">
+      <DependentUpon>frm_rpt_estado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_rpt_estado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\rpt_datos_contrato.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_datos_contrato.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\rpt_descuentos_porfecha.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_descuentos_porfecha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\rpt_edocta.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_edocta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MDI_Pasivo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MDI_Pasivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\FrmGarantiasEjercidas.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmGarantiasEjercidas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\FrmGarantiasXEjercer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmGarantiasXEjercer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\Frm_DescuentosTRA.resx">
+      <DependentUpon>Frm_DescuentosTRA.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frm_garantias.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_garantias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\Frm_MinistracionesADD.resx">
+      <DependentUpon>Frm_MinistracionesADD.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frm_contratos_alta.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_contratos_alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\Frm_DescuentosAV.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Frm_DescuentosAV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frm_ministraciones.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_ministraciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frm_rpt_solicitud_cargo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_rpt_solicitud_cargo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\Frm_vencimientos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Frm_vencimientos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\rpt_solicitud_cargo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_solicitud_cargo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\frm_rpt_saldp.resx">
+      <DependentUpon>frm_rpt_saldp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\rpt_saldos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_saldos.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\rpt_subreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_subreport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\frm_datos_contrato.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_datos_contrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\Frm_descuentos_porfecha.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Frm_descuentos_porfecha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\frm_edo_cuenta.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_edo_cuenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\frm_rpt_estado.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frm_rpt_estado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\rpt_datos_contrato.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_datos_contrato.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\rpt_descuentos_porfecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_descuentos_porfecha.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\rpt_edocta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_edocta.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="modulo_contratos\DescuentosDS.xsc">
+      <DependentUpon>DescuentosDS.xsd</DependentUpon>
+    </None>
+    <None Include="modulo_contratos\DescuentosDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DescuentosDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="modulo_contratos\DescuentosDS.xss">
+      <DependentUpon>DescuentosDS.xsd</DependentUpon>
+    </None>
+    <None Include="modulo_contratos\DS_contratos.xsc">
+      <DependentUpon>DS_contratos.xsd</DependentUpon>
+    </None>
+    <None Include="modulo_contratos\DS_contratos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_contratos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="modulo_contratos\DS_contratos.xss">
+      <DependentUpon>DS_contratos.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="reportes\DS_reportes.xsc">
+      <DependentUpon>DS_reportes.xsd</DependentUpon>
+    </None>
+    <None Include="reportes\DS_reportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_reportes.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="reportes\DS_reportes.xss">
+      <DependentUpon>DS_reportes.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
