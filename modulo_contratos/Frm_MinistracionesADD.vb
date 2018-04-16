@@ -266,29 +266,6 @@ Public Class Frm_MinistracionesADD
         CArgadatos()
     End Sub
 
-    Private Sub TxttasaFira_TextChanged(sender As Object, e As EventArgs) Handles TxttasaFira.TextChanged
-
-    End Sub
-
-    Private Sub dt_solicitud_ValueChanged(sender As Object, e As EventArgs) Handles dt_solicitud.ValueChanged
-
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim tasafira As Decimal = 0
-        If TxttasaFira.Text.Length = 0 Then TxttasaFira.Text = 0
-        tasafira = TxttasaFira.Text
-        flagmin = True
-        Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
-        CreaCalendarioRevisoinTasa(ID_Contrato)
-
-        MessageBox.Show("Se agrego el calendario de rev de tasas", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    End Sub
-
     Private Sub DataGridView1_DataMemberChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DataMemberChanged
         CArgadatos()
     End Sub
