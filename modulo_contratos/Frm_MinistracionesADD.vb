@@ -145,8 +145,8 @@ Public Class Frm_MinistracionesADD
 
                 Me.MinistracionesTableAdapter.UpdateFechaCorteTIIE(dt_descuento.Value.ToShortDateString, TIIE_Aplica, ID_Contrato)
                 Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
-                CreaCalendarioRevisoinTasa(ID_Contrato)
-                    Me.DialogResult = Windows.Forms.DialogResult.OK
+                CreaCalendarioRevisoinTasa(ID_Contrato, MinistracionesBindingSource.Current("Tipta"))
+                Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
 
                 MessageBox.Show("Se Agregó la ministración", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
