@@ -46,6 +46,7 @@ Public Class frm_contratos_alta
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bt_guardar.Click
+        Dim GaratiasTEMP As New DS_contratosTableAdapters.CONT_CPF_anexo_vagarTableAdapter
         Dim FN, FB, BP As Decimal
         Dim año As String = Year(Now)
         Dim sucursal As String
@@ -153,7 +154,7 @@ Public Class frm_contratos_alta
         End If
         If txt_acreditado.Text.Length > 0 Then
             Dim persona As String
-            persona = Me.ClientesTableAdapter.ScalarQueryid_acreditado(cbclientes.SelectedValue)
+            persona = Me.ClientesTableAdapter.ScalarQueryId_Acreditado(cbclientes.SelectedValue)
             If persona Is Nothing Then
                 Me.ClientesTableAdapter.UpdateQueryId_Acreditado(txt_acreditado.Text, cbclientes.SelectedValue)
                 ' Dim s As String
@@ -169,37 +170,53 @@ Public Class frm_contratos_alta
             End If
         End If
 
-        MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        MessageBox.Show("Contrato Guardado = " & id_contrato & "-" & Vw_AnexosBindingSource.Current("Anexo"), "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
         Me.CONT_CPF_contratosTableAdapter.updatetasafija(tasafijafira, id_contrato) 'dagl 03/04/2018 guardar subsidio 
         Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(Cksubsidio.Checked, id_contrato) 'dagl 23/01/2018 guardar subsidio 
+
         If Ministracion1 = True And Inserto = True Then
             CargaVencimientos()
-
             Dim F2 As New Frm_MinistracionesADD
             F2.BP = BP
             F2.FB = FB
             F2.FN = FN
             F2.Ministracion1 = Ministracion1
             F2.ID_Contrato = id_contrato
+
             Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
             Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
-            If ga_fonaga = "SI" Then
-                F2.PCXSG = PCXSG_FONAGA
-                F2.ID_garantina = 2 ' id tabla de garantias
-                If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
-                    F2.Nominal = 45
-                    F2.Efectiva = 45
+            GaratiasTEMP.Fill(DS_contratos.CONT_CPF_anexo_vagar, Vw_AnexosBindingSource.Current("Anexo"))
+            If DS_contratos.CONT_CPF_anexo_vagar.Rows.Count > 0 Then
+                Dim rz As DS_contratos.CONT_CPF_anexo_vagarRow = DS_contratos.CONT_CPF_anexo_vagar.Rows(0)
+                If rz.fonaga = "SI" Then
+                    F2.PCXSG = PCXSG_FONAGA
+                    F2.ID_garantina = 2 ' id tabla de garantias
                 Else
-                    F2.Nominal = 50
-                    F2.Efectiva = 45
+                    F2.PCXSG = PCXSG_FEGA
+                    F2.ID_garantina = 1 ' id tabla de garantias
                 End If
+                F2.Nominal = rz.nominal
+                F2.Efectiva = rz.efectiva
+                Me.CONT_CPF_contratosTableAdapter.UpdateIdCredito(rz.idcredito, id_contrato)
             Else
-                F2.PCXSG = PCXSG_FEGA
-                F2.ID_garantina = 1 ' id tabla de garantias
-                F2.Nominal = 50
-                F2.Efectiva = 50
+                If ga_fonaga = "SI" Then
+                    F2.PCXSG = PCXSG_FONAGA
+                    F2.ID_garantina = 2 ' id tabla de garantias
+                    If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
+                        F2.Nominal = 45
+                        F2.Efectiva = 45
+                    Else
+                        F2.Nominal = 50
+                        F2.Efectiva = 45
+                    End If
+                Else
+                    F2.PCXSG = PCXSG_FEGA
+                    F2.ID_garantina = 1 ' id tabla de garantias
+                    F2.Nominal = 50
+                    F2.Efectiva = 50
+                End If
             End If
             If F2.ShowDialog = Windows.Forms.DialogResult.OK Then
             End If

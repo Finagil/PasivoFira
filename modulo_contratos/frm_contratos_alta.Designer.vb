@@ -35,9 +35,13 @@ Partial Class frm_contratos_alta
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.lb_ciclo = New System.Windows.Forms.TabPage()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CONT_CPF_contratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label64 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txt_aportacion = New System.Windows.Forms.TextBox()
-        Me.CONT_CPF_contratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TxtIntermediario = New System.Windows.Forms.TextBox()
         Me.CONT_CPF_intermediariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Lb_id_contrato = New System.Windows.Forms.Label()
@@ -243,10 +247,6 @@ Partial Class frm_contratos_alta
         Me.ViewcadenassubramasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_contratos4 = New Fira_Cartera_Pasiva.DS_contratos()
         Me.View_cadenas_subramasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.View_cadenas_subramasTableAdapter()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label64 = New System.Windows.Forms.Label()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -477,6 +477,47 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.TabIndex = 0
         Me.lb_ciclo.Text = "Datos Financieros"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONT_CPF_contratosBindingSource, "CorteFinMES", True))
+        Me.CheckBox1.Location = New System.Drawing.Point(554, 209)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox1.TabIndex = 195
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CONT_CPF_contratosBindingSource
+        '
+        Me.CONT_CPF_contratosBindingSource.DataMember = "CONT_CPF_contratos"
+        Me.CONT_CPF_contratosBindingSource.DataSource = Me.DS_contratos
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(458, 209)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(90, 13)
+        Me.Label28.TabIndex = 194
+        Me.Label28.Text = "Corte Int. Fin Mes"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONT_CPF_contratosBindingSource, "valor_garantia", True))
+        Me.TextBox1.Location = New System.Drawing.Point(555, 184)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 193
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(449, 187)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(99, 13)
+        Me.Label64.TabIndex = 192
+        Me.Label64.Text = "Valor Garantía H/P"
+        '
         'Label18
         '
         Me.Label18.AutoSize = True
@@ -494,11 +535,6 @@ Partial Class frm_contratos_alta
         Me.txt_aportacion.Name = "txt_aportacion"
         Me.txt_aportacion.Size = New System.Drawing.Size(156, 20)
         Me.txt_aportacion.TabIndex = 190
-        '
-        'CONT_CPF_contratosBindingSource
-        '
-        Me.CONT_CPF_contratosBindingSource.DataMember = "CONT_CPF_contratos"
-        Me.CONT_CPF_contratosBindingSource.DataSource = Me.DS_contratos
         '
         'TxtIntermediario
         '
@@ -1254,7 +1290,7 @@ Partial Class frm_contratos_alta
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(738, 417)
+        Me.TabPage2.Size = New System.Drawing.Size(753, 450)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Datos Complementarios"
         '
@@ -2167,42 +2203,6 @@ Partial Class frm_contratos_alta
         'View_cadenas_subramasTableAdapter
         '
         Me.View_cadenas_subramasTableAdapter.ClearBeforeFill = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONT_CPF_contratosBindingSource, "CorteFinMES", True))
-        Me.CheckBox1.Location = New System.Drawing.Point(554, 209)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 195
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(458, 209)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(90, 13)
-        Me.Label28.TabIndex = 194
-        Me.Label28.Text = "Corte Int. Fin Mes"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONT_CPF_contratosBindingSource, "valor_garantia", True))
-        Me.TextBox1.Location = New System.Drawing.Point(555, 184)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 193
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Location = New System.Drawing.Point(449, 187)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(99, 13)
-        Me.Label64.TabIndex = 192
-        Me.Label64.Text = "Valor Garantía H/P"
         '
         'frm_contratos_alta
         '

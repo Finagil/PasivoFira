@@ -62,11 +62,11 @@ Partial Class Frm_MinistracionesADD
         Me.TxttasaFira = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.MinistracionesTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.MinistracionesTableAdapter()
-        Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
         Me.TIIEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TIIETableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.TIIETableAdapter()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MinistracionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -400,13 +400,18 @@ Partial Class Frm_MinistracionesADD
         Me.Button2.Text = "Cambiar Subsidio"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(681, 461)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(90, 32)
+        Me.Button3.TabIndex = 39
+        Me.Button3.Text = "RevisionTasa"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'MinistracionesTableAdapter
         '
         Me.MinistracionesTableAdapter.ClearBeforeFill = True
-        '
-        'CONT_CPF_contratosTableAdapter
-        '
-        Me.CONT_CPF_contratosTableAdapter.ClearBeforeFill = True
         '
         'TIIEBindingSource
         '
@@ -417,20 +422,15 @@ Partial Class Frm_MinistracionesADD
         '
         Me.TIIETableAdapter.ClearBeforeFill = True
         '
-        'Button3
+        'CONT_CPF_contratosTableAdapter
         '
-        Me.Button3.Location = New System.Drawing.Point(681, 461)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 32)
-        Me.Button3.TabIndex = 39
-        Me.Button3.Text = "RevisionTasa"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.CONT_CPF_contratosTableAdapter.ClearBeforeFill = True
         '
         'Frm_MinistracionesADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(859, 518)
+        Me.ClientSize = New System.Drawing.Size(781, 518)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TxttasaFira)

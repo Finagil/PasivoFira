@@ -145,8 +145,11 @@ Public Class Frm_MinistracionesADD
 
                 Me.MinistracionesTableAdapter.UpdateFechaCorteTIIE(dt_descuento.Value.ToShortDateString, TIIE_Aplica, ID_Contrato)
                 Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
-                CreaCalendarioRevisoinTasa(ID_Contrato)
-                    Me.DialogResult = Windows.Forms.DialogResult.OK
+                If MinistracionesBindingSource.Current("Tipar") = "H" Or MinistracionesBindingSource.Current("Tipar") = "C" Or MinistracionesBindingSource.Current("Tipar") = "A" Then
+                    flagmin = True ' saca fecha de Mfira
+                End If
+                CreaCalendarioRevisoinTasa(ID_Contrato, MinistracionesBindingSource.Current("Tipta"))
+                Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
 
                 MessageBox.Show("Se Agregó la ministración", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -278,16 +281,16 @@ Public Class Frm_MinistracionesADD
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim tasafira As Decimal = 0
-        If TxttasaFira.Text.Length = 0 Then TxttasaFira.Text = 0
-        tasafira = TxttasaFira.Text
-        flagmin = True
-        Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
-        CreaCalendarioRevisoinTasa(ID_Contrato)
+    'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    '    Dim tasafira As Decimal = 0
+    '    If TxttasaFira.Text.Length = 0 Then TxttasaFira.Text = 0
+    '    tasafira = TxttasaFira.Text
+    '    flagmin = True
+    '    Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
+    '    CreaCalendarioRevisoinTasa(ID_Contrato)
 
-        MessageBox.Show("Se agrego el calendario de rev de tasas", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    End Sub
+    '    MessageBox.Show("Se agrego el calendario de rev de tasas", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    'End Sub
 
     Private Sub DataGridView1_DataMemberChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DataMemberChanged
         CArgadatos()
