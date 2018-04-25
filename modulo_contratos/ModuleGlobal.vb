@@ -41,7 +41,7 @@ Module ModuleGlobal
     Public Function CargaTIIE(ByVal Fecha As Date, ByVal Tipta As String, ByVal claveCobro As String) As Boolean
         CargaTIIE = True
         Dim ta As New DescuentosDSTableAdapters.TIIETableAdapter
-        ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO"
+        ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production"
         TIIE28 = ta.SacaTIIE28(Fecha.ToString("yyyyMMdd"))
         TIIE91 = ta.SacaTIIE91(Fecha.ToString("yyyyMMdd"))
         TIIE182 = ta.SacaTIIE182(Fecha.ToString("yyyyMMdd"))
@@ -119,7 +119,7 @@ Module ModuleGlobal
         End If
     End Sub
 
-    Public Sub CreaCalendarioRevisoinTasa(ByVal Id_Contrato As Integer)
+    Public Sub CreaCalendarioRevisoinTasa(ByVal Id_Contrato As Integer, TipoTasa As String)
         Dim taCalendarios As New DescuentosDSTableAdapters.CONT_CPF_CalendariosRevisionTasaTableAdapter
         Dim tCalendarios As New DescuentosDS.CONT_CPF_CalendariosRevisionTasaDataTable
         Dim Rcont As DescuentosDS.ContratoDatosRow
@@ -178,7 +178,9 @@ Module ModuleGlobal
             'FFF = FFF.AddYears(1)
         Next
         For Each rr As DescuentosDS.CONT_CPF_CalendariosRevisionTasaRow In tCalendarios.Rows
-            EsSabDomFestivo(rr)
+            If TipoTasa <> "7" Then ' diferente de tasa Fija
+                EsSabDomFestivo(rr)
+            End If
         Next
         tCalendarios.GetChanges()
         taCalendarios.Update(tCalendarios)
