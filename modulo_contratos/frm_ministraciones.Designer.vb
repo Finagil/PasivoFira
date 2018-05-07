@@ -23,9 +23,9 @@ Partial Class frm_ministraciones
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.CONT_CPF_ministracionesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,7 +59,7 @@ Partial Class frm_ministraciones
         Me.CONT_CPF_ministracionesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.CONT_CPF_ministracionesDataGridView.Location = New System.Drawing.Point(5, 3)
         Me.CONT_CPF_ministracionesDataGridView.Name = "CONT_CPF_ministracionesDataGridView"
-        Me.CONT_CPF_ministracionesDataGridView.Size = New System.Drawing.Size(699, 164)
+        Me.CONT_CPF_ministracionesDataGridView.Size = New System.Drawing.Size(699, 268)
         Me.CONT_CPF_ministracionesDataGridView.TabIndex = 10
         '
         'DataGridViewTextBoxColumn4
@@ -80,10 +80,10 @@ Partial Class frm_ministraciones
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "monto"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn2.HeaderText = "Monto"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
@@ -97,18 +97,18 @@ Partial Class frm_ministraciones
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "iva"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "N2"
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N2"
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn6.HeaderText = "IVA"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "importe"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "N2"
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn7.HeaderText = "Importe"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
@@ -138,7 +138,7 @@ Partial Class frm_ministraciones
         '
         'bt_agregar
         '
-        Me.bt_agregar.Location = New System.Drawing.Point(410, 187)
+        Me.bt_agregar.Location = New System.Drawing.Point(449, 277)
         Me.bt_agregar.Name = "bt_agregar"
         Me.bt_agregar.Size = New System.Drawing.Size(81, 23)
         Me.bt_agregar.TabIndex = 148
@@ -147,7 +147,7 @@ Partial Class frm_ministraciones
         '
         'bt_modificar
         '
-        Me.bt_modificar.Location = New System.Drawing.Point(497, 187)
+        Me.bt_modificar.Location = New System.Drawing.Point(536, 277)
         Me.bt_modificar.Name = "bt_modificar"
         Me.bt_modificar.Size = New System.Drawing.Size(81, 23)
         Me.bt_modificar.TabIndex = 149
@@ -156,7 +156,7 @@ Partial Class frm_ministraciones
         '
         'bt_eliminar
         '
-        Me.bt_eliminar.Location = New System.Drawing.Point(584, 187)
+        Me.bt_eliminar.Location = New System.Drawing.Point(623, 277)
         Me.bt_eliminar.Name = "bt_eliminar"
         Me.bt_eliminar.Size = New System.Drawing.Size(81, 23)
         Me.bt_eliminar.TabIndex = 150
@@ -188,7 +188,7 @@ Partial Class frm_ministraciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(710, 219)
+        Me.ClientSize = New System.Drawing.Size(710, 304)
         Me.Controls.Add(Me.bt_eliminar)
         Me.Controls.Add(Me.bt_modificar)
         Me.Controls.Add(Me.bt_agregar)
