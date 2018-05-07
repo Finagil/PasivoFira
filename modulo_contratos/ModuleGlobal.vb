@@ -179,7 +179,7 @@ Module ModuleGlobal
         Next
         For Each rr As DescuentosDS.CONT_CPF_CalendariosRevisionTasaRow In tCalendarios.Rows
             If TipoTasa <> "7" Then ' diferente de tasa Fija
-                EsSabDomFestivo(rr)
+                'EsSabDomFestivo(rr)
             End If
         Next
         tCalendarios.GetChanges()
