@@ -177,11 +177,11 @@ Module ModuleGlobal
             taCalendarios.Fill(tCalendarios, Id_Contrato)
             'FFF = FFF.AddYears(1)
         Next
-        For Each rr As DescuentosDS.CONT_CPF_CalendariosRevisionTasaRow In tCalendarios.Rows
-            If TipoTasa <> "7" Then ' diferente de tasa Fija
-                'EsSabDomFestivo(rr)
-            End If
-        Next
+        'For Each rr As DescuentosDS.CONT_CPF_CalendariosRevisionTasaRow In tCalendarios.Rows
+        '    If TipoTasa <> "7" Then ' diferente de tasa Fija
+        '        'EsSabDomFestivo(rr)
+        '    End If
+        'Next
         tCalendarios.GetChanges()
         taCalendarios.Update(tCalendarios)
     End Sub
