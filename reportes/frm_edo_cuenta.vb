@@ -18,28 +18,11 @@ Public Class frm_edo_cuenta
     Private Sub frm_edo_cuenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.PagosClienteTableAdapter.Fill(Me.DS_reportes.PagosCliente, Anexo, Ciclo, Anexo)
         Me.PagosClienteBindingSource.Sort = "Fecha"
-        TXT_FIN_VI.Text = Me.CONT_CPF_edocuentaTableAdapter.int_ord(frm_contratos_alta.id_contrato)
-        TXT_CAP_VI.Text = Me.CONT_CPF_edocuentaTableAdapter.cap_vig(frm_contratos_alta.id_contrato)
-        TXT_ORD_VE.Text = Me.CONT_CPF_edocuentaTableAdapter.int_ord_ven(frm_contratos_alta.id_contrato)
-        If IsNothing(Me.CONT_CPF_edocuentaTableAdapter.Minis_base(frm_contratos_alta.id_contrato)) Then
-            Minis_Base = 0
-        Else
-            Minis_Base = Me.CONT_CPF_edocuentaTableAdapter.Minis_base(frm_contratos_alta.id_contrato)
-        End If
-        FechaAnt = Me.CONT_CPF_edocuentaTableAdapter.Minis_Base_Fec(frm_contratos_alta.id_contrato)
 
-        TXT_CAP_VI.Text = CDec(TXT_CAP_VI.Text).ToString("n2")
-        TXT_FIN_VI.Text = CDec(TXT_FIN_VI.Text).ToString("n2")
-        TXT_ORD_VI.Text = CDec(TXT_ORD_VI.Text).ToString("n2")
 
-        Dim ta As New DescuentosDSTableAdapters.ContratoDatosTableAdapter
-        Dim ds As New DescuentosDS
-        ta.Fill(ds.ContratoDatos, frm_contratos_alta.id_contrato)
-        R = ds.ContratoDatos.Rows(0)
-
-        Dtp_Fecha.MinDate = R.FechaCorte.AddDays(1)
-        Dtp_Fecha.MaxDate = R.FechaCorte.AddMonths(1)
-        CalculaInteres()
+        '  Dtp_Fecha.MinDate = R.FechaCorte.AddDays(1)
+        '  Dtp_Fecha.MaxDate = R.FechaCorte.AddMonths(1)
+        'CalculaInteres()
         Button1.Focus()
     End Sub
 
@@ -60,8 +43,9 @@ Public Class frm_edo_cuenta
             If R.id_tipo_tasa = 1 Then
                 If R.FN > 0 Then
                     ' Dim InteresAux1FN As Decimal = 0
-
+                   
                     '  InteresAux1FN = Me.CONT_CPF_edocuentaTableAdapter.sacaintFN(R.id_contrato, R.FechaCorte,  Dtp_Fecha.Value)
+                    ' InteORD = Math.Round((CDec(TXT_CAP_VI.Text)) * ((R.FN + R.TiieActiva)) / 100 / 360) * (diasX)
                     InteORD = Math.Round((CDec(TXT_CAP_VI.Text)) * ((R.FN + R.TiieActiva)) / 100 / 360) * (diasX)
                     '   InteORD = InteORD
                 End If
@@ -96,8 +80,8 @@ Public Class frm_edo_cuenta
             End If
         End If
         If R.id_tipo_tasa = 1 Then
-            TXT_FIN_VI.Text = 0.00
-            TXT_FIN_VE.Text = 0.00
+            ' TXT_FIN_VI.Text = 0.00
+            '  TXT_FIN_VE.Text = 0.00
 
 
         End If
@@ -191,6 +175,25 @@ Public Class frm_edo_cuenta
     End Sub
 
     Private Sub Dtp_Fecha_ValueChanged(sender As Object, e As EventArgs) Handles Dtp_Fecha.ValueChanged
+
+        TXT_FIN_VI.Text = Me.CONT_CPF_edocuentaTableAdapter.int_ord(frm_contratos_alta.id_contrato, Dtp_Fecha.Value)
+        TXT_CAP_VI.Text = Me.CONT_CPF_edocuentaTableAdapter.cap_vig(frm_contratos_alta.id_contrato, Dtp_Fecha.Value)
+        TXT_ORD_VE.Text = Me.CONT_CPF_edocuentaTableAdapter.int_ord_ven(frm_contratos_alta.id_contrato, Dtp_Fecha.Value)
+        If IsNothing(Me.CONT_CPF_edocuentaTableAdapter.Minis_base(frm_contratos_alta.id_contrato, Dtp_Fecha.Value)) Then
+            Minis_Base = 0
+        Else
+            Minis_Base = Me.CONT_CPF_edocuentaTableAdapter.Minis_base(frm_contratos_alta.id_contrato, Dtp_Fecha.Value)
+        End If
+        FechaAnt = Me.CONT_CPF_edocuentaTableAdapter.Minis_Base_Fec(frm_contratos_alta.id_contrato, Dtp_Fecha.Value)
+
+        TXT_CAP_VI.Text = CDec(TXT_CAP_VI.Text).ToString("n2")
+        TXT_FIN_VI.Text = CDec(TXT_FIN_VI.Text).ToString("n2")
+        TXT_ORD_VI.Text = CDec(TXT_ORD_VI.Text).ToString("n2")
+
+        Dim ta As New DescuentosDSTableAdapters.ContratoDatosTableAdapter
+        Dim ds As New DescuentosDS
+        ta.Fill(ds.ContratoDatos, frm_contratos_alta.id_contrato)
+        R = ds.ContratoDatos.Rows(0)
         CalculaInteres()
     End Sub
 
@@ -202,6 +205,10 @@ Public Class frm_edo_cuenta
         If Not IsNothing(Me.PagosClienteBindingSource) Then
             TxtPago.Text = Me.PagosClienteBindingSource.Current("Importe")
         End If
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
     End Sub
 End Class

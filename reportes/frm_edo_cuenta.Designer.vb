@@ -26,6 +26,7 @@ Partial Class frm_edo_cuenta
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TXT_ORD_VE = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ImporteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,7 +40,6 @@ Partial Class frm_edo_cuenta
         Me.txt_cap_ve = New System.Windows.Forms.TextBox()
         Me.TXT_MOR_PE = New System.Windows.Forms.TextBox()
         Me.TXT_FIN_VE = New System.Windows.Forms.TextBox()
-        Me.TXT_ORD_VE1 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -55,6 +55,7 @@ Partial Class frm_edo_cuenta
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TXT_ORD_VE1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Dtp_Fecha = New System.Windows.Forms.DateTimePicker()
@@ -65,7 +66,6 @@ Partial Class frm_edo_cuenta
         Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.CONT_CPF_edocuentaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_edocuentaTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_edocuentaTableAdapter()
-        Me.TXT_ORD_VE = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosClienteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,6 +106,16 @@ Partial Class frm_edo_cuenta
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Saldo"
+        '
+        'TXT_ORD_VE
+        '
+        Me.TXT_ORD_VE.Location = New System.Drawing.Point(313, 26)
+        Me.TXT_ORD_VE.Name = "TXT_ORD_VE"
+        Me.TXT_ORD_VE.ReadOnly = True
+        Me.TXT_ORD_VE.Size = New System.Drawing.Size(86, 20)
+        Me.TXT_ORD_VE.TabIndex = 9
+        Me.TXT_ORD_VE.Text = "0.00"
+        Me.TXT_ORD_VE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'DataGridView1
         '
@@ -227,16 +237,6 @@ Partial Class frm_edo_cuenta
         Me.TXT_FIN_VE.TabIndex = 16
         Me.TXT_FIN_VE.Text = "0.00"
         Me.TXT_FIN_VE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TXT_ORD_VE1
-        '
-        Me.TXT_ORD_VE1.Location = New System.Drawing.Point(287, 197)
-        Me.TXT_ORD_VE1.Name = "TXT_ORD_VE1"
-        Me.TXT_ORD_VE1.ReadOnly = True
-        Me.TXT_ORD_VE1.Size = New System.Drawing.Size(86, 20)
-        Me.TXT_ORD_VE1.TabIndex = 15
-        Me.TXT_ORD_VE1.Text = "0.00"
-        Me.TXT_ORD_VE1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label6
         '
@@ -378,6 +378,16 @@ Partial Class frm_edo_cuenta
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Int. Ord Vig"
         '
+        'TXT_ORD_VE1
+        '
+        Me.TXT_ORD_VE1.Location = New System.Drawing.Point(287, 197)
+        Me.TXT_ORD_VE1.Name = "TXT_ORD_VE1"
+        Me.TXT_ORD_VE1.ReadOnly = True
+        Me.TXT_ORD_VE1.Size = New System.Drawing.Size(86, 20)
+        Me.TXT_ORD_VE1.TabIndex = 15
+        Me.TXT_ORD_VE1.Text = "0.00"
+        Me.TXT_ORD_VE1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(12, 220)
@@ -448,16 +458,6 @@ Partial Class frm_edo_cuenta
         'CONT_CPF_edocuentaTableAdapter
         '
         Me.CONT_CPF_edocuentaTableAdapter.ClearBeforeFill = True
-        '
-        'TXT_ORD_VE
-        '
-        Me.TXT_ORD_VE.Location = New System.Drawing.Point(313, 26)
-        Me.TXT_ORD_VE.Name = "TXT_ORD_VE"
-        Me.TXT_ORD_VE.ReadOnly = True
-        Me.TXT_ORD_VE.Size = New System.Drawing.Size(86, 20)
-        Me.TXT_ORD_VE.TabIndex = 9
-        Me.TXT_ORD_VE.Text = "0.00"
-        Me.TXT_ORD_VE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frm_edo_cuenta
         '

@@ -52560,9 +52560,10 @@ Namespace DS_contratosTableAdapters
             Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(1).CommandText = "SELECT        ISNULL(SUM(ISNULL(min_base, 0) - ISNULL(cap_vigente, 0)), 0) AS cap"& _ 
                 "_vig"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?) AND (ti"& _ 
-                "po_deu_acre = 'BP')"
+                "po_deu_acre = 'BP') AND (fecha_fin <= ?)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fecha_fin", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_fin", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        TOP (1) fecha_fin"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE       "& _ 
@@ -52590,27 +52591,33 @@ Namespace DS_contratosTableAdapters
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(5).CommandText = "SELECT        ISNULL(SUM(ISNULL(InteAux1, 0)), 0) AS Saldo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_"& _ 
-                "CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?) AND (tipo_deu_acre = 'BP')"
+                "CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?) AND (tipo_deu_acre = 'BP')AND (fec"& _ 
+                "ha_fin <= ?)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fecha_fin", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_fin", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(6).CommandText = "SELECT        ISNULL(SUM(ISNULL(int_vencido, 0)), 0) AS Saldo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CO"& _ 
-                "NT_CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?) AND (tipo_deu_acre = 'BP')"
+                "NT_CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?) AND (tipo_deu_acre = 'BP')AND ("& _ 
+                "fecha_fin <= ?)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fecha_fin", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_fin", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(7) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(7).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(7).CommandText = "SELECT        TOP (1) min_base"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
-                "(id_contrato = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY id_edo_cta DESC"
+                "(id_contrato = ?)AND (fecha_fin <= ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY id_edo_cta DESC"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fecha_fin", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_fin", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(8) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(8).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(8).CommandText = "SELECT        TOP (1) fecha_fin"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_edocuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE       "& _ 
-                " (id_contrato = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY id_edo_cta DESC"
+                " (id_contrato = ?)AND (fecha_fin <= ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY id_edo_cta DESC"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fecha_fin", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha_fin", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT        ISNULL(SUM(InteAux1), 0) AS Ineteres"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_edoc"& _ 
@@ -53368,12 +53375,17 @@ Namespace DS_contratosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function cap_vig(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Object
+        Public Overloads Overridable Function cap_vig(ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal fecha_fin As Global.System.Nullable(Of Date)) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (fecha_fin.HasValue = true) Then
+                command.Parameters(1).Value = CType(fecha_fin.Value,Date)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -53430,13 +53442,18 @@ Namespace DS_contratosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function int_ord(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Object
+        Public Overloads Overridable Function int_ord(ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal fecha_fin As Global.System.Nullable(Of Date)) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
+            If (fecha_fin.HasValue = true) Then
+                command.Parameters(1).Value = CType(fecha_fin.Value,Date)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -53461,13 +53478,18 @@ Namespace DS_contratosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function int_ord_ven(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Object
+        Public Overloads Overridable Function int_ord_ven(ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal fecha_fin As Global.System.Nullable(Of Date)) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
             End If
+            If (fecha_fin.HasValue = true) Then
+                command.Parameters(1).Value = CType(fecha_fin.Value,Date)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -53492,12 +53514,17 @@ Namespace DS_contratosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Minis_base(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Global.System.Nullable(Of Decimal)
+        Public Overloads Overridable Function Minis_base(ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal fecha_fin As Global.System.Nullable(Of Date)) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(7)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (fecha_fin.HasValue = true) Then
+                command.Parameters(1).Value = CType(fecha_fin.Value,Date)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -53514,21 +53541,26 @@ Namespace DS_contratosTableAdapters
             End Try
             If ((returnValue Is Nothing)  _
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Decimal)()
+                Return Nothing
             Else
-                Return New Global.System.Nullable(Of Decimal)(CType(returnValue,Decimal))
+                Return CType(returnValue,Object)
             End If
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Minis_Base_Fec(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Object
+        Public Overloads Overridable Function Minis_Base_Fec(ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal fecha_fin As Global.System.Nullable(Of Date)) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(8)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
                 command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (fecha_fin.HasValue = true) Then
+                command.Parameters(1).Value = CType(fecha_fin.Value,Date)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
