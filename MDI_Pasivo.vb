@@ -59,4 +59,17 @@ Public Class MDI_Pasivo
         Dim f As New frm_rpt_saldp
         f.Show()
     End Sub
+
+    Private Sub mncontratos_Click(sender As Object, e As EventArgs) Handles mncontratos.Click
+
+    End Sub
+
+    Private Sub AltasCToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub AltaDeContratoSinAnexoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaDeContratoSinAnexoToolStripMenuItem.Click
+        Dim f As New frm_contrato2
+        f.Show()
+    End Sub
 End Class

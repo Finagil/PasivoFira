@@ -22,18 +22,18 @@ Partial Class Nuevo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.CONT_CPF_vencimientosDataGridView = New System.Windows.Forms.DataGridView
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.CONT_CPF_vencimientosDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CONT_CPF_vencimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos
-        Me.CONT_CPF_vencimientosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
+        Me.CONT_CPF_vencimientosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter()
         CType(Me.CONT_CPF_vencimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_vencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,20 +51,6 @@ Partial Class Nuevo
         Me.CONT_CPF_vencimientosDataGridView.ReadOnly = True
         Me.CONT_CPF_vencimientosDataGridView.Size = New System.Drawing.Size(599, 179)
         Me.CONT_CPF_vencimientosDataGridView.TabIndex = 1
-        '
-        'CONT_CPF_vencimientosBindingSource
-        '
-        Me.CONT_CPF_vencimientosBindingSource.DataMember = "CONT_CPF_vencimientos"
-        Me.CONT_CPF_vencimientosBindingSource.DataSource = Me.DS_contratos
-        '
-        'DS_contratos
-        '
-        Me.DS_contratos.DataSetName = "DS_contratos"
-        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CONT_CPF_vencimientosTableAdapter
-        '
-        Me.CONT_CPF_vencimientosTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn2
         '
@@ -108,6 +94,20 @@ Partial Class Nuevo
         Me.DataGridViewTextBoxColumn6.HeaderText = "Intereses"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'CONT_CPF_vencimientosBindingSource
+        '
+        Me.CONT_CPF_vencimientosBindingSource.DataMember = "CONT_CPF_vencimientos"
+        Me.CONT_CPF_vencimientosBindingSource.DataSource = Me.DS_contratos
+        '
+        'DS_contratos
+        '
+        Me.DS_contratos.DataSetName = "DS_contratos"
+        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CONT_CPF_vencimientosTableAdapter
+        '
+        Me.CONT_CPF_vencimientosTableAdapter.ClearBeforeFill = True
         '
         'Nuevo
         '

@@ -1828,7 +1828,7 @@ Partial Class frm_contratos_alta
         Me.cb_clase.DisplayMember = "clase"
         Me.cb_clase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_clase.FormattingEnabled = True
-        Me.cb_clase.Location = New System.Drawing.Point(458, 296)
+        Me.cb_clase.Location = New System.Drawing.Point(459, 295)
         Me.cb_clase.Name = "cb_clase"
         Me.cb_clase.Size = New System.Drawing.Size(194, 21)
         Me.cb_clase.TabIndex = 75

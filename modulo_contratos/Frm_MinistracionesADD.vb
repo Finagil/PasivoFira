@@ -89,7 +89,7 @@ Public Class Frm_MinistracionesADD
 
             If SaldoINI > 0 Then
                 CargaTIIE(MinistracionesBindingSource.Current("FechaCorte"), MinistracionesBindingSource.Current("Tipta"), MinistracionesBindingSource.Current("ClaveEsquema"))
-                '  If MinistracionesBindingSource.Current("Tipta") = "7" Then TIIE_Aplica = TxttasaFira.Text - FB 'DAGL 25/01/2018 En tasa fija se resta el valor FB
+                If MinistracionesBindingSource.Current("Tipta") = "7" Then TIIE_Aplica = TxttasaFira.Text - FB 'DAGL 25/01/2018 En tasa fija se resta el valor FB
                 FechaUltimoMov = Me.MinistracionesTableAdapter.FechaUltimoMov(MinistracionesBindingSource.Current("id_contrato"))
                 Dim DiasX As Integer = DateDiff(DateInterval.Day, FechaUltimoMov, dt_descuento.Value)
                 InteORD = SaldoINI * ((BP + TIIE_Aplica) / 100 / 360) * DiasX
@@ -102,7 +102,7 @@ Public Class Frm_MinistracionesADD
                 InteORDFN = SaldoINI * ((FN + TIIE_Aplica) / 100 / 360) * DiasX
             Else
                 CargaTIIE(dt_descuento.Value, MinistracionesBindingSource.Current("Tipta"), MinistracionesBindingSource.Current("ClaveEsquema"))
-                '  If MinistracionesBindingSource.Current("Tipta") = "7" Then TIIE_Aplica = TxttasaFira.Text - FB 'DAGL 25/01/2018 En tasa fija se resta el valor FB
+                If MinistracionesBindingSource.Current("Tipta") = "7" Then TIIE_Aplica = TxttasaFira.Text - FB 'DAGL 25/01/2018 En tasa fija se resta el valor FB
                 FechaUltimoMov = dt_descuento.Value.ToShortDateString
             End If
 

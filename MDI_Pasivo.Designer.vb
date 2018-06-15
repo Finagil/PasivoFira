@@ -30,6 +30,7 @@ Partial Class MDI_Pasivo
         Me.DescuentosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescuentosTRAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MinistracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaDeContratoSinAnexoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GarantiasEjercidasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaldosYMovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaldoGarantiasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,7 +38,6 @@ Partial Class MDI_Pasivo
         Me.DescuentosPorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
-        Me.AltaDeContratoSinAnexoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,7 +59,7 @@ Partial Class MDI_Pasivo
         '
         Me.mncontratos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.DescuentosToolStripMenuItem1, Me.DescuentosTRAToolStripMenuItem, Me.MinistracionesToolStripMenuItem, Me.AltaDeContratoSinAnexoToolStripMenuItem})
         Me.mncontratos.Name = "mncontratos"
-        Me.mncontratos.Size = New System.Drawing.Size(71, 20)
+        Me.mncontratos.Size = New System.Drawing.Size(94, 20)
         Me.mncontratos.Text = "&Contratos"
         '
         'AltaToolStripMenuItem
@@ -85,6 +85,12 @@ Partial Class MDI_Pasivo
         Me.MinistracionesToolStripMenuItem.Name = "MinistracionesToolStripMenuItem"
         Me.MinistracionesToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MinistracionesToolStripMenuItem.Text = "&Ministraciones"
+        '
+        'AltaDeContratoSinAnexoToolStripMenuItem
+        '
+        Me.AltaDeContratoSinAnexoToolStripMenuItem.Name = "AltaDeContratoSinAnexoToolStripMenuItem"
+        Me.AltaDeContratoSinAnexoToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.AltaDeContratoSinAnexoToolStripMenuItem.Text = "Alta de Contrato (Sin Anexo)"
         '
         'GarantiasEjercidasToolStripMenuItem
         '
@@ -127,12 +133,6 @@ Partial Class MDI_Pasivo
         'ConT_CPF_configuracionTableAdapter
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
-        '
-        'AltaDeContratoSinAnexoToolStripMenuItem
-        '
-        Me.AltaDeContratoSinAnexoToolStripMenuItem.Name = "AltaDeContratoSinAnexoToolStripMenuItem"
-        Me.AltaDeContratoSinAnexoToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
-        Me.AltaDeContratoSinAnexoToolStripMenuItem.Text = "Alta de Contrato (Sin Anexo)"
         '
         'MDI_Pasivo
         '

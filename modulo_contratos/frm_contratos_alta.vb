@@ -171,9 +171,9 @@ Public Class frm_contratos_alta
         End If
 
         MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
-        Me.CONT_CPF_contratosTableAdapter.updatetasafija(tasafijafira, id_contrato) 'dagl 03/04/2018 guardar subsidio 
-        Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(Cksubsidio.Checked, id_contrato) 'dagl 23/01/2018 guardar subsidio 
+        'id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+        ' Me.CONT_CPF_contratosTableAdapter.updatetasafija(tasafijafira, id_contrato) 'dagl 03/04/2018 guardar subsidio 
+        ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(Cksubsidio.Checked, id_contrato) 'dagl 23/01/2018 guardar subsidio 
         If Ministracion1 = True And Inserto = True Then
             CargaVencimientos()
 
@@ -527,6 +527,14 @@ Public Class frm_contratos_alta
             Me.CONT_CPF_conceptos_inversionTableAdapter.Fill(Me.DS_contratos5.CONT_CPF_conceptos_inversion, txt_clave.Text, cb_rama.SelectedValue)
 
         End If
+    End Sub
+
+    Private Sub cb_subrama_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_subrama.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cb_concepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_concepto.SelectedIndexChanged
+
     End Sub
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click

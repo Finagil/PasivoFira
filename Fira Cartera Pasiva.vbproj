@@ -98,6 +98,12 @@
     <Compile Include="modulo_contratos\FrmGarantiasXEjercer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modulo_contratos\frm_contrato2.Designer.vb">
+      <DependentUpon>frm_contrato2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frm_contrato2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modulo_contratos\Frm_DescuentosTRA.Designer.vb">
       <DependentUpon>Frm_DescuentosTRA.vb</DependentUpon>
     </Compile>
@@ -262,6 +268,9 @@
     <EmbeddedResource Include="modulo_contratos\FrmGarantiasXEjercer.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmGarantiasXEjercer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frm_contrato2.resx">
+      <DependentUpon>frm_contrato2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_contratos\Frm_DescuentosTRA.resx">
       <DependentUpon>Frm_DescuentosTRA.vb</DependentUpon>
