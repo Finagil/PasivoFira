@@ -37,6 +37,8 @@ Partial Class MDI_Pasivo
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescuentosPorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PagosFinagilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportaPagosFinagilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -48,7 +50,7 @@ Partial Class MDI_Pasivo
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mncontratos, Me.GarantiasEjercidasToolStripMenuItem, Me.ReportesToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mncontratos, Me.GarantiasEjercidasToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.PagosFinagilToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(780, 24)
@@ -59,7 +61,7 @@ Partial Class MDI_Pasivo
         '
         Me.mncontratos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.DescuentosToolStripMenuItem1, Me.DescuentosTRAToolStripMenuItem, Me.MinistracionesToolStripMenuItem, Me.AltaDeContratoSinAnexoToolStripMenuItem})
         Me.mncontratos.Name = "mncontratos"
-        Me.mncontratos.Size = New System.Drawing.Size(94, 20)
+        Me.mncontratos.Size = New System.Drawing.Size(71, 20)
         Me.mncontratos.Text = "&Contratos"
         '
         'AltaToolStripMenuItem
@@ -130,6 +132,19 @@ Partial Class MDI_Pasivo
         Me.SaldosToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SaldosToolStripMenuItem.Text = "Saldos"
         '
+        'PagosFinagilToolStripMenuItem
+        '
+        Me.PagosFinagilToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportaPagosFinagilToolStripMenuItem})
+        Me.PagosFinagilToolStripMenuItem.Name = "PagosFinagilToolStripMenuItem"
+        Me.PagosFinagilToolStripMenuItem.Size = New System.Drawing.Size(89, 20)
+        Me.PagosFinagilToolStripMenuItem.Text = "Pagos Finagil"
+        '
+        'ImportaPagosFinagilToolStripMenuItem
+        '
+        Me.ImportaPagosFinagilToolStripMenuItem.Name = "ImportaPagosFinagilToolStripMenuItem"
+        Me.ImportaPagosFinagilToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.ImportaPagosFinagilToolStripMenuItem.Text = "Importar Pagos Finagil"
+        '
         'ConT_CPF_configuracionTableAdapter
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
@@ -164,4 +179,6 @@ Partial Class MDI_Pasivo
     Friend WithEvents DescuentosTRAToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaldosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaDeContratoSinAnexoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PagosFinagilToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImportaPagosFinagilToolStripMenuItem As ToolStripMenuItem
 End Class

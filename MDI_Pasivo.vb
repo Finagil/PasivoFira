@@ -72,4 +72,9 @@ Public Class MDI_Pasivo
         Dim f As New frm_contrato2
         f.Show()
     End Sub
+
+    Private Sub ImportaPagosFinagilToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportaPagosFinagilToolStripMenuItem.Click
+        Dim f As New FrmImportaPagos
+        f.Show()
+    End Sub
 End Class
