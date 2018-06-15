@@ -8,6 +8,10 @@
     Public Nominal As Decimal = 0
     Public Efectiva As Decimal = 0
     Public ID_garantina As Integer = 0
+    Public Shared id_contrato2, id_subrama2 As Integer
+
+    Public Shared sinanexo As Boolean
+
 
     Private Sub txtcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcliente.TextChanged
         Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
@@ -15,12 +19,13 @@
     End Sub
 
     Private Sub frm_contrato2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        sinanexo = True
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos1.CONT_CPF_vencimientos' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_vencimientosTableAdapter.Fill(Me.DS_contratos1.CONT_CPF_vencimientos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos1.CONT_CPF_ministraciones' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_ministracionesTableAdapter.Fill(Me.DS_contratos1.CONT_CPF_ministraciones)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
+        ' Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_configuracion' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_configuracionTableAdapter.Fill(Me.DS_contratos.CONT_CPF_configuracion)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.GEN_ProductosFinagil' Puede moverla o quitarla según sea necesario.
@@ -93,14 +98,42 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.CONT_CPF_ministracionesTableAdapter.FillByCONTRATO(Me.DS_contratos.CONT_CPF_ministraciones, frm_contrato2.id_contrato)
+        '   id_contrato2 = 442
+        If id_contrato2 <> 0 Then
+
+            '  sinanexo = True
+            frm_ministraciones.Show()
+
+        Else
+            Me.CONT_CPF_ministracionesTableAdapter.FillByCONTRATO(Me.DS_contratos.CONT_CPF_ministraciones, frm_contrato2.id_contrato)
+
+        End If
+
+
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ' id_contrato2 = 442
+        CreaCalendarioRevisoinTasa(id_contrato2, "")
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If frm_contrato2.id_contrato <> 0 Then
+        '  id_contrato2 = 442
+        If id_contrato2 <> 0 Then
+
+            Nuevo.Show()
         Else
             Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
         End If
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
     End Sub
 
@@ -263,12 +296,12 @@
             Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue, "01/01/1900", Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue,
             cb_periodo_revision.SelectedValue, cbclientes.SelectedValue)
             Inserto = True
-            id_contrato = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, txt_credito.Text)
+            id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, txt_credito.Text)
 
-            Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato))
+            Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato2))
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
 
-            Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
+            Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato2)
             Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
 
@@ -292,9 +325,9 @@
 
             Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
 
-            Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato)
+            Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato2)
             If NoGarantias = 0 Then
-                taGarantias.Insert(id_contrato, ID_garantina, Nominal, montobase * (Nominal / 100), Efectiva, True)
+                taGarantias.Insert(id_contrato2, ID_garantina, Nominal, montobase * (Nominal / 100), Efectiva, True)
                 ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(CheckBox1.Checked, id_contrato)
 
             End If
@@ -336,5 +369,14 @@
 
         End If
 
+    End Sub
+
+    Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
+        If cbclientes.SelectedIndex >= 0 Then
+            ' id_subrama = Me.CONT_CPF_subramasTableAdapter.clave_subrama(cb_subrama.SelectedValue)
+            '  Me.CONT_CPF_cadenasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_cadenas, cb_rama.SelectedValue, id_subrama)
+            '  Me.View_cadenas_subramasTableAdapter.Fill(Me.DS_contratos.View_cadenas_subramas, id_subrama, cb_rama.SelectedValue)
+            Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
+        End If
     End Sub
 End Class
