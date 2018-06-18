@@ -21,7 +21,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Cursor.Current = Cursors.WaitCursor
         For Each r As PagosDS.PagosFiraRow In PagosDS.PagosFira.Rows
-            Me.PagosFiraTableAdapter.UpdatePagos(DTP_FechaFira.Value, r.id_contrato, r.FechaAplicacion.ToString("yyyyMMdd"))
+            Me.PagosFiraTableAdapter.UpdatePagos(DTP_FechaFira.Value.Date, r.id_contrato, r.FechaAplicacion.ToString("yyyyMMdd"))
         Next
         Shell("F:\Executables\PsExec.exe \\server-raid -u Agil\edgar-caceres -p c4c3r1t0s1 D:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe PROCESA_PAGOS", AppWinStyle.Hide, False)
         Me.PagosFiraTableAdapter.Fill(PagosDS.PagosFira, False)
