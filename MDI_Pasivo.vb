@@ -1,6 +1,7 @@
 Public Class MDI_Pasivo
     Private Sub AltaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AltaToolStripMenuItem.Click
         Dim f As New frm_contratos_alta
+        sinanexo = True
         f.Show()
 
     End Sub

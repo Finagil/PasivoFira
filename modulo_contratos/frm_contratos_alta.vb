@@ -15,6 +15,23 @@ Public Class frm_contratos_alta
     Private Sub frm_contratos_alta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos5.CONT_CPF_conceptos_inversion' Puede moverla o quitarla según sea necesario.
         ' Me.CONT_CPF_conceptos_inversionTableAdapter.Fill(Me.DS_contratos5.CONT_CPF_conceptos_inversion)
+        If sinanexo = False Then
+            cbanexos.Visible = True
+            cbanexos2.Visible = False
+
+        Else
+            cbanexos.Visible = False
+            cbanexos2.Visible = True
+            bt_guardar.Enabled = False
+
+            cb_esquema.Enabled = False
+            cb_clasificacion.Enabled = False
+            Cksubsidio.Enabled = False
+            cb_periodo_capital.Enabled = False
+            cb_periodo_int.Enabled = False
+            cb_periodo_revision.Enabled = False
+
+        End If
         cargar_combos()
         If Ministracion1 = False Then
             cb_esquema.Enabled = False
@@ -35,8 +52,9 @@ Public Class frm_contratos_alta
             Me.ClientesTableAdapter.FillByAnexo(Me.DS_contratos.Clientes, Anexo)
             If IsNothing(Ciclo) Then Ciclo = ""
             Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
-            Button1.Enabled = False
+            bt_guardar.Enabled = False
             BT_IMPRIMIR.Enabled = False
+
         End If
     End Sub
 
@@ -353,7 +371,12 @@ Public Class frm_contratos_alta
 
     Private Sub cbclientes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbclientes.SelectedIndexChanged
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
-            Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
+            If sinanexo = False Then
+                Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
+            Else
+                Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+            End If
+
         End If
     End Sub
     Private Sub txt_nvsm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_nvsm.TextChanged
@@ -505,17 +528,29 @@ Public Class frm_contratos_alta
             TabControl1.Enabled = True
             bt_guardar.Enabled = True
             If Ministracion1 = False Then
-                CargaDatosFira()
+                'CargaDatosFira()
             End If
         End If
 
     End Sub
 
     Private Sub BT_IMPRIMIR_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BT_IMPRIMIR.Click
-        frm_edo_cuenta.Tipar = Vw_AnexosBindingSource.Current("Tipar")
-        frm_edo_cuenta.Anexo = Me.Vw_AnexosBindingSource.Current("Anexo")
-        frm_edo_cuenta.Ciclo = Me.Vw_AnexosBindingSource.Current("Ciclo")
-        frm_edo_cuenta.Show()
+        If sinanexo = False Then
+
+        Else
+            ' frm_edo_cuenta.Tipar = Me.VwdescuentoSABindingSource.Current("Tipar")
+            frm_edo_cuenta.Anexo = Me.VwdescuentoSABindingSource.Current("Anexo")
+
+            If frm_edo_cuenta.Anexo.Substring(0, 3) = "S/A" Then
+                frm_edo_cuenta.Anexo = ""
+                frm_edo_cuenta.Ciclo = ""
+            Else
+                frm_edo_cuenta.Ciclo = Me.VwdescuentoSABindingSource.Current("Ciclo")
+            End If
+
+        End If
+
+            frm_edo_cuenta.Show()
     End Sub
 
     Private Sub cb_medida_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_medida.SelectedIndexChanged
@@ -537,13 +572,32 @@ Public Class frm_contratos_alta
 
     End Sub
 
+    Private Sub cbanexos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbanexos.SelectedIndexChanged
+
+    End Sub
+
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         frm_datos_contrato.Show()
     End Sub
 
+    Private Sub VwdescuentoSABindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles VwdescuentoSABindingSource.CurrentChanged
+        If Not IsNothing(VwdescuentoSABindingSource.Current) Then
+            TabControl1.Enabled = True
+            bt_guardar.Enabled = True
+            If Ministracion1 = False Then
+                CargaDatosFira()
+            End If
+        End If
+    End Sub
+
+    Private Sub cbanexos2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbanexos2.SelectedIndexChanged
+
+    End Sub
+
     Sub CargaDatosFira()
-        Me.CONT_CPF_contratosTableAdapter.FillByporanexo(Me.DS_contratos.CONT_CPF_contratos, Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
-        id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+        'Me.CONT_CPF_contratosTableAdapter.FillByporanexo(Me.DS_contratos.CONT_CPF_contratos, Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+        Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, VwdescuentoSABindingSource.Current("id_credito"))
+        id_contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(VwdescuentoSABindingSource.Current("id_credito"))
         txt_total_m.Text = Me.CONT_CPF_ministracionesTableAdapter.ScalarQueryministraciones_contar(id_contrato)
         txt_total_v.Text = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(id_contrato)
         txt_total_G.Text = Me.ConT_CPF_contratos_garantiasTableAdapter.SacaTotalGarantia(id_contrato)
@@ -579,5 +633,7 @@ Public Class frm_contratos_alta
 
     End Sub
 
+    Private Sub cbanexos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos.SelectedValueChanged
 
+    End Sub
 End Class

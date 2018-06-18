@@ -10,7 +10,7 @@
     Public ID_garantina As Integer = 0
     Public Shared id_contrato2, id_subrama2 As Integer
 
-    Public Shared sinanexo As Boolean
+
 
 
     Private Sub txtcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcliente.TextChanged

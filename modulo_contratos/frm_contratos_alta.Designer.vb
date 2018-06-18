@@ -33,6 +33,8 @@ Partial Class frm_contratos_alta
         Me.Vw_AnexosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtcliente = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbanexos2 = New System.Windows.Forms.ComboBox()
+        Me.VwdescuentoSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.lb_ciclo = New System.Windows.Forms.TabPage()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -247,10 +249,12 @@ Partial Class frm_contratos_alta
         Me.ViewcadenassubramasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_contratos4 = New Fira_Cartera_Pasiva.DS_contratos()
         Me.View_cadenas_subramasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.View_cadenas_subramasTableAdapter()
+        Me.Vw_descuentoSATableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.vw_descuentoSATableAdapter()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONT_CPF_contratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -374,6 +378,7 @@ Partial Class frm_contratos_alta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cbanexos2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cbclientes)
         Me.GroupBox1.Controls.Add(Me.txtcliente)
@@ -386,6 +391,23 @@ Partial Class frm_contratos_alta
         Me.GroupBox1.TabIndex = 44
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
+        '
+        'cbanexos2
+        '
+        Me.cbanexos2.DataSource = Me.VwdescuentoSABindingSource
+        Me.cbanexos2.DisplayMember = "ANEXO"
+        Me.cbanexos2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbanexos2.FormattingEnabled = True
+        Me.cbanexos2.Location = New System.Drawing.Point(465, 76)
+        Me.cbanexos2.Name = "cbanexos2"
+        Me.cbanexos2.Size = New System.Drawing.Size(116, 21)
+        Me.cbanexos2.TabIndex = 44
+        Me.cbanexos2.ValueMember = "id_credito"
+        '
+        'VwdescuentoSABindingSource
+        '
+        Me.VwdescuentoSABindingSource.DataMember = "vw_descuentoSA"
+        Me.VwdescuentoSABindingSource.DataSource = Me.DS_contratos
         '
         'TabControl1
         '
@@ -986,8 +1008,7 @@ Partial Class frm_contratos_alta
         'cb_seguro
         '
         Me.cb_seguro.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CONT_CPF_contratosBindingSource, "id_seguro", True))
-        Me.cb_seguro.DataSource = Me.CONT_CPF_segurosBindingSource
-        Me.cb_seguro.DisplayMember = "tipo_seguro"
+        Me.cb_seguro.DataSource = Me.CONT_CPF_contratosBindingSource
         Me.cb_seguro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_seguro.FormattingEnabled = True
         Me.cb_seguro.Location = New System.Drawing.Point(125, 332)
@@ -2204,6 +2225,10 @@ Partial Class frm_contratos_alta
         '
         Me.View_cadenas_subramasTableAdapter.ClearBeforeFill = True
         '
+        'Vw_descuentoSATableAdapter
+        '
+        Me.Vw_descuentoSATableAdapter.ClearBeforeFill = True
+        '
         'frm_contratos_alta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2219,6 +2244,7 @@ Partial Class frm_contratos_alta
         CType(Me.Vw_AnexosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.lb_ciclo.ResumeLayout(False)
         Me.lb_ciclo.PerformLayout()
@@ -2495,4 +2521,7 @@ Partial Class frm_contratos_alta
     Friend WithEvents Label28 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label64 As Label
+    Friend WithEvents cbanexos2 As ComboBox
+    Friend WithEvents VwdescuentoSABindingSource As BindingSource
+    Friend WithEvents Vw_descuentoSATableAdapter As DS_contratosTableAdapters.vw_descuentoSATableAdapter
 End Class
