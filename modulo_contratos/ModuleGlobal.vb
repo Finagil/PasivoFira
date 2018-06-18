@@ -146,8 +146,15 @@ Module ModuleGlobal
 
         FechaAnt = FechaMinistracion1
         taVecn.FillBycontrato(DS1.CONT_CPF_vencimientos, Id_Contrato)
-        taCont.Fill(DS2.ContratoDatos, Id_Contrato)
+
+        If frm_contrato2.sinanexo = True Then
+            taCont.FillByContrato2(DS2.ContratoDatos, Id_Contrato)
+        Else
+            taCont.Fill(DS2.ContratoDatos, Id_Contrato)
+        End If
+        'taCont.Fill(DS2.ContratoDatos, Id_Contrato)
         Rcont = DS2.ContratoDatos.Rows(0)
+
         For Each r As DS_contratos.CONT_CPF_vencimientosRow In DS1.CONT_CPF_vencimientos.Rows
             DiaAux = DateDiff(DateInterval.Day, FechaAnt, r.fecha)
             If DiaAux > DiaMax Then DiaMax = DiaAux
@@ -158,7 +165,11 @@ Module ModuleGlobal
             Case EsquemaCobro.SIMPLE
             Case EsquemaCobro.SIMPLE_FIN
                 taCont.CambiaPeriodoSimpleConFina(1, 1, Id_Contrato)
-                taCont.Fill(DS2.ContratoDatos, Id_Contrato)
+                If frm_contrato2.sinanexo = True Then
+                    taCont.FillByContrato2(DS2.ContratoDatos, Id_Contrato)
+                Else
+                    taCont.Fill(DS2.ContratoDatos, Id_Contrato)
+                End If
                 Rcont = DS2.ContratoDatos.Rows(0)
                 AcumINTE = False
             Case EsquemaCobro.SIMFA

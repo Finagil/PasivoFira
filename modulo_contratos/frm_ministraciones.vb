@@ -21,10 +21,17 @@ Public Class frm_ministraciones
         Dim estatus As String
         Dim smonto As Decimal = 0
         Dim fechaaux As Date
+        Dim idcontrato As Integer
 
         'SUMAR MONTO TOTAL Y VALIDAD QUE NO EXCEDA EL MONTO FINANCIADO
         Dim MontoFinanciado As Decimal = 0
-        MontoFinanciado = Me.CONT_CPF_contratosTableAdapter.monto_contrato(frm_contratos_alta.id_contrato)
+        If frm_contrato2.sinanexo = True Then
+            idcontrato = frm_contrato2.id_contrato2
+        Else
+            idcontrato = frm_contratos_alta.id_contrato
+        End If
+
+        MontoFinanciado = Me.CONT_CPF_contratosTableAdapter.monto_contrato(idcontrato)
 
         For Renglones As Integer = 0 To CONT_CPF_ministracionesDataGridView.RowCount - 2
             smonto = smonto + Me.CONT_CPF_ministracionesDataGridView.Item(2, Renglones).Value
@@ -35,7 +42,7 @@ Public Class frm_ministraciones
             ' MsgBox("La suma del monto " & monto & " no coincide con el monto Financiado: " & MontoFinanciado)
         Else
 
-            Me.CONT_CPF_ministracionesTableAdapter.deletreministracion(frm_contratos_alta.id_contrato)
+            Me.CONT_CPF_ministracionesTableAdapter.deletreministracion(idcontrato)
 
             For Renglones As Integer = 0 To CONT_CPF_ministracionesDataGridView.RowCount - 2
                 consecutivo = consecutivo + 1
@@ -57,7 +64,7 @@ Public Class frm_ministraciones
 
 
 
-                Me.CONT_CPF_ministracionesTableAdapter.InsertQueryMinistracion(monto, fecha, consecutivo, porcentaje, iva, importe, frm_contratos_alta.id_contrato, estatus, descuento)
+                Me.CONT_CPF_ministracionesTableAdapter.InsertQueryMinistracion(monto, fecha, consecutivo, porcentaje, iva, importe, idcontrato, estatus, descuento)
 
             Next
             MessageBox.Show("se agrego ministracion correctamente", "MINISTRACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

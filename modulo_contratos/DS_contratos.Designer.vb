@@ -45288,7 +45288,7 @@ Namespace DS_contratosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(18) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(20) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        id_contrato, id_producto, num_control, id_operacion, id_tipo_presta"& _ 
@@ -45309,8 +45309,28 @@ Namespace DS_contratosTableAdapters
                 "tratos"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(1).CommandText = "SELECT BP, Cliente, CorteFinMES, Estatus, FB, FN, FechaCorte, TasaTiie, TiieActiv"& _ 
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        BP, Cliente, CorteFinMES, Estatus, FB, FN, FechaCorte, TasaTiie, Ti"& _ 
+                "ieActiva, activo_fijo, activo_total, Cliente AS Expr1, aportacion_acreditado, ap"& _ 
+                "oyo_SIEBAN, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         cadena, capacidad_instalada, capital_cont"& _ 
+                "able, ciclo, clave, concepto_inv, egresos, estrato, fe_balance, fecha_pagare, fo"& _ 
+                "ndo_reserva, garantia_mosusa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         gl_mosusa, id_actividad"& _ 
+                ", id_autorizacion, id_contrato, id_contrato_siiof, id_credito, id_divisa, id_esq"& _ 
+                "uema_cobro, id_estatus, id_ingenio, id_intermediario, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " id_localidad, id_operacion, id_periodo, id_periodo_capital, id_periodo_interes,"& _ 
+                " id_periodo_revision, id_producto, id_programa, id_rama, id_seguro, id_subrama, "& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         id_sucursal, id_sustitucion, id_tipo_prestamo, id_tip"& _ 
+                "o_tasa, id_umedida, ingreso_neto, ingresos, jornales, linea_autorizada, monto, m"& _ 
+                "onto_garantia, mvsm, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         num_control, num_socios, pagare,"& _ 
+                " participa_IFND, plazo, porcentaje_GFEGA, porcentaje_Gliquida, porcentaje_cxsg, "& _ 
+                "programa_especial, programa_z25, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         secuencial_banco, su"& _ 
+                "bsidio, tasafijafira, tipo_garantia, utilidad, valor_garantia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            C"& _ 
+                "ONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Cliente = ?)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(2).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(2).CommandText = "SELECT BP, Cliente, CorteFinMES, Estatus, FB, FN, FechaCorte, TasaTiie, TiieActiv"& _ 
                 "a, activo_fijo, activo_total, anexo, aportacion_acreditado, apoyo_SIEBAN, cadena"& _ 
                 ", capacidad_instalada, capital_contable, ciclo, clave, concepto_inv, egresos, es"& _ 
                 "trato, fe_balance, fecha_pagare, fondo_reserva, garantia_mosusa, gl_mosusa, id_a"& _ 
@@ -45324,18 +45344,18 @@ Namespace DS_contratosTableAdapters
                 "_cxsg, programa_especial, programa_z25, secuencial_banco, subsidio, tasafijafira"& _ 
                 ", tipo_garantia, utilidad, valor_garantia FROM CONT_CPF_contratos WHERE (anexo ="& _ 
                 " ?) AND (ciclo = ?)"
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(2).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(2).CommandText = "UPDATE [CONT_CPF_contratos] SET  [id_intermediario]=?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where id_contrato=?"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_intermediario", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_intermediario", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(3).CommandText = "INSERT INTO CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (id_producto, num_contro"& _ 
+            Me._commandCollection(3).CommandText = "UPDATE [CONT_CPF_contratos] SET  [id_intermediario]=?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where id_contrato=?"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_intermediario", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_intermediario", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(4).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(4).CommandText = "INSERT INTO CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (id_producto, num_contro"& _ 
                 "l, id_operacion, id_tipo_prestamo, id_divisa, monto, anexo, id_credito, id_sucur"& _ 
                 "sal, id_intermediario, id_esquema_cobro, id_tipo_tasa, BP, FN, FB, ciclo, partic"& _ 
                 "ipa_IFND, num_socios, id_seguro, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         secuencial_banco, id"& _ 
@@ -45349,83 +45369,6 @@ Namespace DS_contratosTableAdapters
                 "rte, CorteFinMES, Cliente)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"& _ 
                 ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"& _ 
                 ")"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_producto", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_producto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_control", Global.System.Data.OleDb.OleDbType.WChar, 25, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_control", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_operacion", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_operacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_prestamo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_divisa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_divisa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "monto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sucursal", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sucursal", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_intermediario", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_intermediario", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_esquema_cobro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_esquema_cobro", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_tasa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_tasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BP", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "BP", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FN", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FB", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FB", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("participa_IFND", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "participa_IFND", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_socios", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_socios", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_seguro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_seguro", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("secuencial_banco", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "secuencial_banco", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_estatus", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_estatus", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_autorizacion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_autorizacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sustitucion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sustitucion", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capacidad_instalada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capacidad_instalada", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_umedida", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_umedida", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aportacion_acreditado", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "aportacion_acreditado", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("estrato", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "estrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("apoyo_SIEBAN", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "apoyo_SIEBAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_actividad", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_actividad", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_rama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_rama", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_subrama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_subrama", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_programa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_programa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("linea_autorizada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "linea_autorizada", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("clave", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "clave", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("mvsm", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "mvsm", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("valor_garantia", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "valor_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("jornales", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "jornales", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingreso_neto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingreso_neto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capital_contable", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capital_contable", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_especial", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_especial", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_z25", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_z25", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fe_balance", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fe_balance", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_fijo", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_total", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_total", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("egresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "egresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("utilidad", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "utilidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("concepto_inv", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "concepto_inv", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_localidad", Global.System.Data.OleDb.OleDbType.[Char], 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_localidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_clasificacion_garantia", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_clasificacion_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fondo_reserva", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "fondo_reserva", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cadena", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cadena", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_cxsg", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_cxsg", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_Gliquida", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_Gliquida", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("gl_mosusa", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "gl_mosusa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CorteFinMES", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CorteFinMES", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(4).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(4).CommandText = "INSERT INTO CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (id_producto, num_contro"& _ 
-                "l, id_operacion, id_tipo_prestamo, id_divisa, monto, anexo, id_credito, id_sucur"& _ 
-                "sal, id_esquema_cobro, id_tipo_tasa, BP, FN, FB, ciclo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   participa_IFND, num_socios, id_seguro, secuencial_banco, id_periodo, id_estat"& _ 
-                "us, id_autorizacion, id_contrato_siiof, capacidad_instalada, id_umedida, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    aportacion_acreditado, estrato, apoyo_SIEBAN, id_actividad, "& _ 
-                "id_rama, id_subrama, id_programa, linea_autorizada, clave, mvsm, valor_garantia,"& _ 
-                " jornales, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ingreso_neto, capital_contable, programa_e"& _ 
-                "special, programa_z25, fe_balance, activo_fijo, activo_total, ingresos, egresos,"& _ 
-                " utilidad, concepto_inv, id_localidad, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         fondo_reserva,"& _ 
-                " cadena, porcentaje_cxsg, porcentaje_Gliquida, gl_mosusa, tipo_garantia, FechaCo"& _ 
-                "rte, CorteFinMES, id_periodo_capital, id_periodo_interes, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     id_periodo_revision, Cliente)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"& _ 
-                ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"& _ 
-                ",?,?,?,?,?,?)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_producto", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_producto", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_control", Global.System.Data.OleDb.OleDbType.WChar, 25, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_control", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -45436,6 +45379,7 @@ Namespace DS_contratosTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sucursal", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sucursal", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_intermediario", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_intermediario", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_esquema_cobro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_esquema_cobro", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_tasa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_tasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BP", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "BP", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -45449,7 +45393,7 @@ Namespace DS_contratosTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_estatus", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_estatus", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_autorizacion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_autorizacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato_siiof", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "id_contrato_siiof", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sustitucion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sustitucion", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capacidad_instalada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capacidad_instalada", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_umedida", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_umedida", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aportacion_acreditado", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "aportacion_acreditado", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -45476,63 +45420,139 @@ Namespace DS_contratosTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("utilidad", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "utilidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("concepto_inv", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "concepto_inv", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_localidad", Global.System.Data.OleDb.OleDbType.[Char], 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_localidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_clasificacion_garantia", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_clasificacion_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fondo_reserva", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "fondo_reserva", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cadena", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cadena", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_cxsg", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_cxsg", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_Gliquida", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_Gliquida", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("gl_mosusa", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "gl_mosusa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tipo_garantia", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CorteFinMES", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CorteFinMES", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_capital", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_capital", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_interes", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_interes", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_revision", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_revision", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT monto FROM CONT_CPF_contratos WHERE (id_contrato = ?)"
+            Me._commandCollection(5).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(5).CommandText = "INSERT INTO CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (id_producto, num_contro"& _ 
+                "l, id_operacion, id_tipo_prestamo, id_divisa, monto, anexo, id_credito, id_sucur"& _ 
+                "sal, id_esquema_cobro, id_tipo_tasa, BP, FN, FB, ciclo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   participa_IFND, num_socios, id_seguro, secuencial_banco, id_periodo, id_estat"& _ 
+                "us, id_autorizacion, id_contrato_siiof, capacidad_instalada, id_umedida, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    aportacion_acreditado, estrato, apoyo_SIEBAN, id_actividad, "& _ 
+                "id_rama, id_subrama, id_programa, linea_autorizada, clave, mvsm, valor_garantia,"& _ 
+                " jornales, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ingreso_neto, capital_contable, programa_e"& _ 
+                "special, programa_z25, fe_balance, activo_fijo, activo_total, ingresos, egresos,"& _ 
+                " utilidad, concepto_inv, id_localidad, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         fondo_reserva,"& _ 
+                " cadena, porcentaje_cxsg, porcentaje_Gliquida, gl_mosusa, tipo_garantia, FechaCo"& _ 
+                "rte, CorteFinMES, id_periodo_capital, id_periodo_interes, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     id_periodo_revision, Cliente)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"& _ 
+                ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"& _ 
+                ",?,?,?,?,?,?)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_producto", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_producto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_control", Global.System.Data.OleDb.OleDbType.WChar, 25, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_control", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_operacion", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_operacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_prestamo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_divisa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_divisa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "monto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sucursal", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sucursal", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_esquema_cobro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_esquema_cobro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_tasa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_tasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BP", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "BP", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FN", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FN", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FB", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FB", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("participa_IFND", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "participa_IFND", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_socios", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_socios", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_seguro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_seguro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("secuencial_banco", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "secuencial_banco", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_estatus", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_estatus", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_autorizacion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_autorizacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato_siiof", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "id_contrato_siiof", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capacidad_instalada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capacidad_instalada", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_umedida", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_umedida", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aportacion_acreditado", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "aportacion_acreditado", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("estrato", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "estrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("apoyo_SIEBAN", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "apoyo_SIEBAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_actividad", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_actividad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_rama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_rama", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_subrama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_subrama", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_programa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_programa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("linea_autorizada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "linea_autorizada", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("clave", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "clave", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("mvsm", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "mvsm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("valor_garantia", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "valor_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("jornales", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "jornales", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingreso_neto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingreso_neto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capital_contable", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capital_contable", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_especial", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_especial", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_z25", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_z25", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fe_balance", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fe_balance", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_fijo", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_total", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_total", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("egresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "egresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("utilidad", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "utilidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("concepto_inv", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "concepto_inv", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_localidad", Global.System.Data.OleDb.OleDbType.[Char], 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_localidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fondo_reserva", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "fondo_reserva", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cadena", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cadena", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_cxsg", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_cxsg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_Gliquida", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_Gliquida", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("gl_mosusa", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "gl_mosusa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tipo_garantia", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CorteFinMES", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CorteFinMES", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_capital", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_capital", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_interes", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_interes", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_revision", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_revision", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT     isnull(   MAX(id_contrato),0) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_contr"& _ 
-                "atos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Cliente = ?) and id_credito=?"
+            Me._commandCollection(6).CommandText = "SELECT monto FROM CONT_CPF_contratos WHERE (id_contrato = ?)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(7) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(7).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(7).CommandText = "SELECT anexo, tipo_garantia, TasaTiie, TiieActiva FROM CONT_CPF_contratos WHERE ("& _ 
-                "anexo = ?) AND (ciclo = ?)"
+            Me._commandCollection(7).Connection = Me.Connection
+            Me._commandCollection(7).CommandText = "SELECT     isnull(   MAX(id_contrato),0) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_contr"& _ 
+                "atos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Cliente = ?) and id_credito=?"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(8) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(8).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(8).CommandText = "SELECT id_contrato, tipo_garantia, TasaTiie, TiieActiva FROM CONT_CPF_contratos W"& _ 
-                "HERE (anexo = ?) AND (ciclo = ?)"
+            Me._commandCollection(8).CommandText = "SELECT anexo, tipo_garantia, TasaTiie, TiieActiva FROM CONT_CPF_contratos WHERE ("& _ 
+                "anexo = ?) AND (ciclo = ?)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(9).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(9).CommandText = "SELECT     ISNULL(MAX(secuencial_banco), 0) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_contr"& _ 
-                "atos"
+            Me._commandCollection(9).CommandText = "SELECT id_contrato, tipo_garantia, TasaTiie, TiieActiva FROM CONT_CPF_contratos W"& _ 
+                "HERE (anexo = ?) AND (ciclo = ?)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(10) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "SELECT        ISNULL(subsidio, 'False') AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_contra"& _ 
-                "tos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?)"
+            Me._commandCollection(10).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(10).CommandText = "SELECT     ISNULL(MAX(secuencial_banco), 0) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_contr"& _ 
+                "atos"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(11) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(11).Connection = Me.Connection
-            Me._commandCollection(11).CommandText = "SELECT tipo_garantia FROM CONT_CPF_contratos WHERE (id_contrato = ?)"
+            Me._commandCollection(11).CommandText = "SELECT        ISNULL(subsidio, 'False') AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_contra"& _ 
+                "tos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?)"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(12) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(12).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(12).CommandText = "UPDATE    CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET              id_producto = ?, id_operacion = ?,"& _ 
+            Me._commandCollection(12).Connection = Me.Connection
+            Me._commandCollection(12).CommandText = "SELECT tipo_garantia FROM CONT_CPF_contratos WHERE (id_contrato = ?)"
+            Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(13).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(13).CommandText = "UPDATE    CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET              id_producto = ?, id_operacion = ?,"& _ 
                 " id_tipo_prestamo = ?, id_divisa = ?, monto = ?, anexo = ?, id_credito = ?, id_s"& _ 
                 "ucursal = ?, id_esquema_cobro = ?, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      id_tipo_tasa = ?, BP "& _ 
                 "= ?, FN = ?, FB = ?, ciclo = ?, participa_IFND = ?, num_socios = ?, id_seguro = "& _ 
@@ -45547,92 +45567,85 @@ Namespace DS_contratosTableAdapters
                 "?, cadena = ?, porcentaje_cxsg = ?, porcentaje_Gliquida = ?, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
                 "     gl_mosusa = ?, tipo_garantia = ?, CorteFinMES = ?, id_periodo_capital = ?, "& _ 
                 "id_periodo_interes = ?, id_periodo_revision = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (id_contrato = ?)"
-            Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_producto", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_producto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_operacion", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_operacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_prestamo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_divisa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_divisa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "monto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sucursal", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sucursal", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_esquema_cobro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_esquema_cobro", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_tasa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_tasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BP", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "BP", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FN", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FB", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FB", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("participa_IFND", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "participa_IFND", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_socios", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_socios", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_seguro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_seguro", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_estatus", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_estatus", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_autorizacion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_autorizacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato_siiof", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato_siiof", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capacidad_instalada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capacidad_instalada", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_umedida", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_umedida", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aportacion_acreditado", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "aportacion_acreditado", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("estrato", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "estrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("apoyo_SIEBAN", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "apoyo_SIEBAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_actividad", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_actividad", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_rama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_rama", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_subrama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_subrama", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_programa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_programa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("linea_autorizada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "linea_autorizada", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("clave", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "clave", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("mvsm", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "mvsm", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("valor_garantia", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "valor_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("jornales", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "jornales", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingreso_neto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingreso_neto", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capital_contable", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capital_contable", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_especial", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_especial", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_z25", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_z25", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fe_balance", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fe_balance", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_fijo", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_total", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_total", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("egresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "egresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("utilidad", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "utilidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("concepto_inv", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "concepto_inv", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_localidad", Global.System.Data.OleDb.OleDbType.[Char], 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_localidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fondo_reserva", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "fondo_reserva", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cadena", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cadena", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_cxsg", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_cxsg", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_Gliquida", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_Gliquida", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("gl_mosusa", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "gl_mosusa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tipo_garantia", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CorteFinMES", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CorteFinMES", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_capital", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_capital", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_interes", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_interes", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_revision", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_revision", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(12).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._commandCollection(13) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(13).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(13).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                FechaCorte = ?, TiieActiva = "& _ 
-                "?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?)"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TiieActiva", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "TiieActiva", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_producto", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_producto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_operacion", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_operacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_prestamo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_prestamo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_divisa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_divisa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "monto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_sucursal", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_sucursal", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_esquema_cobro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_esquema_cobro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_tipo_tasa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_tipo_tasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("BP", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "BP", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FN", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FN", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FB", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "FB", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("participa_IFND", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "participa_IFND", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("num_socios", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "num_socios", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_seguro", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_seguro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_estatus", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_estatus", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_autorizacion", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_autorizacion", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato_siiof", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato_siiof", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capacidad_instalada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capacidad_instalada", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_umedida", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_umedida", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("aportacion_acreditado", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "aportacion_acreditado", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("estrato", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "estrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("apoyo_SIEBAN", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "apoyo_SIEBAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_actividad", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_actividad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_rama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_rama", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_subrama", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_subrama", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_programa", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_programa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("linea_autorizada", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "linea_autorizada", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("clave", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "clave", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("mvsm", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "mvsm", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("valor_garantia", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "valor_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("jornales", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "jornales", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingreso_neto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingreso_neto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("capital_contable", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "capital_contable", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_especial", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_especial", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("programa_z25", Global.System.Data.OleDb.OleDbType.[Char], 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "programa_z25", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fe_balance", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fe_balance", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_fijo", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_fijo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("activo_total", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "activo_total", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ingresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "ingresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("egresos", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "egresos", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("utilidad", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "utilidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("concepto_inv", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "concepto_inv", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_localidad", Global.System.Data.OleDb.OleDbType.[Char], 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_localidad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fondo_reserva", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "fondo_reserva", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cadena", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cadena", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_cxsg", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_cxsg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_Gliquida", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_Gliquida", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("gl_mosusa", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "gl_mosusa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tipo_garantia", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo_garantia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CorteFinMES", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CorteFinMES", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_capital", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_capital", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_interes", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_interes", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_periodo_revision", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_periodo_revision", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(13).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._commandCollection(14) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(14).Connection = Me.Connection
-            Me._commandCollection(14).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                id_credito = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
-                "(id_contrato = ?)"
+            Me._commandCollection(14).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(14).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                FechaCorte = ?, TiieActiva = "& _ 
+                "?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?)"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(14).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TiieActiva", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "TiieActiva", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(14).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._commandCollection(15) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(15).Connection = Me.Connection
-            Me._commandCollection(15).CommandText = "UPDATE CONT_CPF_contratos SET subsidio = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where id_contrato=?"
+            Me._commandCollection(15).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                id_credito = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
+                "(id_contrato = ?)"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(15).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("subsidio", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "subsidio", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(15).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_credito", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_credito", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(15).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._commandCollection(16) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(16).Connection = Me.Connection
-            Me._commandCollection(16).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                tasafijafira = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE      "& _ 
-                "  (id_contrato = ?)"
+            Me._commandCollection(16).CommandText = "UPDATE CONT_CPF_contratos SET subsidio = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where id_contrato=?"
             Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(16).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tasafijafira", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "tasafijafira", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(16).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("subsidio", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "subsidio", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(16).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._commandCollection(17) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(17).Connection = Me.Connection
@@ -45642,12 +45655,25 @@ Namespace DS_contratosTableAdapters
             Me._commandCollection(17).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tasafijafira", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "tasafijafira", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(17).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._commandCollection(18) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(18).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(18).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                TasaTiie = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (i"& _ 
-                "d_contrato = ?)"
+            Me._commandCollection(18).Connection = Me.Connection
+            Me._commandCollection(18).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                tasafijafira = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE      "& _ 
+                "  (id_contrato = ?)"
             Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(18).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TasaTiie", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TasaTiie", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tasafijafira", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "tasafijafira", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(18).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(19) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(19).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(19).CommandText = "UPDATE       CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                TasaTiie = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (i"& _ 
+                "d_contrato = ?)"
+            Me._commandCollection(19).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(19).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TasaTiie", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TasaTiie", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(19).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(20) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(20).Connection = Me.Connection
+            Me._commandCollection(20).CommandText = "UPDATE [CONT_CPF_contratos] SET TasaTiie = ? where id_contrato=?"
+            Me._commandCollection(20).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(20).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TasaTiie", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TasaTiie", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(20).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -45678,8 +45704,42 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByporanexo(ByVal dataTable As DS_contratos.CONT_CPF_contratosDataTable, ByVal anexo As String, ByVal ciclo As String) As Integer
+        Public Overloads Overridable Function FillBycliente(ByVal dataTable As DS_contratos.CONT_CPF_contratosDataTable, ByVal Cliente As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Cliente Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cliente,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy18(ByVal Cliente As String) As DS_contratos.CONT_CPF_contratosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Cliente Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cliente,String)
+            End If
+            Dim dataTable As DS_contratos.CONT_CPF_contratosDataTable = New DS_contratos.CONT_CPF_contratosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByporanexo(ByVal dataTable As DS_contratos.CONT_CPF_contratosDataTable, ByVal anexo As String, ByVal ciclo As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             If (anexo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -45702,7 +45762,7 @@ Namespace DS_contratosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByporanexo(ByVal anexo As String, ByVal ciclo As String) As DS_contratos.CONT_CPF_contratosDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             If (anexo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -47915,7 +47975,7 @@ Namespace DS_contratosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function id_inter(ByVal id_intermediario As Global.System.Nullable(Of Integer), ByVal Original_id_contrato As Integer) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
             If (id_intermediario.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_intermediario.Value,Integer)
             Else
@@ -48002,7 +48062,7 @@ Namespace DS_contratosTableAdapters
                     ByVal FechaCorte As Global.System.Nullable(Of Date),  _
                     ByVal CorteFinMES As Global.System.Nullable(Of Boolean),  _
                     ByVal Cliente As String) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(4)
             If (id_producto.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_producto.Value,Integer)
             Else
@@ -48380,7 +48440,7 @@ Namespace DS_contratosTableAdapters
                     ByVal id_periodo_interes As Global.System.Nullable(Of Integer),  _
                     ByVal id_periodo_revision As Global.System.Nullable(Of Integer),  _
                     ByVal Cliente As String) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
             If (id_producto.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_producto.Value,Integer)
             Else
@@ -48706,7 +48766,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function monto_contrato(ByVal id_contrato As Integer) As Global.System.Nullable(Of Decimal)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
             command.Parameters(0).Value = CType(id_contrato,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -48733,7 +48793,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function scalarid_contratoSINANEXO(ByVal Cliente As String, ByVal id_credito As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(7)
             If (Cliente Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -48769,7 +48829,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function ScalarQueryanexo(ByVal anexo As String, ByVal ciclo As String) As String
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(7)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(8)
             If (anexo Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -48805,7 +48865,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function ScalarQueryID_CONTRATO(ByVal anexo As String, ByVal ciclo As String) As Global.System.Nullable(Of Integer)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(8)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(9)
             If (anexo Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -48841,7 +48901,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function ScalarQuerysecuencial_banco() As Global.System.Nullable(Of Integer)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(9)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(10)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -48867,7 +48927,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function subsidio_contrato(ByVal id_contrato As Integer) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(10)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(11)
             command.Parameters(0).Value = CType(id_contrato,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -48894,7 +48954,7 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function tipo_garantia(ByVal id_contrato As Integer) As Global.System.Nullable(Of Integer)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(11)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(12)
             command.Parameters(0).Value = CType(id_contrato,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -48980,7 +49040,7 @@ Namespace DS_contratosTableAdapters
                     ByVal id_periodo_interes As Global.System.Nullable(Of Integer),  _
                     ByVal id_periodo_revision As Global.System.Nullable(Of Integer),  _
                     ByVal Original_id_contrato As Integer) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(12)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(13)
             If (id_producto.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_producto.Value,Integer)
             Else
@@ -49288,7 +49348,7 @@ Namespace DS_contratosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateFechaCorteTiie(ByVal FechaCorte As Global.System.Nullable(Of Date), ByVal TiieActiva As Global.System.Nullable(Of Decimal), ByVal Original_id_contrato As Integer) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(13)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(14)
             If (FechaCorte.HasValue = true) Then
                 command.Parameters(0).Value = CType(FechaCorte.Value,Date)
             Else
@@ -49321,7 +49381,7 @@ Namespace DS_contratosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateIdCredito(ByVal id_credito As String, ByVal Original_id_contrato As Integer) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(14)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(15)
             If (id_credito Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -49349,7 +49409,7 @@ Namespace DS_contratosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function Updatesubsidio(ByVal subsidio As Global.System.Nullable(Of Boolean), ByVal Original_id_contrato As Integer) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(15)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(16)
             If (subsidio.HasValue = true) Then
                 command.Parameters(0).Value = CType(subsidio.Value,Boolean)
             Else
@@ -49377,34 +49437,6 @@ Namespace DS_contratosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function updatetasafija(ByVal tasafijafira As Global.System.Nullable(Of Decimal), ByVal Original_id_contrato As Integer) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(16)
-            If (tasafijafira.HasValue = true) Then
-                command.Parameters(0).Value = CType(tasafijafira.Value,Decimal)
-            Else
-                command.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            command.Parameters(1).Value = CType(Original_id_contrato,Integer)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Integer
-            Try 
-                returnValue = command.ExecuteNonQuery
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function updatetasafijafira(ByVal tasafijafira As Global.System.Nullable(Of Decimal), ByVal Original_id_contrato As Integer) As Integer
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(17)
             If (tasafijafira.HasValue = true) Then
                 command.Parameters(0).Value = CType(tasafijafira.Value,Decimal)
@@ -49432,8 +49464,64 @@ Namespace DS_contratosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateTasaTIIE(ByVal TasaTiie As String, ByVal Original_id_contrato As Integer) As Integer
+        Public Overloads Overridable Function updatetasafijafira(ByVal tasafijafira As Global.System.Nullable(Of Decimal), ByVal Original_id_contrato As Integer) As Integer
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(18)
+            If (tasafijafira.HasValue = true) Then
+                command.Parameters(0).Value = CType(tasafijafira.Value,Decimal)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            command.Parameters(1).Value = CType(Original_id_contrato,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateTasaTIIE(ByVal TasaTiie As String, ByVal Original_id_contrato As Integer) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(19)
+            If (TasaTiie Is Nothing) Then
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(0).Value = CType(TasaTiie,String)
+            End If
+            command.Parameters(1).Value = CType(Original_id_contrato,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function updatetiie(ByVal TasaTiie As String, ByVal Original_id_contrato As Integer) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(20)
             If (TasaTiie Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
