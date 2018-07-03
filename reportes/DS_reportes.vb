@@ -10,6 +10,8 @@
 End Class
 
 Namespace DS_reportesTableAdapters
+    Partial Public Class CL_PlazoTableAdapter
+    End Class
 
     Partial Public Class vw_saldo_PFTableAdapter
     End Class

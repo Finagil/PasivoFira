@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class rpt_solicitud_cargo
+Public Class rpt_cartera
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class rpt_solicitud_cargo
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "rpt_solicitud_cargo.rpt"
+            Return "rpt_cartera.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class rpt_solicitud_cargo
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Fira_Cartera_Pasiva.rpt_solicitud_cargo.rpt"
+            Return "Fira_Cartera_Pasiva.rpt_cartera.rpt"
         End Get
         Set
             'Do nothing
@@ -94,23 +94,15 @@ Public Class rpt_solicitud_cargo
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_fe_rec() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_var_fecha_dtp() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(0)
-        End Get
-    End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_garantia() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(1)
         End Get
     End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class Cachedrpt_solicitud_cargo
+Public Class Cachedrpt_cartera
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +144,7 @@ Public Class Cachedrpt_solicitud_cargo
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As rpt_solicitud_cargo = New rpt_solicitud_cargo()
+        Dim rpt As rpt_cartera = New rpt_cartera()
         rpt.Site = Me.Site
         Return rpt
     End Function

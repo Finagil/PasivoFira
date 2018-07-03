@@ -37,9 +37,12 @@ Partial Class MDI_Pasivo
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescuentosPorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaldosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CarteraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProyecciónCLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PagosFinagilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportaPagosFinagilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
+        Me.SaldoContingenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -115,7 +118,7 @@ Partial Class MDI_Pasivo
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DescuentosPorFechaToolStripMenuItem, Me.SaldosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DescuentosPorFechaToolStripMenuItem, Me.SaldosToolStripMenuItem, Me.CarteraToolStripMenuItem, Me.ProyecciónCLToolStripMenuItem, Me.SaldoContingenteToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -131,6 +134,18 @@ Partial Class MDI_Pasivo
         Me.SaldosToolStripMenuItem.Name = "SaldosToolStripMenuItem"
         Me.SaldosToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SaldosToolStripMenuItem.Text = "Saldos"
+        '
+        'CarteraToolStripMenuItem
+        '
+        Me.CarteraToolStripMenuItem.Name = "CarteraToolStripMenuItem"
+        Me.CarteraToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.CarteraToolStripMenuItem.Text = "Cartera"
+        '
+        'ProyecciónCLToolStripMenuItem
+        '
+        Me.ProyecciónCLToolStripMenuItem.Name = "ProyecciónCLToolStripMenuItem"
+        Me.ProyecciónCLToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.ProyecciónCLToolStripMenuItem.Text = "Proyección CL"
         '
         'PagosFinagilToolStripMenuItem
         '
@@ -148,6 +163,12 @@ Partial Class MDI_Pasivo
         'ConT_CPF_configuracionTableAdapter
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
+        '
+        'SaldoContingenteToolStripMenuItem
+        '
+        Me.SaldoContingenteToolStripMenuItem.Name = "SaldoContingenteToolStripMenuItem"
+        Me.SaldoContingenteToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.SaldoContingenteToolStripMenuItem.Text = "Saldo Contingente"
         '
         'MDI_Pasivo
         '
@@ -181,4 +202,7 @@ Partial Class MDI_Pasivo
     Friend WithEvents AltaDeContratoSinAnexoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PagosFinagilToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImportaPagosFinagilToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CarteraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProyecciónCLToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaldoContingenteToolStripMenuItem As ToolStripMenuItem
 End Class
