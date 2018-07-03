@@ -6,7 +6,9 @@ Public Class frm_contratos_alta
     Dim secuencial_banco As Integer
     Public Anexo As String
     Public Ciclo As String
+
     Public Shared id_contrato, id_subrama As Integer
+    Public Shared penalizacion As Boolean
     Dim aportacion As Decimal
     Dim monto, nvsm As Decimal
     Dim fecha As Date
@@ -203,6 +205,7 @@ Public Class frm_contratos_alta
         MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
         Me.CONT_CPF_contratosTableAdapter.penalizacionupdate(ch_pen.Checked, id_contrato) 'dagl 26/06/2018 guardar subsidio 
+        penalizacion = ch_pen.Checked
         ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(Cksubsidio.Checked, id_contrato) 'dagl 23/01/2018 guardar subsidio 
         If Ministracion1 = True And Inserto = True Then
             CargaVencimientos()
@@ -552,7 +555,7 @@ Public Class frm_contratos_alta
         Else
             ' frm_edo_cuenta.Tipar = Me.VwdescuentoSABindingSource.Current("Tipar")
             frm_edo_cuenta.Anexo = Me.VwdescuentoSABindingSource.Current("Anexo")
-
+            penalizacion = Me.CONTCPFcontratosBindingSource1.Current("penalizacion")
             If frm_edo_cuenta.Anexo.Substring(0, 3) = "S/A" Then
                 frm_edo_cuenta.Anexo = ""
                 frm_edo_cuenta.Ciclo = ""
@@ -581,6 +584,8 @@ Public Class frm_contratos_alta
     End Sub
 
     Private Sub cb_concepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_concepto.SelectedIndexChanged
+
+
 
     End Sub
 

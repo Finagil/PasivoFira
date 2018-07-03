@@ -42,6 +42,7 @@ Public Class frm_rpt_estado
         Dim rpt As New rpt_edocta()
         rpt.SetDataSource(DS_contratos)
         rpt.SetParameterValue("tiiefb", sumafb)
+        rpt.SetParameterValue("penalizacion", frm_contratos_alta.penalizacion)
         rpt.SetParameterValue("tiiebp", sumabp)
         rpt.SetParameterValue("intordvig", frm_edo_cuenta.TXT_ORD_VI.Text)
         rpt.SetParameterValue("intfinvig", frm_edo_cuenta.TXT_FIN_VI.Text)

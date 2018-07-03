@@ -1,5 +1,6 @@
 Public Class frm_edo_cuenta
     Public Anexo As String
+
     Public Ciclo As String
     Public Tipar As String
     Dim FechaAnt As Date
