@@ -27,7 +27,7 @@ Public Class Nuevo
         Dim smonto As Decimal = 0
         Dim fechaaux As Date
 
-        If frm_contrato2.sinanexo = True Then
+        If sinanexo = True Then
             ID_Contrato = frm_contrato2.id_contrato2
         Else
 

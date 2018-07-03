@@ -1,5 +1,6 @@
 Public Class frm_edo_cuenta
     Public Anexo As String
+
     Public Ciclo As String
     Public Tipar As String
     Dim FechaAnt As Date
@@ -192,7 +193,12 @@ Public Class frm_edo_cuenta
 
         Dim ta As New DescuentosDSTableAdapters.ContratoDatosTableAdapter
         Dim ds As New DescuentosDS
-        ta.Fill(ds.ContratoDatos, frm_contratos_alta.id_contrato)
+
+        If sinanexo = True Then
+            ta.FillByContrato2(ds.ContratoDatos, frm_contratos_alta.id_contrato)
+        Else
+            ta.Fill(ds.ContratoDatos, frm_contratos_alta.id_contrato)
+        End If
         R = ds.ContratoDatos.Rows(0)
         CalculaInteres()
     End Sub

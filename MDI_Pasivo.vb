@@ -1,6 +1,7 @@
 Public Class MDI_Pasivo
     Private Sub AltaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AltaToolStripMenuItem.Click
         Dim f As New frm_contratos_alta
+        sinanexo = True
         f.Show()
 
     End Sub
@@ -75,6 +76,21 @@ Public Class MDI_Pasivo
 
     Private Sub ImportaPagosFinagilToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportaPagosFinagilToolStripMenuItem.Click
         Dim f As New FrmImportaPagos
+        f.Show()
+    End Sub
+
+    Private Sub CarteraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CarteraToolStripMenuItem.Click
+        Dim f As New frm_rpt_cartera
+        f.Show()
+    End Sub
+
+    Private Sub ProyecciónCLToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProyecciónCLToolStripMenuItem.Click
+        Dim f As New frm_cl_plazo
+        f.Show()
+    End Sub
+
+    Private Sub SaldoContingenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaldoContingenteToolStripMenuItem.Click
+        Dim f As New frm_rpt_saldo_contingente
         f.Show()
     End Sub
 End Class

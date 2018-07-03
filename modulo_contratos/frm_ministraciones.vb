@@ -25,7 +25,7 @@ Public Class frm_ministraciones
 
         'SUMAR MONTO TOTAL Y VALIDAD QUE NO EXCEDA EL MONTO FINANCIADO
         Dim MontoFinanciado As Decimal = 0
-        If frm_contrato2.sinanexo = True Then
+        If sinanexo = True Then
             idcontrato = frm_contrato2.id_contrato2
         Else
             idcontrato = frm_contratos_alta.id_contrato
