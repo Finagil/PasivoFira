@@ -10,7 +10,7 @@ Module ModuleGlobal
     Public TIIE_Promedio As Decimal = 0
     Public DIAS_ENTRE_VENC As Decimal = 0
     Public flagmin As Boolean
-
+    Public sinanexo As Boolean
     Public Enum EsquemaCobro As Integer
         SIMFA = 20
         SIMPLE = 71
@@ -147,7 +147,7 @@ Module ModuleGlobal
         FechaAnt = FechaMinistracion1
         taVecn.FillBycontrato(DS1.CONT_CPF_vencimientos, Id_Contrato)
 
-        If frm_contrato2.sinanexo = True Then
+        If sinanexo = True Then
             taCont.FillByContrato2(DS2.ContratoDatos, Id_Contrato)
         Else
             taCont.Fill(DS2.ContratoDatos, Id_Contrato)
@@ -165,7 +165,7 @@ Module ModuleGlobal
             Case EsquemaCobro.SIMPLE
             Case EsquemaCobro.SIMPLE_FIN
                 taCont.CambiaPeriodoSimpleConFina(1, 1, Id_Contrato)
-                If frm_contrato2.sinanexo = True Then
+                If sinanexo = True Then
                     taCont.FillByContrato2(DS2.ContratoDatos, Id_Contrato)
                 Else
                     taCont.Fill(DS2.ContratoDatos, Id_Contrato)

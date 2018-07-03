@@ -5,6 +5,7 @@ Public Class Frm_DescuentosTRA
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        sinanexo = False
         If TxtAnexo.Text.Trim = "" Then
             MessageBox.Show("No hay contrato Selecionado", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub

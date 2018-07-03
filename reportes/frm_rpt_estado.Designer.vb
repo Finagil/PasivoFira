@@ -45,6 +45,8 @@ Partial Class frm_rpt_estado
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.CONTCPFpagosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_pagosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_pagosTableAdapter()
+        Me.VwdescuentoSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Vw_descuentoSATableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.vw_descuentoSATableAdapter()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_descuentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_TIIEpromedioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,6 +58,7 @@ Partial Class frm_rpt_estado
         CType(Me.CONT_CPF_vencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_GARANTIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFpagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DS_contratos
@@ -167,6 +170,15 @@ Partial Class frm_rpt_estado
         '
         Me.CONT_CPF_pagosTableAdapter.ClearBeforeFill = True
         '
+        'VwdescuentoSABindingSource
+        '
+        Me.VwdescuentoSABindingSource.DataMember = "vw_descuentoSA"
+        Me.VwdescuentoSABindingSource.DataSource = Me.DS_contratos
+        '
+        'Vw_descuentoSATableAdapter
+        '
+        Me.Vw_descuentoSATableAdapter.ClearBeforeFill = True
+        '
         'frm_rpt_estado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -186,6 +198,7 @@ Partial Class frm_rpt_estado
         CType(Me.CONT_CPF_vencimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Vw_GARANTIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFpagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -211,4 +224,6 @@ Partial Class frm_rpt_estado
     Friend WithEvents crv As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents CONTCPFpagosBindingSource As BindingSource
     Friend WithEvents CONT_CPF_pagosTableAdapter As DS_contratosTableAdapters.CONT_CPF_pagosTableAdapter
+    Friend WithEvents VwdescuentoSABindingSource As BindingSource
+    Friend WithEvents Vw_descuentoSATableAdapter As DS_contratosTableAdapters.vw_descuentoSATableAdapter
 End Class

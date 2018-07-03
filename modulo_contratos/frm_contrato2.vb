@@ -10,7 +10,7 @@
     Public ID_garantina As Integer = 0
     Public Shared id_contrato2, id_subrama2 As Integer
 
-    Public Shared sinanexo As Boolean
+
 
 
     Private Sub txtcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcliente.TextChanged
@@ -297,6 +297,8 @@
             cb_periodo_revision.SelectedValue, cbclientes.SelectedValue)
             Inserto = True
             id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, txt_credito.Text)
+            Me.CONT_CPF_contratosTableAdapter.penalizacionupdate(ch_pen.Checked, id_contrato2) 'dagl 02/07/2018 guardar penalizacion 
+
 
             Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato2))
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
