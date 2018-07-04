@@ -146,6 +146,7 @@ Public Class Frm_MinistracionesADD
                 Me.MinistracionesTableAdapter.UpdateFechaCorteTIIE(dt_descuento.Value.ToShortDateString, TIIE_Aplica, ID_Contrato)
                 Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
                 CreaCalendarioRevisoinTasa(ID_Contrato, MinistracionesBindingSource.Current("Tipta"))
+                Shell("F:\Executables\PsExec.exe \\192.168.29.41 -u AGIL\edgar-caceres -p c4c3r1t0s1 D:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe " & ID_Contrato, AppWinStyle.Hide, False)
                 Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
 
@@ -264,6 +265,10 @@ Public Class Frm_MinistracionesADD
         Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(CheckBox1.Checked, ID_Contrato) 'dagl 23/01/2018 guardar subsidio 
         MessageBox.Show("Se cambio el valor del subsidio", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         CArgadatos()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub DataGridView1_DataMemberChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DataMemberChanged
