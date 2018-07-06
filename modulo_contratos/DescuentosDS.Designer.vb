@@ -3276,7 +3276,6 @@ Partial Public Class DescuentosDS
             MyBase.Columns.Add(Me.columnCliente)
             Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNombre)
-            Me.columnCliente.AllowDBNull = false
             Me.columnCliente.MaxLength = 5
             Me.columnNombre.ReadOnly = true
             Me.columnNombre.MaxLength = 120
@@ -8316,7 +8315,11 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Cliente() As String
             Get
-                Return CType(Me(Me.tableCliGarantias.ClienteColumn),String)
+                Try 
+                    Return CType(Me(Me.tableCliGarantias.ClienteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cliente' de la tabla 'CliGarantias' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableCliGarantias.ClienteColumn) = value
@@ -8337,6 +8340,18 @@ Partial Public Class DescuentosDS
                 Me(Me.tableCliGarantias.NombreColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsClienteNull() As Boolean
+            Return Me.IsNull(Me.tableCliGarantias.ClienteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetClienteNull()
+            Me(Me.tableCliGarantias.ClienteColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -14599,23 +14614,21 @@ Namespace DescuentosDSTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Vw_Anexos.Cliente, RTRIM(Vw_Anexos.Descr) AS Nombre"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
-                "  CONT_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_gar"& _ 
-                "antias ON CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contr"& _ 
-                "ato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON CONT_CPF_contratos.anexo ="& _ 
-                " Vw_Anexos.Anexo AND CONT_CPF_contratos.ciclo = Vw_Anexos.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Vw_Ane"& _ 
-                "xos.Cliente, RTRIM(Vw_Anexos.Descr)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Nombre"
+            Me._commandCollection(0).CommandText = "SELECT        CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr) AS Nombre"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          CONT_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contr"& _ 
+                "atos_garantias ON CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias."& _ 
+                "id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON CONT_CPF_contratos."& _ 
+                "Cliente = Clientes.Cliente"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY CONT_CPF_contratos.Cliente, RTRIM(Clientes."& _ 
+                "Descr)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RTRIM(Clientes.Descr)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(1).CommandText = "SELECT     Vw_Anexos.Cliente, RTRIM(Vw_Anexos.Descr) AS Nombre"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT"& _ 
-                "_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      CONT_CPF_contratos_garantias ON"& _ 
-                " CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_Anexos.A"& _ 
-                "nexo AND CONT_CPF_contratos.ciclo = Vw_Anexos.Ciclo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "      CONT_CPF_SaldoGarantiaEjercida ON CONT_CPF_contratos.id_contrato = CONT_CP"& _ 
-                "F_SaldoGarantiaEjercida.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Vw_Anexos.Cliente, RTRIM(Vw_Anexos"& _ 
-                ".Descr)"
+            Me._commandCollection(1).CommandText = "SELECT RTRIM(Clientes.Descr) AS Nombre, CONT_CPF_contratos.Cliente FROM CONT_CPF_"& _ 
+                "contratos INNER JOIN CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contr"& _ 
+                "ato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN CONT_CPF_SaldoGarantia"& _ 
+                "Ejercida ON CONT_CPF_contratos.id_contrato = CONT_CPF_SaldoGarantiaEjercida.id_c"& _ 
+                "ontrato INNER JOIN Clientes ON CONT_CPF_contratos.Cliente = Clientes.Cliente GRO"& _ 
+                "UP BY CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
