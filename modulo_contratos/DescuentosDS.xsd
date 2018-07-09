@@ -584,15 +584,15 @@ WHERE     (id_contrato = ?)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CliGarantiasTableAdapter" GeneratorDataComponentClassName="CliGarantiasTableAdapter" Name="CliGarantias" UserDataComponentName="CliGarantiasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production_AUX2.dbo.Vw_Anexos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Vw_Anexos.Cliente, RTRIM(Vw_Anexos.Descr) AS Nombre
+                    <CommandText>SELECT        CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr) AS Nombre
 FROM            CONT_CPF_contratos INNER JOIN
                          CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN
-                         Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_Anexos.Anexo AND CONT_CPF_contratos.ciclo = Vw_Anexos.Ciclo
-GROUP BY Vw_Anexos.Cliente, RTRIM(Vw_Anexos.Descr)
-ORDER BY Nombre</CommandText>
+                         Clientes ON CONT_CPF_contratos.Cliente = Clientes.Cliente
+GROUP BY CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr)
+ORDER BY RTRIM(Clientes.Descr)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -603,15 +603,10 @@ ORDER BY Nombre</CommandText>
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Pasivo.dbo.Vw_Anexos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByEjercidas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEjercidas" GeneratorSourceName="FillByEjercidas" GetMethodModifier="Public" GetMethodName="GetDataByEjercidas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEjercidas" UserSourceName="FillByEjercidas">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByEjercidas" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByEjercidas" GeneratorSourceName="FillByEjercidas" GetMethodModifier="Public" GetMethodName="GetDataByEjercidas" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByEjercidas" UserSourceName="FillByEjercidas">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT     Vw_Anexos.Cliente, RTRIM(Vw_Anexos.Descr) AS Nombre
-FROM         CONT_CPF_contratos INNER JOIN
-                      CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN
-                      Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_Anexos.Anexo AND CONT_CPF_contratos.ciclo = Vw_Anexos.Ciclo INNER JOIN
-                      CONT_CPF_SaldoGarantiaEjercida ON CONT_CPF_contratos.id_contrato = CONT_CPF_SaldoGarantiaEjercida.id_contrato
-GROUP BY Vw_Anexos.Cliente, RTRIM(Vw_Anexos.Descr)</CommandText>
+                    <CommandText>SELECT RTRIM(Clientes.Descr) AS Nombre, CONT_CPF_contratos.Cliente FROM CONT_CPF_contratos INNER JOIN CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN CONT_CPF_SaldoGarantiaEjercida ON CONT_CPF_contratos.id_contrato = CONT_CPF_SaldoGarantiaEjercida.id_contrato INNER JOIN Clientes ON CONT_CPF_contratos.Cliente = Clientes.Cliente GROUP BY CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1288,7 +1283,7 @@ WHERE        (id_contrato = ?)</CommandText>
         <xs:element name="CliGarantias" msprop:Generator_UserTableName="CliGarantias" msprop:Generator_RowEvArgName="CliGarantiasRowChangeEvent" msprop:Generator_TableVarName="tableCliGarantias" msprop:Generator_TablePropName="CliGarantias" msprop:Generator_RowDeletingName="CliGarantiasRowDeleting" msprop:Generator_RowChangingName="CliGarantiasRowChanging" msprop:Generator_RowDeletedName="CliGarantiasRowDeleted" msprop:Generator_RowEvHandlerName="CliGarantiasRowChangeEventHandler" msprop:Generator_TableClassName="CliGarantiasDataTable" msprop:Generator_RowChangedName="CliGarantiasRowChanged" msprop:Generator_RowClassName="CliGarantiasRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
@@ -1380,7 +1375,7 @@ WHERE        (id_contrato = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DescuentosTRA" msprop:Generator_TableClassName="DescuentosTRADataTable" msprop:Generator_TableVarName="tableDescuentosTRA" msprop:Generator_RowChangedName="DescuentosTRARowChanged" msprop:Generator_TablePropName="DescuentosTRA" msprop:Generator_RowDeletingName="DescuentosTRARowDeleting" msprop:Generator_RowChangingName="DescuentosTRARowChanging" msprop:Generator_RowEvHandlerName="DescuentosTRARowChangeEventHandler" msprop:Generator_RowDeletedName="DescuentosTRARowDeleted" msprop:Generator_RowClassName="DescuentosTRARow" msprop:Generator_UserTableName="DescuentosTRA" msprop:Generator_RowEvArgName="DescuentosTRARowChangeEvent">
+        <xs:element name="DescuentosTRA" msprop:Generator_TableClassName="DescuentosTRADataTable" msprop:Generator_TableVarName="tableDescuentosTRA" msprop:Generator_TablePropName="DescuentosTRA" msprop:Generator_RowDeletingName="DescuentosTRARowDeleting" msprop:Generator_RowChangingName="DescuentosTRARowChanging" msprop:Generator_RowEvHandlerName="DescuentosTRARowChangeEventHandler" msprop:Generator_RowDeletedName="DescuentosTRARowDeleted" msprop:Generator_UserTableName="DescuentosTRA" msprop:Generator_RowChangedName="DescuentosTRARowChanged" msprop:Generator_RowEvArgName="DescuentosTRARowChangeEvent" msprop:Generator_RowClassName="DescuentosTRARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -1417,7 +1412,7 @@ WHERE        (id_contrato = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DiasFestivos" msprop:Generator_TableClassName="DiasFestivosDataTable" msprop:Generator_TableVarName="tableDiasFestivos" msprop:Generator_TablePropName="DiasFestivos" msprop:Generator_RowDeletingName="DiasFestivosRowDeleting" msprop:Generator_RowChangingName="DiasFestivosRowChanging" msprop:Generator_RowEvHandlerName="DiasFestivosRowChangeEventHandler" msprop:Generator_RowDeletedName="DiasFestivosRowDeleted" msprop:Generator_UserTableName="DiasFestivos" msprop:Generator_RowChangedName="DiasFestivosRowChanged" msprop:Generator_RowEvArgName="DiasFestivosRowChangeEvent" msprop:Generator_RowClassName="DiasFestivosRow">
+        <xs:element name="DiasFestivos" msprop:Generator_TableClassName="DiasFestivosDataTable" msprop:Generator_TableVarName="tableDiasFestivos" msprop:Generator_RowChangedName="DiasFestivosRowChanged" msprop:Generator_TablePropName="DiasFestivos" msprop:Generator_RowDeletingName="DiasFestivosRowDeleting" msprop:Generator_RowChangingName="DiasFestivosRowChanging" msprop:Generator_RowEvHandlerName="DiasFestivosRowChangeEventHandler" msprop:Generator_RowDeletedName="DiasFestivosRowDeleted" msprop:Generator_RowClassName="DiasFestivosRow" msprop:Generator_UserTableName="DiasFestivos" msprop:Generator_RowEvArgName="DiasFestivosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" />
@@ -1431,7 +1426,7 @@ WHERE        (id_contrato = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_descuentos" msprop:Generator_TableClassName="vw_descuentosDataTable" msprop:Generator_TableVarName="tablevw_descuentos" msprop:Generator_RowChangedName="vw_descuentosRowChanged" msprop:Generator_TablePropName="vw_descuentos" msprop:Generator_RowDeletingName="vw_descuentosRowDeleting" msprop:Generator_RowChangingName="vw_descuentosRowChanging" msprop:Generator_RowEvHandlerName="vw_descuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentosRowDeleted" msprop:Generator_RowClassName="vw_descuentosRow" msprop:Generator_UserTableName="vw_descuentos" msprop:Generator_RowEvArgName="vw_descuentosRowChangeEvent">
+        <xs:element name="vw_descuentos" msprop:Generator_TableClassName="vw_descuentosDataTable" msprop:Generator_TableVarName="tablevw_descuentos" msprop:Generator_TablePropName="vw_descuentos" msprop:Generator_RowDeletingName="vw_descuentosRowDeleting" msprop:Generator_RowChangingName="vw_descuentosRowChanging" msprop:Generator_RowEvHandlerName="vw_descuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentosRowDeleted" msprop:Generator_UserTableName="vw_descuentos" msprop:Generator_RowChangedName="vw_descuentosRowChanged" msprop:Generator_RowEvArgName="vw_descuentosRowChangeEvent" msprop:Generator_RowClassName="vw_descuentosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
