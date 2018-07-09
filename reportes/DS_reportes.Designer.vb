@@ -12010,15 +12010,15 @@ Namespace DS_reportesTableAdapters
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        SUM(LEFTH.capital) AS importe, CONT_CPF_sucursales.nombre_sucursal,"& _ 
-                " COUNT(LEFTH.id_vencimientos) AS TotalC"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_VencimientosCL AS LE"& _ 
-                "FTH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON LEFTH.id_contrato"& _ 
-                " = CONT_CPF_contratos.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_"& _ 
-                "sucursales ON CONT_CPF_contratos.id_sucursal = CONT_CPF_sucursales.id_sucursal I"& _ 
-                "NNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON CONT_CPF_contratos.Cliente = Cli"& _ 
-                "entes.Cliente"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (YEAR(LEFTH.fecha) = YEAR(?)) AND (MONTH(LEFTH.fecha"& _ 
-                ") > MONTH(?)) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (YEAR(LEFTH.fecha) = YEAR(?) + 1) AND"& _ 
-                " (MONTH(LEFTH.fecha) <= MONTH(?))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY CONT_CPF_sucursales.nombre_sucursal"
+            Me._commandCollection(2).CommandText = "SELECT        SUM(LEFTH.capital) AS importe, COUNT(LEFTH.id_vencimientos) AS Tota"& _ 
+                "lC, Sucursales.Nombre_Sucursal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_VencimientosCL AS LEFTH INNER"& _ 
+                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON LEFTH.id_contrato = CONT_C"& _ 
+                "PF_contratos.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON CONT_C"& _ 
+                "PF_contratos.Cliente = Clientes.Cliente INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Suc"& _ 
+                "ursales ON Clientes.Sucursal = Sucursales.ID_Sucursal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (YEAR(LEFTH."& _ 
+                "fecha) = YEAR(?)) AND (MONTH(LEFTH.fecha) > MONTH(?)) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   (YEAR(LEFTH.fecha) = YEAR(?) + 1) AND (MONTH(LEFTH.fecha) <= MONTH(?))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP"& _ 
+                " BY Sucursales.Nombre_Sucursal"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param1", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param2", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12042,15 +12042,14 @@ Namespace DS_reportesTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param4", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT        SUM(LEFTH.capital) AS importe, CONT_CPF_sucursales.nombre_sucursal,"& _ 
-                " COUNT(LEFTH.id_vencimientos) AS TotalC"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_VencimientosCL AS LE"& _ 
-                "FTH INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON LEFTH.id_contrato"& _ 
-                " = CONT_CPF_contratos.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_"& _ 
-                "sucursales ON CONT_CPF_contratos.id_sucursal = CONT_CPF_sucursales.id_sucursal I"& _ 
-                "NNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON CONT_CPF_contratos.Cliente = Cli"& _ 
-                "entes.Cliente"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (YEAR(LEFTH.fecha) > YEAR(?)) AND (MONTH(LEFTH.fecha"& _ 
-                ") > MONTH(?)) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (YEAR(LEFTH.fecha) > YEAR(?) + 1)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GR"& _ 
-                "OUP BY CONT_CPF_sucursales.nombre_sucursal"
+            Me._commandCollection(4).CommandText = "SELECT        SUM(LEFTH.capital) AS importe, COUNT(LEFTH.id_vencimientos) AS Tota"& _ 
+                "lC, Sucursales.Nombre_Sucursal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_VencimientosCL AS LEFTH INNER"& _ 
+                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON LEFTH.id_contrato = CONT_C"& _ 
+                "PF_contratos.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON CONT_C"& _ 
+                "PF_contratos.Cliente = Clientes.Cliente INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Suc"& _ 
+                "ursales ON Clientes.Sucursal = Sucursales.ID_Sucursal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (YEAR(LEFTH."& _ 
+                "fecha) > YEAR(?)) AND (MONTH(LEFTH.fecha) > MONTH(?)) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   (YEAR(LEFTH.fecha) > YEAR(?) + 1)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Sucursales.Nombre_Sucursal"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param1", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param2", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
