@@ -35,7 +35,7 @@ Public Class FrmGarantiasEjercidas
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         If IsNumeric(TxtInte.Text) And IsNumeric(TxtCapital.Text) And IsNumeric(TxtImporte.Text) Then
-            CalculaInteres()
+            'CalculaInteres()
             Me.SaldoGarantiaEjercidaTableAdapter.Insert(GarantiaEjercidaRESUMBindingSource.Current("id_contrato"),
             0, TxtCapital.Text, TxtInte.Text, TxtTasa.Text, DtpIni.Value, DtpFin.Value, Date.Now, DtpRec.Value, TxtImporte.Text, 0, 0)
             CmbCli_SelectedIndexChanged(Nothing, Nothing)
@@ -64,7 +64,7 @@ Public Class FrmGarantiasEjercidas
     End Sub
 
     Private Sub TxtTasa_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtTasa.TextChanged
-        CalculaInteres()
+        'CalculaInteres()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click

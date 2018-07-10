@@ -4994,43 +4994,11 @@ Partial Public Class DescuentosDS
         
         Private columnnb_sucursal As Global.System.Data.DataColumn
         
-        Private columnnombre_sucursal As Global.System.Data.DataColumn
-        
-        Private columnesquema_cobro As Global.System.Data.DataColumn
-        
-        Private columnclave_esquema As Global.System.Data.DataColumn
-        
-        Private columnperiodo_cobro As Global.System.Data.DataColumn
-        
         Private columnfondo_reserva As Global.System.Data.DataColumn
-        
-        Private columndescripcion_prestamo As Global.System.Data.DataColumn
-        
-        Private columnmedida As Global.System.Data.DataColumn
-        
-        Private columnmodena As Global.System.Data.DataColumn
-        
-        Private columndes_tipo_tasa As Global.System.Data.DataColumn
-        
-        Private columnconcepto As Global.System.Data.DataColumn
-        
-        Private columnclase As Global.System.Data.DataColumn
-        
-        Private columnactividad_clave As Global.System.Data.DataColumn
         
         Private columnid_rama As Global.System.Data.DataColumn
         
         Private columnid_subrama As Global.System.Data.DataColumn
-        
-        Private columnprograma As Global.System.Data.DataColumn
-        
-        Private columnclave_programa As Global.System.Data.DataColumn
-        
-        Private columnministracion_monto As Global.System.Data.DataColumn
-        
-        Private columnfe_descuento As Global.System.Data.DataColumn
-        
-        Private columnfecha_ministracion As Global.System.Data.DataColumn
         
         Private columnTipoCredito As Global.System.Data.DataColumn
         
@@ -5046,10 +5014,6 @@ Partial Public Class DescuentosDS
         
         Private columnutilidad As Global.System.Data.DataColumn
         
-        Private columndescripcion_producto_fira As Global.System.Data.DataColumn
-        
-        Private columndesc As Global.System.Data.DataColumn
-        
         Private columnmonto_garantia As Global.System.Data.DataColumn
         
         Private columnFechaCorte As Global.System.Data.DataColumn
@@ -5061,12 +5025,6 @@ Partial Public Class DescuentosDS
         Private columncadena As Global.System.Data.DataColumn
         
         Private columntipo_garantia As Global.System.Data.DataColumn
-        
-        Private columncategoria As Global.System.Data.DataColumn
-        
-        Private columnIntermediario As Global.System.Data.DataColumn
-        
-        Private columnestatus As Global.System.Data.DataColumn
         
         Private columnperiodo_capital As Global.System.Data.DataColumn
         
@@ -5104,8 +5062,6 @@ Partial Public Class DescuentosDS
         
         Private columnid_contrato As Global.System.Data.DataColumn
         
-        Private columnnombre_intermediario As Global.System.Data.DataColumn
-        
         Private columnFN As Global.System.Data.DataColumn
         
         Private columnFB As Global.System.Data.DataColumn
@@ -5117,6 +5073,8 @@ Partial Public Class DescuentosDS
         Private columnTasaTiie As Global.System.Data.DataColumn
         
         Private columnID_acreditado As Global.System.Data.DataColumn
+        
+        Private columnmodena As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -5443,97 +5401,9 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property nombre_sucursalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnnombre_sucursal
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property esquema_cobroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnesquema_cobro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property clave_esquemaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnclave_esquema
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property periodo_cobroColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnperiodo_cobro
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property fondo_reservaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnfondo_reserva
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property descripcion_prestamoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndescripcion_prestamo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property medidaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnmedida
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property modenaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnmodena
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property des_tipo_tasaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndes_tipo_tasa
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property conceptoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnconcepto
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property claseColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnclase
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property actividad_claveColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnactividad_clave
             End Get
         End Property
         
@@ -5550,46 +5420,6 @@ Partial Public Class DescuentosDS
         Public ReadOnly Property id_subramaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnid_subrama
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property programaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnprograma
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property clave_programaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnclave_programa
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ministracion_montoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnministracion_monto
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property fe_descuentoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnfe_descuento
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property fecha_ministracionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnfecha_ministracion
             End Get
         End Property
         
@@ -5651,22 +5481,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property descripcion_producto_firaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndescripcion_producto_fira
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property descColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndesc
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property monto_garantiaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnmonto_garantia
@@ -5710,30 +5524,6 @@ Partial Public Class DescuentosDS
         Public ReadOnly Property tipo_garantiaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columntipo_garantia
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property categoriaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncategoria
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property IntermediarioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIntermediario
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property estatusColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnestatus
             End Get
         End Property
         
@@ -5883,14 +5673,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property nombre_intermediarioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnnombre_intermediario
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property FNColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnFN
@@ -5934,6 +5716,14 @@ Partial Public Class DescuentosDS
         Public ReadOnly Property ID_acreditadoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnID_acreditado
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property modenaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmodena
             End Get
         End Property
         
@@ -6011,25 +5801,9 @@ Partial Public Class DescuentosDS
                     ByVal num_control As String,  _
                     ByVal capacidad_instalada As Decimal,  _
                     ByVal nb_sucursal As Integer,  _
-                    ByVal nombre_sucursal As String,  _
-                    ByVal esquema_cobro As String,  _
-                    ByVal clave_esquema As String,  _
-                    ByVal periodo_cobro As String,  _
                     ByVal fondo_reserva As Decimal,  _
-                    ByVal descripcion_prestamo As String,  _
-                    ByVal medida As String,  _
-                    ByVal modena As String,  _
-                    ByVal des_tipo_tasa As String,  _
-                    ByVal concepto As Integer,  _
-                    ByVal clase As String,  _
-                    ByVal actividad_clave As String,  _
                     ByVal id_rama As Integer,  _
                     ByVal id_subrama As Integer,  _
-                    ByVal programa As String,  _
-                    ByVal clave_programa As String,  _
-                    ByVal ministracion_monto As Decimal,  _
-                    ByVal fe_descuento As Date,  _
-                    ByVal fecha_ministracion As Date,  _
                     ByVal TipoCredito As String,  _
                     ByVal fe_balance As Date,  _
                     ByVal activo_fijo As Decimal,  _
@@ -6037,17 +5811,12 @@ Partial Public Class DescuentosDS
                     ByVal ingresos As Decimal,  _
                     ByVal egresos As Decimal,  _
                     ByVal utilidad As Decimal,  _
-                    ByVal descripcion_producto_fira As String,  _
-                    ByVal desc As String,  _
                     ByVal monto_garantia As Decimal,  _
                     ByVal FechaCorte As Date,  _
                     ByVal CorteFinMES As Boolean,  _
                     ByVal plazo As Integer,  _
                     ByVal cadena As Integer,  _
                     ByVal tipo_garantia As Integer,  _
-                    ByVal categoria As String,  _
-                    ByVal Intermediario As Integer,  _
-                    ByVal estatus As String,  _
                     ByVal periodo_capital As String,  _
                     ByVal periodo_interes As String,  _
                     ByVal periodo_revision As String,  _
@@ -6066,15 +5835,15 @@ Partial Public Class DescuentosDS
                     ByVal id_credito As String,  _
                     ByVal ingreso_neto As Decimal,  _
                     ByVal id_contrato As Integer,  _
-                    ByVal nombre_intermediario As String,  _
                     ByVal FN As Decimal,  _
                     ByVal FB As Decimal,  _
                     ByVal fechaCont As String,  _
                     ByVal TiieActiva As Decimal,  _
                     ByVal TasaTiie As String,  _
-                    ByVal ID_acreditado As String) As vw_descuentosRow
+                    ByVal ID_acreditado As String,  _
+                    ByVal modena As String) As vw_descuentosRow
             Dim rowvw_descuentosRow As vw_descuentosRow = CType(Me.NewRow,vw_descuentosRow)
-            Dim columnValuesArray() As Object = New Object() {AnexoCon, Ciclo, fecha, Prenda, GHipotec, Cultivo, Fondeotit, Fechacon, fechaVEN, Descr, Tipo, RFC, CURP, Genero, id_autorizacion, monto, id_sustitucion, clave, num_socios, id_seguro, mvsm, valor_garantia, linea_autorizada, jornales, aportacion_acreditado, estrato, BP, capital_contable, programa_especial, programa_z25, garantia_mosusa, gl_mosusa, id_localidad, num_control, capacidad_instalada, nb_sucursal, nombre_sucursal, esquema_cobro, clave_esquema, periodo_cobro, fondo_reserva, descripcion_prestamo, medida, modena, des_tipo_tasa, concepto, clase, actividad_clave, id_rama, id_subrama, programa, clave_programa, ministracion_monto, fe_descuento, fecha_ministracion, TipoCredito, fe_balance, activo_fijo, activo_total, ingresos, egresos, utilidad, descripcion_producto_fira, desc, monto_garantia, FechaCorte, CorteFinMES, plazo, cadena, tipo_garantia, categoria, Intermediario, estatus, periodo_capital, periodo_interes, periodo_revision, participa_IFND, apoyo_SIEBAN, concepto_inv, id_periodo_capital, id_periodo_interes, id_periodo_revision, porcentaje_GFEGA, porcentaje_Gliquida, porcentaje_cxsg, fecha_pagare, secuencial_banco, id_contrato_siiof, id_credito, ingreso_neto, id_contrato, nombre_intermediario, FN, FB, fechaCont, TiieActiva, TasaTiie, ID_acreditado}
+            Dim columnValuesArray() As Object = New Object() {AnexoCon, Ciclo, fecha, Prenda, GHipotec, Cultivo, Fondeotit, Fechacon, fechaVEN, Descr, Tipo, RFC, CURP, Genero, id_autorizacion, monto, id_sustitucion, clave, num_socios, id_seguro, mvsm, valor_garantia, linea_autorizada, jornales, aportacion_acreditado, estrato, BP, capital_contable, programa_especial, programa_z25, garantia_mosusa, gl_mosusa, id_localidad, num_control, capacidad_instalada, nb_sucursal, fondo_reserva, id_rama, id_subrama, TipoCredito, fe_balance, activo_fijo, activo_total, ingresos, egresos, utilidad, monto_garantia, FechaCorte, CorteFinMES, plazo, cadena, tipo_garantia, periodo_capital, periodo_interes, periodo_revision, participa_IFND, apoyo_SIEBAN, concepto_inv, id_periodo_capital, id_periodo_interes, id_periodo_revision, porcentaje_GFEGA, porcentaje_Gliquida, porcentaje_cxsg, fecha_pagare, secuencial_banco, id_contrato_siiof, id_credito, ingreso_neto, id_contrato, FN, FB, fechaCont, TiieActiva, TasaTiie, ID_acreditado, modena}
             rowvw_descuentosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowvw_descuentosRow)
             Return rowvw_descuentosRow
@@ -6139,25 +5908,9 @@ Partial Public Class DescuentosDS
             Me.columnnum_control = MyBase.Columns("num_control")
             Me.columncapacidad_instalada = MyBase.Columns("capacidad_instalada")
             Me.columnnb_sucursal = MyBase.Columns("nb_sucursal")
-            Me.columnnombre_sucursal = MyBase.Columns("nombre_sucursal")
-            Me.columnesquema_cobro = MyBase.Columns("esquema_cobro")
-            Me.columnclave_esquema = MyBase.Columns("clave_esquema")
-            Me.columnperiodo_cobro = MyBase.Columns("periodo_cobro")
             Me.columnfondo_reserva = MyBase.Columns("fondo_reserva")
-            Me.columndescripcion_prestamo = MyBase.Columns("descripcion_prestamo")
-            Me.columnmedida = MyBase.Columns("medida")
-            Me.columnmodena = MyBase.Columns("modena")
-            Me.columndes_tipo_tasa = MyBase.Columns("des_tipo_tasa")
-            Me.columnconcepto = MyBase.Columns("concepto")
-            Me.columnclase = MyBase.Columns("clase")
-            Me.columnactividad_clave = MyBase.Columns("actividad_clave")
             Me.columnid_rama = MyBase.Columns("id_rama")
             Me.columnid_subrama = MyBase.Columns("id_subrama")
-            Me.columnprograma = MyBase.Columns("programa")
-            Me.columnclave_programa = MyBase.Columns("clave_programa")
-            Me.columnministracion_monto = MyBase.Columns("ministracion_monto")
-            Me.columnfe_descuento = MyBase.Columns("fe_descuento")
-            Me.columnfecha_ministracion = MyBase.Columns("fecha_ministracion")
             Me.columnTipoCredito = MyBase.Columns("TipoCredito")
             Me.columnfe_balance = MyBase.Columns("fe_balance")
             Me.columnactivo_fijo = MyBase.Columns("activo_fijo")
@@ -6165,17 +5918,12 @@ Partial Public Class DescuentosDS
             Me.columningresos = MyBase.Columns("ingresos")
             Me.columnegresos = MyBase.Columns("egresos")
             Me.columnutilidad = MyBase.Columns("utilidad")
-            Me.columndescripcion_producto_fira = MyBase.Columns("descripcion_producto_fira")
-            Me.columndesc = MyBase.Columns("desc")
             Me.columnmonto_garantia = MyBase.Columns("monto_garantia")
             Me.columnFechaCorte = MyBase.Columns("FechaCorte")
             Me.columnCorteFinMES = MyBase.Columns("CorteFinMES")
             Me.columnplazo = MyBase.Columns("plazo")
             Me.columncadena = MyBase.Columns("cadena")
             Me.columntipo_garantia = MyBase.Columns("tipo_garantia")
-            Me.columncategoria = MyBase.Columns("categoria")
-            Me.columnIntermediario = MyBase.Columns("Intermediario")
-            Me.columnestatus = MyBase.Columns("estatus")
             Me.columnperiodo_capital = MyBase.Columns("periodo_capital")
             Me.columnperiodo_interes = MyBase.Columns("periodo_interes")
             Me.columnperiodo_revision = MyBase.Columns("periodo_revision")
@@ -6194,13 +5942,13 @@ Partial Public Class DescuentosDS
             Me.columnid_credito = MyBase.Columns("id_credito")
             Me.columningreso_neto = MyBase.Columns("ingreso_neto")
             Me.columnid_contrato = MyBase.Columns("id_contrato")
-            Me.columnnombre_intermediario = MyBase.Columns("nombre_intermediario")
             Me.columnFN = MyBase.Columns("FN")
             Me.columnFB = MyBase.Columns("FB")
             Me.columnfechaCont = MyBase.Columns("fechaCont")
             Me.columnTiieActiva = MyBase.Columns("TiieActiva")
             Me.columnTasaTiie = MyBase.Columns("TasaTiie")
             Me.columnID_acreditado = MyBase.Columns("ID_acreditado")
+            Me.columnmodena = MyBase.Columns("modena")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6278,44 +6026,12 @@ Partial Public Class DescuentosDS
             MyBase.Columns.Add(Me.columncapacidad_instalada)
             Me.columnnb_sucursal = New Global.System.Data.DataColumn("nb_sucursal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnb_sucursal)
-            Me.columnnombre_sucursal = New Global.System.Data.DataColumn("nombre_sucursal", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnombre_sucursal)
-            Me.columnesquema_cobro = New Global.System.Data.DataColumn("esquema_cobro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnesquema_cobro)
-            Me.columnclave_esquema = New Global.System.Data.DataColumn("clave_esquema", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnclave_esquema)
-            Me.columnperiodo_cobro = New Global.System.Data.DataColumn("periodo_cobro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnperiodo_cobro)
             Me.columnfondo_reserva = New Global.System.Data.DataColumn("fondo_reserva", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfondo_reserva)
-            Me.columndescripcion_prestamo = New Global.System.Data.DataColumn("descripcion_prestamo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndescripcion_prestamo)
-            Me.columnmedida = New Global.System.Data.DataColumn("medida", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnmedida)
-            Me.columnmodena = New Global.System.Data.DataColumn("modena", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnmodena)
-            Me.columndes_tipo_tasa = New Global.System.Data.DataColumn("des_tipo_tasa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndes_tipo_tasa)
-            Me.columnconcepto = New Global.System.Data.DataColumn("concepto", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnconcepto)
-            Me.columnclase = New Global.System.Data.DataColumn("clase", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnclase)
-            Me.columnactividad_clave = New Global.System.Data.DataColumn("actividad_clave", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnactividad_clave)
             Me.columnid_rama = New Global.System.Data.DataColumn("id_rama", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_rama)
             Me.columnid_subrama = New Global.System.Data.DataColumn("id_subrama", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_subrama)
-            Me.columnprograma = New Global.System.Data.DataColumn("programa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnprograma)
-            Me.columnclave_programa = New Global.System.Data.DataColumn("clave_programa", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnclave_programa)
-            Me.columnministracion_monto = New Global.System.Data.DataColumn("ministracion_monto", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnministracion_monto)
-            Me.columnfe_descuento = New Global.System.Data.DataColumn("fe_descuento", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfe_descuento)
-            Me.columnfecha_ministracion = New Global.System.Data.DataColumn("fecha_ministracion", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfecha_ministracion)
             Me.columnTipoCredito = New Global.System.Data.DataColumn("TipoCredito", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTipoCredito)
             Me.columnfe_balance = New Global.System.Data.DataColumn("fe_balance", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -6330,10 +6046,6 @@ Partial Public Class DescuentosDS
             MyBase.Columns.Add(Me.columnegresos)
             Me.columnutilidad = New Global.System.Data.DataColumn("utilidad", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnutilidad)
-            Me.columndescripcion_producto_fira = New Global.System.Data.DataColumn("descripcion_producto_fira", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndescripcion_producto_fira)
-            Me.columndesc = New Global.System.Data.DataColumn("desc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndesc)
             Me.columnmonto_garantia = New Global.System.Data.DataColumn("monto_garantia", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmonto_garantia)
             Me.columnFechaCorte = New Global.System.Data.DataColumn("FechaCorte", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -6346,12 +6058,6 @@ Partial Public Class DescuentosDS
             MyBase.Columns.Add(Me.columncadena)
             Me.columntipo_garantia = New Global.System.Data.DataColumn("tipo_garantia", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntipo_garantia)
-            Me.columncategoria = New Global.System.Data.DataColumn("categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncategoria)
-            Me.columnIntermediario = New Global.System.Data.DataColumn("Intermediario", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIntermediario)
-            Me.columnestatus = New Global.System.Data.DataColumn("estatus", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnestatus)
             Me.columnperiodo_capital = New Global.System.Data.DataColumn("periodo_capital", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnperiodo_capital)
             Me.columnperiodo_interes = New Global.System.Data.DataColumn("periodo_interes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -6388,8 +6094,6 @@ Partial Public Class DescuentosDS
             MyBase.Columns.Add(Me.columningreso_neto)
             Me.columnid_contrato = New Global.System.Data.DataColumn("id_contrato", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_contrato)
-            Me.columnnombre_intermediario = New Global.System.Data.DataColumn("nombre_intermediario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnombre_intermediario)
             Me.columnFN = New Global.System.Data.DataColumn("FN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFN)
             Me.columnFB = New Global.System.Data.DataColumn("FB", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -6402,6 +6106,8 @@ Partial Public Class DescuentosDS
             MyBase.Columns.Add(Me.columnTasaTiie)
             Me.columnID_acreditado = New Global.System.Data.DataColumn("ID_acreditado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID_acreditado)
+            Me.columnmodena = New Global.System.Data.DataColumn("modena", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmodena)
             Me.columnAnexoCon.ReadOnly = true
             Me.columnAnexoCon.MaxLength = 11
             Me.columnCiclo.ReadOnly = true
@@ -6416,7 +6122,6 @@ Partial Public Class DescuentosDS
             Me.columnCultivo.MaxLength = 20
             Me.columnFondeotit.ReadOnly = true
             Me.columnFondeotit.MaxLength = 7
-            Me.columnFechacon.AllowDBNull = false
             Me.columnFechacon.MaxLength = 8
             Me.columnfechaVEN.ReadOnly = true
             Me.columnfechaVEN.MaxLength = 10
@@ -6438,26 +6143,7 @@ Partial Public Class DescuentosDS
             Me.columnprograma_z25.MaxLength = 50
             Me.columnid_localidad.MaxLength = 250
             Me.columnnum_control.MaxLength = 25
-            Me.columnnombre_sucursal.MaxLength = 50
-            Me.columnesquema_cobro.AllowDBNull = false
-            Me.columnesquema_cobro.MaxLength = 50
-            Me.columnclave_esquema.ReadOnly = true
-            Me.columnclave_esquema.MaxLength = 10
-            Me.columnperiodo_cobro.MaxLength = 50
-            Me.columndescripcion_prestamo.MaxLength = 50
-            Me.columnmedida.MaxLength = 50
-            Me.columnmodena.MaxLength = 50
-            Me.columndes_tipo_tasa.MaxLength = 20
-            Me.columnclase.MaxLength = 50
-            Me.columnactividad_clave.MaxLength = 10
-            Me.columnprograma.MaxLength = 50
-            Me.columnclave_programa.MaxLength = 10
             Me.columnTipoCredito.MaxLength = 50
-            Me.columndescripcion_producto_fira.AllowDBNull = false
-            Me.columndescripcion_producto_fira.MaxLength = 50
-            Me.columndesc.MaxLength = 50
-            Me.columncategoria.MaxLength = 50
-            Me.columnestatus.MaxLength = 50
             Me.columnperiodo_capital.ReadOnly = true
             Me.columnperiodo_capital.MaxLength = 50
             Me.columnperiodo_interes.ReadOnly = true
@@ -6467,11 +6153,12 @@ Partial Public Class DescuentosDS
             Me.columnapoyo_SIEBAN.MaxLength = 50
             Me.columnid_credito.MaxLength = 10
             Me.columnid_contrato.AllowDBNull = false
-            Me.columnnombre_intermediario.MaxLength = 50
             Me.columnfechaCont.ReadOnly = true
             Me.columnfechaCont.MaxLength = 10
             Me.columnTasaTiie.MaxLength = 10
             Me.columnID_acreditado.MaxLength = 50
+            Me.columnmodena.AllowDBNull = false
+            Me.columnmodena.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9508,7 +9195,11 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Fechacon() As String
             Get
-                Return CType(Me(Me.tablevw_descuentos.FechaconColumn),String)
+                Try 
+                    Return CType(Me(Me.tablevw_descuentos.FechaconColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fechacon' de la tabla 'vw_descuentos' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tablevw_descuentos.FechaconColumn) = value
@@ -9924,62 +9615,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property nombre_sucursal() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.nombre_sucursalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre_sucursal' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.nombre_sucursalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property esquema_cobro() As String
-            Get
-                Return CType(Me(Me.tablevw_descuentos.esquema_cobroColumn),String)
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.esquema_cobroColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property clave_esquema() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.clave_esquemaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'clave_esquema' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.clave_esquemaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property periodo_cobro() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.periodo_cobroColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'periodo_cobro' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.periodo_cobroColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property fondo_reserva() As Decimal
             Get
                 Try 
@@ -9990,112 +9625,6 @@ Partial Public Class DescuentosDS
             End Get
             Set
                 Me(Me.tablevw_descuentos.fondo_reservaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property descripcion_prestamo() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.descripcion_prestamoColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'descripcion_prestamo' de la tabla 'vw_descuentos' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.descripcion_prestamoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property medida() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.medidaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'medida' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.medidaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property modena() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.modenaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'modena' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.modenaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property des_tipo_tasa() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.des_tipo_tasaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'des_tipo_tasa' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.des_tipo_tasaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property concepto() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.conceptoColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'concepto' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.conceptoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property clase() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.claseColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'clase' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.claseColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property actividad_clave() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.actividad_claveColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'actividad_clave' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.actividad_claveColumn) = value
             End Set
         End Property
         
@@ -10126,83 +9655,6 @@ Partial Public Class DescuentosDS
             End Get
             Set
                 Me(Me.tablevw_descuentos.id_subramaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property programa() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.programaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'programa' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.programaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property clave_programa() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.clave_programaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'clave_programa' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.clave_programaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ministracion_monto() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.ministracion_montoColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ministracion_monto' de la tabla 'vw_descuentos' es DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.ministracion_montoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property fe_descuento() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.fe_descuentoColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fe_descuento' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.fe_descuentoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property fecha_ministracion() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.fecha_ministracionColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fecha_ministracion' de la tabla 'vw_descuentos' es DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.fecha_ministracionColumn) = value
             End Set
         End Property
         
@@ -10313,32 +9765,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property descripcion_producto_fira() As String
-            Get
-                Return CType(Me(Me.tablevw_descuentos.descripcion_producto_firaColumn),String)
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.descripcion_producto_firaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property desc() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.descColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'desc' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.descColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property monto_garantia() As Decimal
             Get
                 Try 
@@ -10424,51 +9850,6 @@ Partial Public Class DescuentosDS
             End Get
             Set
                 Me(Me.tablevw_descuentos.tipo_garantiaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property categoria() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.categoriaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'categoria' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.categoriaColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Intermediario() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.IntermediarioColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Intermediario' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.IntermediarioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property estatus() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.estatusColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estatus' de la tabla 'vw_descuentos' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.estatusColumn) = value
             End Set
         End Property
         
@@ -10745,22 +10126,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property nombre_intermediario() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablevw_descuentos.nombre_intermediarioColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre_intermediario' de la tabla 'vw_descuentos' es DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablevw_descuentos.nombre_intermediarioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property FN() As Decimal
             Get
                 Try 
@@ -10851,6 +10216,17 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property modena() As String
+            Get
+                Return CType(Me(Me.tablevw_descuentos.modenaColumn),String)
+            End Get
+            Set
+                Me(Me.tablevw_descuentos.modenaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsAnexoConNull() As Boolean
             Return Me.IsNull(Me.tablevw_descuentos.AnexoConColumn)
         End Function
@@ -10931,6 +10307,18 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetFondeotitNull()
             Me(Me.tablevw_descuentos.FondeotitColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsFechaconNull() As Boolean
+            Return Me.IsNull(Me.tablevw_descuentos.FechaconColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetFechaconNull()
+            Me(Me.tablevw_descuentos.FechaconColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11223,42 +10611,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isnombre_sucursalNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.nombre_sucursalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setnombre_sucursalNull()
-            Me(Me.tablevw_descuentos.nombre_sucursalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isclave_esquemaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.clave_esquemaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setclave_esquemaNull()
-            Me(Me.tablevw_descuentos.clave_esquemaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isperiodo_cobroNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.periodo_cobroColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setperiodo_cobroNull()
-            Me(Me.tablevw_descuentos.periodo_cobroColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function Isfondo_reservaNull() As Boolean
             Return Me.IsNull(Me.tablevw_descuentos.fondo_reservaColumn)
         End Function
@@ -11267,90 +10619,6 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setfondo_reservaNull()
             Me(Me.tablevw_descuentos.fondo_reservaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isdescripcion_prestamoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.descripcion_prestamoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setdescripcion_prestamoNull()
-            Me(Me.tablevw_descuentos.descripcion_prestamoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsmedidaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.medidaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetmedidaNull()
-            Me(Me.tablevw_descuentos.medidaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsmodenaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.modenaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetmodenaNull()
-            Me(Me.tablevw_descuentos.modenaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isdes_tipo_tasaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.des_tipo_tasaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setdes_tipo_tasaNull()
-            Me(Me.tablevw_descuentos.des_tipo_tasaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsconceptoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.conceptoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetconceptoNull()
-            Me(Me.tablevw_descuentos.conceptoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsclaseNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.claseColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetclaseNull()
-            Me(Me.tablevw_descuentos.claseColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isactividad_claveNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.actividad_claveColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setactividad_claveNull()
-            Me(Me.tablevw_descuentos.actividad_claveColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11375,66 +10643,6 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setid_subramaNull()
             Me(Me.tablevw_descuentos.id_subramaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsprogramaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.programaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetprogramaNull()
-            Me(Me.tablevw_descuentos.programaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isclave_programaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.clave_programaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setclave_programaNull()
-            Me(Me.tablevw_descuentos.clave_programaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isministracion_montoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.ministracion_montoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setministracion_montoNull()
-            Me(Me.tablevw_descuentos.ministracion_montoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isfe_descuentoNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.fe_descuentoColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setfe_descuentoNull()
-            Me(Me.tablevw_descuentos.fe_descuentoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isfecha_ministracionNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.fecha_ministracionColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setfecha_ministracionNull()
-            Me(Me.tablevw_descuentos.fecha_ministracionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11523,18 +10731,6 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsdescNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.descColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetdescNull()
-            Me(Me.tablevw_descuentos.descColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function Ismonto_garantiaNull() As Boolean
             Return Me.IsNull(Me.tablevw_descuentos.monto_garantiaColumn)
         End Function
@@ -11603,42 +10799,6 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Settipo_garantiaNull()
             Me(Me.tablevw_descuentos.tipo_garantiaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IscategoriaNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.categoriaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetcategoriaNull()
-            Me(Me.tablevw_descuentos.categoriaColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsIntermediarioNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.IntermediarioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetIntermediarioNull()
-            Me(Me.tablevw_descuentos.IntermediarioColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsestatusNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.estatusColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetestatusNull()
-            Me(Me.tablevw_descuentos.estatusColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11843,18 +11003,6 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setingreso_netoNull()
             Me(Me.tablevw_descuentos.ingreso_netoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function Isnombre_intermediarioNull() As Boolean
-            Return Me.IsNull(Me.tablevw_descuentos.nombre_intermediarioColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub Setnombre_intermediarioNull()
-            Me(Me.tablevw_descuentos.nombre_intermediarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16246,25 +15394,9 @@ Namespace DescuentosDSTableAdapters
             tableMapping.ColumnMappings.Add("num_control", "num_control")
             tableMapping.ColumnMappings.Add("capacidad_instalada", "capacidad_instalada")
             tableMapping.ColumnMappings.Add("nb_sucursal", "nb_sucursal")
-            tableMapping.ColumnMappings.Add("nombre_sucursal", "nombre_sucursal")
-            tableMapping.ColumnMappings.Add("esquema_cobro", "esquema_cobro")
-            tableMapping.ColumnMappings.Add("clave_esquema", "clave_esquema")
-            tableMapping.ColumnMappings.Add("periodo_cobro", "periodo_cobro")
             tableMapping.ColumnMappings.Add("fondo_reserva", "fondo_reserva")
-            tableMapping.ColumnMappings.Add("descripcion_prestamo", "descripcion_prestamo")
-            tableMapping.ColumnMappings.Add("medida", "medida")
-            tableMapping.ColumnMappings.Add("modena", "modena")
-            tableMapping.ColumnMappings.Add("des_tipo_tasa", "des_tipo_tasa")
-            tableMapping.ColumnMappings.Add("concepto", "concepto")
-            tableMapping.ColumnMappings.Add("clase", "clase")
-            tableMapping.ColumnMappings.Add("actividad_clave", "actividad_clave")
             tableMapping.ColumnMappings.Add("id_rama", "id_rama")
             tableMapping.ColumnMappings.Add("id_subrama", "id_subrama")
-            tableMapping.ColumnMappings.Add("programa", "programa")
-            tableMapping.ColumnMappings.Add("clave_programa", "clave_programa")
-            tableMapping.ColumnMappings.Add("ministracion_monto", "ministracion_monto")
-            tableMapping.ColumnMappings.Add("fe_descuento", "fe_descuento")
-            tableMapping.ColumnMappings.Add("fecha_ministracion", "fecha_ministracion")
             tableMapping.ColumnMappings.Add("TipoCredito", "TipoCredito")
             tableMapping.ColumnMappings.Add("fe_balance", "fe_balance")
             tableMapping.ColumnMappings.Add("activo_fijo", "activo_fijo")
@@ -16272,17 +15404,12 @@ Namespace DescuentosDSTableAdapters
             tableMapping.ColumnMappings.Add("ingresos", "ingresos")
             tableMapping.ColumnMappings.Add("egresos", "egresos")
             tableMapping.ColumnMappings.Add("utilidad", "utilidad")
-            tableMapping.ColumnMappings.Add("descripcion_producto_fira", "descripcion_producto_fira")
-            tableMapping.ColumnMappings.Add("desc", "desc")
             tableMapping.ColumnMappings.Add("monto_garantia", "monto_garantia")
             tableMapping.ColumnMappings.Add("FechaCorte", "FechaCorte")
             tableMapping.ColumnMappings.Add("CorteFinMES", "CorteFinMES")
             tableMapping.ColumnMappings.Add("plazo", "plazo")
             tableMapping.ColumnMappings.Add("cadena", "cadena")
             tableMapping.ColumnMappings.Add("tipo_garantia", "tipo_garantia")
-            tableMapping.ColumnMappings.Add("categoria", "categoria")
-            tableMapping.ColumnMappings.Add("Intermediario", "Intermediario")
-            tableMapping.ColumnMappings.Add("estatus", "estatus")
             tableMapping.ColumnMappings.Add("periodo_capital", "periodo_capital")
             tableMapping.ColumnMappings.Add("periodo_interes", "periodo_interes")
             tableMapping.ColumnMappings.Add("periodo_revision", "periodo_revision")
@@ -16301,13 +15428,13 @@ Namespace DescuentosDSTableAdapters
             tableMapping.ColumnMappings.Add("id_credito", "id_credito")
             tableMapping.ColumnMappings.Add("ingreso_neto", "ingreso_neto")
             tableMapping.ColumnMappings.Add("id_contrato", "id_contrato")
-            tableMapping.ColumnMappings.Add("nombre_intermediario", "nombre_intermediario")
             tableMapping.ColumnMappings.Add("FN", "FN")
             tableMapping.ColumnMappings.Add("FB", "FB")
             tableMapping.ColumnMappings.Add("fechaCont", "fechaCont")
             tableMapping.ColumnMappings.Add("TiieActiva", "TiieActiva")
             tableMapping.ColumnMappings.Add("TasaTiie", "TasaTiie")
             tableMapping.ColumnMappings.Add("ID_acreditado", "ID_acreditado")
+            tableMapping.ColumnMappings.Add("modena", "modena")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -16326,24 +15453,19 @@ Namespace DescuentosDSTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        AnexoCon, Ciclo, fecha, Prenda, GHipotec, Cultivo, Fondeotit, Fecha"& _ 
                 "con, fechaVEN, Descr, Tipo, RFC, CURP, Genero, id_autorizacion, monto, id_sustit"& _ 
-                "ucion, clave, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         num_socios, id_seguro, mvsm, valor_gara"& _ 
-                "ntia, linea_autorizada, jornales, aportacion_acreditado, estrato, BP, capital_co"& _ 
-                "ntable, programa_especial, programa_z25, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         garantia_mos"& _ 
-                "usa, gl_mosusa, id_localidad, num_control, capacidad_instalada, nb_sucursal, nom"& _ 
-                "bre_sucursal, esquema_cobro, clave_esquema, periodo_cobro, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      fondo_reserva, descripcion_prestamo, medida, modena, des_tipo_tasa, concep"& _ 
-                "to, clase, actividad_clave, id_rama, id_subrama, programa, clave_programa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      ministracion_monto, fe_descuento, fecha_ministracion, Tipo"& _ 
-                "Credito, fe_balance, activo_fijo, activo_total, ingresos, egresos, utilidad, des"& _ 
-                "cripcion_producto_fira, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [desc], monto_garantia, Fecha"& _ 
-                "Corte, CorteFinMES, plazo, cadena, tipo_garantia, categoria, Intermediario, esta"& _ 
-                "tus, periodo_capital, periodo_interes, periodo_revision, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "    participa_IFND, apoyo_SIEBAN, concepto_inv, id_periodo_capital, id_periodo_i"& _ 
-                "nteres, id_periodo_revision, porcentaje_GFEGA, porcentaje_Gliquida, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "               porcentaje_cxsg, fecha_pagare, secuencial_banco, id_contrato_siio"& _ 
-                "f, id_credito, ingreso_neto, id_contrato, nombre_intermediario, FN, FB, fechaCon"& _ 
-                "t, TiieActiva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TasaTiie, ID_acreditado"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
-                "   vw_descuentos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?)"
+                "ucion, clave, num_socios, id_seguro, mvsm, valor_garantia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      linea_autorizada, jornales, aportacion_acreditado, estrato, BP, capital_co"& _ 
+                "ntable, programa_especial, programa_z25, garantia_mosusa, gl_mosusa, id_localida"& _ 
+                "d, num_control, capacidad_instalada, nb_sucursal, fondo_reserva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            id_rama, id_subrama, TipoCredito, fe_balance, activo_fijo, activo_to"& _ 
+                "tal, ingresos, egresos, utilidad, monto_garantia, FechaCorte, CorteFinMES, plazo"& _ 
+                ", cadena, tipo_garantia, periodo_capital, periodo_interes, periodo_revision, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        participa_IFND, apoyo_SIEBAN, concepto_inv, id_periodo_c"& _ 
+                "apital, id_periodo_interes, id_periodo_revision, porcentaje_GFEGA, porcentaje_Gl"& _ 
+                "iquida, porcentaje_cxsg, fecha_pagare, secuencial_banco, id_contrato_siiof, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       id_credito, ingreso_neto, id_contrato, FN, FB, fechaCont,"& _ 
+                " TiieActiva, TasaTiie, ID_acreditado, modena"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            vw_CONT_CPF_descue"& _ 
+                "ntos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_contrato = ?)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub

@@ -51,7 +51,6 @@ Partial Class frm_contratos_alta
         Me.TxtIntermediario = New System.Windows.Forms.TextBox()
         Me.CONT_CPF_intermediariosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Lb_id_contrato = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.BT_IMPRIMIR = New System.Windows.Forms.Button()
         Me.Label63 = New System.Windows.Forms.Label()
         Me.Label59 = New System.Windows.Forms.Label()
@@ -452,7 +451,6 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.Controls.Add(Me.txt_aportacion)
         Me.lb_ciclo.Controls.Add(Me.TxtIntermediario)
         Me.lb_ciclo.Controls.Add(Me.Lb_id_contrato)
-        Me.lb_ciclo.Controls.Add(Me.Button1)
         Me.lb_ciclo.Controls.Add(Me.BT_IMPRIMIR)
         Me.lb_ciclo.Controls.Add(Me.Label63)
         Me.lb_ciclo.Controls.Add(Me.Label59)
@@ -632,15 +630,6 @@ Partial Class frm_contratos_alta
         Me.Lb_id_contrato.Size = New System.Drawing.Size(13, 13)
         Me.Lb_id_contrato.TabIndex = 188
         Me.Lb_id_contrato.Text = "0"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(508, 395)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(94, 23)
-        Me.Button1.TabIndex = 187
-        Me.Button1.Text = "Imprimir"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'BT_IMPRIMIR
         '
@@ -2610,7 +2599,6 @@ Partial Class frm_contratos_alta
     Friend WithEvents Label54 As System.Windows.Forms.Label
     Friend WithEvents BT_IMPRIMIR As System.Windows.Forms.Button
     Friend WithEvents lb_ciclo As System.Windows.Forms.TabPage
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Lb_id_contrato As Label
     Friend WithEvents TxtIntermediario As TextBox
     Friend WithEvents ViewcadenassubramasBindingSource As BindingSource

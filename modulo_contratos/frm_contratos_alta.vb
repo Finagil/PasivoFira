@@ -593,7 +593,7 @@ Public Class frm_contratos_alta
 
     End Sub
 
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) 
         frm_datos_contrato.Show()
     End Sub
 
