@@ -2987,7 +2987,6 @@ Partial Public Class DescuentosDS
             Me.columnid_contrato = New Global.System.Data.DataColumn("id_contrato", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_contrato)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_contrato}, true))
-            Me.columnAnexo.AllowDBNull = false
             Me.columnAnexo.MaxLength = 9
             Me.columnCiclo.ReadOnly = true
             Me.columnCiclo.MaxLength = 2
@@ -2995,9 +2994,7 @@ Partial Public Class DescuentosDS
             Me.columnAnexoCon.MaxLength = 11
             Me.columnCicloPagare.ReadOnly = true
             Me.columnCicloPagare.MaxLength = 14
-            Me.columnCliente.AllowDBNull = false
             Me.columnCliente.MaxLength = 5
-            Me.columnDescr.AllowDBNull = false
             Me.columnDescr.MaxLength = 120
             Me.columnid_credito.MaxLength = 10
             Me.columnid_contrato.AutoIncrement = true
@@ -4146,7 +4143,6 @@ Partial Public Class DescuentosDS
             Me.columnImporteGarantia.ReadOnly = true
             Me.columnCapitalRecuperado.ReadOnly = true
             Me.columnInteres.ReadOnly = true
-            Me.columnCliente.AllowDBNull = false
             Me.columnCliente.MaxLength = 5
             Me.columnAnexoCon.ReadOnly = true
             Me.columnAnexoCon.MaxLength = 11
@@ -8119,7 +8115,11 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Anexo() As String
             Get
-                Return CType(Me(Me.tableGarantiasEjer.AnexoColumn),String)
+                Try 
+                    Return CType(Me(Me.tableGarantiasEjer.AnexoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Anexo' de la tabla 'GarantiasEjer' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableGarantiasEjer.AnexoColumn) = value
@@ -8191,7 +8191,11 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Cliente() As String
             Get
-                Return CType(Me(Me.tableGarantiasEjer.ClienteColumn),String)
+                Try 
+                    Return CType(Me(Me.tableGarantiasEjer.ClienteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cliente' de la tabla 'GarantiasEjer' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableGarantiasEjer.ClienteColumn) = value
@@ -8202,7 +8206,11 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Descr() As String
             Get
-                Return CType(Me(Me.tableGarantiasEjer.DescrColumn),String)
+                Try 
+                    Return CType(Me(Me.tableGarantiasEjer.DescrColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Descr' de la tabla 'GarantiasEjer' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableGarantiasEjer.DescrColumn) = value
@@ -8234,6 +8242,18 @@ Partial Public Class DescuentosDS
                 Me(Me.tableGarantiasEjer.id_contratoColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsAnexoNull() As Boolean
+            Return Me.IsNull(Me.tableGarantiasEjer.AnexoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetAnexoNull()
+            Me(Me.tableGarantiasEjer.AnexoColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -8281,6 +8301,30 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setsaldo_contingenteNull()
             Me(Me.tableGarantiasEjer.saldo_contingenteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsClienteNull() As Boolean
+            Return Me.IsNull(Me.tableGarantiasEjer.ClienteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetClienteNull()
+            Me(Me.tableGarantiasEjer.ClienteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsDescrNull() As Boolean
+            Return Me.IsNull(Me.tableGarantiasEjer.DescrColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetDescrNull()
+            Me(Me.tableGarantiasEjer.DescrColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8871,7 +8915,11 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Cliente() As String
             Get
-                Return CType(Me(Me.tableGarantiaEjercidaRESUM.ClienteColumn),String)
+                Try 
+                    Return CType(Me(Me.tableGarantiaEjercidaRESUM.ClienteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Cliente' de la tabla 'GarantiaEjercidaRESUM' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableGarantiaEjercidaRESUM.ClienteColumn) = value
@@ -9046,6 +9094,18 @@ Partial Public Class DescuentosDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setcobertura_efectivaNull()
             Me(Me.tableGarantiaEjercidaRESUM.cobertura_efectivaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsClienteNull() As Boolean
+            Return Me.IsNull(Me.tableGarantiaEjercidaRESUM.ClienteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetClienteNull()
+            Me(Me.tableGarantiaEjercidaRESUM.ClienteColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14328,7 +14388,7 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor
+            Me._connection.ConnectionString = Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14337,33 +14397,34 @@ Namespace DescuentosDSTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     Vw_Anexos.Anexo, Vw_Anexos.Ciclo, Vw_Anexos.AnexoCon, Vw_Anexos.CicloP"& _ 
-                "agare, CONT_CPF_contratos_garantias.saldo_contingente, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      V"& _ 
-                "w_Anexos.Cliente, Vw_Anexos.Descr, CONT_CPF_contratos.id_credito, CONT_CPF_contr"& _ 
-                "atos.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "    CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contrato = CONT_CPF_co"& _ 
-                "ntratos_garantias.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Vw_Anexos ON CON"& _ 
-                "T_CPF_contratos.anexo = Vw_Anexos.Anexo AND CONT_CPF_contratos.ciclo = Vw_Anexos"& _ 
-                ".Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (Vw_Anexos.Cliente = ?) AND (NOT (CONT_CPF_contratos.id_contra"& _ 
-                "to IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                          (SELECT     id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "      FROM          CONT_CPF_SaldoGarantiaEjercida)))"
+            Me._commandCollection(0).CommandText = "SELECT        Vw_Anexos.Anexo, Vw_Anexos.Ciclo, Vw_Anexos.AnexoCon, Vw_Anexos.Cic"& _ 
+                "loPagare, CONT_CPF_contratos_garantias.saldo_contingente, CONT_CPF_contratos.Cli"& _ 
+                "ente, Vw_Anexos.Descr, CONT_CPF_contratos.id_credito, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " CONT_CPF_contratos.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_c"& _ 
+                "ontrato = CONT_CPF_contratos_garantias.id_contrato LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_Anexos.Anexo AND CONT_CP"& _ 
+                "F_contratos.ciclo = Vw_Anexos.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NOT (CONT_CPF_contratos.id_co"& _ 
+                "ntrato IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             (SELECT        id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "                   FROM            CONT_CPF_SaldoGarantiaEjercida))) AND (CONT_C"& _ 
+                "PF_contratos.Cliente = ?)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(1).CommandText = "SELECT        SUM(Importe) + SUM(FEGA) + SUM(Intereses) AS Saldo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
                 " DetalleFINAGIL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Anexo = ?) AND (Ciclo = ?)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(2).CommandText = "SELECT        ISNULL(MAX(SaldoFac), 0) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Vw_SaldosEnFactu"& _ 
                 "ra"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Anexo = ?)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(3).CommandText = "SELECT     MAX(fecha) AS Vencimiento"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_vencimientos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  "& _ 
                 "   (id_contrato = ?)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
@@ -14377,7 +14438,7 @@ Namespace DescuentosDSTableAdapters
         Public Overloads Overridable Function Fill(ByVal dataTable As DescuentosDS.GarantiasEjerDataTable, ByVal Cliente As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Cliente Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Cliente")
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cliente,String)
             End If
@@ -14395,7 +14456,7 @@ Namespace DescuentosDSTableAdapters
         Public Overloads Overridable Function GetData(ByVal Cliente As String) As DescuentosDS.GarantiasEjerDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Cliente Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Cliente")
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cliente,String)
             End If
@@ -14410,12 +14471,12 @@ Namespace DescuentosDSTableAdapters
         Public Overloads Overridable Function SaldoAnexoAV(ByVal Anexo As String, ByVal Ciclo As String) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
             If (Anexo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Anexo")
+                command.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(0).Value = CType(Anexo,String)
             End If
             If (Ciclo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Ciclo")
+                command.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(1).Value = CType(Ciclo,String)
             End If
@@ -14446,7 +14507,7 @@ Namespace DescuentosDSTableAdapters
         Public Overloads Overridable Function SaldoAnexoTRA(ByVal Anexo As String) As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
             If (Anexo Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Anexo")
+                command.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(0).Value = CType(Anexo,String)
             End If
@@ -14623,12 +14684,14 @@ Namespace DescuentosDSTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(1).CommandText = "SELECT RTRIM(Clientes.Descr) AS Nombre, CONT_CPF_contratos.Cliente FROM CONT_CPF_"& _ 
-                "contratos INNER JOIN CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contr"& _ 
-                "ato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN CONT_CPF_SaldoGarantia"& _ 
-                "Ejercida ON CONT_CPF_contratos.id_contrato = CONT_CPF_SaldoGarantiaEjercida.id_c"& _ 
-                "ontrato INNER JOIN Clientes ON CONT_CPF_contratos.Cliente = Clientes.Cliente GRO"& _ 
-                "UP BY CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr)"
+            Me._commandCollection(1).CommandText = "SELECT        RTRIM(Clientes.Descr) AS Nombre, CONT_CPF_contratos.Cliente"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          CONT_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contr"& _ 
+                "atos_garantias ON CONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias."& _ 
+                "id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_SaldoGarantiaEjercida "& _ 
+                "ON CONT_CPF_contratos.id_contrato = CONT_CPF_SaldoGarantiaEjercida.id_contrato I"& _ 
+                "NNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON CONT_CPF_contratos.Cliente = Cli"& _ 
+                "entes.Cliente"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY CONT_CPF_contratos.Cliente, RTRIM(Clientes.Descr)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER"& _ 
+                " BY Nombre"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -15497,21 +15560,22 @@ Namespace DescuentosDSTableAdapters
                 "rantia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SUM(CONT_CPF_SaldoGarantiaEjercida.CapitalRec"& _ 
                 "uperado) AS CapitalRecuperado, SUM(CONT_CPF_SaldoGarantiaEjercida.Interes) AS In"& _ 
                 "teres, CONT_CPF_contratos_garantias.cobertura_nominal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  CONT_CPF_contratos_garantias.cobertura_efectiva, Vw_Anexos.Cliente, Vw_Anexos."& _ 
-                "AnexoCon, Vw_Anexos.CicloPagare, CONT_CPF_contratos.id_contrato, MAX(CONT_CPF_Sa"& _ 
-                "ldoGarantiaEjercida.FechaFinal) AS FechaFinal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SUM(CO"& _ 
-                "NT_CPF_SaldoGarantiaEjercida.ImporteGarantia) - SUM(CONT_CPF_SaldoGarantiaEjerci"& _ 
-                "da.CapitalRecuperado) AS SaldoGarantia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_SaldoGarantiaEj"& _ 
-                "ercida INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON CONT_CPF_Saldo"& _ 
-                "GarantiaEjercida.id_contrato = CONT_CPF_contratos.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contrat"& _ 
-                "o = CONT_CPF_contratos_garantias.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_Anexos.Anexo AND CONT_CPF_contratos"& _ 
-                ".ciclo = Vw_Anexos.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY CONT_CPF_contratos.anexo, CONT_CPF_contratos."& _ 
-                "ciclo, CONT_CPF_contratos.id_credito, CONT_CPF_contratos_garantias.cobertura_nom"& _ 
-                "inal, CONT_CPF_contratos_garantias.cobertura_efectiva, Vw_Anexos.Cliente, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-                "                     Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, CONT_CPF_contrat"& _ 
-                "os.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (Vw_Anexos.Cliente = ?)"
+                "  CONT_CPF_contratos_garantias.cobertura_efectiva, CONT_CPF_contratos.Cliente, V"& _ 
+                "w_Anexos.AnexoCon, Vw_Anexos.CicloPagare, CONT_CPF_contratos.id_contrato, MAX(CO"& _ 
+                "NT_CPF_SaldoGarantiaEjercida.FechaFinal) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS FechaFina"& _ 
+                "l, SUM(CONT_CPF_SaldoGarantiaEjercida.ImporteGarantia) - SUM(CONT_CPF_SaldoGaran"& _ 
+                "tiaEjercida.CapitalRecuperado) AS SaldoGarantia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_SaldoG"& _ 
+                "arantiaEjercida INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON CONT_"& _ 
+                "CPF_SaldoGarantiaEjercida.id_contrato = CONT_CPF_contratos.id_contrato INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_garantias ON CONT_CPF_contratos.i"& _ 
+                "d_contrato = CONT_CPF_contratos_garantias.id_contrato LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_Anexos.Anexo AND CONT"& _ 
+                "_CPF_contratos.ciclo = Vw_Anexos.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY CONT_CPF_contratos.anexo, CONT_"& _ 
+                "CPF_contratos.ciclo, CONT_CPF_contratos.id_credito, CONT_CPF_contratos_garantias"& _ 
+                ".cobertura_nominal, CONT_CPF_contratos_garantias.cobertura_efectiva, CONT_CPF_co"& _ 
+                "ntratos.Cliente, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos.AnexoCon, Vw_Anexos.CicloP"& _ 
+                "agare, CONT_CPF_contratos.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CONT_CPF_contratos.Cliente"& _ 
+                " = ?)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Cliente", Global.System.Data.OleDb.OleDbType.WChar, 5, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Cliente", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -15523,7 +15587,7 @@ Namespace DescuentosDSTableAdapters
         Public Overloads Overridable Function Fill(ByVal dataTable As DescuentosDS.GarantiaEjercidaRESUMDataTable, ByVal Cliente As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Cliente Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Cliente")
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cliente,String)
             End If
@@ -15541,7 +15605,7 @@ Namespace DescuentosDSTableAdapters
         Public Overloads Overridable Function GetData(ByVal Cliente As String) As DescuentosDS.GarantiaEjercidaRESUMDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Cliente Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Cliente")
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Cliente,String)
             End If
