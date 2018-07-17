@@ -19,6 +19,7 @@ Public Class frm_edo_cuenta
     Private Sub frm_edo_cuenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.PagosClienteTableAdapter.Fill(Me.DS_reportes.PagosCliente, Anexo, Ciclo, Anexo)
         Me.PagosClienteBindingSource.Sort = "Fecha"
+        Dtp_Fecha.Text = Today
 
 
         '  Dtp_Fecha.MinDate = R.FechaCorte.AddDays(1)
