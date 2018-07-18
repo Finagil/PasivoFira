@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class rpt_cartera
+Public Class garantiasE
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class rpt_cartera
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "rpt_cartera.rpt"
+            Return "garantiasE.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class rpt_cartera
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Fira_Cartera_Pasiva.rpt_cartera.rpt"
+            Return "Fira_Cartera_Pasiva.garantiasE.rpt"
         End Get
         Set
             'Do nothing
@@ -91,18 +91,10 @@ Public Class rpt_cartera
             Return Me.ReportDefinition.Sections(4)
         End Get
     End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_var_fecha_dtp() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(0)
-        End Get
-    End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class Cachedrpt_cartera
+Public Class CachedgarantiasE
     Inherits Component
     Implements ICachedReport
     
@@ -144,7 +136,7 @@ Public Class Cachedrpt_cartera
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As rpt_cartera = New rpt_cartera()
+        Dim rpt As garantiasE = New garantiasE()
         rpt.Site = Me.Site
         Return rpt
     End Function

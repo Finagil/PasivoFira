@@ -215,6 +215,12 @@
     <Compile Include="reportes\frm_rpt_cartera.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="reportes\frm_rpt_garantiasE.Designer.vb">
+      <DependentUpon>frm_rpt_garantiasE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_rpt_garantiasE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportes\frm_rpt_saldp.Designer.vb">
       <DependentUpon>frm_rpt_saldp.vb</DependentUpon>
     </Compile>
@@ -226,6 +232,12 @@
     </Compile>
     <Compile Include="reportes\frm_rpt_saldo_contingente.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\garantiasE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>garantiasE.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="reportes\rpt_cartera.vb">
       <AutoGen>True</AutoGen>
@@ -378,11 +390,18 @@
     <EmbeddedResource Include="reportes\frm_rpt_cartera.resx">
       <DependentUpon>frm_rpt_cartera.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reportes\frm_rpt_garantiasE.resx">
+      <DependentUpon>frm_rpt_garantiasE.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportes\frm_rpt_saldp.resx">
       <DependentUpon>frm_rpt_saldp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reportes\frm_rpt_saldo_contingente.resx">
       <DependentUpon>frm_rpt_saldo_contingente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\garantiasE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>garantiasE.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportes\rpt_cartera.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

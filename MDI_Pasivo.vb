@@ -93,4 +93,13 @@ Public Class MDI_Pasivo
         Dim f As New frm_rpt_saldo_contingente
         f.Show()
     End Sub
+
+    Private Sub ReportesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportesToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub GarantíasEjercidasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GarantíasEjercidasToolStripMenuItem.Click
+        Dim f As New frm_rpt_garantiasE
+        f.Show()
+    End Sub
 End Class
