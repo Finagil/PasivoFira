@@ -282,7 +282,7 @@
             PGLM = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLMOSUSA(cb_clasificacion.SelectedValue)
             PGLP = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLproductor(cb_clasificacion.SelectedValue)
             If PGLM = 0 And PGLP = 0 Then
-                Pcxsg = 0
+                '  Pcxsg = 0    PREGUNTAR SI APLICA O NO 
             End If
 
             Me.CONT_CPF_contratosTableAdapter.InsertQueryprueba(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
@@ -303,38 +303,56 @@
             Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato2))
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
 
+
+
+
             Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato2)
-            Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
+            If Me.CONT_CPF_clasificacion_garantiasTableAdapter.categoria(tipo_ga) = "OTRO" Then
+                If CK_FEGA.Checked = True Then
 
-            If ga_fonaga = "SI" Then
-                Pcxsg = PCXSG_FONAGA
-                ID_garantina = 2 ' id tabla de garantias
-                If PGLM = "0" Then
-                    Nominal = 45
-                    Efectiva = 45
+                    ID_garantina = 1
                 Else
-                    Nominal = 50
-                    Efectiva = 45
+                    ID_garantina = 2
+
                 End If
+
+                Nominal = TXT_NOM.Text
+                Efectiva = TXT_EFEC.Text
             Else
-                Pcxsg = PCXSG_FEGA
-                ID_garantina = 1 ' id tabla de garantias
-                Nominal = 50
-                Efectiva = 50
+
+
+                Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
+
+
+                If ga_fonaga = "SI" Then
+
+                    ID_garantina = 2 ' id tabla de garantias
+                    If PGLM = "0" Then
+                        Nominal = 45
+                        Efectiva = 45
+                    Else
+                        Nominal = 50
+                        Efectiva = 45
+                    End If
+                Else
+
+                    ID_garantina = 1 ' id tabla de garantias
+                    Nominal = 50
+                    Efectiva = 50
+                End If
+                Dim montobase As Decimal = txt_monto.Text
+
+                Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
+
+                Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato2)
+                If NoGarantias = 0 Then
+                    taGarantias.Insert(id_contrato2, ID_garantina, Nominal, montobase * (Nominal / 100), Efectiva, True)
+                    ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(CheckBox1.Checked, id_contrato)
+
+                End If
+
             End If
-            Dim montobase As Decimal = txt_monto.Text
-
-            Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
-
-            Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato2)
-            If NoGarantias = 0 Then
-                taGarantias.Insert(id_contrato2, ID_garantina, Nominal, montobase * (Nominal / 100), Efectiva, True)
-                ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(CheckBox1.Checked, id_contrato)
-
-            End If
-
-
         Else 'UPDATE
                 '   If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
                 '  cb_tasa.SelectedIndex = 0

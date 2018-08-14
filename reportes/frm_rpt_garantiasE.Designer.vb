@@ -40,7 +40,7 @@ Partial Class frm_rpt_garantiasE
         Me.crv.DisplayStatusBar = False
         Me.crv.Location = New System.Drawing.Point(7, 42)
         Me.crv.Name = "crv"
-        Me.crv.Size = New System.Drawing.Size(1023, 569)
+        Me.crv.Size = New System.Drawing.Size(1023, 728)
         Me.crv.TabIndex = 3
         Me.crv.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
@@ -71,7 +71,7 @@ Partial Class frm_rpt_garantiasE
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1081, 623)
+        Me.ClientSize = New System.Drawing.Size(1081, 704)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.crv)
         Me.Name = "frm_rpt_garantiasE"

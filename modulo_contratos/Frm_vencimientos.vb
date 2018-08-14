@@ -58,7 +58,7 @@ Public Class Nuevo
             Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fecha, monto, fechaup, estatus, intereses, ID_Contrato)
 
         Next
-        MessageBox.Show("se agrego ministracion correctamente", "MINISTRACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        MessageBox.Show("se agrego l vencimiento correctamente", "MINISTRACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
 
     End Sub

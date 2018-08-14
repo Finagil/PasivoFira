@@ -91,21 +91,25 @@ Public Class frm_contratos_alta
             '   If Vw_AnexosBindingSource.Current("tipta") = 7 Then
             '  Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
             'Else
+            If CONT_CPF_clasificacion_garantiasBindingSource.Current("categoria") = "OTRO" Then
+                Pcxsg = TXT_CXS.Text
+            Else
+                Select Case Vw_AnexosBindingSource.Current("Tipar")
+                    Case "H", "C"   'AVIO Y CC
+                        Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_CT(año)
+                    Case "A"  'AVIO Y CC
+                        Pcxsg = 0
+                    Case Else
+                        Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_IF(año)
+                End Select
+                'End If
 
-            Select Case Vw_AnexosBindingSource.Current("Tipar")
-                Case "H", "C", "A"   'AVIO Y CC
-                    Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_IF(año)
-                Case Else
+                'Pcxsg = PCXSG_FONAGA
+            End If
 
-                    Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_CT(año)
-
-            End Select
-            'End If
-
-            'Pcxsg = PCXSG_FONAGA
         Else
 
-            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
+                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
         End If
         ' Pcxsg = 0.5
         If txt_tipo.Text = "CREDITO DE AVÍO" Then
@@ -143,7 +147,7 @@ Public Class frm_contratos_alta
             PGLM = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLMOSUSA(cb_clasificacion.SelectedValue)
             PGLP = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLproductor(cb_clasificacion.SelectedValue)
             If PGLM = 0 And PGLP = 0 Then
-                Pcxsg = 0
+                ' Pcxsg = 0 se aplica o no?
             End If
 
             Me.CONT_CPF_contratosTableAdapter.InsertQueryprueba(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
@@ -216,24 +220,42 @@ Public Class frm_contratos_alta
             F2.FN = FN
             F2.Ministracion1 = Ministracion1
             F2.ID_Contrato = id_contrato
-            Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
-            Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
-
-            If ga_fonaga = "SI" Then
-                F2.PCXSG = PCXSG_FONAGA
-                F2.ID_garantina = 2 ' id tabla de garantias
-                If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
-                    F2.Nominal = 45
-                    F2.Efectiva = 45
+            If CONT_CPF_clasificacion_garantiasBindingSource.Current("categoria") = "OTRO" Then
+                If CK_FEGA.Checked = True Then
+                    F2.ID_garantina = 1
+                    F2.PCXSG = Pcxsg
+                    'F2.PCXSG = PCXSG_FEGA
                 Else
-                    F2.Nominal = 50
-                    F2.Efectiva = 45
+                    'F2.PCXSG = PCXSG_FONAGA
+                    F2.PCXSG = Pcxsg
+                    F2.ID_garantina = 2
                 End If
+
+                F2.Nominal = TXT_NOM.Text
+                F2.Efectiva = TXT_EFEC.Text
             Else
-                F2.PCXSG = PCXSG_FEGA
-                F2.ID_garantina = 1 ' id tabla de garantias
-                F2.Nominal = 50
-                F2.Efectiva = 50
+                    Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
+                Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
+
+                If ga_fonaga = "SI" Then
+                    'F2.PCXSG = PCXSG_FONAGA 'comentado el valor real lo trae el campo pCXSG
+                    F2.PCXSG = Pcxsg
+                    F2.ID_garantina = 2 ' id tabla de garantias
+                    If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
+                        F2.Nominal = 45
+                        F2.Efectiva = 45
+                    Else
+                        F2.Nominal = 50
+                        F2.Efectiva = 45
+                    End If
+                Else
+                    'F2.PCXSG = PCXSG_FEGA
+                    F2.PCXSG = Pcxsg
+                    F2.ID_garantina = 1 ' id tabla de garantias
+                    F2.Nominal = 50
+                    F2.Efectiva = 50
+                End If
+
             End If
             If F2.ShowDialog = Windows.Forms.DialogResult.OK Then
             End If
@@ -637,6 +659,14 @@ Public Class frm_contratos_alta
     End Sub
 
     Private Sub cb_clasificacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_clasificacion.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs) Handles TXT_NOM.TextChanged
+
+    End Sub
+
+    Private Sub Label68_Click(sender As Object, e As EventArgs) Handles Label68.Click
 
     End Sub
 

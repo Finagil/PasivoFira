@@ -7,6 +7,7 @@
         Me.Vw_CONT_CPF_GarantiaerecidaRptTableAdapter.PORFECHA(Me.DS_reportes.vw_CONT_CPF_GarantiaerecidaRpt, fecha1)
         Dim rpt As New garantiasE()
         rpt.SetDataSource(DS_reportes)
+        rpt.SetParameterValue("fecha", fecha1)
         crv.ReportSource = rpt
 
     End Sub

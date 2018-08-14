@@ -26,12 +26,14 @@ Partial Class frm_rpt_saldp
         Me.DT_FECHA = New System.Windows.Forms.DateTimePicker()
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.DS_reportes = New Fira_Cartera_Pasiva.DS_reportes()
         Me.VwsaldoPFBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VwsaldoPFBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Vw_saldo_PFTableAdapter = New Fira_Cartera_Pasiva.DS_reportesTableAdapters.vw_saldo_PFTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DS_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwsaldoPFBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwsaldoPFBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DT_FECHA
@@ -50,7 +52,7 @@ Partial Class frm_rpt_saldp
         Me.crv.DisplayStatusBar = False
         Me.crv.Location = New System.Drawing.Point(21, 73)
         Me.crv.Name = "crv"
-        Me.crv.Size = New System.Drawing.Size(892, 522)
+        Me.crv.Size = New System.Drawing.Size(904, 727)
         Me.crv.TabIndex = 2
         Me.crv.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
@@ -63,6 +65,15 @@ Partial Class frm_rpt_saldp
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Fecha Corte"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(276, 14)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(110, 26)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Imprimir"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'DS_reportes
         '
         Me.DS_reportes.DataSetName = "DS_reportes"
@@ -73,24 +84,20 @@ Partial Class frm_rpt_saldp
         Me.VwsaldoPFBindingSource.DataMember = "vw_saldo_PF"
         Me.VwsaldoPFBindingSource.DataSource = Me.DS_reportes
         '
+        'VwsaldoPFBindingSource1
+        '
+        Me.VwsaldoPFBindingSource1.DataMember = "vw_saldo_PF"
+        Me.VwsaldoPFBindingSource1.DataSource = Me.DS_reportes
+        '
         'Vw_saldo_PFTableAdapter
         '
         Me.Vw_saldo_PFTableAdapter.ClearBeforeFill = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(276, 14)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(110, 26)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Imprimir"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'frm_rpt_saldp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(937, 681)
+        Me.ClientSize = New System.Drawing.Size(939, 880)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.crv)
@@ -99,6 +106,7 @@ Partial Class frm_rpt_saldp
         Me.Text = "frm_rpt_saldo"
         CType(Me.DS_reportes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwsaldoPFBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwsaldoPFBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -109,6 +117,7 @@ Partial Class frm_rpt_saldp
     Friend WithEvents Label1 As Label
     Friend WithEvents DS_reportes As DS_reportes
     Friend WithEvents VwsaldoPFBindingSource As BindingSource
-    Friend WithEvents Vw_saldo_PFTableAdapter As DS_reportesTableAdapters.vw_saldo_PFTableAdapter
     Friend WithEvents Button1 As Button
+    Friend WithEvents VwsaldoPFBindingSource1 As BindingSource
+    Friend WithEvents Vw_saldo_PFTableAdapter As DS_reportesTableAdapters.vw_saldo_PFTableAdapter
 End Class
