@@ -40,10 +40,10 @@ Partial Class MDI_Pasivo
         Me.CarteraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProyecciónCLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaldoContingenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GarantíasEjercidasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PagosFinagilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportaPagosFinagilToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
-        Me.GarantíasEjercidasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -132,6 +132,7 @@ Partial Class MDI_Pasivo
         '
         'SaldosToolStripMenuItem
         '
+        Me.SaldosToolStripMenuItem.Enabled = False
         Me.SaldosToolStripMenuItem.Name = "SaldosToolStripMenuItem"
         Me.SaldosToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SaldosToolStripMenuItem.Text = "Saldos"
@@ -154,6 +155,12 @@ Partial Class MDI_Pasivo
         Me.SaldoContingenteToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SaldoContingenteToolStripMenuItem.Text = "Saldo Contingente"
         '
+        'GarantíasEjercidasToolStripMenuItem
+        '
+        Me.GarantíasEjercidasToolStripMenuItem.Name = "GarantíasEjercidasToolStripMenuItem"
+        Me.GarantíasEjercidasToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.GarantíasEjercidasToolStripMenuItem.Text = "Garantías Ejercidas"
+        '
         'PagosFinagilToolStripMenuItem
         '
         Me.PagosFinagilToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportaPagosFinagilToolStripMenuItem})
@@ -170,12 +177,6 @@ Partial Class MDI_Pasivo
         'ConT_CPF_configuracionTableAdapter
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
-        '
-        'GarantíasEjercidasToolStripMenuItem
-        '
-        Me.GarantíasEjercidasToolStripMenuItem.Name = "GarantíasEjercidasToolStripMenuItem"
-        Me.GarantíasEjercidasToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.GarantíasEjercidasToolStripMenuItem.Text = "Garantías Ejercidas"
         '
         'MDI_Pasivo
         '
