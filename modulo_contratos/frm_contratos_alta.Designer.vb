@@ -381,7 +381,7 @@ Partial Class frm_contratos_alta
         'cbanexos
         '
         Me.cbanexos.DataSource = Me.Vw_AnexosBindingSource
-        Me.cbanexos.DisplayMember = "AnexoCon"
+        Me.cbanexos.DisplayMember = "Anexo"
         Me.cbanexos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbanexos.FormattingEnabled = True
         Me.cbanexos.Location = New System.Drawing.Point(313, 76)
@@ -2066,7 +2066,7 @@ Partial Class frm_contratos_alta
         '
         'ET_CICLO
         '
-        Me.ET_CICLO.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VwdescuentoSABindingSource, "Ciclo", True))
+        Me.ET_CICLO.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Vw_AnexosBindingSource, "Ciclo", True))
         Me.ET_CICLO.Location = New System.Drawing.Point(308, 33)
         Me.ET_CICLO.Name = "ET_CICLO"
         Me.ET_CICLO.ReadOnly = True
@@ -2076,7 +2076,7 @@ Partial Class frm_contratos_alta
         'LB_Z25
         '
         Me.LB_Z25.Cursor = System.Windows.Forms.Cursors.Cross
-        Me.LB_Z25.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VwdescuentoSABindingSource, "programa", True))
+        Me.LB_Z25.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Vw_AnexosBindingSource, "Z25", True))
         Me.LB_Z25.Location = New System.Drawing.Point(228, 33)
         Me.LB_Z25.Name = "LB_Z25"
         Me.LB_Z25.ReadOnly = True
@@ -2085,7 +2085,7 @@ Partial Class frm_contratos_alta
         '
         'txt_hipo
         '
-        Me.txt_hipo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VwdescuentoSABindingSource, "GHipotec", True))
+        Me.txt_hipo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Vw_AnexosBindingSource, "GHipotec", True))
         Me.txt_hipo.Location = New System.Drawing.Point(164, 33)
         Me.txt_hipo.Name = "txt_hipo"
         Me.txt_hipo.ReadOnly = True
@@ -2094,7 +2094,7 @@ Partial Class frm_contratos_alta
         '
         'txt_prenda
         '
-        Me.txt_prenda.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VwdescuentoSABindingSource, "Prenda", True))
+        Me.txt_prenda.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Vw_AnexosBindingSource, "Prenda", True))
         Me.txt_prenda.Location = New System.Drawing.Point(107, 33)
         Me.txt_prenda.Name = "txt_prenda"
         Me.txt_prenda.ReadOnly = True
@@ -2103,7 +2103,7 @@ Partial Class frm_contratos_alta
         '
         'txt_tipo
         '
-        Me.txt_tipo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VwdescuentoSABindingSource, "Tipo", True))
+        Me.txt_tipo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Vw_AnexosBindingSource, "TipoCredito", True))
         Me.txt_tipo.Location = New System.Drawing.Point(420, 32)
         Me.txt_tipo.Name = "txt_tipo"
         Me.txt_tipo.ReadOnly = True
@@ -2112,7 +2112,7 @@ Partial Class frm_contratos_alta
         '
         'LB_LINEA
         '
-        Me.LB_LINEA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VwdescuentoSABindingSource, "linea_autorizada", True))
+        Me.LB_LINEA.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Vw_AnexosBindingSource, "MontoFinanciado", True))
         Me.LB_LINEA.Location = New System.Drawing.Point(9, 33)
         Me.LB_LINEA.Name = "LB_LINEA"
         Me.LB_LINEA.ReadOnly = True

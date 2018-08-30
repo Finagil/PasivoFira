@@ -65,6 +65,7 @@ Public Class frm_contratos_alta
             If IsNothing(Ciclo) Then Ciclo = ""
             Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
             Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+            'Me.Vw_descuentoSATableAdapter.FillByANEXO(Me.DS_contratos.vw_descuentoSA, Anexo, Ciclo)
 
             bt_guardar.Enabled = True
             ' BT_IMPRIMIR.Enabled = False
@@ -408,11 +409,12 @@ Public Class frm_contratos_alta
 
     Private Sub cbclientes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbclientes.SelectedIndexChanged
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
-            If sinanexo = False Then
-                Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
-            Else
-                Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
-            End If
+            'If sinanexo = False Then
+            Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
+            'Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+            'Else
+            Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+            'End If
 
         End If
     End Sub
@@ -670,6 +672,10 @@ Public Class frm_contratos_alta
 
     End Sub
 
+    Private Sub txt_prenda_TextChanged(sender As Object, e As EventArgs) Handles txt_prenda.TextChanged
+
+    End Sub
+
     Sub CargaDatosFira()
         'Me.CONT_CPF_contratosTableAdapter.FillByporanexo(Me.DS_contratos.CONT_CPF_contratos, Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
         Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, VwdescuentoSABindingSource.Current("id_credito"))
@@ -708,6 +714,31 @@ Public Class frm_contratos_alta
     End Sub
 
     Private Sub cbanexos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos.SelectedValueChanged
+
+    End Sub
+
+    Private Sub cbanexos2_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos2.SelectedValueChanged
+        'Me.ClientesTableAdapter.FillByAnexo(Me.DS_contratos.Clientes, Anexo)
+
+        If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
+
+            If cbanexos2.SelectedIndex >= 0 Then
+                Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
+                Anexo = Anexo.Replace("/", "")
+                Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
+                '  If Ciclo = 0 Then
+                ' Ciclo = ""
+                'End If
+                If Anexo <> "SA" And Anexo.Length > 0 Then
+                    Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
+                    Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+                End If
+            End If
+
+        End If
+
+
+
 
     End Sub
 End Class
