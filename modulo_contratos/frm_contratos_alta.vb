@@ -495,6 +495,10 @@ Public Class frm_contratos_alta
     Sub CargaVencimientos()
         Dim taVencimieto As New DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter
         Dim FechaVen As Date
+
+        Dim ANEXO As String
+        ANEXO = Vw_AnexosBindingSource.Current("Anexo")
+
         Select Case Vw_AnexosBindingSource.Current("Tipar")
             Case "H", "A", "C"
 
@@ -514,7 +518,7 @@ Public Class frm_contratos_alta
                         taVencimieto.InsertQueryVencimiento(FechaVen, r.Abcap, "01/01/1900", "Vigente", 0, id_contrato)
                     End If
                 Next
-                DIAS_ENTRE_VENC = taVencimieto.DiasEntreVencimientos(Vw_AnexosBindingSource.Current("Anexo"))
+                DIAS_ENTRE_VENC = taVencimieto.DiasEntreVencimientos(ANEXO)
         End Select
         Select Case DIAS_ENTRE_VENC
             Case Is <= 89
