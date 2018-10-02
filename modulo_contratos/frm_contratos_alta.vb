@@ -16,6 +16,8 @@ Public Class frm_contratos_alta
 
 
     Private Sub frm_contratos_alta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.CONT_CPF_GL' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_GLTableAdapter.Fill(Me.DescuentosDS.CONT_CPF_GL)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
@@ -80,39 +82,51 @@ Public Class frm_contratos_alta
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bt_guardar.Click
         Dim FN, FB, BP As Decimal
-        Dim año As String = Year(Now)
+        Dim año1 As Date = Now
         Dim sucursal As String
         Dim Inserto As Boolean = False
         Dim Pcxsg As Decimal
         Dim tasafijafira As Decimal = txt_tasafija.Text
         validar_vacios()
+        Dim año As String
+        año = año1.ToString("yyyy")
+
+        Dim periodo As Integer = año
+        Dim coberturanominal As Decimal = Me.CONT_CPF_configuracionTableAdapter.CNOMINAL(periodo)
+        ' If CONT_CPF_clasificacion_garantiasBindingSource.Current("fonaga") <> "NO" Then
+        '   If Vw_AnexosBindingSource.Current("tipta") = 7 Then
+        '  Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
+        'Else
+        'If CONT_CPF_clasificacion_garantiasBindingSource.Current("categoria") = "OTRO" Then
+        'Pcxsg = TXT_CXS.Text
+        'Else
+        'Select Case Vw_AnexosBindingSource.Current("Tipar")
+        'Case "H", "C"   'AVIO Y CC
+        'Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_CT(año)
+        'Case "A"  'AVIO Y CC
+        'Pcxsg = 0
+        'Case Else
+        'Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_IF(año)
+        'End Select
+        'End If
+
+        'Pcxsg = PCXSG_FONAGA
+        'End If
+
+        'Else
+
+        'Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
+        'End If
 
 
-        If CONT_CPF_clasificacion_garantiasBindingSource.Current("fonaga") <> "NO" Then
-            '   If Vw_AnexosBindingSource.Current("tipta") = 7 Then
-            '  Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
-            'Else
-            If CONT_CPF_clasificacion_garantiasBindingSource.Current("categoria") = "OTRO" Then
-                Pcxsg = TXT_CXS.Text
-            Else
-                Select Case Vw_AnexosBindingSource.Current("Tipar")
-                    Case "H", "C"   'AVIO Y CC
-                        Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_CT(año)
-                    Case "A"  'AVIO Y CC
-                        Pcxsg = 0
-                    Case Else
-                        Pcxsg = Me.CONT_CPF_configuracionTableAdapter.CXSG_FONAGA_IF(año)
-                End Select
-                'End If
 
-                'Pcxsg = PCXSG_FONAGA
-            End If
 
-        Else
 
-                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.cxsg_tf_periodo(año)
-        End If
         ' Pcxsg = 0.5
+
+        If cb_gl.SelectedValue = 999 Then 'caso especial 
+            Pcxsg = TXT_CXS.Text
+        End If
         If txt_tipo.Text = "CREDITO DE AVÍO" Then
             cb_periodo_capital.Text = "AL VENCIMIENTO"
         End If
@@ -216,46 +230,85 @@ Public Class frm_contratos_alta
             CargaVencimientos()
 
             Dim F2 As New Frm_MinistracionesADD
+
             F2.BP = BP
             F2.FB = FB
             F2.FN = FN
             F2.Ministracion1 = Ministracion1
             F2.ID_Contrato = id_contrato
-            If CONT_CPF_clasificacion_garantiasBindingSource.Current("categoria") = "OTRO" Then
+            If cb_gl.SelectedIndex = 4 Then
                 If CK_FEGA.Checked = True Then
                     F2.ID_garantina = 1
-                    F2.PCXSG = Pcxsg
                     'F2.PCXSG = PCXSG_FEGA
                 Else
                     'F2.PCXSG = PCXSG_FONAGA
-                    F2.PCXSG = Pcxsg
+
                     F2.ID_garantina = 2
                 End If
 
+                F2.PCXSG = Pcxsg
                 F2.Nominal = TXT_NOM.Text
                 F2.Efectiva = TXT_EFEC.Text
             Else
-                    Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
-                Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
+                ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
+                '  Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
-                If ga_fonaga = "SI" Then
-                    'F2.PCXSG = PCXSG_FONAGA 'comentado el valor real lo trae el campo pCXSG
-                    F2.PCXSG = Pcxsg
-                    F2.ID_garantina = 2 ' id tabla de garantias
-                    If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
-                        F2.Nominal = 45
-                        F2.Efectiva = 45
-                    Else
-                        F2.Nominal = 50
-                        F2.Efectiva = 45
-                    End If
-                Else
-                    'F2.PCXSG = PCXSG_FEGA
-                    F2.PCXSG = Pcxsg
-                    F2.ID_garantina = 1 ' id tabla de garantias
-                    F2.Nominal = 50
-                    F2.Efectiva = 50
+                If CK_FEGA.Checked = True Then
+
+                    F2.ID_garantina = 1
+
+                    Dim GL As Integer = cb_gl.SelectedValue
+
+                    Select Case GL
+                        Case 1
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FEGA0(periodo)
+                        Case 2
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FEGA10(periodo)
+                        Case 3
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FEGA15(periodo)
+                        Case 4
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FEGA20(periodo)
+                    End Select
+                Else 'FONAGA
+
+                    F2.ID_garantina = 2
+
+                    Dim GL As Integer = cb_gl.SelectedValue
+                    Select Case GL
+                        Case 1
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
+                        Case 2
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
+                        Case 3
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
+                        Case 4
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
+                    End Select
                 End If
+
+                'If ga_fonaga = "SI" Then
+                ''F2.PCXSG = PCXSG_FONAGA 'comentado el valor real lo trae el campo pCXSG
+                'F2.PCXSG = Pcxsg
+                ' F2.ID_garantina = 2 ' id tabla de garantias
+                'If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
+                'F2.Nominal = 45
+                'F2.Efectiva = 45
+                'Else
+                'F2.Nominal = 50
+                'F2.Efectiva = 45
+                'End If
+                '   Else
+                '  'F2.PCXSG = PCXSG_FEGA
+                ' F2.PCXSG = Pcxsg
+                'F2.ID_garantina = 1 ' id tabla de garantias
+                'F2.Nominal = 50
+                'F2.Efectiva = 50
+                'End If
+
+                F2.Nominal = coberturanominal
+                Dim vgl As Integer = Me.CONT_CPF_GLTableAdapter.gliquida(cb_gl.SelectedValue)
+                F2.Efectiva = (100 - vgl) * coberturanominal / 100
+
 
             End If
             If F2.ShowDialog = Windows.Forms.DialogResult.OK Then

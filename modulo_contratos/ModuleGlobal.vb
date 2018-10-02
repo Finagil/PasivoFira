@@ -11,6 +11,7 @@ Module ModuleGlobal
     Public DIAS_ENTRE_VENC As Decimal = 0
     Public flagmin As Boolean
     Public sinanexo As Boolean
+    Public fonaga0, fonaga10, fonaga15, fonaga20, fega0, fega10, fega15, fega20, cnominal As Decimal
     Public Enum EsquemaCobro As Integer
         SIMFA = 20
         SIMPLE = 71
@@ -28,6 +29,18 @@ Module ModuleGlobal
         CXSG_FEGA = 8
         secuencial_banco = 9
         CXSG_FONAGA = 11
+        'VALORES CSG 2018
+        fonaga0 = 14
+        fonaga10 = 22
+        fonaga15 = 23
+        fonaga20 = 24
+        Fega0 = 12
+        Fega10 = 17
+        Fega15 = 18
+        Fega20 = 19
+        cnominal = 20
+
+
     End Enum
 
     Public Function CTOD(ByVal cFecha As String) As Date

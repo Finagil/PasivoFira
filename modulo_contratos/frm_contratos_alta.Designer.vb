@@ -37,8 +37,10 @@ Partial Class frm_contratos_alta
         Me.VwdescuentoSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.lb_ciclo = New System.Windows.Forms.TabPage()
-        Me.CK_FEGA = New System.Windows.Forms.CheckBox()
+        Me.cb_gl = New System.Windows.Forms.ComboBox()
         Me.CONT_CPF_contratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_ESTATUSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CK_FEGA = New System.Windows.Forms.CheckBox()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label68 = New System.Windows.Forms.Label()
         Me.Label67 = New System.Windows.Forms.Label()
@@ -84,9 +86,6 @@ Partial Class frm_contratos_alta
         Me.CONT_CPF_operacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label62 = New System.Windows.Forms.Label()
         Me.cb_estatus = New System.Windows.Forms.ComboBox()
-        Me.CONT_CPF_ESTATUSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cb_clasificacion = New System.Windows.Forms.ComboBox()
-        Me.CONT_CPF_clasificacion_garantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label58 = New System.Windows.Forms.Label()
         Me.cb_intermediario = New System.Windows.Forms.ComboBox()
         Me.Label57 = New System.Windows.Forms.Label()
@@ -136,6 +135,8 @@ Partial Class frm_contratos_alta
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cb_clasificacion = New System.Windows.Forms.ComboBox()
+        Me.CONT_CPF_clasificacion_garantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TXT_SUBRAMA = New System.Windows.Forms.TextBox()
         Me.txt_egresos = New System.Windows.Forms.TextBox()
@@ -269,6 +270,10 @@ Partial Class frm_contratos_alta
         Me.Vw_Anexos1TableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.Vw_Anexos1TableAdapter()
         Me.DScontratos7BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONTCPFcontratosBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
+        Me.DescuentosDSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONTCPFGLBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_GLTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -277,6 +282,7 @@ Partial Class frm_contratos_alta
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONT_CPF_contratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONT_CPF_ESTATUSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_intermediariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -288,8 +294,6 @@ Partial Class frm_contratos_alta
         CType(Me.DS_contratos1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_tipoprestamosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_operacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CONT_CPF_ESTATUSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CONT_CPF_clasificacion_garantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_tipo_tasasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_esquema_cobroBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_segurosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -297,6 +301,7 @@ Partial Class frm_contratos_alta
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_sucursalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_productos_firaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONT_CPF_clasificacion_garantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.CONTCPFconceptosinversionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -327,6 +332,9 @@ Partial Class frm_contratos_alta
         CType(Me.DS_contratos4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DScontratos7BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DescuentosDSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbclientes
@@ -449,6 +457,7 @@ Partial Class frm_contratos_alta
         'lb_ciclo
         '
         Me.lb_ciclo.BackColor = System.Drawing.Color.Gainsboro
+        Me.lb_ciclo.Controls.Add(Me.cb_gl)
         Me.lb_ciclo.Controls.Add(Me.CK_FEGA)
         Me.lb_ciclo.Controls.Add(Me.Label69)
         Me.lb_ciclo.Controls.Add(Me.Label68)
@@ -484,7 +493,6 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.Controls.Add(Me.cb_operacion)
         Me.lb_ciclo.Controls.Add(Me.Label62)
         Me.lb_ciclo.Controls.Add(Me.cb_estatus)
-        Me.lb_ciclo.Controls.Add(Me.cb_clasificacion)
         Me.lb_ciclo.Controls.Add(Me.Label58)
         Me.lb_ciclo.Controls.Add(Me.cb_intermediario)
         Me.lb_ciclo.Controls.Add(Me.Label57)
@@ -527,12 +535,36 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.Controls.Add(Me.Label7)
         Me.lb_ciclo.Controls.Add(Me.Label5)
         Me.lb_ciclo.Controls.Add(Me.Label4)
+        Me.lb_ciclo.Controls.Add(Me.cb_clasificacion)
         Me.lb_ciclo.Location = New System.Drawing.Point(4, 22)
         Me.lb_ciclo.Name = "lb_ciclo"
         Me.lb_ciclo.Padding = New System.Windows.Forms.Padding(3)
         Me.lb_ciclo.Size = New System.Drawing.Size(772, 460)
         Me.lb_ciclo.TabIndex = 0
         Me.lb_ciclo.Text = "Datos Financieros"
+        '
+        'cb_gl
+        '
+        Me.cb_gl.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CONT_CPF_contratosBindingSource, "porcentaje_Gliquida", True))
+        Me.cb_gl.DataSource = Me.CONTCPFGLBindingSource
+        Me.cb_gl.DisplayMember = "valor"
+        Me.cb_gl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_gl.FormattingEnabled = True
+        Me.cb_gl.Location = New System.Drawing.Point(548, 96)
+        Me.cb_gl.Name = "cb_gl"
+        Me.cb_gl.Size = New System.Drawing.Size(85, 21)
+        Me.cb_gl.TabIndex = 206
+        Me.cb_gl.ValueMember = "id_gl"
+        '
+        'CONT_CPF_contratosBindingSource
+        '
+        Me.CONT_CPF_contratosBindingSource.DataMember = "CONT_CPF_contratos"
+        Me.CONT_CPF_contratosBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_ESTATUSBindingSource
+        '
+        Me.CONT_CPF_ESTATUSBindingSource.DataMember = "CONT_CPF_ESTATUS"
+        Me.CONT_CPF_ESTATUSBindingSource.DataSource = Me.DS_contratos
         '
         'CK_FEGA
         '
@@ -543,11 +575,6 @@ Partial Class frm_contratos_alta
         Me.CK_FEGA.Size = New System.Drawing.Size(15, 14)
         Me.CK_FEGA.TabIndex = 205
         Me.CK_FEGA.UseVisualStyleBackColor = True
-        '
-        'CONT_CPF_contratosBindingSource
-        '
-        Me.CONT_CPF_contratosBindingSource.DataMember = "CONT_CPF_contratos"
-        Me.CONT_CPF_contratosBindingSource.DataSource = Me.DS_contratos
         '
         'Label69
         '
@@ -927,29 +954,6 @@ Partial Class frm_contratos_alta
         Me.cb_estatus.Size = New System.Drawing.Size(157, 21)
         Me.cb_estatus.TabIndex = 169
         Me.cb_estatus.ValueMember = "id_estatus"
-        '
-        'CONT_CPF_ESTATUSBindingSource
-        '
-        Me.CONT_CPF_ESTATUSBindingSource.DataMember = "CONT_CPF_ESTATUS"
-        Me.CONT_CPF_ESTATUSBindingSource.DataSource = Me.DS_contratos
-        '
-        'cb_clasificacion
-        '
-        Me.cb_clasificacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CONT_CPF_contratosBindingSource, "tipo_garantia", True))
-        Me.cb_clasificacion.DataSource = Me.CONT_CPF_clasificacion_garantiasBindingSource
-        Me.cb_clasificacion.DisplayMember = "categoria"
-        Me.cb_clasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_clasificacion.FormattingEnabled = True
-        Me.cb_clasificacion.Location = New System.Drawing.Point(548, 93)
-        Me.cb_clasificacion.Name = "cb_clasificacion"
-        Me.cb_clasificacion.Size = New System.Drawing.Size(157, 21)
-        Me.cb_clasificacion.TabIndex = 168
-        Me.cb_clasificacion.ValueMember = "id_clasificacion_garantia"
-        '
-        'CONT_CPF_clasificacion_garantiasBindingSource
-        '
-        Me.CONT_CPF_clasificacion_garantiasBindingSource.DataMember = "CONT_CPF_clasificacion_garantias"
-        Me.CONT_CPF_clasificacion_garantiasBindingSource.DataSource = Me.DS_contratos
         '
         'Label58
         '
@@ -1384,6 +1388,26 @@ Partial Class frm_contratos_alta
         Me.Label4.Size = New System.Drawing.Size(50, 13)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Producto"
+        '
+        'cb_clasificacion
+        '
+        Me.cb_clasificacion.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.CONT_CPF_contratosBindingSource, "tipo_garantia", True))
+        Me.cb_clasificacion.DataSource = Me.CONT_CPF_clasificacion_garantiasBindingSource
+        Me.cb_clasificacion.DisplayMember = "categoria"
+        Me.cb_clasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_clasificacion.Enabled = False
+        Me.cb_clasificacion.FormattingEnabled = True
+        Me.cb_clasificacion.Location = New System.Drawing.Point(569, 70)
+        Me.cb_clasificacion.Name = "cb_clasificacion"
+        Me.cb_clasificacion.Size = New System.Drawing.Size(30, 21)
+        Me.cb_clasificacion.TabIndex = 168
+        Me.cb_clasificacion.ValueMember = "id_clasificacion_garantia"
+        Me.cb_clasificacion.Visible = False
+        '
+        'CONT_CPF_clasificacion_garantiasBindingSource
+        '
+        Me.CONT_CPF_clasificacion_garantiasBindingSource.DataMember = "CONT_CPF_clasificacion_garantias"
+        Me.CONT_CPF_clasificacion_garantiasBindingSource.DataSource = Me.DS_contratos
         '
         'TabPage2
         '
@@ -2404,6 +2428,25 @@ Partial Class frm_contratos_alta
         Me.CONTCPFcontratosBindingSource2.DataMember = "CONT_CPF_contratos"
         Me.CONTCPFcontratosBindingSource2.DataSource = Me.DS_contratos7
         '
+        'DescuentosDS
+        '
+        Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DescuentosDSBindingSource
+        '
+        Me.DescuentosDSBindingSource.DataSource = Me.DescuentosDS
+        Me.DescuentosDSBindingSource.Position = 0
+        '
+        'CONTCPFGLBindingSource
+        '
+        Me.CONTCPFGLBindingSource.DataMember = "CONT_CPF_GL"
+        Me.CONTCPFGLBindingSource.DataSource = Me.DescuentosDSBindingSource
+        '
+        'CONT_CPF_GLTableAdapter
+        '
+        Me.CONT_CPF_GLTableAdapter.ClearBeforeFill = True
+        '
         'frm_contratos_alta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2424,6 +2467,7 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.ResumeLayout(False)
         Me.lb_ciclo.PerformLayout()
         CType(Me.CONT_CPF_contratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONT_CPF_ESTATUSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_intermediariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2435,8 +2479,6 @@ Partial Class frm_contratos_alta
         CType(Me.DS_contratos1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_tipoprestamosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_operacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CONT_CPF_ESTATUSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CONT_CPF_clasificacion_garantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_tipo_tasasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_esquema_cobroBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_segurosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2444,6 +2486,7 @@ Partial Class frm_contratos_alta
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_sucursalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_productos_firaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONT_CPF_clasificacion_garantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.CONTCPFconceptosinversionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2476,6 +2519,9 @@ Partial Class frm_contratos_alta
         CType(Me.DS_contratos4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DScontratos7BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DescuentosDSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2725,4 +2771,9 @@ Partial Class frm_contratos_alta
     Friend WithEvents Label66 As Label
     Friend WithEvents CK_FEGA As CheckBox
     Friend WithEvents Label69 As Label
+    Friend WithEvents cb_gl As ComboBox
+    Friend WithEvents DescuentosDSBindingSource As BindingSource
+    Friend WithEvents DescuentosDS As DescuentosDS
+    Friend WithEvents CONTCPFGLBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_GLTableAdapter As DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter
 End Class
