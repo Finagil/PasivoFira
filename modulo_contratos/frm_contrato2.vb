@@ -139,6 +139,11 @@
 
     End Sub
 
+    Private Sub BT_IMPRIMIR_Click(sender As Object, e As EventArgs) Handles BT_IMPRIMIR.Click
+        id_contrato = ComboBox1.SelectedValue
+        frm_edo_cuenta.Show()
+    End Sub
+
     Private Sub validar_vacios()
 
         If txt_credito.Text = "" Then
@@ -226,7 +231,7 @@
     End Sub
     Private Sub bt_guardar_Click(sender As Object, e As EventArgs) Handles bt_guardar.Click
         Dim FN, FB, BP As Decimal
-        Dim año As String = Year(Now)
+        '  Dim año As String = Year(Now)
         Dim sucursal As String
         Dim Inserto As Boolean = False
         Dim Pcxsg As Decimal
@@ -234,7 +239,8 @@
         Dim secuencial_banco As Integer
         Dim FECMIN As Date
         Dim fonaga As String
-        Dim año1 As Date = Now  Dim año As String
+        Dim año1 As Date = Now
+        Dim año As String
         año = año1.ToString("yyyy")
 
         Dim periodo As Integer = año
@@ -348,13 +354,13 @@
             'Efectiva = 50
             'End If
             If cb_gl.SelectedIndex = 4 Then
-                If CK_FEGA.Checked = True Then
-                    ID_garantina = 1
+                If CK_FONAGA.Checked = True Then
+                    ID_garantina = 2
                     'F2.PCXSG = PCXSG_FEGA
                 Else
                     'F2.PCXSG = PCXSG_FONAGA
 
-                    ID_garantina = 2
+                    ID_garantina = 1
                 End If
 
                 Pcxsg = Pcxsg
@@ -364,7 +370,23 @@
                 ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
                 '  Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
-                If CK_FEGA.Checked = True Then
+                If CK_FONAGA.Checked = True Then
+
+                    ID_garantina = 2
+
+                    Dim GL As Integer = cb_gl.SelectedValue
+
+                    Select Case GL
+                        Case 1
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
+                        Case 2
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
+                        Case 3
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
+                        Case 4
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
+                    End Select
+                Else 'FEGA
 
                     ID_garantina = 1
 
@@ -380,21 +402,7 @@
                         Case 4
                             Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA20(periodo)
                     End Select
-                Else 'FONAGA
 
-                    ID_garantina = 2
-
-                    Dim GL As Integer = cb_gl.SelectedValue
-                    Select Case GL
-                        Case 1
-                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
-                        Case 2
-                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
-                        Case 3
-                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
-                        Case 4
-                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
-                    End Select
                 End If
 
                 'If ga_fonaga = "SI" Then
@@ -419,6 +427,7 @@
                 Nominal = coberturanominal
                 Dim vgl As Integer = Me.CONT_CPF_GLTableAdapter.gliquida(cb_gl.SelectedValue)
                 Efectiva = (100 - vgl) * coberturanominal / 100
+                Me.CONT_CPF_contratosTableAdapter.UpdateCXSG(Pcxsg, vgl, id_contrato) 'dagl 26/06/2018 guardar PCXG Y GL
 
                 Dim montobase As Decimal = txt_monto.Text
 

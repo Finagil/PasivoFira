@@ -1,39 +1,41 @@
 Public Class frm_rpt_estado
+    Dim id_contrato As String
 
 
     Private Sub frm_rpt_estado_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DS_contratos.vw_GARANTIA' table. You can move, or remove it, as needed.
+        id_contrato = frm_edo_cuenta.idcont
 
-        Me.CONT_CPF_vencimientosTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
-        Me.CONT_CPF_ministracionesTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_ministraciones, frm_contratos_alta.id_contrato)
+        Me.CONT_CPF_vencimientosTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_vencimientos, id_contrato)
+        Me.CONT_CPF_ministracionesTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_ministraciones, id_contrato)
         Me.CONT_CPF_contratos_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos_garantias)
         Me.Vw_TIIEpromedioTableAdapter.Fill(Me.DS_contratos.Vw_TIIEpromedio)
-        Me.CONT_CPF_saldos_contingenteTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_saldos_contingente, frm_contratos_alta.id_contrato)
+        Me.CONT_CPF_saldos_contingenteTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_saldos_contingente, id_contrato)
         '   Me.Vw_descuentosTableAdapter.FillByPorContrato(Me.DS_contratos.vw_descuentos, frm_contratos_alta.id_contrato)
         '  Me.Vw_descuentosTableAdapter.FillByPorContrato(Me.DS_contratos.vw_descuentos, frm_contratos_alta.id_contrato)
-        Me.Vw_descuentoSATableAdapter.FillByCONTRATO(Me.DS_contratos.vw_descuentoSA, frm_contratos_alta.id_contrato)
-        Me.CONT_CPF_pagosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_pagos, frm_contratos_alta.id_contrato)
+        Me.Vw_descuentoSATableAdapter.FillByCONTRATO(Me.DS_contratos.vw_descuentoSA, id_contrato)
+        Me.CONT_CPF_pagosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_pagos, id_contrato)
         Dim s As Decimal
-        s = Me.CONT_CPF_edocuentaTableAdapter.SaldoContrato(frm_contratos_alta.id_contrato)
+        s = Me.CONT_CPF_edocuentaTableAdapter.SaldoContrato(id_contrato)
         Dim esquema As Integer
-        esquema = Me.Vw_descuentosTableAdapter.esquema_cobro(frm_contratos_alta.id_contrato)
+        esquema = Me.Vw_descuentosTableAdapter.Esquema_Cobro(id_contrato)
         If esquema = 21 Then
-            Me.CONT_CPF_edocuentaTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_edocuenta, frm_contratos_alta.id_contrato)
+            Me.CONT_CPF_edocuentaTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_edocuenta, id_contrato)
         Else
-            Me.CONT_CPF_edocuentaTableAdapter.FillByporcontratoFN(Me.DS_contratos.CONT_CPF_edocuenta, frm_contratos_alta.id_contrato)
+            Me.CONT_CPF_edocuentaTableAdapter.FillByporcontratoFN(Me.DS_contratos.CONT_CPF_edocuenta, id_contrato)
         End If
         'Me.CONT_CPF_edocuentaTableAdapter.FillByporcontrato(Me.DS_contratos.CONT_CPF_edocuenta, frm_contratos_alta.id_contrato)
         Dim cg As Integer
-        cg = Me.CONT_CPF_contratos_garantiasTableAdapter.max_registro_contrato(frm_contratos_alta.id_contrato)
+        cg = Me.CONT_CPF_contratos_garantiasTableAdapter.max_registro_contrato(id_contrato)
         'Me.CONT_CPF_contratos_garantiasTableAdapter.FillByultimo_registro(Me.DS_contratos.CONT_CPF_contratos_garantias, cg)
         Me.Vw_GARANTIATableAdapter.FillByID_CONT_GARA(Me.DS_contratos.vw_GARANTIA, cg)
         Me.CONT_CPF_csgTableAdapter.Fill(Me.DS_contratos.CONT_CPF_csg, cg)
         Dim sumafb, sumabp, Tiie, fb, bp, s1, s2, s3, s4, s5 As Decimal
         Dim t1, t2, t3 As Decimal
         Dim fecha As Date
-        fecha = Me.Vw_descuentosTableAdapter.fechacorte_contrato(frm_contratos_alta.id_contrato)
-        fb = Me.Vw_descuentosTableAdapter.fb(frm_contratos_alta.id_contrato)
-        bp = Me.Vw_descuentosTableAdapter.bp(frm_contratos_alta.id_contrato)
+        fecha = Me.Vw_descuentosTableAdapter.FechaCorte_Contrato(id_contrato)
+        fb = Me.Vw_descuentosTableAdapter.FB(id_contrato)
+        bp = Me.Vw_descuentosTableAdapter.BP(id_contrato)
         Tiie = Me.Vw_TIIEpromedioTableAdapter.sacatiie28(Me.DS_contratos.Vw_TIIEpromedio, fecha.ToString("yyyyMMdd"))
         sumafb = Tiie + fb
         sumabp = Tiie + bp

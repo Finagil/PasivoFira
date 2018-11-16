@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="acreditadosDS" targetNamespace="http://tempuri.org/acreditadosDS.xsd" xmlns:mstns="http://tempuri.org/acreditadosDS.xsd" xmlns="http://tempuri.org/acreditadosDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Fira_Cartera_Pasiva.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_FIRA_Acreditados_LayoutTableAdapter" GeneratorDataComponentClassName="Vw_FIRA_Acreditados_LayoutTableAdapter" Name="Vw_FIRA_Acreditados_Layout" UserDataComponentName="Vw_FIRA_Acreditados_LayoutTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.Vw_FIRA_Acreditados_Layout" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Vw_FIRA_Acreditados_Layout.*
+FROM            Vw_FIRA_Acreditados_Layout</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
+              <Mapping SourceColumn="CURP" DataSetColumn="CURP" />
+              <Mapping SourceColumn="RFC" DataSetColumn="RFC" />
+              <Mapping SourceColumn="NombreCliente" DataSetColumn="NombreCliente" />
+              <Mapping SourceColumn="ApellidoPaterno" DataSetColumn="ApellidoPaterno" />
+              <Mapping SourceColumn="ApellidoMaterno" DataSetColumn="ApellidoMaterno" />
+              <Mapping SourceColumn="Nacionalidad" DataSetColumn="Nacionalidad" />
+              <Mapping SourceColumn="Calle" DataSetColumn="Calle" />
+              <Mapping SourceColumn="PLD_Numext" DataSetColumn="PLD_Numext" />
+              <Mapping SourceColumn="cp" DataSetColumn="cp" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+              <Mapping SourceColumn="Municipio" DataSetColumn="Municipio" />
+              <Mapping SourceColumn="Localidad" DataSetColumn="Localidad" />
+              <Mapping SourceColumn="IngresoNeto" DataSetColumn="IngresoNeto" />
+              <Mapping SourceColumn="EstadoInversion" DataSetColumn="EstadoInversion" />
+              <Mapping SourceColumn="MunicipioInversion" DataSetColumn="MunicipioInversion" />
+              <Mapping SourceColumn="LocalidadInversion" DataSetColumn="LocalidadInversion" />
+              <Mapping SourceColumn="SCIAN" DataSetColumn="SCIAN" />
+              <Mapping SourceColumn="ClaveCadena" DataSetColumn="ClaveCadena" />
+              <Mapping SourceColumn="NumEmpleados" DataSetColumn="NumEmpleados" />
+              <Mapping SourceColumn="CapitalContable" DataSetColumn="CapitalContable" />
+              <Mapping SourceColumn="VentasNetas" DataSetColumn="VentasNetas" />
+              <Mapping SourceColumn="TecProducion" DataSetColumn="TecProducion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="acreditadosDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="acreditadosDS" msprop:Generator_UserDSName="acreditadosDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Vw_FIRA_Acreditados_Layout" msprop:Generator_TableClassName="Vw_FIRA_Acreditados_LayoutDataTable" msprop:Generator_TableVarName="tableVw_FIRA_Acreditados_Layout" msprop:Generator_TablePropName="Vw_FIRA_Acreditados_Layout" msprop:Generator_RowDeletingName="Vw_FIRA_Acreditados_LayoutRowDeleting" msprop:Generator_RowChangingName="Vw_FIRA_Acreditados_LayoutRowChanging" msprop:Generator_RowEvHandlerName="Vw_FIRA_Acreditados_LayoutRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_FIRA_Acreditados_LayoutRowDeleted" msprop:Generator_UserTableName="Vw_FIRA_Acreditados_Layout" msprop:Generator_RowChangedName="Vw_FIRA_Acreditados_LayoutRowChanged" msprop:Generator_RowEvArgName="Vw_FIRA_Acreditados_LayoutRowChangeEvent" msprop:Generator_RowClassName="Vw_FIRA_Acreditados_LayoutRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tipo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CURP" msprop:Generator_ColumnVarNameInTable="columnCURP" msprop:Generator_ColumnPropNameInRow="CURP" msprop:Generator_ColumnPropNameInTable="CURPColumn" msprop:Generator_UserColumnName="CURP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RFC" msprop:Generator_ColumnVarNameInTable="columnRFC" msprop:Generator_ColumnPropNameInRow="RFC" msprop:Generator_ColumnPropNameInTable="RFCColumn" msprop:Generator_UserColumnName="RFC">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreCliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreCliente" msprop:Generator_ColumnPropNameInRow="NombreCliente" msprop:Generator_ColumnPropNameInTable="NombreClienteColumn" msprop:Generator_UserColumnName="NombreCliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApellidoPaterno" msprop:Generator_ColumnVarNameInTable="columnApellidoPaterno" msprop:Generator_ColumnPropNameInRow="ApellidoPaterno" msprop:Generator_ColumnPropNameInTable="ApellidoPaternoColumn" msprop:Generator_UserColumnName="ApellidoPaterno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApellidoMaterno" msprop:Generator_ColumnVarNameInTable="columnApellidoMaterno" msprop:Generator_ColumnPropNameInRow="ApellidoMaterno" msprop:Generator_ColumnPropNameInTable="ApellidoMaternoColumn" msprop:Generator_UserColumnName="ApellidoMaterno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nacionalidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNacionalidad" msprop:Generator_ColumnPropNameInRow="Nacionalidad" msprop:Generator_ColumnPropNameInTable="NacionalidadColumn" msprop:Generator_UserColumnName="Nacionalidad" type="xs:int" minOccurs="0" />
+              <xs:element name="Calle" msprop:Generator_ColumnVarNameInTable="columnCalle" msprop:Generator_ColumnPropNameInRow="Calle" msprop:Generator_ColumnPropNameInTable="CalleColumn" msprop:Generator_UserColumnName="Calle">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PLD_Numext" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPLD_Numext" msprop:Generator_ColumnPropNameInRow="PLD_Numext" msprop:Generator_ColumnPropNameInTable="PLD_NumextColumn" msprop:Generator_UserColumnName="PLD_Numext" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cp" msprop:Generator_ColumnVarNameInTable="columncp" msprop:Generator_ColumnPropNameInRow="cp" msprop:Generator_ColumnPropNameInTable="cpColumn" msprop:Generator_UserColumnName="cp">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Municipio" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMunicipio" msprop:Generator_ColumnPropNameInRow="Municipio" msprop:Generator_ColumnPropNameInTable="MunicipioColumn" msprop:Generator_UserColumnName="Municipio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Localidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLocalidad" msprop:Generator_ColumnPropNameInRow="Localidad" msprop:Generator_ColumnPropNameInTable="LocalidadColumn" msprop:Generator_UserColumnName="Localidad" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IngresoNeto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIngresoNeto" msprop:Generator_ColumnPropNameInRow="IngresoNeto" msprop:Generator_ColumnPropNameInTable="IngresoNetoColumn" msprop:Generator_UserColumnName="IngresoNeto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EstadoInversion" msprop:Generator_ColumnVarNameInTable="columnEstadoInversion" msprop:Generator_ColumnPropNameInRow="EstadoInversion" msprop:Generator_ColumnPropNameInTable="EstadoInversionColumn" msprop:Generator_UserColumnName="EstadoInversion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MunicipioInversion" msprop:Generator_ColumnVarNameInTable="columnMunicipioInversion" msprop:Generator_ColumnPropNameInRow="MunicipioInversion" msprop:Generator_ColumnPropNameInTable="MunicipioInversionColumn" msprop:Generator_UserColumnName="MunicipioInversion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LocalidadInversion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLocalidadInversion" msprop:Generator_ColumnPropNameInRow="LocalidadInversion" msprop:Generator_ColumnPropNameInTable="LocalidadInversionColumn" msprop:Generator_UserColumnName="LocalidadInversion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SCIAN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSCIAN" msprop:Generator_ColumnPropNameInRow="SCIAN" msprop:Generator_ColumnPropNameInTable="SCIANColumn" msprop:Generator_UserColumnName="SCIAN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ClaveCadena" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnClaveCadena" msprop:Generator_ColumnPropNameInRow="ClaveCadena" msprop:Generator_ColumnPropNameInTable="ClaveCadenaColumn" msprop:Generator_UserColumnName="ClaveCadena" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NumEmpleados" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNumEmpleados" msprop:Generator_ColumnPropNameInRow="NumEmpleados" msprop:Generator_ColumnPropNameInTable="NumEmpleadosColumn" msprop:Generator_UserColumnName="NumEmpleados" type="xs:int" minOccurs="0" />
+              <xs:element name="CapitalContable" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCapitalContable" msprop:Generator_ColumnPropNameInRow="CapitalContable" msprop:Generator_ColumnPropNameInTable="CapitalContableColumn" msprop:Generator_UserColumnName="CapitalContable" type="xs:int" minOccurs="0" />
+              <xs:element name="VentasNetas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVentasNetas" msprop:Generator_ColumnPropNameInRow="VentasNetas" msprop:Generator_ColumnPropNameInTable="VentasNetasColumn" msprop:Generator_UserColumnName="VentasNetas" type="xs:int" minOccurs="0" />
+              <xs:element name="TecProducion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTecProducion" msprop:Generator_ColumnPropNameInRow="TecProducion" msprop:Generator_ColumnPropNameInTable="TecProducionColumn" msprop:Generator_UserColumnName="TecProducion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

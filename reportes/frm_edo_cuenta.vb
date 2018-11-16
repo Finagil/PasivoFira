@@ -1,6 +1,6 @@
 Public Class frm_edo_cuenta
     Public Anexo As String
-
+    Public Shared idcont As String
     Public Ciclo As String
     Public Tipar As String
     Dim FechaAnt As Date
@@ -17,8 +17,11 @@ Public Class frm_edo_cuenta
     End Sub
 
     Private Sub frm_edo_cuenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.PagosClienteTableAdapter.Fill(Me.DS_reportes.PagosCliente, Anexo, Ciclo, Anexo)
-        Me.PagosClienteBindingSource.Sort = "Fecha"
+        If sinanexo = False Then
+            Me.PagosClienteTableAdapter.Fill(Me.DS_reportes.PagosCliente, Anexo, Ciclo, Anexo)
+            Me.PagosClienteBindingSource.Sort = "Fecha"
+        End If
+
         Dtp_Fecha.Text = Today
 
 
@@ -196,8 +199,16 @@ Public Class frm_edo_cuenta
         Dim ds As New DescuentosDS
 
         If sinanexo = True Then
-            ta.FillByContrato2(ds.ContratoDatos, frm_contratos_alta.id_contrato)
+            'IDataAdapter = id_contrato2
+            '  Dim idcont As Integer
+            If frm_contratos_alta.id_contrato = 0 Then
+                idcont = frm_contrato2.id_contrato
+            Else
+                idcont = frm_contratos_alta.id_contrato
+            End If
+            ta.FillByContrato2(ds.ContratoDatos, idcont)
         Else
+            idcont = frm_contratos_alta.id_contrato
             ta.Fill(ds.ContratoDatos, frm_contratos_alta.id_contrato)
         End If
         R = ds.ContratoDatos.Rows(0)

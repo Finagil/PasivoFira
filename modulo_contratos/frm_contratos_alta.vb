@@ -12,6 +12,7 @@ Public Class frm_contratos_alta
     Dim aportacion As Decimal
     Dim monto, nvsm As Decimal
     Dim fecha As Date
+    Dim vgl As Integer
     Public Ministracion1, existe As Boolean
 
 
@@ -60,6 +61,10 @@ Public Class frm_contratos_alta
         If Ministracion1 = False Then
             Me.ClientesTableAdapter.Fill(Me.DS_contratos.Clientes)
             cbclientes_SelectedIndexChanged(Nothing, Nothing)
+            'cb_gl.SelectedValue = Me.CONTCPFcontratosBindingSource("porcentaje_Gliquida")
+
+            'Dim fonaga As String
+
             Vw_AnexosBindingSource_CurrentChanged(Nothing, Nothing)
             bt_guardar.Enabled = False
         Else
@@ -124,7 +129,7 @@ Public Class frm_contratos_alta
 
         ' Pcxsg = 0.5
 
-        If cb_gl.SelectedValue = 999 Then 'caso especial 
+        If cb_gl.SelectedValue = 4 Then 'caso especial 
             Pcxsg = TXT_CXS.Text
         End If
         If txt_tipo.Text = "CREDITO DE AVÍO" Then
@@ -237,13 +242,13 @@ Public Class frm_contratos_alta
             F2.Ministracion1 = Ministracion1
             F2.ID_Contrato = id_contrato
             If cb_gl.SelectedIndex = 4 Then
-                If CK_FEGA.Checked = True Then
-                    F2.ID_garantina = 1
-                    'F2.PCXSG = PCXSG_FEGA
-                Else
-                    'F2.PCXSG = PCXSG_FONAGA
-
+                If CK_FONAGA.Checked = True Then
                     F2.ID_garantina = 2
+                    'FONAGA
+                Else
+                    'FEGA
+
+                    F2.ID_garantina = 1
                 End If
 
                 F2.PCXSG = Pcxsg
@@ -253,11 +258,28 @@ Public Class frm_contratos_alta
                 ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
                 '  Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
-                If CK_FEGA.Checked = True Then
+                If CK_FONAGA.Checked = True Then
+
+                    F2.ID_garantina = 2
+
+                    Dim GL As Integer = cb_gl.SelectedValue
+
+                    Select Case GL
+                        Case 1
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
+                        Case 2
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
+                        Case 3
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
+                        Case 4
+                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
+                    End Select
+                Else 'FEGA
 
                     F2.ID_garantina = 1
 
                     Dim GL As Integer = cb_gl.SelectedValue
+
 
                     Select Case GL
                         Case 1
@@ -269,21 +291,7 @@ Public Class frm_contratos_alta
                         Case 4
                             F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FEGA20(periodo)
                     End Select
-                Else 'FONAGA
 
-                    F2.ID_garantina = 2
-
-                    Dim GL As Integer = cb_gl.SelectedValue
-                    Select Case GL
-                        Case 1
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
-                        Case 2
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
-                        Case 3
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
-                        Case 4
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
-                    End Select
                 End If
 
                 'If ga_fonaga = "SI" Then
@@ -306,11 +314,15 @@ Public Class frm_contratos_alta
                 'End If
 
                 F2.Nominal = coberturanominal
-                Dim vgl As Integer = Me.CONT_CPF_GLTableAdapter.gliquida(cb_gl.SelectedValue)
+                vgl = Me.CONT_CPF_GLTableAdapter.gliquida(cb_gl.SelectedValue)
                 F2.Efectiva = (100 - vgl) * coberturanominal / 100
 
 
             End If
+
+            'id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+            Me.CONT_CPF_contratosTableAdapter.UpdateCXSG(F2.PCXSG, vgl, id_contrato) 'dagl 26/06/2018 guardar PCXG Y GL
+
             If F2.ShowDialog = Windows.Forms.DialogResult.OK Then
             End If
             Me.DialogResult = Windows.Forms.DialogResult.OK
@@ -757,6 +769,9 @@ Public Class frm_contratos_alta
         txt_sieban.Text = "SUSPENDIDO"
     End Sub
 
+    Private Sub Label55_Click(sender As Object, e As EventArgs)
+    End Sub
+
     Private Sub cb_rama_SelectedValueChanged(sender As Object, e As EventArgs) Handles cb_rama.SelectedValueChanged
 
     End Sub
@@ -790,6 +805,20 @@ Public Class frm_contratos_alta
                     Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
                     Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
                 End If
+
+                If txt_id_contrato.TextLength > 0 Then
+                    Dim id_contrato1 As Integer = txt_id_contrato.Text
+                    'cb_gl.SelectedValue = Me.CONT_CPF_contratosTableAdapter.gliquida(id_contrato1)
+                    Dim gfonaga As Integer = Me.CONT_CPF_contratosTableAdapter.id_garantia(id_contrato1)
+
+                    If gfonaga = 2 Then
+                        CK_FONAGA.Checked = True
+                    Else
+                        CK_FONAGA.Checked = False
+                    End If
+                End If
+                ' Dim id_contrato1 As Integer = Me.CONT_CPF_contratosBindingSource("id_contrato")
+                '  cb_gl.SelectedValue = Me.CONT_CPF_contratosTableAdapter.gliquida(id_contrato1)
             End If
 
         End If

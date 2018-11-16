@@ -78,6 +78,11 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acreditados\acreditadosDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>acreditadosDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MDI_Pasivo.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -457,6 +462,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="acreditados\acreditadosDS.xsc">
+      <DependentUpon>acreditadosDS.xsd</DependentUpon>
+    </None>
+    <None Include="acreditados\acreditadosDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>acreditadosDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="acreditados\acreditadosDS.xss">
+      <DependentUpon>acreditadosDS.xsd</DependentUpon>
+    </None>
     <None Include="app.config" />
     <None Include="modulo_contratos\DescuentosDS.xsc">
       <DependentUpon>DescuentosDS.xsd</DependentUpon>
@@ -522,6 +538,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="reportes\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
