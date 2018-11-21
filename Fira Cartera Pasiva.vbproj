@@ -83,6 +83,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>acreditadosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="acreditados\frm_acreditados.Designer.vb">
+      <DependentUpon>frm_acreditados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados_edit.Designer.vb">
+      <DependentUpon>frm_acreditados_edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados_edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI_Pasivo.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +341,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="acreditados\frm_acreditados.resx">
+      <DependentUpon>frm_acreditados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="acreditados\frm_acreditados_edit.resx">
+      <DependentUpon>frm_acreditados_edit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Pasivo.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MDI_Pasivo.vb</DependentUpon>

@@ -117,6 +117,7 @@
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         ' id_contrato2 = 442
+
         CreaCalendarioRevisoinTasa(id_contrato2, "")
     End Sub
 
@@ -125,8 +126,8 @@
         If id_contrato2 <> 0 Then
 
             Nuevo.Show()
-        Else
-            Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
+            ' Else
+            '    Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
         End If
 
     End Sub
@@ -229,6 +230,15 @@
 
         ' z25 = LB_Z25.Text
     End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
     Private Sub bt_guardar_Click(sender As Object, e As EventArgs) Handles bt_guardar.Click
         Dim FN, FB, BP As Decimal
         '  Dim año As String = Year(Now)
@@ -431,7 +441,7 @@
 
                 Dim montobase As Decimal = txt_monto.Text
 
-            Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
+                Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
 
                 Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato2)
                 If NoGarantias = 0 Then
@@ -442,28 +452,28 @@
 
             End If
         Else 'UPDATE
-                '   If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
-                '  cb_tasa.SelectedIndex = 0
-                ' Else
-                'cb_tasa.SelectedIndex = 2
-                'End If
-                '   id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+            '   If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
+            '  cb_tasa.SelectedIndex = 0
+            ' Else
+            'cb_tasa.SelectedIndex = 2
+            'End If
+            '   id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
 
 
-                '    Me.CONT_CPF_contratosTableAdapter.UPDATE_CONTRATOS(cb_producto.SelectedValue, cb_operacion.SelectedValue,
-                '   cb_prestamo.SelectedValue, cb_divisa.SelectedValue, txt_monto.Text, Vw_AnexosBindingSource.Current("Anexo"), txt_credito.Text, cb_sucursal.SelectedValue,
-                '  cb_esquema.SelectedValue, cb_tasa.SelectedValue, txt_tasa.Text, FN, FB, Vw_AnexosBindingSource.Current("Ciclo"), ch_ifnd.Checked,
-                ' txt_socios.Text, cb_seguro.SelectedValue, cb_periodo.SelectedValue, cb_estatus.SelectedValue, txt_autorizacion.Text,
-                'txt_id_contrato_siiof.Text, txt_capacidad.Text, cb_medida.SelectedValue, txt_aportacion.Text, txt_estrato.Text, txt_sieban.Text,
-                'cb_actividad.SelectedValue, cb_rama.SelectedValue, cb_subrama.SelectedValue, cb_programa.SelectedValue, LB_LINEA.Text, txt_clave.Text,
-                'txt_nvsm.Text, txt_BP.Text, txt_jornales.Text, txt_ingresoneto.Text, txt_capital.Text, txt_programaespecial.Text, z25, fecha,
-                'txt_activofijo.Text, txt_activototal.Text, txt_ingresos.Text, txt_egresos.Text, txt_utilidad.Text, cb_concepto.SelectedValue,
-                'txt_localidad.Text, txt_fondo.Text, cb_cadena.SelectedValue, Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue,
-                'Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue, cb_periodo_revision.SelectedValue, id_contrato)
-                'Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), id_contrato)
+            '    Me.CONT_CPF_contratosTableAdapter.UPDATE_CONTRATOS(cb_producto.SelectedValue, cb_operacion.SelectedValue,
+            '   cb_prestamo.SelectedValue, cb_divisa.SelectedValue, txt_monto.Text, Vw_AnexosBindingSource.Current("Anexo"), txt_credito.Text, cb_sucursal.SelectedValue,
+            '  cb_esquema.SelectedValue, cb_tasa.SelectedValue, txt_tasa.Text, FN, FB, Vw_AnexosBindingSource.Current("Ciclo"), ch_ifnd.Checked,
+            ' txt_socios.Text, cb_seguro.SelectedValue, cb_periodo.SelectedValue, cb_estatus.SelectedValue, txt_autorizacion.Text,
+            'txt_id_contrato_siiof.Text, txt_capacidad.Text, cb_medida.SelectedValue, txt_aportacion.Text, txt_estrato.Text, txt_sieban.Text,
+            'cb_actividad.SelectedValue, cb_rama.SelectedValue, cb_subrama.SelectedValue, cb_programa.SelectedValue, LB_LINEA.Text, txt_clave.Text,
+            'txt_nvsm.Text, txt_BP.Text, txt_jornales.Text, txt_ingresoneto.Text, txt_capital.Text, txt_programaespecial.Text, z25, fecha,
+            'txt_activofijo.Text, txt_activototal.Text, txt_ingresos.Text, txt_egresos.Text, txt_utilidad.Text, cb_concepto.SelectedValue,
+            'txt_localidad.Text, txt_fondo.Text, cb_cadena.SelectedValue, Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue,
+            'Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue, cb_periodo_revision.SelectedValue, id_contrato)
+            'Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), id_contrato)
 
-            End If
-
+        End If
+        ' ComboBox1.SelectedValue = id_contrato2
         MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
 
@@ -486,5 +496,9 @@
             '  Me.View_cadenas_subramasTableAdapter.Fill(Me.DS_contratos.View_cadenas_subramas, id_subrama, cb_rama.SelectedValue)
             Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+        id_contrato2 = ComboBox1.SelectedValue
     End Sub
 End Class

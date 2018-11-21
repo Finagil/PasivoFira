@@ -26,6 +26,7 @@ Partial Class frm_contrato2
         Me.bt_guardar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.lb_ciclo = New System.Windows.Forms.TabPage()
+        Me.BT_IMPRIMIR = New System.Windows.Forms.Button()
         Me.cb_gl = New System.Windows.Forms.ComboBox()
         Me.CONTCPFGLBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
@@ -222,7 +223,6 @@ Partial Class frm_contrato2
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.CONT_CPF_GLTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter()
-        Me.BT_IMPRIMIR = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -364,6 +364,15 @@ Partial Class frm_contrato2
         Me.lb_ciclo.Size = New System.Drawing.Size(753, 474)
         Me.lb_ciclo.TabIndex = 0
         Me.lb_ciclo.Text = "Datos Financieros"
+        '
+        'BT_IMPRIMIR
+        '
+        Me.BT_IMPRIMIR.Location = New System.Drawing.Point(643, 451)
+        Me.BT_IMPRIMIR.Name = "BT_IMPRIMIR"
+        Me.BT_IMPRIMIR.Size = New System.Drawing.Size(104, 23)
+        Me.BT_IMPRIMIR.TabIndex = 175
+        Me.BT_IMPRIMIR.Text = "Estado de Cuenta"
+        Me.BT_IMPRIMIR.UseVisualStyleBackColor = True
         '
         'cb_gl
         '
@@ -1957,15 +1966,6 @@ Partial Class frm_contrato2
         'CONT_CPF_GLTableAdapter
         '
         Me.CONT_CPF_GLTableAdapter.ClearBeforeFill = True
-        '
-        'BT_IMPRIMIR
-        '
-        Me.BT_IMPRIMIR.Location = New System.Drawing.Point(643, 451)
-        Me.BT_IMPRIMIR.Name = "BT_IMPRIMIR"
-        Me.BT_IMPRIMIR.Size = New System.Drawing.Size(104, 23)
-        Me.BT_IMPRIMIR.TabIndex = 175
-        Me.BT_IMPRIMIR.Text = "Estado de Cuenta"
-        Me.BT_IMPRIMIR.UseVisualStyleBackColor = True
         '
         'frm_contrato2
         '

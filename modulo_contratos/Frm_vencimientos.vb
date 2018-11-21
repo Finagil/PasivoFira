@@ -5,7 +5,12 @@ Public Class Nuevo
     Private Sub Frm_vencimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If ID_Contrato <> 0 Then
         Else
-            Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
+            If frm_contratos_alta.id_contrato = 0 Then
+                Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contrato2.id_contrato2)
+            Else
+                Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
+            End If
+
         End If
 
 

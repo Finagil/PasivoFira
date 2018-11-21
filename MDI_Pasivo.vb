@@ -102,4 +102,13 @@ Public Class MDI_Pasivo
         Dim f As New frm_rpt_garantiasE
         f.Show()
     End Sub
+
+    Private Sub AcreditadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcreditadosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub AltaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem1.Click
+        Dim f As New frm_acreditados
+        f.Show()
+    End Sub
 End Class
