@@ -1,9 +1,10 @@
 Public Class Frm_DescuentosAV
 
     Private Sub Frm_Descuentos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim cad As String = Date.Now.AddMonths(-12).ToString("yyyyMMdd")
+        Dim cad As String = Date.Now.AddMonths(-3).ToString("yyyyMMdd")
         Me.DescuentosTableAdapter.Fill(Me.DescuentosDS.Descuentos, cad)
         DescuentosBindingSource.Filter = " Fondeotit = 'Fira'"
+        AVIO = True
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click

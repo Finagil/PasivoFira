@@ -2,6 +2,7 @@ Public Class Frm_DescuentosTRA
 
     Private Sub Frm_Descuentos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.DescuentosTRATableAdapter.Fill(Me.DescuentosDS.DescuentosTRA)
+        AVIO = False
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click

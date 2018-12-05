@@ -40,6 +40,8 @@ Partial Class frm_contratos_alta
         Me.cb_gl = New System.Windows.Forms.ComboBox()
         Me.CONTCPFcontratosBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_contratos7 = New Fira_Cartera_Pasiva.DS_contratos()
+        Me.CONTCPFGLBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
         Me.CK_FONAGA = New System.Windows.Forms.CheckBox()
         Me.CONT_CPF_contratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label69 = New System.Windows.Forms.Label()
@@ -200,7 +202,6 @@ Partial Class frm_contratos_alta
         Me.Vw_conceptos_inversionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONTCPFGLBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescuentosDSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
         Me.Vw_conceptos_inversion_fullBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_cadenasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.bt_guardar = New System.Windows.Forms.Button()
@@ -273,6 +274,14 @@ Partial Class frm_contratos_alta
         Me.CONTCPFcontratosBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_GLTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter()
         Me.txt_id_contrato = New System.Windows.Forms.TextBox()
+        Me.CONTCPFgarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter()
+        Me.CONTCPFanexovagarBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_anexo_vagarTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_anexo_vagarTableAdapter()
+        Me.AnexosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AnexosTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.AnexosTableAdapter()
+        Me.AviosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AviosTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.AviosTableAdapter()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -282,6 +291,8 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONTCPFcontratosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFGLBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_contratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_intermediariosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_periodicidadBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -314,7 +325,6 @@ Partial Class frm_contratos_alta
         CType(Me.Vw_conceptos_inversionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_conceptos_inversion_fullBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_cadenasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -334,6 +344,10 @@ Partial Class frm_contratos_alta
         CType(Me.DS_contratos4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DScontratos7BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFanexovagarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AviosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbclientes
@@ -543,7 +557,8 @@ Partial Class frm_contratos_alta
         'cb_gl
         '
         Me.cb_gl.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource1, "porcentaje_Gliquida", True))
-        Me.cb_gl.DisplayMember = "id_gl"
+        Me.cb_gl.DataSource = Me.CONTCPFGLBindingSource1
+        Me.cb_gl.DisplayMember = "valor"
         Me.cb_gl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_gl.FormattingEnabled = True
         Me.cb_gl.Location = New System.Drawing.Point(548, 96)
@@ -561,6 +576,16 @@ Partial Class frm_contratos_alta
         '
         Me.DS_contratos7.DataSetName = "DS_contratos"
         Me.DS_contratos7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CONTCPFGLBindingSource1
+        '
+        Me.CONTCPFGLBindingSource1.DataMember = "CONT_CPF_GL"
+        Me.CONTCPFGLBindingSource1.DataSource = Me.DescuentosDS
+        '
+        'DescuentosDS
+        '
+        Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CK_FONAGA
         '
@@ -2015,11 +2040,6 @@ Partial Class frm_contratos_alta
         Me.DescuentosDSBindingSource.DataSource = Me.DescuentosDS
         Me.DescuentosDSBindingSource.Position = 0
         '
-        'DescuentosDS
-        '
-        Me.DescuentosDS.DataSetName = "DescuentosDS"
-        Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Vw_conceptos_inversion_fullBindingSource
         '
         Me.Vw_conceptos_inversion_fullBindingSource.DataMember = "vw_conceptos_inversion_full"
@@ -2436,6 +2456,42 @@ Partial Class frm_contratos_alta
         Me.txt_id_contrato.TabIndex = 207
         Me.txt_id_contrato.Visible = False
         '
+        'CONTCPFgarantiasBindingSource
+        '
+        Me.CONTCPFgarantiasBindingSource.DataMember = "CONT_CPF_garantias"
+        Me.CONTCPFgarantiasBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_garantiasTableAdapter
+        '
+        Me.CONT_CPF_garantiasTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFanexovagarBindingSource
+        '
+        Me.CONTCPFanexovagarBindingSource.DataMember = "CONT_CPF_anexo_vagar"
+        Me.CONTCPFanexovagarBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_anexo_vagarTableAdapter
+        '
+        Me.CONT_CPF_anexo_vagarTableAdapter.ClearBeforeFill = True
+        '
+        'AnexosBindingSource
+        '
+        Me.AnexosBindingSource.DataMember = "Anexos"
+        Me.AnexosBindingSource.DataSource = Me.DescuentosDS
+        '
+        'AnexosTableAdapter
+        '
+        Me.AnexosTableAdapter.ClearBeforeFill = True
+        '
+        'AviosBindingSource
+        '
+        Me.AviosBindingSource.DataMember = "Avios"
+        Me.AviosBindingSource.DataSource = Me.DescuentosDS
+        '
+        'AviosTableAdapter
+        '
+        Me.AviosTableAdapter.ClearBeforeFill = True
+        '
         'frm_contratos_alta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2458,6 +2514,8 @@ Partial Class frm_contratos_alta
         Me.lb_ciclo.PerformLayout()
         CType(Me.CONTCPFcontratosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFGLBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_contratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_intermediariosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_periodicidadBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2491,7 +2549,6 @@ Partial Class frm_contratos_alta
         CType(Me.Vw_conceptos_inversionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DescuentosDSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Vw_conceptos_inversion_fullBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONT_CPF_cadenasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
@@ -2512,6 +2569,10 @@ Partial Class frm_contratos_alta
         CType(Me.DS_contratos4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DScontratos7BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFgarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFanexovagarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AnexosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AviosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2766,4 +2827,13 @@ Partial Class frm_contratos_alta
     Friend WithEvents CONTCPFGLBindingSource As BindingSource
     Friend WithEvents CONT_CPF_GLTableAdapter As DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter
     Friend WithEvents txt_id_contrato As TextBox
+    Friend WithEvents CONTCPFgarantiasBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_garantiasTableAdapter As DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter
+    Friend WithEvents CONTCPFGLBindingSource1 As BindingSource
+    Friend WithEvents CONTCPFanexovagarBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_anexo_vagarTableAdapter As DS_contratosTableAdapters.CONT_CPF_anexo_vagarTableAdapter
+    Friend WithEvents AnexosBindingSource As BindingSource
+    Friend WithEvents AnexosTableAdapter As DescuentosDSTableAdapters.AnexosTableAdapter
+    Friend WithEvents AviosBindingSource As BindingSource
+    Friend WithEvents AviosTableAdapter As DescuentosDSTableAdapters.AviosTableAdapter
 End Class

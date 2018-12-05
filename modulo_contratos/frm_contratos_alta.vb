@@ -17,6 +17,12 @@ Public Class frm_contratos_alta
 
 
     Private Sub frm_contratos_alta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Avios' Puede moverla o quitarla según sea necesario.
+        '  Me.AviosTableAdapter.Fill(Me.DescuentosDS.Avios)
+        'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Anexos' Puede moverla o quitarla según sea necesario.
+        ' Me.AnexosTableAdapter.Fill(Me.DescuentosDS.Anexos)
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_garantias' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_garantias)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.CONT_CPF_GL' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_GLTableAdapter.Fill(Me.DescuentosDS.CONT_CPF_GL)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
@@ -185,6 +191,14 @@ Public Class frm_contratos_alta
 
             Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato))
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
+            'ACTUALIZA IDCREDITO EN LA CARPETA ACTIVA
+            If AVIO = True Then
+                Me.AviosTableAdapter.UpdateQueryidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Ciclo"), Vw_AnexosBindingSource.Current("Anexo"))
+            Else
+                Me.AnexosTableAdapter.updateidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Anexo"))
+
+            End If
+
 
         Else 'UPDATE
             If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
@@ -231,6 +245,7 @@ Public Class frm_contratos_alta
         Me.CONT_CPF_contratosTableAdapter.penalizacionupdate(ch_pen.Checked, id_contrato) 'dagl 26/06/2018 guardar subsidio 
         penalizacion = ch_pen.Checked
         ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(Cksubsidio.Checked, id_contrato) 'dagl 23/01/2018 guardar subsidio 
+
         If Ministracion1 = True And Inserto = True Then
             CargaVencimientos()
 
@@ -770,6 +785,10 @@ Public Class frm_contratos_alta
     End Sub
 
     Private Sub Label55_Click(sender As Object, e As EventArgs)
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub cb_rama_SelectedValueChanged(sender As Object, e As EventArgs) Handles cb_rama.SelectedValueChanged

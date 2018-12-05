@@ -11,6 +11,7 @@ Module ModuleGlobal
     Public DIAS_ENTRE_VENC As Decimal = 0
     Public flagmin As Boolean
     Public sinanexo As Boolean
+    Public AVIO As Boolean
     Public id_acreditado As Boolean
     Public fonaga0, fonaga10, fonaga15, fonaga20, fega0, fega10, fega15, fega20, cnominal As Decimal
     Public Enum EsquemaCobro As Integer
