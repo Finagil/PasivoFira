@@ -282,6 +282,9 @@ Partial Class frm_contratos_alta
         Me.AnexosTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.AnexosTableAdapter()
         Me.AviosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AviosTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.AviosTableAdapter()
+        Me.DescuentosDSBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AnexosBloqueadosMCBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AnexosBloqueadosMCTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.AnexosBloqueadosMCTableAdapter()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Vw_AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -348,6 +351,8 @@ Partial Class frm_contratos_alta
         CType(Me.CONTCPFanexovagarBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AnexosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AviosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DescuentosDSBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AnexosBloqueadosMCBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbclientes
@@ -2492,6 +2497,20 @@ Partial Class frm_contratos_alta
         '
         Me.AviosTableAdapter.ClearBeforeFill = True
         '
+        'DescuentosDSBindingSource1
+        '
+        Me.DescuentosDSBindingSource1.DataSource = Me.DescuentosDS
+        Me.DescuentosDSBindingSource1.Position = 0
+        '
+        'AnexosBloqueadosMCBindingSource
+        '
+        Me.AnexosBloqueadosMCBindingSource.DataMember = "AnexosBloqueadosMC"
+        Me.AnexosBloqueadosMCBindingSource.DataSource = Me.DescuentosDS
+        '
+        'AnexosBloqueadosMCTableAdapter
+        '
+        Me.AnexosBloqueadosMCTableAdapter.ClearBeforeFill = True
+        '
         'frm_contratos_alta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2573,6 +2592,8 @@ Partial Class frm_contratos_alta
         CType(Me.CONTCPFanexovagarBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AnexosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AviosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DescuentosDSBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AnexosBloqueadosMCBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2836,4 +2857,7 @@ Partial Class frm_contratos_alta
     Friend WithEvents AnexosTableAdapter As DescuentosDSTableAdapters.AnexosTableAdapter
     Friend WithEvents AviosBindingSource As BindingSource
     Friend WithEvents AviosTableAdapter As DescuentosDSTableAdapters.AviosTableAdapter
+    Friend WithEvents DescuentosDSBindingSource1 As BindingSource
+    Friend WithEvents AnexosBloqueadosMCBindingSource As BindingSource
+    Friend WithEvents AnexosBloqueadosMCTableAdapter As DescuentosDSTableAdapters.AnexosBloqueadosMCTableAdapter
 End Class

@@ -17,6 +17,8 @@ Public Class frm_contratos_alta
 
 
     Private Sub frm_contratos_alta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.AnexosBloqueadosMC' Puede moverla o quitarla según sea necesario.
+        Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Avios' Puede moverla o quitarla según sea necesario.
         '  Me.AviosTableAdapter.Fill(Me.DescuentosDS.Avios)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Anexos' Puede moverla o quitarla según sea necesario.
@@ -192,11 +194,20 @@ Public Class frm_contratos_alta
             Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato))
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
             'ACTUALIZA IDCREDITO EN LA CARPETA ACTIVA
+
+            'revisar que no este bloqueado por mc
+            Dim bloqueo = Me.AnexosBloqueadosMCTableAdapter.Fill(Vw_AnexosBindingSource.Current("Anexo"))
+            If bloqueo <> "" Then 'desbloquear
+                Me.AnexosBloqueadosMCTableAdapter.desbloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
+            End If
             If AVIO = True Then
                 Me.AviosTableAdapter.UpdateQueryidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Ciclo"), Vw_AnexosBindingSource.Current("Anexo"))
             Else
                 Me.AnexosTableAdapter.updateidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Anexo"))
 
+            End If
+            If bloqueo <> "" Then 'bloqueo
+                Me.AnexosBloqueadosMCTableAdapter.bloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
             End If
 
 
