@@ -10107,7 +10107,7 @@ Partial Public Class DescuentosDS
         Inherits Global.System.Data.DataTable
         Implements Global.System.Collections.IEnumerable
         
-        Private columnColumn1 As Global.System.Data.DataColumn
+        Private columnANEXO As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -10146,9 +10146,9 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Column1Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property ANEXOColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnColumn1
+                Return Me.columnANEXO
             End Get
         End Property
         
@@ -10189,9 +10189,9 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddAnexosBloqueadosMCRow(ByVal Column1 As String) As AnexosBloqueadosMCRow
+        Public Overloads Function AddAnexosBloqueadosMCRow(ByVal ANEXO As String) As AnexosBloqueadosMCRow
             Dim rowAnexosBloqueadosMCRow As AnexosBloqueadosMCRow = CType(Me.NewRow,AnexosBloqueadosMCRow)
-            Dim columnValuesArray() As Object = New Object() {Column1}
+            Dim columnValuesArray() As Object = New Object() {ANEXO}
             rowAnexosBloqueadosMCRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowAnexosBloqueadosMCRow)
             Return rowAnexosBloqueadosMCRow
@@ -10220,16 +10220,16 @@ Partial Public Class DescuentosDS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnColumn1 = MyBase.Columns("Column1")
+            Me.columnANEXO = MyBase.Columns("ANEXO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnColumn1 = New Global.System.Data.DataColumn("Column1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnColumn1)
-            Me.columnColumn1.ReadOnly = true
-            Me.columnColumn1.MaxLength = 9
+            Me.columnANEXO = New Global.System.Data.DataColumn("ANEXO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnANEXO)
+            Me.columnANEXO.ReadOnly = true
+            Me.columnANEXO.MaxLength = 9
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18184,29 +18184,29 @@ Partial Public Class DescuentosDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Column1() As String
+        Public Property ANEXO() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableAnexosBloqueadosMC.Column1Column),String)
+                    Return CType(Me(Me.tableAnexosBloqueadosMC.ANEXOColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Column1' de la tabla 'AnexosBloqueadosMC' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ANEXO' de la tabla 'AnexosBloqueadosMC' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableAnexosBloqueadosMC.Column1Column) = value
+                Me(Me.tableAnexosBloqueadosMC.ANEXOColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsColumn1Null() As Boolean
-            Return Me.IsNull(Me.tableAnexosBloqueadosMC.Column1Column)
+        Public Function IsANEXONull() As Boolean
+            Return Me.IsNull(Me.tableAnexosBloqueadosMC.ANEXOColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetColumn1Null()
-            Me(Me.tableAnexosBloqueadosMC.Column1Column) = Global.System.Convert.DBNull
+        Public Sub SetANEXONull()
+            Me(Me.tableAnexosBloqueadosMC.ANEXOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -19005,58 +19005,61 @@ Namespace DescuentosDSTableAdapters
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
             Me._commandCollection(4).CommandText = "SELECT        mFINAGIL.Anexo, mFINAGIL.Ciclo, Vw_Anexos.AnexoCon, Vw_Anexos.Ciclo"& _ 
-                "Pagare, RTRIM(Vw_Anexos.Descr) AS Descr, SUM(mFINAGIL.Importe) AS Importe, MIN(m"& _ 
-                "FINAGIL.Ministracion) AS Ministracion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contr"& _ 
+                "Pagare, RTRIM(Vw_Anexos.Descr) AS Descr, SUM(mFINAGIL.Importe) AS Importe, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      MIN(mFINAGIL.Ministracion) AS Ministracion, CONT_CPF_contr"& _ 
                 "atos.id_contrato, MAX(CONVERT(datetime, mFINAGIL.FechaPago, 112)) AS FechaPago, "& _ 
-                "MAX(Clientes.TasaIVACliente) AS TasaIVACliente, Vw_Anexos.Tipar, Vw_Anexos.Monto"& _ 
-                "Financiado, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos.porcentaje_cxsg, CONT_"& _ 
-                "CPF_contratos.BP, CONT_CPF_contratos.FN, CONT_CPF_contratos.FB, CONT_CPF_contrat"& _ 
-                "os_garantias.cobertura_nominal, CONT_CPF_contratos_garantias.cobertura_efectiva,"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos.FechaCorte, CONT_CPF_esquema_cobr"& _ 
-                "o.clave AS ClaveEsquema, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_esquema_cobro"& _ 
-                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos ON CONT_CPF_esquema_cob"& _ 
-                "ro.id_esquema_cobro = CONT_CPF_contratos.id_esquema_cobro LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    CONT_CPF_contratos_garantias ON CONT_CPF_contratos.id_contra"& _ 
-                "to = CONT_CPF_contratos_garantias.id_contrato RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         mFINAGIL INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON mFINAGIL.Ane"& _ 
-                "xo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "               Clientes ON Vw_Anexos.Cliente = Clientes.Cliente ON CONT_CPF_cont"& _ 
-                "ratos.anexo = mFINAGIL.Anexo AND CONT_CPF_contratos.ciclo = mFINAGIL.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E        (mFINAGIL.Notas = 'PAGADO') AND (mFINAGIL.Procesado = 1) AND (mFINAGIL."& _ 
-                "FechaAlta >= N'20170301')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY mFINAGIL.Anexo, mFINAGIL.Ciclo, Vw_Anexos.An"& _ 
-                "exoCon, Vw_Anexos.CicloPagare, RTRIM(Vw_Anexos.Descr), CONT_CPF_contratos.id_con"& _ 
-                "trato, Vw_Anexos.Tipar, Vw_Anexos.MontoFinanciado, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CO"& _ 
-                "NT_CPF_contratos.porcentaje_cxsg, CONT_CPF_contratos.BP, CONT_CPF_contratos.FN, "& _ 
-                "CONT_CPF_contratos.FB, CONT_CPF_contratos_garantias.cobertura_nominal, CONT_CPF_"& _ 
-                "contratos_garantias.cobertura_efectiva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_cont"& _ 
-                "ratos.FechaCorte, CONT_CPF_esquema_cobro.clave, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        ("& _ 
-                "MIN(mFINAGIL.Ministracion) > 0) AND (CONT_CPF_contratos.id_contrato = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        Vw_Anexos_1.Anexo, Vw_Anexos_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_An"& _ 
-                "exos_1.CicloPagare, RTRIM(Vw_Anexos_1.Descr) AS Descr, SUM(Vw_Anexos_1.MontoFina"& _ 
-                "nciado) AS Importe, 1 AS Ministracion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contr"& _ 
-                "atos_1.id_contrato, MAX(CONVERT(datetime, Vw_Anexos_1.Fechacon, 112)) AS FechaPa"& _ 
-                "go, MAX(Clientes_1.TasaIVACliente) AS TasaIVACliente, Vw_Anexos_1.Tipar, Vw_Anex"& _ 
-                "os_1.MontoFinanciado, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.porcentaje"& _ 
-                "_cxsg, CONT_CPF_contratos_1.BP, CONT_CPF_contratos_1.FN, CONT_CPF_contratos_1.FB"& _ 
-                ", CONT_CPF_contratos_garantias_1.cobertura_nominal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         C"& _ 
-                "ONT_CPF_contratos_garantias_1.cobertura_efectiva, CONT_CPF_contratos_1.FechaCort"& _ 
-                "e, CONT_CPF_esquema_cobro_1.clave AS ClaveEsquema, Vw_Anexos_1.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      Clientes AS Clientes_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos AS V"& _ 
-                "w_Anexos_1 ON Clientes_1.Cliente = Vw_Anexos_1.Cliente LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 CONT_CPF_esquema_cobro AS CONT_CPF_esquema_cobro_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         CONT_CPF_contratos AS CONT_CPF_contratos_1 ON CONT_CPF_"& _ 
-                "esquema_cobro_1.id_esquema_cobro = CONT_CPF_contratos_1.id_esquema_cobro ON Vw_A"& _ 
-                "nexos_1.Ciclo = CONT_CPF_contratos_1.ciclo AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Ane"& _ 
-                "xos_1.Anexo = CONT_CPF_contratos_1.anexo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   CONT_CPF_contratos_garantias AS CONT_CPF_contratos_garantias_1 ON CONT_CPF_co"& _ 
-                "ntratos_1.id_contrato = CONT_CPF_contratos_garantias_1.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Vw_"& _ 
-                "Anexos_1.Anexo, Vw_Anexos_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare"& _ 
-                ", RTRIM(Vw_Anexos_1.Descr), CONT_CPF_contratos_1.id_contrato, Vw_Anexos_1.Tipar,"& _ 
-                " Vw_Anexos_1.MontoFinanciado, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.po"& _ 
-                "rcentaje_cxsg, CONT_CPF_contratos_1.BP, CONT_CPF_contratos_1.FN, CONT_CPF_contra"& _ 
-                "tos_1.FB, CONT_CPF_contratos_garantias_1.cobertura_nominal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       CONT_CPF_contratos_garantias_1.cobertura_efectiva, CONT_CPF_contratos_1.F"& _ 
-                "echaCorte, CONT_CPF_esquema_cobro_1.clave, Vw_Anexos_1.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CON"& _ 
-                "T_CPF_contratos_1.id_contrato = ?)"
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         MAX(Clientes.TasaIVACliente) AS TasaIVACliente, Vw_An"& _ 
+                "exos.Tipar, Vw_Anexos.MontoFinanciado, CONT_CPF_contratos.porcentaje_cxsg, CONT_"& _ 
+                "CPF_contratos.BP, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos.FN, CONT_CPF_con"& _ 
+                "tratos.FB, CONT_CPF_contratos_garantias.cobertura_nominal, CONT_CPF_contratos_ga"& _ 
+                "rantias.cobertura_efectiva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos.FechaC"& _ 
+                "orte, CONT_CPF_esquema_cobro.clave AS ClaveEsquema, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
+                "     CONT_CPF_esquema_cobro INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contra"& _ 
+                "tos ON CONT_CPF_esquema_cobro.id_esquema_cobro = CONT_CPF_contratos.id_esquema_c"& _ 
+                "obro INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_garantias ON CONT_C"& _ 
+                "PF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         mFINAGIL INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos"& _ 
+                " ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo INNER "& _ 
+                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON Vw_Anexos.Cliente = Clientes.Cliente "& _ 
+                "ON CONT_CPF_contratos.anexo = mFINAGIL.Anexo AND CONT_CPF_contratos.ciclo = mFIN"& _ 
+                "AGIL.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (mFINAGIL.Notas = 'PAGADO') AND (mFINAGIL.Procesado = 1"& _ 
+                ") AND (mFINAGIL.FechaAlta >= N'20170301')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY mFINAGIL.Anexo, mFINAGIL.Cic"& _ 
+                "lo, Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, RTRIM(Vw_Anexos.Descr), CONT_CPF_"& _ 
+                "contratos.id_contrato, Vw_Anexos.Tipar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos.Mon"& _ 
+                "toFinanciado, CONT_CPF_contratos.porcentaje_cxsg, CONT_CPF_contratos.BP, CONT_CP"& _ 
+                "F_contratos.FN, CONT_CPF_contratos.FB, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contr"& _ 
+                "atos_garantias.cobertura_nominal, CONT_CPF_contratos_garantias.cobertura_efectiv"& _ 
+                "a, CONT_CPF_contratos.FechaCorte, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_esquema_co"& _ 
+                "bro.clave, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (MIN(mFINAGIL.Ministracion) > 0) AND ("& _ 
+                "CONT_CPF_contratos.id_contrato = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        Vw_Anexos_1.Anexo, Vw_"& _ 
+                "Anexos_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare, RTRIM(Vw_Anexos_1"& _ 
+                ".Descr) AS Descr, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SUM(Vw_Anexos_1.MontoFinanciado) AS"& _ 
+                " Importe, 1 AS Ministracion, CONT_CPF_contratos_1.id_contrato, MAX(CONVERT(datet"& _ 
+                "ime, Vw_Anexos_1.Fechacon, 112)) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS FechaPago, MAX(Cl"& _ 
+                "ientes_1.TasaIVACliente) AS TasaIVACliente, Vw_Anexos_1.Tipar, Vw_Anexos_1.Monto"& _ 
+                "Financiado, CONT_CPF_contratos_1.porcentaje_cxsg, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CON"& _ 
+                "T_CPF_contratos_1.BP, CONT_CPF_contratos_1.FN, CONT_CPF_contratos_1.FB, CONT_CPF"& _ 
+                "_contratos_garantias_1.cobertura_nominal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_co"& _ 
+                "ntratos_garantias_1.cobertura_efectiva, CONT_CPF_contratos_1.FechaCorte, CONT_CP"& _ 
+                "F_esquema_cobro_1.clave AS ClaveEsquema, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1."& _ 
+                "Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Clientes AS Clientes_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   Vw_Anexos AS Vw_Anexos_1 ON Clientes_1.Cliente = Vw_Anexos_1.Cliente LEFT OUT"& _ 
+                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_esquema_cobro AS CONT_CPF_esquema_cob"& _ 
+                "ro_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos AS CONT_CPF_contrat"& _ 
+                "os_1 ON CONT_CPF_esquema_cobro_1.id_esquema_cobro = CONT_CPF_contratos_1.id_esqu"& _ 
+                "ema_cobro ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1.Ciclo = CONT_CPF_contratos_1"& _ 
+                ".ciclo AND Vw_Anexos_1.Anexo = CONT_CPF_contratos_1.anexo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    CONT_CPF_contratos_garantias AS CONT_CPF_contratos_garantias"& _ 
+                "_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.id_contrato = CONT_CPF_con"& _ 
+                "tratos_garantias_1.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Vw_Anexos_1.Anexo, Vw_Anexos_1.Ciclo, V"& _ 
+                "w_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare, RTRIM(Vw_Anexos_1.Descr), CONT_CPF"& _ 
+                "_contratos_1.id_contrato, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1.Tipar, Vw_Anexo"& _ 
+                "s_1.MontoFinanciado, CONT_CPF_contratos_1.porcentaje_cxsg, CONT_CPF_contratos_1."& _ 
+                "BP, CONT_CPF_contratos_1.FN, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.FB,"& _ 
+                " CONT_CPF_contratos_garantias_1.cobertura_nominal, CONT_CPF_contratos_garantias_"& _ 
+                "1.cobertura_efectiva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.FechaCorte"& _ 
+                ", CONT_CPF_esquema_cobro_1.clave, Vw_Anexos_1.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CONT_CPF_con"& _ 
+                "tratos_1.id_contrato = ?)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato1", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -19149,18 +19152,10 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDContrato(ByVal dataTable As DescuentosDS.MinistracionesDataTable, ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal id_contrato1 As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function FillByIDContrato(ByVal dataTable As DescuentosDS.MinistracionesDataTable, ByVal id_contrato As Integer, ByVal id_contrato1 As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            If (id_contrato.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (id_contrato1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_contrato1.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato,Integer)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_contrato1,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -19172,18 +19167,10 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDContrato(ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal id_contrato1 As Global.System.Nullable(Of Integer)) As DescuentosDS.MinistracionesDataTable
+        Public Overloads Overridable Function GetDataByIDContrato(ByVal id_contrato As Integer, ByVal id_contrato1 As Integer) As DescuentosDS.MinistracionesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            If (id_contrato.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (id_contrato1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_contrato1.Value,Integer)
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato,Integer)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_contrato1,Integer)
             Dim dataTable As DescuentosDS.MinistracionesDataTable = New DescuentosDS.MinistracionesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -29220,7 +29207,7 @@ Namespace DescuentosDSTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "AnexosBloqueadosMC"
-            tableMapping.ColumnMappings.Add("Column1", "Column1")
+            tableMapping.ColumnMappings.Add("ANEXO", "ANEXO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -29237,8 +29224,10 @@ Namespace DescuentosDSTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT       ISNULL( ANEXO,'')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AnexosBloqueadosMC"
+            Me._commandCollection(0).CommandText = "SELECT        ISNULL(Anexo, '') AS ANEXO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            AnexosBloqueadosMC"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
+                "RE        (Anexo = ?)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "INSERT INTO [AnexosBloqueadosMC] ([Anexo]) VALUES (?)"
@@ -29255,8 +29244,13 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DescuentosDS.AnexosBloqueadosMCDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DescuentosDS.AnexosBloqueadosMCDataTable, ByVal Anexo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Anexo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Anexo")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Anexo,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -29268,8 +29262,13 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DescuentosDS.AnexosBloqueadosMCDataTable
+        Public Overloads Overridable Function GetData(ByVal Anexo As String) As DescuentosDS.AnexosBloqueadosMCDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Anexo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Anexo")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Anexo,String)
+            End If
             Dim dataTable As DescuentosDS.AnexosBloqueadosMCDataTable = New DescuentosDS.AnexosBloqueadosMCDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

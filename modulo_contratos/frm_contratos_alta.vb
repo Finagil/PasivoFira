@@ -18,7 +18,7 @@ Public Class frm_contratos_alta
 
     Private Sub frm_contratos_alta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.AnexosBloqueadosMC' Puede moverla o quitarla según sea necesario.
-        Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC)
+        '  Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Avios' Puede moverla o quitarla según sea necesario.
         '  Me.AviosTableAdapter.Fill(Me.DescuentosDS.Avios)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Anexos' Puede moverla o quitarla según sea necesario.
@@ -196,7 +196,8 @@ Public Class frm_contratos_alta
             'ACTUALIZA IDCREDITO EN LA CARPETA ACTIVA
 
             'revisar que no este bloqueado por mc
-            Dim bloqueo = Me.AnexosBloqueadosMCTableAdapter.Fill(Vw_AnexosBindingSource.Current("Anexo"))
+            Dim bloqueo As String
+            bloqueo = Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC, Vw_AnexosBindingSource.Current("Anexo"))
             If bloqueo <> "" Then 'desbloquear
                 Me.AnexosBloqueadosMCTableAdapter.desbloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
             End If
@@ -206,7 +207,7 @@ Public Class frm_contratos_alta
                 Me.AnexosTableAdapter.updateidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Anexo"))
 
             End If
-            If bloqueo <> "" Then 'bloqueo
+            If bloqueo <> "0" Then 'bloqueo
                 Me.AnexosBloqueadosMCTableAdapter.bloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
             End If
 
@@ -427,6 +428,11 @@ Public Class frm_contratos_alta
             fecha = dt_febalance.Text
         End If
         z25 = LB_Z25.Text
+
+
+        If cb_gl.SelectedValue >= 0 Then
+            cb_gl.SelectedValue = 1
+        End If
     End Sub
 
     Private Function cargar_combos()
