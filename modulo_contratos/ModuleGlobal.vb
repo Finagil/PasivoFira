@@ -41,6 +41,7 @@ Module ModuleGlobal
         Fega15 = 18
         Fega20 = 19
         cnominal = 20
+        idcreditofac = 35
 
 
     End Enum

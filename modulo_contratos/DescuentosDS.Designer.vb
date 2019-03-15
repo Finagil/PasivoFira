@@ -562,6 +562,7 @@ Partial Public Class DescuentosDS
         Me.DataSetName = "DescuentosDS"
         Me.Prefix = ""
         Me.Namespace = "http://tempuri.org/DescuentosDS.xsd"
+        Me.Locale = New Global.System.Globalization.CultureInfo("es-ES")
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableMinistraciones = New MinistracionesDataTable()
@@ -18921,7 +18922,7 @@ Namespace DescuentosDSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(9) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(10) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Vw_Anexos_1.Anexo, Vw_Anexos_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_Anex"& _ 
@@ -19016,86 +19017,101 @@ Namespace DescuentosDSTableAdapters
                 "orte, CONT_CPF_esquema_cobro.clave AS ClaveEsquema, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
                 "     CONT_CPF_esquema_cobro INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contra"& _ 
                 "tos ON CONT_CPF_esquema_cobro.id_esquema_cobro = CONT_CPF_contratos.id_esquema_c"& _ 
-                "obro INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_garantias ON CONT_C"& _ 
-                "PF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         mFINAGIL INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos"& _ 
-                " ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.Ciclo INNER "& _ 
-                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON Vw_Anexos.Cliente = Clientes.Cliente "& _ 
-                "ON CONT_CPF_contratos.anexo = mFINAGIL.Anexo AND CONT_CPF_contratos.ciclo = mFIN"& _ 
-                "AGIL.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (mFINAGIL.Notas = 'PAGADO') AND (mFINAGIL.Procesado = 1"& _ 
-                ") AND (mFINAGIL.FechaAlta >= N'20170301')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY mFINAGIL.Anexo, mFINAGIL.Cic"& _ 
-                "lo, Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, RTRIM(Vw_Anexos.Descr), CONT_CPF_"& _ 
-                "contratos.id_contrato, Vw_Anexos.Tipar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos.Mon"& _ 
-                "toFinanciado, CONT_CPF_contratos.porcentaje_cxsg, CONT_CPF_contratos.BP, CONT_CP"& _ 
-                "F_contratos.FN, CONT_CPF_contratos.FB, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contr"& _ 
-                "atos_garantias.cobertura_nominal, CONT_CPF_contratos_garantias.cobertura_efectiv"& _ 
-                "a, CONT_CPF_contratos.FechaCorte, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_esquema_co"& _ 
-                "bro.clave, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (MIN(mFINAGIL.Ministracion) > 0) AND ("& _ 
-                "CONT_CPF_contratos.id_contrato = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        Vw_Anexos_1.Anexo, Vw_"& _ 
-                "Anexos_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare, RTRIM(Vw_Anexos_1"& _ 
-                ".Descr) AS Descr, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SUM(Vw_Anexos_1.MontoFinanciado) AS"& _ 
-                " Importe, 1 AS Ministracion, CONT_CPF_contratos_1.id_contrato, MAX(CONVERT(datet"& _ 
-                "ime, Vw_Anexos_1.Fechacon, 112)) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS FechaPago, MAX(Cl"& _ 
-                "ientes_1.TasaIVACliente) AS TasaIVACliente, Vw_Anexos_1.Tipar, Vw_Anexos_1.Monto"& _ 
-                "Financiado, CONT_CPF_contratos_1.porcentaje_cxsg, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CON"& _ 
-                "T_CPF_contratos_1.BP, CONT_CPF_contratos_1.FN, CONT_CPF_contratos_1.FB, CONT_CPF"& _ 
-                "_contratos_garantias_1.cobertura_nominal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_co"& _ 
-                "ntratos_garantias_1.cobertura_efectiva, CONT_CPF_contratos_1.FechaCorte, CONT_CP"& _ 
-                "F_esquema_cobro_1.clave AS ClaveEsquema, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1."& _ 
-                "Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Clientes AS Clientes_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Vw_Anexos AS Vw_Anexos_1 ON Clientes_1.Cliente = Vw_Anexos_1.Cliente LEFT OUT"& _ 
-                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_esquema_cobro AS CONT_CPF_esquema_cob"& _ 
-                "ro_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos AS CONT_CPF_contrat"& _ 
-                "os_1 ON CONT_CPF_esquema_cobro_1.id_esquema_cobro = CONT_CPF_contratos_1.id_esqu"& _ 
-                "ema_cobro ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1.Ciclo = CONT_CPF_contratos_1"& _ 
-                ".ciclo AND Vw_Anexos_1.Anexo = CONT_CPF_contratos_1.anexo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    CONT_CPF_contratos_garantias AS CONT_CPF_contratos_garantias"& _ 
-                "_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.id_contrato = CONT_CPF_con"& _ 
-                "tratos_garantias_1.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Vw_Anexos_1.Anexo, Vw_Anexos_1.Ciclo, V"& _ 
-                "w_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare, RTRIM(Vw_Anexos_1.Descr), CONT_CPF"& _ 
-                "_contratos_1.id_contrato, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1.Tipar, Vw_Anexo"& _ 
-                "s_1.MontoFinanciado, CONT_CPF_contratos_1.porcentaje_cxsg, CONT_CPF_contratos_1."& _ 
-                "BP, CONT_CPF_contratos_1.FN, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.FB,"& _ 
-                " CONT_CPF_contratos_garantias_1.cobertura_nominal, CONT_CPF_contratos_garantias_"& _ 
-                "1.cobertura_efectiva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.FechaCorte"& _ 
-                ", CONT_CPF_esquema_cobro_1.clave, Vw_Anexos_1.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CONT_CPF_con"& _ 
-                "tratos_1.id_contrato = ?)"
+                "obro LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_garantias ON C"& _ 
+                "ONT_CPF_contratos.id_contrato = CONT_CPF_contratos_garantias.id_contrato RIGHT O"& _ 
+                "UTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         mFINAGIL INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  Vw_Anexos ON mFINAGIL.Anexo = Vw_Anexos.Anexo AND mFINAGIL.Ciclo = Vw_Anexos.C"& _ 
+                "iclo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Clientes ON Vw_Anexos.Cliente = Client"& _ 
+                "es.Cliente ON CONT_CPF_contratos.anexo = mFINAGIL.Anexo AND CONT_CPF_contratos.c"& _ 
+                "iclo = mFINAGIL.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (mFINAGIL.Notas = 'PAGADO') AND (mFINAGIL.Pr"& _ 
+                "ocesado = 1) AND (mFINAGIL.FechaAlta >= N'20170301')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY mFINAGIL.Anexo, m"& _ 
+                "FINAGIL.Ciclo, Vw_Anexos.AnexoCon, Vw_Anexos.CicloPagare, RTRIM(Vw_Anexos.Descr)"& _ 
+                ", CONT_CPF_contratos.id_contrato, Vw_Anexos.Tipar, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw"& _ 
+                "_Anexos.MontoFinanciado, CONT_CPF_contratos.porcentaje_cxsg, CONT_CPF_contratos."& _ 
+                "BP, CONT_CPF_contratos.FN, CONT_CPF_contratos.FB, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CON"& _ 
+                "T_CPF_contratos_garantias.cobertura_nominal, CONT_CPF_contratos_garantias.cobert"& _ 
+                "ura_efectiva, CONT_CPF_contratos.FechaCorte, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF"& _ 
+                "_esquema_cobro.clave, Vw_Anexos.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (MIN(mFINAGIL.Ministracion)"& _ 
+                " > 0) AND (CONT_CPF_contratos.id_contrato = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        Vw_Anexos_1"& _ 
+                ".Anexo, Vw_Anexos_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare, RTRIM("& _ 
+                "Vw_Anexos_1.Descr) AS Descr, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SUM(Vw_Anexos_1.MontoFin"& _ 
+                "anciado) AS Importe, 1 AS Ministracion, CONT_CPF_contratos_1.id_contrato, MAX(CO"& _ 
+                "NVERT(datetime, Vw_Anexos_1.Fechacon, 112)) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS FechaP"& _ 
+                "ago, MAX(Clientes_1.TasaIVACliente) AS TasaIVACliente, Vw_Anexos_1.Tipar, Vw_Ane"& _ 
+                "xos_1.MontoFinanciado, CONT_CPF_contratos_1.porcentaje_cxsg, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "        CONT_CPF_contratos_1.BP, CONT_CPF_contratos_1.FN, CONT_CPF_contratos_1.F"& _ 
+                "B, CONT_CPF_contratos_garantias_1.cobertura_nominal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "CONT_CPF_contratos_garantias_1.cobertura_efectiva, CONT_CPF_contratos_1.FechaCor"& _ 
+                "te, CONT_CPF_esquema_cobro_1.clave AS ClaveEsquema, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         V"& _ 
+                "w_Anexos_1.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Clientes AS Clientes_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              Vw_Anexos AS Vw_Anexos_1 ON Clientes_1.Cliente = Vw_Anexos_1.Clien"& _ 
+                "te LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_esquema_cobro AS CONT_CPF_"& _ 
+                "esquema_cobro_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos AS CONT_"& _ 
+                "CPF_contratos_1 ON CONT_CPF_esquema_cobro_1.id_esquema_cobro = CONT_CPF_contrato"& _ 
+                "s_1.id_esquema_cobro ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1.Ciclo = CONT_CPF_"& _ 
+                "contratos_1.ciclo AND Vw_Anexos_1.Anexo = CONT_CPF_contratos_1.anexo LEFT OUTER "& _ 
+                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_garantias AS CONT_CPF_contrato"& _ 
+                "s_garantias_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1.id_contrato = C"& _ 
+                "ONT_CPF_contratos_garantias_1.id_contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Vw_Anexos_1.Anexo, Vw_Anexos"& _ 
+                "_1.Ciclo, Vw_Anexos_1.AnexoCon, Vw_Anexos_1.CicloPagare, RTRIM(Vw_Anexos_1.Descr"& _ 
+                "), CONT_CPF_contratos_1.id_contrato, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos_1.Tipa"& _ 
+                "r, Vw_Anexos_1.MontoFinanciado, CONT_CPF_contratos_1.porcentaje_cxsg, CONT_CPF_c"& _ 
+                "ontratos_1.BP, CONT_CPF_contratos_1.FN, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_cont"& _ 
+                "ratos_1.FB, CONT_CPF_contratos_garantias_1.cobertura_nominal, CONT_CPF_contratos"& _ 
+                "_garantias_1.cobertura_efectiva, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_contratos_1"& _ 
+                ".FechaCorte, CONT_CPF_esquema_cobro_1.clave, Vw_Anexos_1.Tipta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (C"& _ 
+                "ONT_CPF_contratos_1.id_contrato = ?)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato1", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(5).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(5).CommandText = "SELECT     MAX(CONVERT(datetime, FechaTerminacion, 112)) AS Fecha"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         A"& _ 
-                "vios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (Anexo = ?) AND (Ciclo = ?)"
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "INSERT INTO CONT_CPF_ministraciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (monto, fecha, cons"& _ 
+                "ecutivo, porcentaje_cobro, iva, importe, id_contrato, estatus, fe_descuento)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VA"& _ 
+                "LUES        (?,?,?,?,?,?,?,?,?)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("monto", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "monto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("consecutivo", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(0,Byte), "consecutivo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("porcentaje_cobro", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "porcentaje_cobro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("iva", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "iva", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("importe", Global.System.Data.OleDb.OleDbType.Numeric, 9, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(2,Byte), "importe", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("estatus", Global.System.Data.OleDb.OleDbType.WChar, 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "estatus", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("fe_descuento", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "fe_descuento", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(6).CommandText = "SELECT        MIN(CONVERT(datetime, Feven, 112)) AS Fecha"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Edocta"& _ 
-                "v"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Anexo = ?) AND (Abcap > 0)"
+            Me._commandCollection(6).CommandText = "SELECT     MAX(CONVERT(datetime, FechaTerminacion, 112)) AS Fecha"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         A"& _ 
+                "vios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (Anexo = ?) AND (Ciclo = ?)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ciclo", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ciclo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(7) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(7).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(7).CommandText = "SELECT     ISNULL(MAX(consecutivo) + 1, 1) AS consecutivo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_"& _ 
-                "ministraciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (id_contrato = ?)"
+            Me._commandCollection(7).CommandText = "SELECT        MIN(CONVERT(datetime, Feven, 112)) AS Fecha"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Edocta"& _ 
+                "v"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Anexo = ?) AND (Abcap > 0)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Anexo", Global.System.Data.OleDb.OleDbType.WChar, 9, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Anexo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(8) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(8).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(8).CommandText = "SELECT     MAX(id_contrato_garantia) AS ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_contratos_garan"& _ 
-                "tias"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (id_contrato = ?)"
+            Me._commandCollection(8).CommandText = "SELECT     ISNULL(MAX(consecutivo) + 1, 1) AS consecutivo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_"& _ 
+                "ministraciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (id_contrato = ?)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(9).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
-            Me._commandCollection(9).CommandText = "UPDATE    CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET              FechaCorte = ?, TiieActiva = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
-                "ERE     (id_contrato = ?)"
+            Me._commandCollection(9).CommandText = "SELECT     MAX(id_contrato_garantia) AS ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         CONT_CPF_contratos_garan"& _ 
+                "tias"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (id_contrato = ?)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TiieActiva", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "TiieActiva", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(10) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(10).Connection = New Global.System.Data.OleDb.OleDbConnection(Global.Fira_Cartera_Pasiva.My.MySettings.Default.ConnectionString_servidor)
+            Me._commandCollection(10).CommandText = "UPDATE    CONT_CPF_contratos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET              FechaCorte = ?, TiieActiva = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
+                "ERE     (id_contrato = ?)"
+            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FechaCorte", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FechaCorte", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TiieActiva", Global.System.Data.OleDb.OleDbType.Numeric, 5, Global.System.Data.ParameterDirection.Input, CType(7,Byte), CType(4,Byte), "TiieActiva", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19246,9 +19262,76 @@ Namespace DescuentosDSTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertQuery(ByVal monto As Global.System.Nullable(Of Decimal), ByVal fecha As Global.System.Nullable(Of Date), ByVal consecutivo As Global.System.Nullable(Of Decimal), ByVal porcentaje_cobro As Global.System.Nullable(Of Decimal), ByVal iva As Global.System.Nullable(Of Decimal), ByVal importe As Global.System.Nullable(Of Decimal), ByVal id_contrato As Global.System.Nullable(Of Integer), ByVal estatus As String, ByVal fe_descuento As Global.System.Nullable(Of Date)) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
+            If (monto.HasValue = true) Then
+                command.Parameters(0).Value = CType(monto.Value,Decimal)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (fecha.HasValue = true) Then
+                command.Parameters(1).Value = CType(fecha.Value,Date)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (consecutivo.HasValue = true) Then
+                command.Parameters(2).Value = CType(consecutivo.Value,Decimal)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (porcentaje_cobro.HasValue = true) Then
+                command.Parameters(3).Value = CType(porcentaje_cobro.Value,Decimal)
+            Else
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (iva.HasValue = true) Then
+                command.Parameters(4).Value = CType(iva.Value,Decimal)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (importe.HasValue = true) Then
+                command.Parameters(5).Value = CType(importe.Value,Decimal)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (id_contrato.HasValue = true) Then
+                command.Parameters(6).Value = CType(id_contrato.Value,Integer)
+            Else
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (estatus Is Nothing) Then
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(7).Value = CType(estatus,String)
+            End If
+            If (fe_descuento.HasValue = true) Then
+                command.Parameters(8).Value = CType(fe_descuento.Value,Date)
+            Else
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function PrimerVencimientoAVI(ByVal Anexo As String, ByVal Ciclo As String) As Global.System.Nullable(Of Date)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
             If (Anexo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Anexo")
             Else
@@ -19284,7 +19367,7 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function PrimerVencimientoTRA(ByVal Anexo As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(7)
             If (Anexo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Anexo")
             Else
@@ -19315,7 +19398,7 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function SacaConsecutivo(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Global.System.Nullable(Of Decimal)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(7)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(8)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
@@ -19346,7 +19429,7 @@ Namespace DescuentosDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function SacaID(ByVal id_contrato As Global.System.Nullable(Of Integer)) As Global.System.Nullable(Of Integer)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(8)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(9)
             If (id_contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(id_contrato.Value,Integer)
             Else
@@ -19378,7 +19461,7 @@ Namespace DescuentosDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateFechaCorteTIIE(ByVal FechaCorte As Global.System.Nullable(Of Date), ByVal TiieActiva As Global.System.Nullable(Of Decimal), ByVal Original_id_contrato As Global.System.Nullable(Of Integer)) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(9)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(10)
             If (FechaCorte.HasValue = true) Then
                 command.Parameters(0).Value = CType(FechaCorte.Value,Date)
             Else
@@ -20054,7 +20137,7 @@ Namespace DescuentosDSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CONT_CPF_contratos.id_contrato, CONT_CPF_esquema_cobro.esquema_cobr"& _ 
@@ -20105,6 +20188,28 @@ Namespace DescuentosDSTableAdapters
                 "dad_2.id_periodo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONT_CPF_contratos.id_contrato = ?)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT        CONT_CPF_contratos.id_contrato, CONT_CPF_esquema_cobro.esquema_cobr"& _ 
+                "o, CONT_CPF_periodicidad_1.descripcion AS PeriodoCAP, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " CONT_CPF_periodicidad.descripcion AS PeriodoINTE, CONT_CPF_periodicidad_2.descr"& _ 
+                "ipcion AS PeriodoTASA, CONT_CPF_contratos.id_esquema_cobro, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       CONVERT(datetime, Vw_Anexos.fechaVEN, 103) AS FechaVecn, CONT_CPF_esquema"& _ 
+                "_cobro.clave, CONT_CPF_contratos.TiieActiva, CONT_CPF_contratos.TasaTiie, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     CONT_CPF_contratos.FechaCorte, CONT_CPF_contratos.BP, CONT_"& _ 
+                "CPF_contratos.FN, CONT_CPF_contratos.FB, CONT_CPF_contratos.id_tipo_tasa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          CONT_CPF_contratos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_esque"& _ 
+                "ma_cobro ON CONT_CPF_contratos.id_esquema_cobro = CONT_CPF_esquema_cobro.id_esqu"& _ 
+                "ema_cobro INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_periodicidad AS CONT_CPF"& _ 
+                "_periodicidad_1 ON CONT_CPF_contratos.id_periodo_capital = CONT_CPF_periodicidad"& _ 
+                "_1.id_periodo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_periodicidad ON CONT"& _ 
+                "_CPF_contratos.id_periodo_interes = CONT_CPF_periodicidad.id_periodo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONT_CPF_periodicidad AS CONT_CPF_periodicidad_2 ON CO"& _ 
+                "NT_CPF_contratos.id_periodo_revision = CONT_CPF_periodicidad_2.id_periodo LEFT O"& _ 
+                "UTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_Anexos ON CONT_CPF_contratos.anexo = Vw_A"& _ 
+                "nexos.Anexo AND CONT_CPF_contratos.ciclo = Vw_Anexos.Ciclo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONT_C"& _ 
+                "PF_contratos.id_contrato = ?)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id_contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id_contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20153,6 +20258,32 @@ Namespace DescuentosDSTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBy1(ByVal id_contrato As Integer) As DescuentosDS.ContratoDatosDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato,Integer)
+            Dim dataTable As DescuentosDS.ContratoDatosDataTable = New DescuentosDS.ContratoDatosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByDATOSSINANEXO(ByVal dataTable As DescuentosDS.ContratoDatosDataTable, ByVal id_contrato As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy2(ByVal id_contrato As Integer) As DescuentosDS.ContratoDatosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_contrato,Integer)
             Dim dataTable As DescuentosDS.ContratoDatosDataTable = New DescuentosDS.ContratoDatosDataTable()
             Me.Adapter.Fill(dataTable)

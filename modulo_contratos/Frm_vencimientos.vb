@@ -5,7 +5,7 @@ Public Class Nuevo
     Private Sub Frm_vencimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If ID_Contrato <> 0 Then
         Else
-            If frm_contratos_alta.id_contrato = 0 Then
+            If sinanexo = True And frm_contratos_alta.id_contrato = 0 Then
                 Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contrato2.id_contrato2)
             Else
                 Me.CONT_CPF_vencimientosTableAdapter.FillBycontrato(Me.DS_contratos.CONT_CPF_vencimientos, frm_contratos_alta.id_contrato)
@@ -53,17 +53,17 @@ Public Class Nuevo
             End If
 
             monto = Me.CONT_CPF_vencimientosDataGridView.Item(1, Renglones).Value
-            fechaup = Me.CONT_CPF_vencimientosDataGridView.Item(2, Renglones).Value
+            '  fechaup = Me.CONT_CPF_vencimientosDataGridView.Item(2, Renglones).Value
             intereses = Me.CONT_CPF_vencimientosDataGridView.Item(4, Renglones).Value
 
             estatus = Me.CONT_CPF_vencimientosDataGridView.Item(3, Renglones).Value
 
 
 
-            Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fecha, monto, fechaup, estatus, intereses, ID_Contrato)
+            Me.CONT_CPF_vencimientosTableAdapter.InsertQuerymanual(fecha, monto, estatus, intereses, ID_Contrato)
 
         Next
-        MessageBox.Show("se agrego l vencimiento correctamente", "MINISTRACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        MessageBox.Show("se agrego el vencimiento correctamente", "MINISTRACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
 
     End Sub

@@ -26,6 +26,10 @@ Partial Class frm_contrato2
         Me.bt_guardar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.lb_ciclo = New System.Windows.Forms.TabPage()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ch_res = New System.Windows.Forms.CheckBox()
+        Me.CONTCPFcontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.BT_IMPRIMIR = New System.Windows.Forms.Button()
         Me.cb_gl = New System.Windows.Forms.ComboBox()
         Me.CONTCPFGLBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -39,8 +43,6 @@ Partial Class frm_contrato2
         Me.TXT_EFEC = New System.Windows.Forms.TextBox()
         Me.TXT_NOM = New System.Windows.Forms.TextBox()
         Me.ch_pen = New System.Windows.Forms.CheckBox()
-        Me.CONTCPFcontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.Label65 = New System.Windows.Forms.Label()
         Me.txt_tiie = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -223,12 +225,17 @@ Partial Class frm_contrato2
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.CONT_CPF_GLTableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter()
+        Me.DS_contratos2 = New Fira_Cartera_Pasiva.DS_contratos()
+        Me.CONTCPFreestructuraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_reestructuraTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_reestructuraTableAdapter()
+        Me.ch_fact = New System.Windows.Forms.CheckBox()
+        Me.Factoraje = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
-        CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFtipoprestamosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFoperacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -260,6 +267,8 @@ Partial Class frm_contrato2
         CType(Me.DS_contratos1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFministracionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_contratos2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFreestructuraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bt_guardar
@@ -284,6 +293,8 @@ Partial Class frm_contrato2
         'lb_ciclo
         '
         Me.lb_ciclo.BackColor = System.Drawing.Color.Gainsboro
+        Me.lb_ciclo.Controls.Add(Me.Label6)
+        Me.lb_ciclo.Controls.Add(Me.ch_res)
         Me.lb_ciclo.Controls.Add(Me.BT_IMPRIMIR)
         Me.lb_ciclo.Controls.Add(Me.cb_gl)
         Me.lb_ciclo.Controls.Add(Me.Label16)
@@ -364,6 +375,35 @@ Partial Class frm_contrato2
         Me.lb_ciclo.Size = New System.Drawing.Size(753, 474)
         Me.lb_ciclo.TabIndex = 0
         Me.lb_ciclo.Text = "Datos Financieros"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(49, 174)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(68, 13)
+        Me.Label6.TabIndex = 223
+        Me.Label6.Text = "Reestructura"
+        '
+        'ch_res
+        '
+        Me.ch_res.AutoSize = True
+        Me.ch_res.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONTCPFcontratosBindingSource, "Penalizacion", True))
+        Me.ch_res.Location = New System.Drawing.Point(128, 173)
+        Me.ch_res.Name = "ch_res"
+        Me.ch_res.Size = New System.Drawing.Size(15, 14)
+        Me.ch_res.TabIndex = 222
+        Me.ch_res.UseVisualStyleBackColor = True
+        '
+        'CONTCPFcontratosBindingSource
+        '
+        Me.CONTCPFcontratosBindingSource.DataMember = "CONT_CPF_contratos"
+        Me.CONTCPFcontratosBindingSource.DataSource = Me.DS_contratos
+        '
+        'DS_contratos
+        '
+        Me.DS_contratos.DataSetName = "DS_contratos"
+        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BT_IMPRIMIR
         '
@@ -468,26 +508,16 @@ Partial Class frm_contrato2
         '
         Me.ch_pen.AutoSize = True
         Me.ch_pen.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONTCPFcontratosBindingSource, "Penalizacion", True))
-        Me.ch_pen.Location = New System.Drawing.Point(128, 211)
+        Me.ch_pen.Location = New System.Drawing.Point(128, 226)
         Me.ch_pen.Name = "ch_pen"
         Me.ch_pen.Size = New System.Drawing.Size(15, 14)
         Me.ch_pen.TabIndex = 211
         Me.ch_pen.UseVisualStyleBackColor = True
         '
-        'CONTCPFcontratosBindingSource
-        '
-        Me.CONTCPFcontratosBindingSource.DataMember = "CONT_CPF_contratos"
-        Me.CONTCPFcontratosBindingSource.DataSource = Me.DS_contratos
-        '
-        'DS_contratos
-        '
-        Me.DS_contratos.DataSetName = "DS_contratos"
-        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Label65
         '
         Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(53, 211)
+        Me.Label65.Location = New System.Drawing.Point(53, 226)
         Me.Label65.Name = "Label65"
         Me.Label65.Size = New System.Drawing.Size(67, 13)
         Me.Label65.TabIndex = 210
@@ -703,7 +733,7 @@ Partial Class frm_contrato2
         '
         'txt_acreditado
         '
-        Me.txt_acreditado.Location = New System.Drawing.Point(310, 178)
+        Me.txt_acreditado.Location = New System.Drawing.Point(310, 193)
         Me.txt_acreditado.Name = "txt_acreditado"
         Me.txt_acreditado.Size = New System.Drawing.Size(100, 20)
         Me.txt_acreditado.TabIndex = 180
@@ -711,7 +741,7 @@ Partial Class frm_contrato2
         'Label46
         '
         Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(232, 186)
+        Me.Label46.Location = New System.Drawing.Point(232, 201)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(70, 13)
         Me.Label46.TabIndex = 179
@@ -950,7 +980,7 @@ Partial Class frm_contrato2
         'txt_id_contrato_siiof
         '
         Me.txt_id_contrato_siiof.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "id_contrato_siiof", True))
-        Me.txt_id_contrato_siiof.Location = New System.Drawing.Point(125, 182)
+        Me.txt_id_contrato_siiof.Location = New System.Drawing.Point(125, 197)
         Me.txt_id_contrato_siiof.Name = "txt_id_contrato_siiof"
         Me.txt_id_contrato_siiof.Size = New System.Drawing.Size(100, 20)
         Me.txt_id_contrato_siiof.TabIndex = 38
@@ -992,7 +1022,7 @@ Partial Class frm_contrato2
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(41, 185)
+        Me.Label23.Location = New System.Drawing.Point(41, 200)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(77, 13)
         Me.Label23.TabIndex = 33
@@ -1720,6 +1750,8 @@ Partial Class frm_contrato2
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ch_fact)
+        Me.GroupBox1.Controls.Add(Me.Factoraje)
         Me.GroupBox1.Controls.Add(Me.Label24)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -1967,6 +1999,39 @@ Partial Class frm_contrato2
         '
         Me.CONT_CPF_GLTableAdapter.ClearBeforeFill = True
         '
+        'DS_contratos2
+        '
+        Me.DS_contratos2.DataSetName = "DS_contratos"
+        Me.DS_contratos2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CONTCPFreestructuraBindingSource
+        '
+        Me.CONTCPFreestructuraBindingSource.DataMember = "CONT_CPF_reestructura"
+        Me.CONTCPFreestructuraBindingSource.DataSource = Me.DS_contratos2
+        '
+        'CONT_CPF_reestructuraTableAdapter
+        '
+        Me.CONT_CPF_reestructuraTableAdapter.ClearBeforeFill = True
+        '
+        'ch_fact
+        '
+        Me.ch_fact.AutoSize = True
+        Me.ch_fact.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONTCPFcontratosBindingSource, "Penalizacion", True))
+        Me.ch_fact.Location = New System.Drawing.Point(82, 69)
+        Me.ch_fact.Name = "ch_fact"
+        Me.ch_fact.Size = New System.Drawing.Size(15, 14)
+        Me.ch_fact.TabIndex = 213
+        Me.ch_fact.UseVisualStyleBackColor = True
+        '
+        'Factoraje
+        '
+        Me.Factoraje.AutoSize = True
+        Me.Factoraje.Location = New System.Drawing.Point(7, 69)
+        Me.Factoraje.Name = "Factoraje"
+        Me.Factoraje.Size = New System.Drawing.Size(51, 13)
+        Me.Factoraje.TabIndex = 212
+        Me.Factoraje.Text = "Factoraje"
+        '
         'frm_contrato2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1983,10 +2048,10 @@ Partial Class frm_contrato2
         Me.TabControl1.ResumeLayout(False)
         Me.lb_ciclo.ResumeLayout(False)
         Me.lb_ciclo.PerformLayout()
-        CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFGLBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFtipoprestamosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFoperacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2020,6 +2085,8 @@ Partial Class frm_contrato2
         CType(Me.DS_contratos1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFministracionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_contratos2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFreestructuraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2223,4 +2290,11 @@ Partial Class frm_contrato2
     Friend WithEvents CONTCPFGLBindingSource As BindingSource
     Friend WithEvents CONT_CPF_GLTableAdapter As DescuentosDSTableAdapters.CONT_CPF_GLTableAdapter
     Friend WithEvents BT_IMPRIMIR As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents ch_res As CheckBox
+    Friend WithEvents DS_contratos2 As DS_contratos
+    Friend WithEvents CONTCPFreestructuraBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_reestructuraTableAdapter As DS_contratosTableAdapters.CONT_CPF_reestructuraTableAdapter
+    Friend WithEvents ch_fact As CheckBox
+    Friend WithEvents Factoraje As Label
 End Class

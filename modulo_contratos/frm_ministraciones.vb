@@ -5,14 +5,18 @@ Public Class frm_ministraciones
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
         '    Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         'TODO: This line of code loads data into the 'DS_contratos.CONT_CPF_ministraciones' table. You can move, or remove it, as needed.
-
-
-        If frm_contratos_alta.id_contrato = 0 Then
+        If sinanexo = True And frm_contratos_alta.id_contrato = 0 Then
             Me.CONT_CPF_ministracionesTableAdapter.FillByCONTRATO(Me.DS_contratos.CONT_CPF_ministraciones, frm_contrato2.id_contrato2)
         Else
             Me.CONT_CPF_ministracionesTableAdapter.FillByCONTRATO(Me.DS_contratos.CONT_CPF_ministraciones, frm_contratos_alta.id_contrato)
 
         End If
+
+        '  If frm_contratos_alta.id_contrato = 0 Then
+
+        'Else
+
+        'End If
 
     End Sub
 

@@ -111,4 +111,9 @@ Public Class MDI_Pasivo
         Dim f As New frm_acreditados
         f.Show()
     End Sub
+
+    Private Sub FactorajeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FactorajeToolStripMenuItem.Click
+        Dim f As New Frm_DescuentosFAC
+        f.Show()
+    End Sub
 End Class

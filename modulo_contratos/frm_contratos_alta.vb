@@ -17,6 +17,8 @@ Public Class frm_contratos_alta
 
 
     Private Sub frm_contratos_alta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_reestructura' Puede moverla o quitarla según sea necesario.
+        'Me.CONT_CPF_reestructuraTableAdapter.Fill(Me.DS_contratos.CONT_CPF_reestructura)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.AnexosBloqueadosMC' Puede moverla o quitarla según sea necesario.
         '  Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Avios' Puede moverla o quitarla según sea necesario.
@@ -24,15 +26,15 @@ Public Class frm_contratos_alta
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.Anexos' Puede moverla o quitarla según sea necesario.
         ' Me.AnexosTableAdapter.Fill(Me.DescuentosDS.Anexos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_garantias' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_garantias)
+        'Me.CONT_CPF_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_garantias)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.CONT_CPF_GL' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_GLTableAdapter.Fill(Me.DescuentosDS.CONT_CPF_GL)
+        'Me.CONT_CPF_GLTableAdapter.Fill(Me.DescuentosDS.CONT_CPF_GL)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
+        '   Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
+        '  Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
+        ' Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos6.Vw_Anexos1' Puede moverla o quitarla según sea necesario.
         ' Me.Vw_Anexos1TableAdapter.Fill(Me.DS_contratos6.Vw_Anexos1)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos5.CONT_CPF_conceptos_inversion' Puede moverla o quitarla según sea necesario.
@@ -55,6 +57,7 @@ Public Class frm_contratos_alta
 
         End If
         cargar_combos()
+
         If Ministracion1 = False Then
             cb_esquema.Enabled = False
             cb_clasificacion.Enabled = False
@@ -63,6 +66,7 @@ Public Class frm_contratos_alta
             cb_periodo_int.Enabled = False
             cb_periodo_revision.Enabled = False
         End If
+
         Me.CONT_CPF_vencimientosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_vencimientos)
         Me.CONT_CPF_ministracionesTableAdapter.Fill(Me.DS_contratos.CONT_CPF_ministraciones)
 
@@ -70,9 +74,7 @@ Public Class frm_contratos_alta
             Me.ClientesTableAdapter.Fill(Me.DS_contratos.Clientes)
             cbclientes_SelectedIndexChanged(Nothing, Nothing)
             'cb_gl.SelectedValue = Me.CONTCPFcontratosBindingSource("porcentaje_Gliquida")
-
             'Dim fonaga As String
-
             Vw_AnexosBindingSource_CurrentChanged(Nothing, Nothing)
             bt_guardar.Enabled = False
         Else
@@ -507,12 +509,22 @@ Public Class frm_contratos_alta
     Private Sub cbclientes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbclientes.SelectedIndexChanged
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
             'If sinanexo = False Then
-            Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
+            '  Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
             'Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
             'Else
+
             Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+
+
+
             'End If
 
+            '  If txtanexo.TextLength > 0 Then
+            ' sinanexo = False
+            'Anexo = txtanexo.Text
+            'Ciclo = ET_CICLO.Text
+
+            'End If
         End If
     End Sub
     Private Sub txt_nvsm_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_nvsm.TextChanged
@@ -668,7 +680,7 @@ Public Class frm_contratos_alta
             TabControl1.Enabled = True
             bt_guardar.Enabled = True
             If Ministracion1 = False Then
-                'CargaDatosFira()
+                CargaDatosFira()
             End If
         End If
 
@@ -676,12 +688,20 @@ Public Class frm_contratos_alta
 
     Private Sub BT_IMPRIMIR_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BT_IMPRIMIR.Click
         If sinanexo = False Then
-
+            '            frm_edo_cuenta.Anexo = Me.VwdescuentoSABindingSource.Current("Anexo")
+            '           frm_edo_cuenta.Ciclo = ET_CICLO.Text
         Else
+
+            If Reestructura_txt.TextLength > 0 Then
+                frm_edo_cuenta.reestructura = True
+            End If
             ' frm_edo_cuenta.Tipar = Me.VwdescuentoSABindingSource.Current("Tipar")
-            frm_edo_cuenta.Anexo = Me.VwdescuentoSABindingSource.Current("Anexo")
+            'frm_edo_cuenta.Anexo = Me.VwdescuentoSABindingSource.Current("Anexo")
+            'frm_edo_cuenta.Ciclo = Me.VwdescuentoSABindingSource.Current("ciclo")
+
             penalizacion = Me.CONTCPFcontratosBindingSource1.Current("penalizacion")
-            If frm_edo_cuenta.Anexo.Substring(0, 3) = "S/A" Then
+
+            If sinanexo = True Then
                 frm_edo_cuenta.Anexo = ""
                 frm_edo_cuenta.Ciclo = ""
             Else
@@ -690,7 +710,7 @@ Public Class frm_contratos_alta
 
         End If
 
-        frm_edo_cuenta.Show()
+            frm_edo_cuenta.Show()
     End Sub
 
     Private Sub cb_medida_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_medida.SelectedIndexChanged
@@ -782,6 +802,9 @@ Public Class frm_contratos_alta
         Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, VwdescuentoSABindingSource.Current("id_credito"))
         Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos7.CONT_CPF_contratos, VwdescuentoSABindingSource.Current("id_credito"))
         id_contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(VwdescuentoSABindingSource.Current("id_credito"))
+        If id_contrato = "1022" Then
+            Dim x As Integer = 0
+        End If
         txt_total_m.Text = Me.CONT_CPF_ministracionesTableAdapter.ScalarQueryministraciones_contar(id_contrato)
         txt_total_v.Text = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(id_contrato)
         txt_total_G.Text = Me.ConT_CPF_contratos_garantiasTableAdapter.SacaTotalGarantia(id_contrato)
@@ -808,7 +831,19 @@ Public Class frm_contratos_alta
 
     End Sub
 
+    Private Sub Label55_Click_1(sender As Object, e As EventArgs) Handles Label55.Click
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged_2(sender As Object, e As EventArgs) Handles Reestructura_txt.TextChanged
+
+    End Sub
+
     Private Sub cb_rama_SelectedValueChanged(sender As Object, e As EventArgs) Handles cb_rama.SelectedValueChanged
+
+    End Sub
+
+    Private Sub txt_suma_m_TextChanged(sender As Object, e As EventArgs) Handles txt_suma_m.TextChanged
 
     End Sub
 
@@ -827,22 +862,38 @@ Public Class frm_contratos_alta
 
     Private Sub cbanexos2_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos2.SelectedValueChanged
         'Me.ClientesTableAdapter.FillByAnexo(Me.DS_contratos.Clientes, Anexo)
+        Reestructura_txt.Text = ""
+
 
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
-
             If cbanexos2.SelectedIndex >= 0 Then
                 Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
                 Anexo = Anexo.Replace("/", "")
-                Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
+                ' Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
                 '  If Ciclo = 0 Then
                 ' Ciclo = ""
                 'End If
-                If Anexo <> "SA" And Anexo.Length > 0 Then
+
+                'If txt_id_contrato.Text = "1022" Then
+                'Dim A As Integer = 1
+                'End If
+                ' Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
+                'Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
+                'Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, CREDITO)
+
+                If Anexo.Length > 0 Then
+                    '   Dim CREDITO As Integer = cbanexos2.SelectedValue
+                    Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
+                    Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
+                    ' Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, CREDITO)
                     Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
                     Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+
                 End If
 
                 If txt_id_contrato.TextLength > 0 Then
+
+                    Dim CREDITO1 As Integer = cbanexos2.SelectedValue
                     Dim id_contrato1 As Integer = txt_id_contrato.Text
                     'cb_gl.SelectedValue = Me.CONT_CPF_contratosTableAdapter.gliquida(id_contrato1)
                     Dim gfonaga As Integer = Me.CONT_CPF_contratosTableAdapter.id_garantia(id_contrato1)
@@ -855,6 +906,8 @@ Public Class frm_contratos_alta
                 End If
                 ' Dim id_contrato1 As Integer = Me.CONT_CPF_contratosBindingSource("id_contrato")
                 '  cb_gl.SelectedValue = Me.CONT_CPF_contratosTableAdapter.gliquida(id_contrato1)
+
+                CargaDatosFira()
             End If
 
         End If
@@ -862,5 +915,20 @@ Public Class frm_contratos_alta
 
 
 
+    End Sub
+
+    Private Sub txt_id_contrato_TextChanged(sender As Object, e As EventArgs) Handles txt_id_contrato.TextChanged
+        Reestructura_txt.Text = ""
+        Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
+        If res <> 0 Then
+            Reestructura_txt.Text = res
+            ' If txt_id_contrato.Text = "1022" Then
+            'Dim XX As Integer = 0
+
+            'End If
+            If Ministracion1 = False Then
+                'CargaDatosFira()
+            End If
+        End If
     End Sub
 End Class

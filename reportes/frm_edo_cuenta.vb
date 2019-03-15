@@ -3,6 +3,7 @@ Public Class frm_edo_cuenta
     Public Shared idcont As String
     Public Ciclo As String
     Public Tipar As String
+    Public reestructura As Boolean
     Dim FechaAnt As Date
     Dim Minis_Base As Decimal
     Dim diasX As Integer = 0
@@ -17,7 +18,12 @@ Public Class frm_edo_cuenta
     End Sub
 
     Private Sub frm_edo_cuenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If sinanexo = False Then
+
+
+
+        If sinanexo = False Or reestructura = True Then
+
+
             Me.PagosClienteTableAdapter.Fill(Me.DS_reportes.PagosCliente, Anexo, Ciclo, Anexo)
             Me.PagosClienteBindingSource.Sort = "Fecha"
         End If
