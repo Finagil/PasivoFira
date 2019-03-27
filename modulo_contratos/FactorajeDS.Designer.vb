@@ -9591,7 +9591,7 @@ Namespace FactorajeDSTableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [WEB_Lotes] ([Fecha], [Usuario], [Estatus], [TipoDocumento], [Cesion]"& _ 
                 ") VALUES (@Fecha, @Usuario, @Estatus, @TipoDocumento, @Cesion);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id_Lote,"& _ 
                 " Fecha, Usuario, Estatus, TipoDocumento, Cesion FROM WEB_Lotes WHERE (Id_Lote = "& _ 
-                "SCOPE_IDENTITY())"
+                "SCOPE_IDENTITY()) ORDER BY Id_Lote DESC"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9609,7 +9609,7 @@ Namespace FactorajeDSTableAdapters
                 "LL) OR ([TipoDocumento] = @Original_TipoDocumento)) AND ((@IsNull_Cesion = 1 AND"& _ 
                 " [Cesion] IS NULL) OR ([Cesion] = @Original_Cesion)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id_Lote, Fecha, U"& _ 
                 "suario, Estatus, TipoDocumento, Cesion FROM WEB_Lotes WHERE (Id_Lote = @Id_Lote)"& _ 
-                ""
+                " ORDER BY Id_Lote DESC"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9644,7 +9644,7 @@ Namespace FactorajeDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Id_Lote, Fecha, Usuario, Estatus, TipoDocumento, Cesion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      WEB_Lotes"
+                "      WEB_Lotes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Id_Lote DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

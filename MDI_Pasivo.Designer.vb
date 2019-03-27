@@ -47,7 +47,8 @@ Partial Class MDI_Pasivo
         Me.AltaToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
-        Me.FactorajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FactorajeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProcesarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -58,7 +59,7 @@ Partial Class MDI_Pasivo
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mncontratos, Me.GarantiasEjercidasToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.PagosFinagilToolStripMenuItem, Me.AcreditadosToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mncontratos, Me.GarantiasEjercidasToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.PagosFinagilToolStripMenuItem, Me.AcreditadosToolStripMenuItem, Me.FactorajeToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(780, 24)
@@ -67,7 +68,7 @@ Partial Class MDI_Pasivo
         '
         'mncontratos
         '
-        Me.mncontratos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.DescuentosToolStripMenuItem1, Me.DescuentosTRAToolStripMenuItem, Me.MinistracionesToolStripMenuItem, Me.AltaDeContratoSinAnexoToolStripMenuItem, Me.FactorajeToolStripMenuItem})
+        Me.mncontratos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.DescuentosToolStripMenuItem1, Me.DescuentosTRAToolStripMenuItem, Me.MinistracionesToolStripMenuItem, Me.AltaDeContratoSinAnexoToolStripMenuItem})
         Me.mncontratos.Name = "mncontratos"
         Me.mncontratos.Size = New System.Drawing.Size(71, 20)
         Me.mncontratos.Text = "&Contratos"
@@ -201,11 +202,18 @@ Partial Class MDI_Pasivo
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
         '
-        'FactorajeToolStripMenuItem
+        'FactorajeToolStripMenuItem1
         '
-        Me.FactorajeToolStripMenuItem.Name = "FactorajeToolStripMenuItem"
-        Me.FactorajeToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
-        Me.FactorajeToolStripMenuItem.Text = "Factoraje"
+        Me.FactorajeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProcesarToolStripMenuItem})
+        Me.FactorajeToolStripMenuItem1.Name = "FactorajeToolStripMenuItem1"
+        Me.FactorajeToolStripMenuItem1.Size = New System.Drawing.Size(67, 20)
+        Me.FactorajeToolStripMenuItem1.Text = "Factoraje"
+        '
+        'ProcesarToolStripMenuItem
+        '
+        Me.ProcesarToolStripMenuItem.Name = "ProcesarToolStripMenuItem"
+        Me.ProcesarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProcesarToolStripMenuItem.Text = "Procesar"
         '
         'MDI_Pasivo
         '
@@ -246,5 +254,6 @@ Partial Class MDI_Pasivo
     Friend WithEvents AcreditadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ModificarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents FactorajeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FactorajeToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ProcesarToolStripMenuItem As ToolStripMenuItem
 End Class

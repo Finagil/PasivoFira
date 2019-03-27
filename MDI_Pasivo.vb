@@ -112,7 +112,13 @@ Public Class MDI_Pasivo
         f.Show()
     End Sub
 
-    Private Sub FactorajeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FactorajeToolStripMenuItem.Click
+
+
+    Private Sub FactorajeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FactorajeToolStripMenuItem1.Click
+
+    End Sub
+
+    Private Sub ProcesarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProcesarToolStripMenuItem.Click
         Dim f As New Frm_DescuentosFAC
         f.Show()
     End Sub
