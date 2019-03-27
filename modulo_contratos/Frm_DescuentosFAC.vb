@@ -45,7 +45,10 @@ Public Class Frm_DescuentosFAC
 
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_Factor_Facturas' Puede moverla o quitarla según sea necesario.
         'Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_Factor_Facturas)
-
+        cb_producto.SelectedValue = 2
+        cb_esquema.SelectedValue = 2
+        cb_divisa.SelectedValue = 1
+        cb_prestamo.SelectedValue = 5
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -170,7 +173,7 @@ Public Class Frm_DescuentosFAC
                 End If
 
 
-                If contador <= 10 Then
+                If contador <= 100 Then
                     strStreamWriter.WriteLine(producto & Chr(9) & divisa & Chr(9) & TXT_NOM.Text & Chr(9) & "" & Chr(9) & "" & Chr(9) & "1" & Chr(9) &
                                               DOC & Chr(9) & Me.DGFACT.Item(1, Renglones).Value & Chr(9) & "" & Chr(9) &
                                               Me.DGFACT.Item(2, Renglones).Value & Chr(9) & monto & Chr(9) &
@@ -178,7 +181,7 @@ Public Class Frm_DescuentosFAC
                 End If
 
 
-                If contador = 10 Then
+                If contador = 100 Then
                     strStreamWriter.Close() ' cerramos
                     contador = 0
                     Me.CONT_CPF_configuracionTableAdapter.CONSUMEARCHIVOFACT()
@@ -354,11 +357,11 @@ Public Class Frm_DescuentosFAC
 
     End Sub
 
-    Private Sub CLIENTETXT_TextChanged(sender As Object, e As EventArgs) Handles CLIENTETXT.TextChanged
+    Private Sub CLIENTETXT_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 
