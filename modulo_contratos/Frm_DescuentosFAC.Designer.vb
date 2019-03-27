@@ -119,6 +119,10 @@ Partial Class Frm_DescuentosFAC
         Me.cb_periodo_capital = New System.Windows.Forms.ComboBox()
         Me.CONTCPFperiodicidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_periodicidadTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_periodicidadTableAdapter()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.WEBLotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.WEB_LotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.WEB_LotesTableAdapter()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,6 +148,7 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CONTCPFFactorFacturasBindingSource
@@ -192,7 +197,7 @@ Partial Class Frm_DescuentosFAC
         Me.DGFACT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGFACT.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FacturaDataGridViewTextBoxColumn1, Me.RFCDataGridViewTextBoxColumn1, Me.RFCCONTRAPARTEDataGridViewTextBoxColumn, Me.MONTOSOLICITADODataGridViewTextBoxColumn, Me.TASAIFDataGridViewTextBoxColumn, Me.FECHADEEXPEDICIÓNDataGridViewTextBoxColumn, Me.FECHADEVENCIMIENTODataGridViewTextBoxColumn, Me.LoteDataGridViewTextBoxColumn, Me.id_Factura})
         Me.DGFACT.DataSource = Me.CONTCPFFactorFacturasBindingSource1
-        Me.DGFACT.Location = New System.Drawing.Point(15, 12)
+        Me.DGFACT.Location = New System.Drawing.Point(15, 25)
         Me.DGFACT.Name = "DGFACT"
         Me.DGFACT.ReadOnly = True
         Me.DGFACT.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -839,11 +844,43 @@ Partial Class Frm_DescuentosFAC
         '
         Me.CONT_CPF_periodicidadTableAdapter.ClearBeforeFill = True
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.DataSource = Me.WEBLotesBindingSource
+        Me.ComboBox2.DisplayMember = "Id_Lote"
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(86, 3)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(203, 21)
+        Me.ComboBox2.TabIndex = 259
+        Me.ComboBox2.ValueMember = "Id_Lote"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 9)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(67, 13)
+        Me.Label7.TabIndex = 258
+        Me.Label7.Text = "Intermediario"
+        '
+        'WEBLotesBindingSource
+        '
+        Me.WEBLotesBindingSource.DataMember = "WEB_Lotes"
+        Me.WEBLotesBindingSource.DataSource = Me.FactorajeDS
+        '
+        'WEB_LotesTableAdapter
+        '
+        Me.WEB_LotesTableAdapter.ClearBeforeFill = True
+        '
         'Frm_DescuentosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1005, 597)
+        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label63)
         Me.Controls.Add(Me.Label59)
         Me.Controls.Add(Me.Label54)
@@ -916,6 +953,7 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1016,4 +1054,8 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents CONT_CPF_periodicidadTableAdapter As DS_contratosTableAdapters.CONT_CPF_periodicidadTableAdapter
     Friend WithEvents CONTCPFperiodicidadBindingSource2 As BindingSource
     Friend WithEvents CONTCPFperiodicidadBindingSource1 As BindingSource
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents WEBLotesBindingSource As BindingSource
+    Friend WithEvents WEB_LotesTableAdapter As FactorajeDSTableAdapters.WEB_LotesTableAdapter
 End Class

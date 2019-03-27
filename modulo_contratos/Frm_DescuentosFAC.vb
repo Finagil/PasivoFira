@@ -1,5 +1,7 @@
 ﻿Public Class Frm_DescuentosFAC
     Private Sub Frm_DescuentosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.WEB_Lotes' Puede moverla o quitarla según sea necesario.
+        Me.WEB_LotesTableAdapter.Fill(Me.FactorajeDS.WEB_Lotes)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_periodicidad' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_periodicidadTableAdapter.Fill(Me.DS_contratos.CONT_CPF_periodicidad)
 
@@ -39,7 +41,7 @@
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_intermediarios' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_intermediariosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_intermediarios)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS1.CONT_CPF_Factor_Facturas' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas)
+
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_Factor_Facturas' Puede moverla o quitarla según sea necesario.
         'Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_Factor_Facturas)
 
@@ -224,7 +226,7 @@
             Me.CONT_CPF_configuracionTableAdapter.consumeidcreditofact() 'consume el creditofact
 
         Next
-        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas)
+        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
 
 
         ' MessageBox.Show("Reestructura Registrada", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -240,5 +242,184 @@
 
     Sub CalculaServicioCobro()
 
+    End Sub
+
+    Private Sub Label63_Click(sender As Object, e As EventArgs) Handles Label63.Click
+
+
+
+
+    End Sub
+
+    Private Sub Label59_Click(sender As Object, e As EventArgs) Handles Label59.Click
+
+    End Sub
+
+    Private Sub Label54_Click(sender As Object, e As EventArgs) Handles Label54.Click
+
+    End Sub
+
+    Private Sub cb_periodo_revision_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_periodo_revision.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cb_periodo_int_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_periodo_int.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cb_periodo_capital_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_periodo_capital.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub CLIENTETXT_TextChanged(sender As Object, e As EventArgs) Handles CLIENTETXT.TextChanged
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub ch_subsidio_CheckedChanged(sender As Object, e As EventArgs) Handles ch_subsidio.CheckedChanged
+
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+
+    End Sub
+
+    Private Sub TXT_IVA_TextChanged(sender As Object, e As EventArgs) Handles TXT_IVA.TextChanged
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub cb_divisa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_divisa.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cb_gl_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_gl.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
+
+    End Sub
+
+    Private Sub CK_FONAGA_CheckedChanged(sender As Object, e As EventArgs) Handles CK_FONAGA.CheckedChanged
+
+    End Sub
+
+    Private Sub Label69_Click(sender As Object, e As EventArgs) Handles Label69.Click
+
+    End Sub
+
+    Private Sub Label68_Click(sender As Object, e As EventArgs) Handles Label68.Click
+
+    End Sub
+
+    Private Sub Label67_Click(sender As Object, e As EventArgs) Handles Label67.Click
+
+    End Sub
+
+    Private Sub Label66_Click(sender As Object, e As EventArgs) Handles Label66.Click
+
+    End Sub
+
+    Private Sub TXT_NOM_TextChanged(sender As Object, e As EventArgs) Handles TXT_NOM.TextChanged
+
+    End Sub
+
+    Private Sub PCXSG_TXT_TextChanged(sender As Object, e As EventArgs) Handles PCXSG_TXT.TextChanged
+
+    End Sub
+
+    Private Sub TXT_FN_TextChanged(sender As Object, e As EventArgs) Handles TXT_FN.TextChanged
+
+    End Sub
+
+    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
+
+    End Sub
+
+    Private Sub TXT_FB_TextChanged(sender As Object, e As EventArgs) Handles TXT_FB.TextChanged
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub txt_BP_TextChanged(sender As Object, e As EventArgs) Handles txt_BP.TextChanged
+
+    End Sub
+
+    Private Sub Label55_Click(sender As Object, e As EventArgs) Handles Label55.Click
+
+    End Sub
+
+    Private Sub cb_tasa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_tasa.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
+
+    End Sub
+
+    Private Sub cb_esquema_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_esquema.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label15_Click(sender As Object, e As EventArgs) Handles Label15.Click
+
+    End Sub
+
+    Private Sub TxtIntermediario_TextChanged(sender As Object, e As EventArgs) Handles TxtIntermediario.TextChanged
+
+    End Sub
+
+    Private Sub cb_prestamo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_prestamo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cb_operacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_operacion.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label62_Click(sender As Object, e As EventArgs) Handles Label62.Click
+
+    End Sub
+
+    Private Sub cb_intermediario_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_intermediario.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label57_Click(sender As Object, e As EventArgs) Handles Label57.Click
+
+    End Sub
+
+    Private Sub cb_producto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_producto.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub ComboBox2_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedValueChanged
+        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
     End Sub
 End Class
