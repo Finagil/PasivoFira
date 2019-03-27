@@ -1,4 +1,5 @@
-﻿Public Class Frm_DescuentosFAC
+﻿Imports System.IO
+Public Class Frm_DescuentosFAC
     Private Sub Frm_DescuentosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.WEB_Lotes' Puede moverla o quitarla según sea necesario.
         Me.WEB_LotesTableAdapter.Fill(Me.FactorajeDS.WEB_Lotes)
@@ -70,7 +71,20 @@
         Dim efectiva As Decimal
         Dim id_garantia As Integer
         Dim procesado As Integer = 0
+        Dim contador As Integer = 1
+        Dim contador_archivo As Integer
+        Dim sRenglon As String = Nothing
+        Dim strStreamW As Stream = Nothing
+        Dim strStreamWriter As StreamWriter = Nothing
+        Dim ContenidoArchivo As String = Nothing
+        ' Donde guardamos los paths de los archivos que vamos a estar utilizando ..
+        Dim PathArchivo As String
 
+        Dim i As Integer
+        '  BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
+        If Directory.Exists("C:\Capeta") = False Then ' si no existe la carpeta se crea
+            Directory.CreateDirectory("C:\carpeta")
+        End If
         '  BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
 
         cb_tasa.SelectedIndex = 2
@@ -129,6 +143,71 @@
 
 
             Inserto = True
+
+            'GENERAR ARCHIVO
+            If Inserto = True Then
+                'creamos archivo 
+                If contador = 1 Then
+
+                    sRenglon = Nothing
+                    strStreamW = Nothing
+                    strStreamWriter = Nothing
+                    ContenidoArchivo = Nothing
+                    contador_archivo = Me.CONT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.ARCHIVOfac)
+                    Windows.Forms.Cursor.Current = Cursors.WaitCursor
+                    PathArchivo = "C:\carpeta\FACTORAJE" & Format(Today.Date, "ddMMyyyy") & "LOTE " & ComboBox2.SelectedValue & "_" & contador_archivo & ".csv" ' Se determina el nombre del archivo con la fecha actual
+
+                    'verificamos si existe el archivo
+
+                    If File.Exists(PathArchivo) Then
+                        strStreamW = File.Open(PathArchivo, FileMode.Open) 'Abrimos el archivo
+                    Else
+                        strStreamW = File.Create(PathArchivo) ' lo creamos
+                    End If
+
+
+                    strStreamWriter = New StreamWriter(strStreamW, System.Text.Encoding.Default) ' tipo de codificacion para escritura
+                End If
+
+
+                If contador <= 10 Then
+                    strStreamWriter.WriteLine(producto & Chr(9) & divisa & Chr(9) & TXT_NOM.Text & Chr(9) & "" & Chr(9) & "" & Chr(9) & "1" & Chr(9) &
+                                              DOC & Chr(9) & Me.DGFACT.Item(1, Renglones).Value & Chr(9) & "" & Chr(9) &
+                                              Me.DGFACT.Item(2, Renglones).Value & Chr(9) & monto & Chr(9) &
+                                              TASA & Chr(9) & Me.DGFACT.Item(5, Renglones).Value & Chr(9) & Me.DGFACT.Item(6, Renglones).Value)
+                End If
+
+
+                If contador = 10 Then
+                    strStreamWriter.Close() ' cerramos
+                    contador = 0
+                    Me.CONT_CPF_configuracionTableAdapter.CONSUMEARCHIVOFACT()
+
+                    sRenglon = Nothing
+                    strStreamW = Nothing
+                    strStreamWriter = Nothing
+                    ContenidoArchivo = Nothing
+                    ' Donde guardamos los paths de los archivos que vamos a estar utilizando ..
+                    ' PathArchivo As String
+                End If
+
+                If RENG = DGFACT.RowCount - 1 Then
+                    strStreamWriter.Close() ' cerramos
+                End If
+
+                ' Catch ex As Exception
+                'MsgBox("Error al Guardar la ingormacion en el archivo. " & ex.ToString, MsgBoxStyle.Critical, Application.ProductName)
+                ' strStreamWriter.Close() ' cerramos
+                'End Try
+
+            End If
+
+
+
+
+
+
+
             id_contrato = Me.CONT_CPF_contratosTableAdapter.IDCONTRATOXDOC(CLIENTETXT.Text, DOC)
 
             Pcxsg = PCXSG_TXT.Text
@@ -224,12 +303,16 @@
 
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
             Me.CONT_CPF_configuracionTableAdapter.consumeidcreditofact() 'consume el creditofact
-
+            contador = contador + 1
         Next
         Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
-
+        'PROCECE MENOS DE 100 REGISTROS CERRAR EL ARCHIVO Y CONSUMIR NUMERO DE ARCHIVO
+        strStreamWriter.Close() ' cerramos
+        Me.CONT_CPF_configuracionTableAdapter.CONSUMEARCHIVOFACT()
 
         ' MessageBox.Show("Reestructura Registrada", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+        MessageBox.Show("Factoraje Registrada", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
 
 
