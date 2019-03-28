@@ -146,7 +146,7 @@ Public Class Frm_DescuentosFAC
 
 
             Inserto = True
-
+            Me.CONT_CPF_configuracionTableAdapter.consumeidcreditofact() 'consume el creditofact
             'GENERAR ARCHIVO
             If Inserto = True Then
                 'creamos archivo 
@@ -305,10 +305,11 @@ Public Class Frm_DescuentosFAC
             procesado = procesado + 1
 
             Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
-            Me.CONT_CPF_configuracionTableAdapter.consumeidcreditofact() 'consume el creditofact
+
             contador = contador + 1
         Next
         Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
+        Me.WEB_LotesTableAdapter.Updateestatus(ComboBox2.SelectedValue)
         'PROCECE MENOS DE 100 REGISTROS CERRAR EL ARCHIVO Y CONSUMIR NUMERO DE ARCHIVO
         strStreamWriter.Close() ' cerramos
         Me.CONT_CPF_configuracionTableAdapter.CONSUMEARCHIVOFACT()
