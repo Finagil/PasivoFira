@@ -28,7 +28,7 @@
             For Each r As PagosDS.PagosFiraRow In PagosDS.PagosFira.Rows
                 Me.PagosFiraTableAdapter.UpdatePagos(DTP_FechaFira.Value.Date, r.id_contrato, r.FechaAplicacion.ToString("yyyyMMdd"))
             Next
-            Shell("F:\Executables\PsExec.exe \\192.168.29.41 -u AGIL\edgar-caceres -p c4c3r1t0s1 D:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe PROCESA_PAGOS", AppWinStyle.Hide, False)
+            Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe PROCESA_PAGOS", AppWinStyle.Hide, False)
             Me.PagosFiraTableAdapter.Fill(PagosDS.PagosFira, False)
             Boton()
             Cursor.Current = Cursors.Default

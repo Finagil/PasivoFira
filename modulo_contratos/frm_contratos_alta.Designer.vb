@@ -45,12 +45,12 @@ Partial Class frm_contratos_alta
         Me.CONTCPFGLBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
         Me.CK_FONAGA = New System.Windows.Forms.CheckBox()
-        Me.CONT_CPF_contratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Label68 = New System.Windows.Forms.Label()
         Me.Label67 = New System.Windows.Forms.Label()
         Me.Label66 = New System.Windows.Forms.Label()
         Me.TXT_CXS = New System.Windows.Forms.TextBox()
+        Me.CONT_CPF_contratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TXT_EFEC = New System.Windows.Forms.TextBox()
         Me.TXT_NOM = New System.Windows.Forms.TextBox()
         Me.ch_pen = New System.Windows.Forms.CheckBox()
@@ -615,6 +615,7 @@ Partial Class frm_contratos_alta
         'DescuentosDS
         '
         Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.Locale = New System.Globalization.CultureInfo("es-ES")
         Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CK_FONAGA
@@ -625,11 +626,6 @@ Partial Class frm_contratos_alta
         Me.CK_FONAGA.Size = New System.Drawing.Size(15, 14)
         Me.CK_FONAGA.TabIndex = 205
         Me.CK_FONAGA.UseVisualStyleBackColor = True
-        '
-        'CONT_CPF_contratosBindingSource
-        '
-        Me.CONT_CPF_contratosBindingSource.DataMember = "CONT_CPF_contratos"
-        Me.CONT_CPF_contratosBindingSource.DataSource = Me.DS_contratos
         '
         'Label69
         '
@@ -675,9 +671,14 @@ Partial Class frm_contratos_alta
         Me.TXT_CXS.Size = New System.Drawing.Size(27, 20)
         Me.TXT_CXS.TabIndex = 200
         '
+        'CONT_CPF_contratosBindingSource
+        '
+        Me.CONT_CPF_contratosBindingSource.DataMember = "CONT_CPF_contratos"
+        Me.CONT_CPF_contratosBindingSource.DataSource = Me.DS_contratos
+        '
         'TXT_EFEC
         '
-        Me.TXT_EFEC.Location = New System.Drawing.Point(639, 128)
+        Me.TXT_EFEC.Location = New System.Drawing.Point(639, 146)
         Me.TXT_EFEC.Name = "TXT_EFEC"
         Me.TXT_EFEC.Size = New System.Drawing.Size(27, 20)
         Me.TXT_EFEC.TabIndex = 199
@@ -1426,9 +1427,8 @@ Partial Class frm_contratos_alta
         Me.txt_tasafija.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONT_CPF_contratosBindingSource, "valor_garantia", True))
         Me.txt_tasafija.Location = New System.Drawing.Point(645, 128)
         Me.txt_tasafija.Name = "txt_tasafija"
-        Me.txt_tasafija.Size = New System.Drawing.Size(10, 20)
+        Me.txt_tasafija.Size = New System.Drawing.Size(21, 20)
         Me.txt_tasafija.TabIndex = 163
-        Me.txt_tasafija.Visible = False
         '
         'Cksubsidio
         '
