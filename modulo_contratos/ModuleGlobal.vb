@@ -58,7 +58,7 @@ Module ModuleGlobal
     Public Function CargaTIIE(ByVal Fecha As Date, ByVal Tipta As String, ByVal claveCobro As String) As Boolean
         CargaTIIE = True
         Dim ta As New DescuentosDSTableAdapters.TIIETableAdapter
-        ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production"
+        ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid2;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production"
         TIIE28 = ta.SacaTIIE28(Fecha.ToString("yyyyMMdd"))
         TIIE91 = ta.SacaTIIE91(Fecha.ToString("yyyyMMdd"))
         TIIE182 = ta.SacaTIIE182(Fecha.ToString("yyyyMMdd"))

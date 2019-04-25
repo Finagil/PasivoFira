@@ -28,7 +28,7 @@ Public Class frm_contratos_alta
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_garantias' Puede moverla o quitarla según sea necesario.
         'Me.CONT_CPF_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_garantias)
         'TODO: esta línea de código carga datos en la tabla 'DescuentosDS.CONT_CPF_GL' Puede moverla o quitarla según sea necesario.
-        'Me.CONT_CPF_GLTableAdapter.Fill(Me.DescuentosDS.CONT_CPF_GL)
+        Me.CONT_CPF_GLTableAdapter.Fill(Me.DescuentosDS.CONT_CPF_GL)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
         '   Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos7.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos7.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
