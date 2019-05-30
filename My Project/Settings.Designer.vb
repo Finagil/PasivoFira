@@ -68,22 +68,22 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB;Data Source=server-raid;Persist Security Info=True;Password=Use"& _ 
-            "r_PRO2015;User ID=User_PRO;Initial Catalog=Production")>  _
-        Public ReadOnly Property ConnectionString_servidor() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=SERVER-RAID2;Initial Catalog=WEB_Finagil;Persist Security Info=True;U"& _ 
+            "ser ID=User_PRO;Password=User_PRO2015")>  _
+        Public ReadOnly Property WEB_FinagilConnectionString() As String
             Get
-                Return CType(Me("ConnectionString_servidor"),String)
+                Return CType(Me("WEB_FinagilConnectionString"),String)
             End Get
         End Property
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=SERVER-RAID2;Initial Catalog=WEB_Finagil;Persist Security Info=True;U"& _ 
-            "ser ID=User_PRO;Password=User_PRO2015")>  _
-        Public ReadOnly Property WEB_FinagilConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=SQLOLEDB;Data Source=server-raid2;Persist Security Info=True;Password=Us"& _ 
+            "er_PRO2015;User ID=User_PRO;Initial Catalog=Production")>  _
+        Public ReadOnly Property ConnectionString_servidor() As String
             Get
-                Return CType(Me("WEB_FinagilConnectionString"),String)
+                Return CType(Me("ConnectionString_servidor"),String)
             End Get
         End Property
     End Class
