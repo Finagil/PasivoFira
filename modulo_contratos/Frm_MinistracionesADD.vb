@@ -146,7 +146,7 @@ Public Class Frm_MinistracionesADD
                 Me.MinistracionesTableAdapter.UpdateFechaCorteTIIE(dt_descuento.Value.ToShortDateString, TIIE_Aplica, ID_Contrato)
                 Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
                 CreaCalendarioRevisoinTasa(ID_Contrato, MinistracionesBindingSource.Current("Tipta"))
-                Shell("F:\Executables\PsExec.exe \\192.168.29.41 -u AGIL\edgar-caceres -p c4c3r1t0s1 D:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe " & ID_Contrato, AppWinStyle.Hide, False)
+                Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe " & ID_Contrato, AppWinStyle.Hide, False)
                 Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
 

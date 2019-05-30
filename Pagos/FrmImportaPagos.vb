@@ -4,7 +4,7 @@
             Cursor.Current = Cursors.WaitCursor
             Dim p As New Process
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-            p.StartInfo.FileName = "F:\Executables\MOD_PasivoFiraCalculos.exe"
+            p.StartInfo.FileName = My.Settings.RutaSRV & "Executables\MOD_PasivoFiraCalculos.exe"
             p.StartInfo.Arguments = "PAGOS"
             p.Start()
             p.WaitForExit()
