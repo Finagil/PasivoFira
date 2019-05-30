@@ -86,6 +86,18 @@ Namespace My
                 Return CType(Me("ConnectionString_servidor"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("\\SERVER-RAID2\Contratos$\")>  _
+        Public Property RutaSRV() As String
+            Get
+                Return CType(Me("RutaSRV"),String)
+            End Get
+            Set
+                Me("RutaSRV") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

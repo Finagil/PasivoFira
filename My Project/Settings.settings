@@ -26,5 +26,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Provider=SQLOLEDB;Data Source=server-raid2;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production</Value>
     </Setting>
+    <Setting Name="RutaSRV" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\SERVER-RAID2\Contratos$\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
