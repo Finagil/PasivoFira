@@ -63,12 +63,13 @@ Module ModuleGlobal
         TIIE91 = ta.SacaTIIE91(Fecha.ToString("yyyyMMdd"))
         TIIE182 = ta.SacaTIIE182(Fecha.ToString("yyyyMMdd"))
         TIIE365 = ta.SacaTIIE365(Fecha.ToString("yyyyMMdd"))
+
         TIIE_Promedio = ta.SacaTIIEpromedio(Fecha.AddMonths(-1).ToString("yyyyMMdd"))
         ' TIIE28 = 1
         ' TIIE91 = 1
         ' TIIE182 = 1
         ' TIIE365 = 1
-        'If TIIE28 = 0 Or TIIE91 = 0 Or TIIE182 = 0 Or TIIE365 = 0 Then
+        'If TIIE28 = 0 Or TIIE91 = 0 Or TIIE182 = 0 Or TIIE365 = 0 Thendd
         If TIIE28 = 0 Or TIIE91 = 0 Then
             'MessageBox.Show("No hay TIIE Capturada para la Fecha " & Fecha.ToShortDateString, "Error TIIE", MessageBoxButtons.OK, MessageBoxIcon.Error)
             'CargaTIIE = False

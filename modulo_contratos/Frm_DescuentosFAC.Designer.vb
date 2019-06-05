@@ -124,6 +124,11 @@ Partial Class Frm_DescuentosFAC
         Me.clientetxt = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.CONTCPFcsgBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_csgTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_csgTableAdapter()
+        Me.CONTCPFcontratosgarantiasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONTCPFsaldoscontingenteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_saldos_contingenteTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_saldos_contingenteTableAdapter()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,6 +155,9 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFcontratosgarantiasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFsaldoscontingenteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CONTCPFFactorFacturasBindingSource
@@ -890,6 +898,29 @@ Partial Class Frm_DescuentosFAC
         Me.Button3.Text = "Descontar"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'CONTCPFcsgBindingSource
+        '
+        Me.CONTCPFcsgBindingSource.DataMember = "CONT_CPF_csg"
+        Me.CONTCPFcsgBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_csgTableAdapter
+        '
+        Me.CONT_CPF_csgTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFcontratosgarantiasBindingSource1
+        '
+        Me.CONTCPFcontratosgarantiasBindingSource1.DataMember = "CONT_CPF_contratos_garantias"
+        Me.CONTCPFcontratosgarantiasBindingSource1.DataSource = Me.DS_contratos
+        '
+        'CONTCPFsaldoscontingenteBindingSource
+        '
+        Me.CONTCPFsaldoscontingenteBindingSource.DataMember = "CONT_CPF_saldos_contingente"
+        Me.CONTCPFsaldoscontingenteBindingSource.DataSource = Me.FactorajeDS
+        '
+        'CONT_CPF_saldos_contingenteTableAdapter
+        '
+        Me.CONT_CPF_saldos_contingenteTableAdapter.ClearBeforeFill = True
+        '
         'Frm_DescuentosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -971,6 +1002,9 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFcontratosgarantiasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFsaldoscontingenteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1076,4 +1110,9 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents clientetxt As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents CONTCPFcsgBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_csgTableAdapter As DS_contratosTableAdapters.CONT_CPF_csgTableAdapter
+    Friend WithEvents CONTCPFcontratosgarantiasBindingSource1 As BindingSource
+    Friend WithEvents CONTCPFsaldoscontingenteBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_saldos_contingenteTableAdapter As FactorajeDSTableAdapters.CONT_CPF_saldos_contingenteTableAdapter
 End Class

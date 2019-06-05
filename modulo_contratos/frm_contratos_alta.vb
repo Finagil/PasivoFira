@@ -919,16 +919,16 @@ Public Class frm_contratos_alta
 
     Private Sub txt_id_contrato_TextChanged(sender As Object, e As EventArgs) Handles txt_id_contrato.TextChanged
         Reestructura_txt.Text = ""
-        Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
-        If res <> 0 Then
-            Reestructura_txt.Text = res
-            ' If txt_id_contrato.Text = "1022" Then
-            'Dim XX As Integer = 0
+        ' Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
+        'If res <> 0 Then
+        'Reestructura_txt.Text = res
+        ' If txt_id_contrato.Text = "1022" Then
+        'Dim XX As Integer = 0
 
-            'End If
-            If Ministracion1 = False Then
-                'CargaDatosFira()
-            End If
-        End If
+        'End If
+        'If Ministracion1 = False Then
+        'CargaDatosFira()
+        'End If
+        'End If
     End Sub
 End Class

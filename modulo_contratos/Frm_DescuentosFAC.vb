@@ -1,6 +1,8 @@
 ﻿Imports System.IO
 Public Class Frm_DescuentosFAC
     Private Sub Frm_DescuentosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_saldos_contingente' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_saldos_contingenteTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_saldos_contingente)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.WEB_Lotes' Puede moverla o quitarla según sea necesario.
         Me.WEB_LotesTableAdapter.Fill(Me.FactorajeDS.WEB_Lotes)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_periodicidad' Puede moverla o quitarla según sea necesario.
@@ -766,8 +768,8 @@ Public Class Frm_DescuentosFAC
                     doc = documento
                     Dim TASA As Decimal = Trim(LineaX(24))
                     Dim pcsx = CDec(Trim(LineaX(30)))
-                    BP = CDec(Trim(LineaX(22)))
-                    FB = CDec(Trim(LineaX(24)))
+                    BP = CDec(Trim(LineaX(23)))
+                    FB = 0.1
                     FN = 0  ' cuando es tasa fija 
                     Dim fecha As Date = Trim(LineaX(33))
                     Dim fechaVen As Date = Trim(LineaX(34))
@@ -781,10 +783,10 @@ Public Class Frm_DescuentosFAC
                     tipotasa = cb_tasa.SelectedValue
                     Dim ta As New DescuentosDSTableAdapters.TIIETableAdapter
                     ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid2;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production"
-                    tiieactiva = ta.SacaTIIE28(fecha.ToString("yyyyMMdd"))
-                    tiieactiva = 1
-                    Dim tipotasatiie As String = "TIIE28"
-
+                    ' tiieactiva = ta.SacaTIIE182(fecha.ToString("yyyyMMdd"))
+                    TIIE182 = ta.SacaTIIE182(fecha.ToString("yyyyMMdd"))
+                    Dim tipotasatiie As String = "TIIE182"
+                    TIIE_Aplica = TIIE182
                     idcreditofact = Trim(LineaX(15))
 
                     Me.CONT_CPF_contratosTableAdapter.InsertQueryFactoraje(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
@@ -796,7 +798,7 @@ Public Class Frm_DescuentosFAC
                     0, 0, 0, 0, 0, fecha, 0, 0,
                     0, 0, 0, 0, 0, 0, 0,
                     pcsx, 0, 0, 0, "01/01/1900", ch_subsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue,
-                     cb_periodo_revision.SelectedValue, clientetxt.Text, doc, tiieactiva, tipotasatiie, ch_subsidio.Checked, TASA)
+                     cb_periodo_revision.SelectedValue, clientetxt.Text, doc, TIIE182, tipotasatiie, ch_subsidio.Checked, TASA)
 
 
 
@@ -836,7 +838,9 @@ Public Class Frm_DescuentosFAC
                         ' If MinistracionesBindingSource.Current("Tipar") = "H" Or MinistracionesBindingSource.Current("Tipar") = "C" Or MinistracionesBindingSource.Current("Tipar") = "A" Then
                         fechafinal = fechaVen
                         monto = monto
-                        dias = DateDiff(DateInterval.Day, FECHAPAGO, FECHAPAGO)
+                        dias = DateDiff(DateInterval.Day, FECHAPAGO, fechafinal)
+
+                        'dias = DateDiff(DateInterval.Day, dt_descuento.Value.Date, fechafinal)
                         subsidiox = ch_subsidio.Checked
                         If subsidiox = True Then
                             Subsidio = 2
@@ -861,6 +865,8 @@ Public Class Frm_DescuentosFAC
                             taGarantias.Insert(id_contrato, id_garantia, nominal, montobase * (nominal / 100), efectiva, True)
                         End If
 
+                        Dim id_cg As Integer
+                        id_cg = Me.CONT_CPF_contratos_garantiasTableAdapter.sacaidcontratogarantia(id_contrato, id_garantia)
 
                         'AGREGANDO MINISTRACIONES
 
@@ -873,6 +879,7 @@ Public Class Frm_DescuentosFAC
 
                         SaldoINI = taEdoCta.SaldoContrato(id_contrato)
                         SaldoFIN = SaldoINI + monto
+                        FechaUltimoMov = fecha
 
                         Dim porcentaje As Decimal = Pcxsg
                         Dim importe As Decimal = Cobro
@@ -880,12 +887,24 @@ Public Class Frm_DescuentosFAC
                         Dim descuento As Date = FECHAPAGO
                         Dim iva As Decimal = Cobro + (TXT_IVA.Text / 100)
 
+
+                        InteORD = SaldoINI * ((BP + TIIE_Aplica) / 100 / 360) * dias
+                        InteORDFB = SaldoINI * ((FB + TIIE_Aplica) / 100 / 360) * dias
+
                         Me.MinistracionesTableAdapter.InsertQuery(monto, FECHAPAGO, 1, porcentaje, iva, importe, id_contrato, estatus, descuento)
 
                         'AGREGAR VENCIMIENTO
                         Me.CONT_CPF_vencimientosTableAdapter.InsertQuerymanual(fechaVen, monto, "VIGENTE", 0, id_contrato)
 
+                        ' Me.CONT_CPF_csgTableAdapter.InsertQueryCSG(fecha, fechaVen, dias, fecha, monto, importe, iva, importe + iva, Pcxsg, id_cg, ch_subsidio.Checked)
+                        taCargosXservico.Insert(fecha, fechafinal, dias, Date.Now, montobase, Cobro, Cobro * TasaIVA, Cobro * (1 + TasaIVA), porcentaje, id_cg, subsidiox)
+                        SaldoCont.Insert(fecha, Nothing, Nothing, Nothing, Nothing, montobase, SaldoFIN, nominal, efectiva, SaldoFIN * (nominal / 100), SaldoFIN * (efectiva / 100), id_cg)
 
+                        taEdoCta.Insert("BP", fecha, fecha, SaldoINI, SaldoFIN, 0, Nothing, 0, 0, 0, 0, 0, 0, montobase, id_contrato, BP + TIIE_Aplica, 0, InteORD, 0)
+                        taEdoCta.Insert("FB", fecha, fecha, SaldoINI, SaldoFIN, 0, Nothing, 0, 0, 0, 0, 0, 0, montobase, id_contrato, FB + TIIE_Aplica, 0, InteORDFB, 0)
+
+
+                        ' Me.CONT_CPF_saldos_contingenteTableAdapter.InsertQuery(fecha, fecha, monto,)
                         ' Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
 
 
