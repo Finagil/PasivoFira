@@ -11,7 +11,7 @@
     <RootNamespace>Fira_Cartera_Pasiva</RootNamespace>
     <AssemblyName>Fira</AssemblyName>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -53,10 +53,11 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -77,6 +78,23 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acreditados\acreditadosDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>acreditadosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados.Designer.vb">
+      <DependentUpon>frm_acreditados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados_edit.Designer.vb">
+      <DependentUpon>frm_acreditados_edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="acreditados\frm_acreditados_edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI_Pasivo.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +104,14 @@
     </Compile>
     <Compile Include="modulo_contratos\DescuentosDS.vb">
       <DependentUpon>DescuentosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\FactorajeDS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FactorajeDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\FactorajeDS.vb">
+      <DependentUpon>FactorajeDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="modulo_contratos\FrmGarantiasEjercidas.Designer.vb">
       <DependentUpon>FrmGarantiasEjercidas.vb</DependentUpon>
@@ -103,6 +129,12 @@
       <DependentUpon>frm_contrato2.vb</DependentUpon>
     </Compile>
     <Compile Include="modulo_contratos\frm_contrato2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_DescuentosFAC.Designer.vb">
+      <DependentUpon>Frm_DescuentosFAC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_DescuentosFAC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modulo_contratos\Frm_DescuentosTRA.Designer.vb">
@@ -214,6 +246,12 @@
     <Compile Include="reportes\frm_rpt_cartera.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="reportes\frm_rpt_garantiasE.Designer.vb">
+      <DependentUpon>frm_rpt_garantiasE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\frm_rpt_garantiasE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportes\frm_rpt_saldp.Designer.vb">
       <DependentUpon>frm_rpt_saldp.vb</DependentUpon>
     </Compile>
@@ -225,6 +263,12 @@
     </Compile>
     <Compile Include="reportes\frm_rpt_saldo_contingente.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\garantiasE.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>garantiasE.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="reportes\rpt_cartera.vb">
       <AutoGen>True</AutoGen>
@@ -311,6 +355,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="acreditados\frm_acreditados.resx">
+      <DependentUpon>frm_acreditados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="acreditados\frm_acreditados_edit.resx">
+      <DependentUpon>frm_acreditados_edit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Pasivo.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MDI_Pasivo.vb</DependentUpon>
@@ -325,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_contratos\frm_contrato2.resx">
       <DependentUpon>frm_contrato2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\Frm_DescuentosFAC.resx">
+      <DependentUpon>Frm_DescuentosFAC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_contratos\Frm_DescuentosTRA.resx">
       <DependentUpon>Frm_DescuentosTRA.vb</DependentUpon>
@@ -377,11 +430,18 @@
     <EmbeddedResource Include="reportes\frm_rpt_cartera.resx">
       <DependentUpon>frm_rpt_cartera.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reportes\frm_rpt_garantiasE.resx">
+      <DependentUpon>frm_rpt_garantiasE.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportes\frm_rpt_saldp.resx">
       <DependentUpon>frm_rpt_saldp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reportes\frm_rpt_saldo_contingente.resx">
       <DependentUpon>frm_rpt_saldo_contingente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\garantiasE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>garantiasE.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="reportes\rpt_cartera.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -437,6 +497,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="acreditados\acreditadosDS.xsc">
+      <DependentUpon>acreditadosDS.xsd</DependentUpon>
+    </None>
+    <None Include="acreditados\acreditadosDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>acreditadosDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="acreditados\acreditadosDS.xss">
+      <DependentUpon>acreditadosDS.xsd</DependentUpon>
+    </None>
     <None Include="app.config" />
     <None Include="modulo_contratos\DescuentosDS.xsc">
       <DependentUpon>DescuentosDS.xsd</DependentUpon>
@@ -459,6 +530,17 @@
     </None>
     <None Include="modulo_contratos\DS_contratos.xss">
       <DependentUpon>DS_contratos.xsd</DependentUpon>
+    </None>
+    <None Include="modulo_contratos\FactorajeDS.xsc">
+      <DependentUpon>FactorajeDS.xsd</DependentUpon>
+    </None>
+    <None Include="modulo_contratos\FactorajeDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FactorajeDS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="modulo_contratos\FactorajeDS.xss">
+      <DependentUpon>FactorajeDS.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -502,6 +584,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="reportes\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -123,7 +123,6 @@ Partial Class Frm_DescuentosFAC
         Me.WEB_LotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.WEB_LotesTableAdapter()
         Me.clientetxt = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -881,21 +880,11 @@ Partial Class Frm_DescuentosFAC
         Me.Button2.Text = "Layout"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(825, 472)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 32)
-        Me.Button3.TabIndex = 262
-        Me.Button3.Text = "Descontar"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Frm_DescuentosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1005, 597)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label7)
@@ -1075,5 +1064,4 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents WEB_LotesTableAdapter As FactorajeDSTableAdapters.WEB_LotesTableAdapter
     Friend WithEvents clientetxt As TextBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
 End Class

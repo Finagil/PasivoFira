@@ -54,10 +54,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -123,6 +123,12 @@
       <DependentUpon>FrmGarantiasXEjercer.vb</DependentUpon>
     </Compile>
     <Compile Include="modulo_contratos\FrmGarantiasXEjercer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_contratos\frmLayoutFact.Designer.vb">
+      <DependentUpon>frmLayoutFact.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frmLayoutFact.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modulo_contratos\frm_contrato2.Designer.vb">
@@ -372,6 +378,9 @@
     <EmbeddedResource Include="modulo_contratos\FrmGarantiasXEjercer.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FrmGarantiasXEjercer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frmLayoutFact.resx">
+      <DependentUpon>frmLayoutFact.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_contratos\frm_contrato2.resx">
       <DependentUpon>frm_contrato2.vb</DependentUpon>

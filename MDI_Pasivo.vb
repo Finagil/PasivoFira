@@ -119,7 +119,14 @@ Public Class MDI_Pasivo
     End Sub
 
     Private Sub ProcesarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProcesarToolStripMenuItem.Click
+        Dim f As New frmLayoutFact
+
+        f.Show()
+    End Sub
+
+    Private Sub DescontarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescontarToolStripMenuItem.Click
         Dim f As New Frm_DescuentosFAC
+
         f.Show()
     End Sub
 End Class
