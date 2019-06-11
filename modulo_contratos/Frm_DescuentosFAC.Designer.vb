@@ -26,7 +26,6 @@ Partial Class Frm_DescuentosFAC
         Me.CONTCPFFactorFacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FactorajeDS = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.CONT_CPF_Factor_FacturasTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_Factor_FacturasTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.FacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RFCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DGFACT = New System.Windows.Forms.DataGridView()
@@ -58,24 +57,8 @@ Partial Class Frm_DescuentosFAC
         Me.cb_esquema = New System.Windows.Forms.ComboBox()
         Me.CONTCPFesquemacobroBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.cb_gl = New System.Windows.Forms.ComboBox()
         Me.CONTCPFGLBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.CK_FONAGA = New System.Windows.Forms.CheckBox()
-        Me.Label69 = New System.Windows.Forms.Label()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.TXT_EFEC = New System.Windows.Forms.TextBox()
-        Me.TXT_NOM = New System.Windows.Forms.TextBox()
-        Me.PCXSG_TXT = New System.Windows.Forms.TextBox()
-        Me.TXT_FN = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TXT_FB = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txt_BP = New System.Windows.Forms.TextBox()
-        Me.Label55 = New System.Windows.Forms.Label()
         Me.cb_tasa = New System.Windows.Forms.ComboBox()
         Me.CONTCPFtipotasasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label13 = New System.Windows.Forms.Label()
@@ -86,8 +69,6 @@ Partial Class Frm_DescuentosFAC
         Me.FactorajeDS2 = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.ClientesTableAdapter()
-        Me.TXT_IVA = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.ch_subsidio = New System.Windows.Forms.CheckBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.CONTCPFcontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -122,13 +103,15 @@ Partial Class Frm_DescuentosFAC
         Me.Label7 = New System.Windows.Forms.Label()
         Me.WEB_LotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.WEB_LotesTableAdapter()
         Me.clientetxt = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.CONTCPFcsgBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_csgTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_csgTableAdapter()
         Me.CONTCPFcontratosgarantiasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONTCPFsaldoscontingenteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_saldos_contingenteTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_saldos_contingenteTableAdapter()
+        Me.Label69 = New System.Windows.Forms.Label()
+        Me.CK_FONAGA = New System.Windows.Forms.CheckBox()
+        Me.TXT_NOM = New System.Windows.Forms.TextBox()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,16 +157,6 @@ Partial Class Frm_DescuentosFAC
         'CONT_CPF_Factor_FacturasTableAdapter
         '
         Me.CONT_CPF_Factor_FacturasTableAdapter.ClearBeforeFill = True
-        '
-        'Button1
-        '
-        Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(835, 346)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 32)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Procesar"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'FacturaDataGridViewTextBoxColumn
         '
@@ -432,18 +405,6 @@ Partial Class Frm_DescuentosFAC
         Me.Label15.TabIndex = 199
         Me.Label15.Text = "Esquema de Cobro"
         '
-        'cb_gl
-        '
-        Me.cb_gl.DataSource = Me.CONTCPFGLBindingSource
-        Me.cb_gl.DisplayMember = "valor"
-        Me.cb_gl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_gl.FormattingEnabled = True
-        Me.cb_gl.Location = New System.Drawing.Point(598, 377)
-        Me.cb_gl.Name = "cb_gl"
-        Me.cb_gl.Size = New System.Drawing.Size(85, 21)
-        Me.cb_gl.TabIndex = 242
-        Me.cb_gl.ValueMember = "id_gl"
-        '
         'CONTCPFGLBindingSource
         '
         Me.CONTCPFGLBindingSource.DataMember = "CONT_CPF_GL"
@@ -455,142 +416,13 @@ Partial Class Frm_DescuentosFAC
         Me.DescuentosDS.Locale = New System.Globalization.CultureInfo("es-ES")
         Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(499, 383)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(86, 13)
-        Me.Label16.TabIndex = 241
-        Me.Label16.Text = "Garantia Líquida"
-        '
-        'CK_FONAGA
-        '
-        Me.CK_FONAGA.AutoSize = True
-        Me.CK_FONAGA.Location = New System.Drawing.Point(765, 381)
-        Me.CK_FONAGA.Name = "CK_FONAGA"
-        Me.CK_FONAGA.Size = New System.Drawing.Size(15, 14)
-        Me.CK_FONAGA.TabIndex = 240
-        Me.CK_FONAGA.UseVisualStyleBackColor = True
-        '
-        'Label69
-        '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(704, 382)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(51, 13)
-        Me.Label69.TabIndex = 239
-        Me.Label69.Text = "FONAGA"
-        '
-        'Label68
-        '
-        Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(733, 408)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(39, 13)
-        Me.Label68.TabIndex = 238
-        Me.Label68.Text = "% CXS"
-        '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Location = New System.Drawing.Point(633, 409)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(45, 13)
-        Me.Label67.TabIndex = 237
-        Me.Label67.Text = "% EFEC"
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(539, 409)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(43, 13)
-        Me.Label66.TabIndex = 236
-        Me.Label66.Text = "% NOM"
-        '
-        'TXT_EFEC
-        '
-        Me.TXT_EFEC.Location = New System.Drawing.Point(684, 403)
-        Me.TXT_EFEC.Name = "TXT_EFEC"
-        Me.TXT_EFEC.Size = New System.Drawing.Size(27, 20)
-        Me.TXT_EFEC.TabIndex = 235
-        Me.TXT_EFEC.Text = "0"
-        '
-        'TXT_NOM
-        '
-        Me.TXT_NOM.Location = New System.Drawing.Point(600, 405)
-        Me.TXT_NOM.Name = "TXT_NOM"
-        Me.TXT_NOM.Size = New System.Drawing.Size(27, 20)
-        Me.TXT_NOM.TabIndex = 234
-        Me.TXT_NOM.Text = "0"
-        '
-        'PCXSG_TXT
-        '
-        Me.PCXSG_TXT.Location = New System.Drawing.Point(778, 406)
-        Me.PCXSG_TXT.Name = "PCXSG_TXT"
-        Me.PCXSG_TXT.Size = New System.Drawing.Size(36, 20)
-        Me.PCXSG_TXT.TabIndex = 233
-        Me.PCXSG_TXT.Text = "1.18"
-        '
-        'TXT_FN
-        '
-        Me.TXT_FN.Location = New System.Drawing.Point(598, 473)
-        Me.TXT_FN.Name = "TXT_FN"
-        Me.TXT_FN.Size = New System.Drawing.Size(100, 20)
-        Me.TXT_FN.TabIndex = 232
-        Me.TXT_FN.Text = "0"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(539, 476)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(48, 13)
-        Me.Label20.TabIndex = 231
-        Me.Label20.Text = "Tasa FN"
-        '
-        'TXT_FB
-        '
-        Me.TXT_FB.Location = New System.Drawing.Point(598, 428)
-        Me.TXT_FB.Name = "TXT_FB"
-        Me.TXT_FB.Size = New System.Drawing.Size(100, 20)
-        Me.TXT_FB.TabIndex = 230
-        Me.TXT_FB.Text = "0"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(539, 434)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 13)
-        Me.Label3.TabIndex = 229
-        Me.Label3.Text = "Tasa FB"
-        '
-        'txt_BP
-        '
-        Me.txt_BP.Location = New System.Drawing.Point(598, 450)
-        Me.txt_BP.Name = "txt_BP"
-        Me.txt_BP.Size = New System.Drawing.Size(100, 20)
-        Me.txt_BP.TabIndex = 225
-        Me.txt_BP.Text = "0"
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(535, 456)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(51, 13)
-        Me.Label55.TabIndex = 224
-        Me.Label55.Text = "Tasa  BP"
-        '
         'cb_tasa
         '
         Me.cb_tasa.DataSource = Me.CONTCPFtipotasasBindingSource
         Me.cb_tasa.DisplayMember = "des_tipo_tasa"
         Me.cb_tasa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_tasa.FormattingEnabled = True
-        Me.cb_tasa.Location = New System.Drawing.Point(598, 348)
+        Me.cb_tasa.Location = New System.Drawing.Point(583, 347)
         Me.cb_tasa.Name = "cb_tasa"
         Me.cb_tasa.Size = New System.Drawing.Size(157, 21)
         Me.cb_tasa.TabIndex = 223
@@ -604,7 +436,7 @@ Partial Class Frm_DescuentosFAC
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(530, 356)
+        Me.Label13.Location = New System.Drawing.Point(522, 353)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(55, 13)
         Me.Label13.TabIndex = 222
@@ -655,27 +487,10 @@ Partial Class Frm_DescuentosFAC
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
         '
-        'TXT_IVA
-        '
-        Me.TXT_IVA.Location = New System.Drawing.Point(891, 403)
-        Me.TXT_IVA.Name = "TXT_IVA"
-        Me.TXT_IVA.Size = New System.Drawing.Size(43, 20)
-        Me.TXT_IVA.TabIndex = 246
-        Me.TXT_IVA.Text = "16"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(832, 406)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 13)
-        Me.Label2.TabIndex = 245
-        Me.Label2.Text = "Tasa IVA"
-        '
         'ch_subsidio
         '
         Me.ch_subsidio.AutoSize = True
-        Me.ch_subsidio.Location = New System.Drawing.Point(120, 523)
+        Me.ch_subsidio.Location = New System.Drawing.Point(334, 485)
         Me.ch_subsidio.Name = "ch_subsidio"
         Me.ch_subsidio.Size = New System.Drawing.Size(15, 14)
         Me.ch_subsidio.TabIndex = 248
@@ -684,7 +499,7 @@ Partial Class Frm_DescuentosFAC
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(59, 524)
+        Me.Label6.Location = New System.Drawing.Point(273, 486)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(47, 13)
         Me.Label6.TabIndex = 247
@@ -766,7 +581,7 @@ Partial Class Frm_DescuentosFAC
         'Label63
         '
         Me.Label63.AutoSize = True
-        Me.Label63.Location = New System.Drawing.Point(453, 559)
+        Me.Label63.Location = New System.Drawing.Point(438, 434)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(133, 13)
         Me.Label63.TabIndex = 257
@@ -775,7 +590,7 @@ Partial Class Frm_DescuentosFAC
         'Label59
         '
         Me.Label59.AutoSize = True
-        Me.Label59.Location = New System.Drawing.Point(493, 532)
+        Me.Label59.Location = New System.Drawing.Point(478, 407)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(89, 13)
         Me.Label59.TabIndex = 256
@@ -784,7 +599,7 @@ Partial Class Frm_DescuentosFAC
         'Label54
         '
         Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(504, 505)
+        Me.Label54.Location = New System.Drawing.Point(489, 380)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(78, 13)
         Me.Label54.TabIndex = 255
@@ -795,7 +610,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_periodo_revision.DataSource = Me.CONTCPFperiodicidadBindingSource2
         Me.cb_periodo_revision.DisplayMember = "descripcion"
         Me.cb_periodo_revision.FormattingEnabled = True
-        Me.cb_periodo_revision.Location = New System.Drawing.Point(600, 552)
+        Me.cb_periodo_revision.Location = New System.Drawing.Point(585, 427)
         Me.cb_periodo_revision.Name = "cb_periodo_revision"
         Me.cb_periodo_revision.Size = New System.Drawing.Size(121, 21)
         Me.cb_periodo_revision.TabIndex = 254
@@ -811,7 +626,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_periodo_int.DataSource = Me.CONTCPFperiodicidadBindingSource1
         Me.cb_periodo_int.DisplayMember = "descripcion"
         Me.cb_periodo_int.FormattingEnabled = True
-        Me.cb_periodo_int.Location = New System.Drawing.Point(600, 529)
+        Me.cb_periodo_int.Location = New System.Drawing.Point(585, 404)
         Me.cb_periodo_int.Name = "cb_periodo_int"
         Me.cb_periodo_int.Size = New System.Drawing.Size(121, 21)
         Me.cb_periodo_int.TabIndex = 253
@@ -827,7 +642,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_periodo_capital.DataSource = Me.CONTCPFperiodicidadBindingSource
         Me.cb_periodo_capital.DisplayMember = "descripcion"
         Me.cb_periodo_capital.FormattingEnabled = True
-        Me.cb_periodo_capital.Location = New System.Drawing.Point(599, 502)
+        Me.cb_periodo_capital.Location = New System.Drawing.Point(584, 377)
         Me.cb_periodo_capital.Name = "cb_periodo_capital"
         Me.cb_periodo_capital.Size = New System.Drawing.Size(121, 21)
         Me.cb_periodo_capital.TabIndex = 252
@@ -880,18 +695,9 @@ Partial Class Frm_DescuentosFAC
         Me.clientetxt.TabIndex = 260
         Me.clientetxt.Text = "0"
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(910, 156)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 32)
-        Me.Button2.TabIndex = 261
-        Me.Button2.Text = "Layout"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(825, 472)
+        Me.Button3.Location = New System.Drawing.Point(795, 393)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(90, 32)
         Me.Button3.TabIndex = 262
@@ -921,13 +727,40 @@ Partial Class Frm_DescuentosFAC
         '
         Me.CONT_CPF_saldos_contingenteTableAdapter.ClearBeforeFill = True
         '
+        'Label69
+        '
+        Me.Label69.AutoSize = True
+        Me.Label69.Location = New System.Drawing.Point(746, 350)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(51, 13)
+        Me.Label69.TabIndex = 239
+        Me.Label69.Text = "FONAGA"
+        '
+        'CK_FONAGA
+        '
+        Me.CK_FONAGA.AutoSize = True
+        Me.CK_FONAGA.Location = New System.Drawing.Point(807, 349)
+        Me.CK_FONAGA.Name = "CK_FONAGA"
+        Me.CK_FONAGA.Size = New System.Drawing.Size(15, 14)
+        Me.CK_FONAGA.TabIndex = 240
+        Me.CK_FONAGA.UseVisualStyleBackColor = True
+        '
+        'TXT_NOM
+        '
+        Me.TXT_NOM.Enabled = False
+        Me.TXT_NOM.Location = New System.Drawing.Point(825, 438)
+        Me.TXT_NOM.Name = "TXT_NOM"
+        Me.TXT_NOM.Size = New System.Drawing.Size(56, 20)
+        Me.TXT_NOM.TabIndex = 263
+        Me.TXT_NOM.Visible = False
+        '
         'Frm_DescuentosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1005, 597)
+        Me.Controls.Add(Me.TXT_NOM)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label63)
@@ -938,26 +771,10 @@ Partial Class Frm_DescuentosFAC
         Me.Controls.Add(Me.cb_periodo_capital)
         Me.Controls.Add(Me.ch_subsidio)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TXT_IVA)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cb_divisa)
-        Me.Controls.Add(Me.cb_gl)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.CK_FONAGA)
         Me.Controls.Add(Me.Label69)
-        Me.Controls.Add(Me.Label68)
-        Me.Controls.Add(Me.Label67)
-        Me.Controls.Add(Me.Label66)
-        Me.Controls.Add(Me.TXT_EFEC)
-        Me.Controls.Add(Me.TXT_NOM)
-        Me.Controls.Add(Me.PCXSG_TXT)
-        Me.Controls.Add(Me.TXT_FN)
-        Me.Controls.Add(Me.Label20)
-        Me.Controls.Add(Me.TXT_FB)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txt_BP)
-        Me.Controls.Add(Me.Label55)
         Me.Controls.Add(Me.cb_tasa)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.cb_esquema)
@@ -972,7 +789,6 @@ Partial Class Frm_DescuentosFAC
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.DGFACT)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.clientetxt)
         Me.Name = "Frm_DescuentosFAC"
         Me.Text = "Frm_DescuentosFAC"
@@ -1012,7 +828,6 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents FactorajeDS As FactorajeDS
     Friend WithEvents CONTCPFFactorFacturasBindingSource As BindingSource
     Friend WithEvents CONT_CPF_Factor_FacturasTableAdapter As FactorajeDSTableAdapters.CONT_CPF_Factor_FacturasTableAdapter
-    Friend WithEvents Button1 As Button
     Friend WithEvents FacturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents RFCDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DGFACT As DataGridView
@@ -1029,22 +844,6 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents Label4 As Label
     Friend WithEvents cb_esquema As ComboBox
     Friend WithEvents Label15 As Label
-    Friend WithEvents cb_gl As ComboBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents CK_FONAGA As CheckBox
-    Friend WithEvents Label69 As Label
-    Friend WithEvents Label68 As Label
-    Friend WithEvents Label67 As Label
-    Friend WithEvents Label66 As Label
-    Friend WithEvents TXT_EFEC As TextBox
-    Friend WithEvents TXT_NOM As TextBox
-    Friend WithEvents PCXSG_TXT As TextBox
-    Friend WithEvents TXT_FN As TextBox
-    Friend WithEvents Label20 As Label
-    Friend WithEvents TXT_FB As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txt_BP As TextBox
-    Friend WithEvents Label55 As Label
     Friend WithEvents cb_tasa As ComboBox
     Friend WithEvents Label13 As Label
     Friend WithEvents DS_contratos As DS_contratos
@@ -1072,8 +871,6 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents FactorajeDS2 As FactorajeDS
     Friend WithEvents ClientesBindingSource As BindingSource
     Friend WithEvents ClientesTableAdapter As FactorajeDSTableAdapters.ClientesTableAdapter
-    Friend WithEvents TXT_IVA As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents ch_subsidio As CheckBox
     Friend WithEvents Label6 As Label
     Friend WithEvents CONTCPFcontratosgarantiasBindingSource As BindingSource
@@ -1108,11 +905,13 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents WEBLotesBindingSource As BindingSource
     Friend WithEvents WEB_LotesTableAdapter As FactorajeDSTableAdapters.WEB_LotesTableAdapter
     Friend WithEvents clientetxt As TextBox
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents CONTCPFcsgBindingSource As BindingSource
     Friend WithEvents CONT_CPF_csgTableAdapter As DS_contratosTableAdapters.CONT_CPF_csgTableAdapter
     Friend WithEvents CONTCPFcontratosgarantiasBindingSource1 As BindingSource
     Friend WithEvents CONTCPFsaldoscontingenteBindingSource As BindingSource
     Friend WithEvents CONT_CPF_saldos_contingenteTableAdapter As FactorajeDSTableAdapters.CONT_CPF_saldos_contingenteTableAdapter
+    Friend WithEvents Label69 As Label
+    Friend WithEvents CK_FONAGA As CheckBox
+    Friend WithEvents TXT_NOM As TextBox
 End Class

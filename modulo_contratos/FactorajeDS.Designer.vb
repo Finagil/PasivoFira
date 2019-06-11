@@ -6251,10 +6251,10 @@ Namespace FactorajeDSTableAdapters
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [CONT_CPF_Factor_Facturas] ([Factura], [RFC], [RFC CONTRAPARTE], [MON"& _ 
                 "TO SOLICITADO], [TASA IF], [FECHA DE EXPEDICIÓN], [FECHA DE VENCIMIENTO], [Proce"& _ 
                 "sado], [Lote]) VALUES (@Factura, @RFC, @RFC_CONTRAPARTE, @MONTO_SOLICITADO, @TAS"& _ 
-                "A_IF, @FECHA_DE_EXPEDICIÓN, @FECHA_DE_VENCIMIENTO, @Procesado, @Lote);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT T"& _ 
-                "OP (2) id_Factura, Factura, RFC, [RFC CONTRAPARTE], [MONTO SOLICITADO], [TASA IF"& _ 
-                "], [FECHA DE EXPEDICIÓN], [FECHA DE VENCIMIENTO], Procesado, Lote FROM CONT_CPF_"& _ 
-                "Factor_Facturas WHERE (id_Factura = SCOPE_IDENTITY())"
+                "A_IF, @FECHA_DE_EXPEDICIÓN, @FECHA_DE_VENCIMIENTO, @Procesado, @Lote);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT i"& _ 
+                "d_Factura, Factura, RFC, [RFC CONTRAPARTE], [MONTO SOLICITADO], [TASA IF], [FECH"& _ 
+                "A DE EXPEDICIÓN], [FECHA DE VENCIMIENTO], Procesado, Lote FROM CONT_CPF_Factor_F"& _ 
+                "acturas WHERE (id_Factura = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factura", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factura", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RFC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RFC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6282,10 +6282,10 @@ Namespace FactorajeDSTableAdapters
                 ")) AND ((@IsNull_FECHA_DE_VENCIMIENTO = 1 AND [FECHA DE VENCIMIENTO] IS NULL) OR"& _ 
                 " ([FECHA DE VENCIMIENTO] = @Original_FECHA_DE_VENCIMIENTO)) AND ((@IsNull_Proces"& _ 
                 "ado = 1 AND [Procesado] IS NULL) OR ([Procesado] = @Original_Procesado)) AND ((@"& _ 
-                "IsNull_Lote = 1 AND [Lote] IS NULL) OR ([Lote] = @Original_Lote)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TOP "& _ 
-                "(2) id_Factura, Factura, RFC, [RFC CONTRAPARTE], [MONTO SOLICITADO], [TASA IF], "& _ 
-                "[FECHA DE EXPEDICIÓN], [FECHA DE VENCIMIENTO], Procesado, Lote FROM CONT_CPF_Fac"& _ 
-                "tor_Facturas WHERE (id_Factura = @id_Factura)"
+                "IsNull_Lote = 1 AND [Lote] IS NULL) OR ([Lote] = @Original_Lote)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id_F"& _ 
+                "actura, Factura, RFC, [RFC CONTRAPARTE], [MONTO SOLICITADO], [TASA IF], [FECHA D"& _ 
+                "E EXPEDICIÓN], [FECHA DE VENCIMIENTO], Procesado, Lote FROM CONT_CPF_Factor_Fact"& _ 
+                "uras WHERE (id_Factura = @id_Factura)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factura", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factura", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RFC", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RFC", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6331,25 +6331,25 @@ Namespace FactorajeDSTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        TOP (2) id_Factura, Factura, RFC, [RFC CONTRAPARTE], [MONTO SOLICIT"& _ 
-                "ADO], [TASA IF], [FECHA DE EXPEDICIÓN], [FECHA DE VENCIMIENTO], Procesado, Lote"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_Factor_Facturas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Procesado = 0) AND (Lot"& _ 
-                "e = @lote)"
+            Me._commandCollection(0).CommandText = "SELECT   id_Factura, Factura, RFC, [RFC CONTRAPARTE], [MONTO SOLICITADO], [TASA I"& _ 
+                "F], [FECHA DE EXPEDICIÓN], [FECHA DE VENCIMIENTO], Procesado, Lote"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
+                "    CONT_CPF_Factor_Facturas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Procesado = 0) AND (Lote = @lote)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lote", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Lote", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        ISNULL(Factura, 'FALSO') AS Factura"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_Facto"& _ 
-                "r_Facturas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Factura = @DOCUMENTO) AND (Lote = @lote)"
+            Me._commandCollection(1).CommandText = "SELECT        ISNULL(Factura, NULL) AS Factura"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_Factor_F"& _ 
+                "acturas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Factura = @DOCUMENTO) AND (Lote = @lote)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DOCUMENTO", Global.System.Data.SqlDbType.VarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Factura", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lote", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Lote", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "UPDATE       CONT_CPF_Factor_Facturas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Procesado =1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
-                "    (id_Factura = @Param1 and lote=@lote); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandText = "UPDATE       CONT_CPF_Factor_Facturas"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Procesado = 1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE   "& _ 
+                "     (Lote = @lote) AND (Factura = @Param1);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param1", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Factura", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lote", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "Lote", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param1", Global.System.Data.SqlDbType.VarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Factura", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6743,7 +6743,7 @@ Namespace FactorajeDSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function factura(ByVal DOCUMENTO As String, ByVal lote As Global.System.Nullable(Of Decimal)) As String
+        Public Overloads Overridable Function factura(ByVal DOCUMENTO As String, ByVal lote As Global.System.Nullable(Of Decimal)) As Object
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
             If (DOCUMENTO Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
@@ -6772,7 +6772,7 @@ Namespace FactorajeDSTableAdapters
                         OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
                 Return Nothing
             Else
-                Return CType(returnValue,String)
+                Return CType(returnValue,Object)
             End If
         End Function
         
@@ -6780,13 +6780,17 @@ Namespace FactorajeDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateQuery(ByVal Param1 As Decimal, ByVal lote As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function UpdateQuery(ByVal lote As Global.System.Nullable(Of Decimal), ByVal Param1 As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
-            command.Parameters(0).Value = CType(Param1,Decimal)
             If (lote.HasValue = true) Then
-                command.Parameters(1).Value = CType(lote.Value,Decimal)
+                command.Parameters(0).Value = CType(lote.Value,Decimal)
             Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (Param1 Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(Param1,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
