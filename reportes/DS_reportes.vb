@@ -10,6 +10,9 @@
 End Class
 
 Namespace DS_reportesTableAdapters
+    Partial Public Class vw_CONT_CPF_GarantiaerecidaRptTableAdapter
+    End Class
+
     Partial Public Class CL_PlazoTableAdapter
     End Class
 
