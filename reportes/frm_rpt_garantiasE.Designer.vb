@@ -24,7 +24,6 @@ Partial Class frm_rpt_garantiasE
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DS_reportes = New Fira_Cartera_Pasiva.DS_reportes()
         Me.VwCONTCPFGarantiaerecidaRptBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Vw_CONT_CPF_GarantiaerecidaRptTableAdapter = New Fira_Cartera_Pasiva.DS_reportesTableAdapters.vw_CONT_CPF_GarantiaerecidaRptTableAdapter()
@@ -38,20 +37,12 @@ Partial Class frm_rpt_garantiasE
         Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv.Cursor = System.Windows.Forms.Cursors.Default
         Me.crv.DisplayStatusBar = False
-        Me.crv.Location = New System.Drawing.Point(7, 42)
+        Me.crv.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.crv.Location = New System.Drawing.Point(0, 0)
         Me.crv.Name = "crv"
-        Me.crv.Size = New System.Drawing.Size(1023, 728)
+        Me.crv.Size = New System.Drawing.Size(1081, 704)
         Me.crv.TabIndex = 3
         Me.crv.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(785, 10)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(110, 26)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Imprimir"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'DS_reportes
         '
@@ -72,10 +63,9 @@ Partial Class frm_rpt_garantiasE
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1081, 704)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.crv)
         Me.Name = "frm_rpt_garantiasE"
-        Me.Text = "frm_rpt_garantiasE"
+        Me.Text = "Garantias Ejercidas"
         CType(Me.DS_reportes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwCONTCPFGarantiaerecidaRptBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -83,7 +73,6 @@ Partial Class frm_rpt_garantiasE
     End Sub
 
     Friend WithEvents crv As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents Button1 As Button
     Friend WithEvents DS_reportes As DS_reportes
     Friend WithEvents VwCONTCPFGarantiaerecidaRptBindingSource As BindingSource
     Friend WithEvents Vw_CONT_CPF_GarantiaerecidaRptTableAdapter As DS_reportesTableAdapters.vw_CONT_CPF_GarantiaerecidaRptTableAdapter
