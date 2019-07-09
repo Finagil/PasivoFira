@@ -26,8 +26,8 @@ Partial Class frm_rpt_saldo_contingente
         Me.DS_reportes = New Fira_Cartera_Pasiva.DS_reportes()
         Me.Sp_CONT_CPF_RptSaldoContigenteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Sp_CONT_CPF_RptSaldoContigenteTableAdapter = New Fira_Cartera_Pasiva.DS_reportesTableAdapters.Sp_CONT_CPF_RptSaldoContigenteTableAdapter()
-        Me.crv_saldo_contingente = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.rpt_saldo_contingente1 = New Fira_Cartera_Pasiva.rpt_saldo_contingente()
+        Me.crv_saldo_contingente = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         CType(Me.DS_reportes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Sp_CONT_CPF_RptSaldoContigenteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -48,22 +48,23 @@ Partial Class frm_rpt_saldo_contingente
         '
         'crv_saldo_contingente
         '
-        Me.crv_saldo_contingente.ActiveViewIndex = 0
+        Me.crv_saldo_contingente.ActiveViewIndex = -1
         Me.crv_saldo_contingente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv_saldo_contingente.Cursor = System.Windows.Forms.Cursors.Default
         Me.crv_saldo_contingente.Dock = System.Windows.Forms.DockStyle.Fill
         Me.crv_saldo_contingente.Location = New System.Drawing.Point(0, 0)
         Me.crv_saldo_contingente.Name = "crv_saldo_contingente"
-        Me.crv_saldo_contingente.ReportSource = Me.rpt_saldo_contingente1
-        Me.crv_saldo_contingente.Size = New System.Drawing.Size(800, 428)
-        Me.crv_saldo_contingente.TabIndex = 0
+        Me.crv_saldo_contingente.SelectionFormula = ""
+        Me.crv_saldo_contingente.Size = New System.Drawing.Size(1294, 496)
+        Me.crv_saldo_contingente.TabIndex = 1
         Me.crv_saldo_contingente.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        Me.crv_saldo_contingente.ViewTimeSelectionFormula = ""
         '
         'frm_rpt_saldo_contingente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 428)
+        Me.ClientSize = New System.Drawing.Size(1294, 496)
         Me.Controls.Add(Me.crv_saldo_contingente)
         Me.Name = "frm_rpt_saldo_contingente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -74,10 +75,9 @@ Partial Class frm_rpt_saldo_contingente
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents crv_saldo_contingente As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents rpt_saldo_contingente1 As rpt_saldo_contingente
     Friend WithEvents DS_reportes As DS_reportes
     Friend WithEvents Sp_CONT_CPF_RptSaldoContigenteBindingSource As BindingSource
     Friend WithEvents Sp_CONT_CPF_RptSaldoContigenteTableAdapter As DS_reportesTableAdapters.Sp_CONT_CPF_RptSaldoContigenteTableAdapter
+    Friend WithEvents crv_saldo_contingente As CrystalDecisions.Windows.Forms.CrystalReportViewer
 End Class

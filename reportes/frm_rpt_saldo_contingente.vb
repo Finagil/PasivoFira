@@ -11,4 +11,8 @@
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+    Private Sub crv_saldo_contingente_Load(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
