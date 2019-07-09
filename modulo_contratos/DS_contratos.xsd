@@ -8634,6 +8634,10 @@ WHERE        (CONT_CPF_reestructura.id_contrato_hijo = ?)</CommandText>
       <xs:selector xpath=".//mstns:GEN_ProductosFinagil" />
       <xs:field xpath="mstns:Tipar" />
     </xs:unique>
+    <xs:unique name="vw_descuentoSA_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vw_descuentoSA" />
+      <xs:field xpath="mstns:id_contrato" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>

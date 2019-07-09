@@ -50,7 +50,7 @@
     <Shape ID="DesignTable:mFIRA" ZOrder="10" X="274" Y="-157" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
     <Shape ID="DesignTable:CONT_CPF_anexo_vagar" ZOrder="9" X="808" Y="2283" Height="191" Width="283" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:GEN_ProductosFinagil" ZOrder="8" X="554" Y="-147" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:vw_descuentoSA" ZOrder="6" X="-1000" Y="-904" Height="381" Width="253" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="24" OldDataTableHeight="254" SplitterPosition="254" />
+    <Shape ID="DesignTable:vw_descuentoSA" ZOrder="6" X="-1000" Y="-904" Height="381" Width="253" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="254" SplitterPosition="254" />
     <Shape ID="DesignTable:Vw_Anexos1" ZOrder="7" X="-1135" Y="-1250" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
     <Shape ID="DesignTable:CONT_CPF_reestructura" ZOrder="4" X="-944" Y="-1334" Height="173" Width="286" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
   </Shapes>

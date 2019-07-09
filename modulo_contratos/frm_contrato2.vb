@@ -14,6 +14,12 @@
 
 
     Private Sub txtcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcliente.TextChanged
+        '    If txtcliente.TextLength > 5 Then
+        '  Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
+
+        '   End If
+        'cbclientes_SelectedIndexChanged(Nothing, Nothing)
+
         Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
         'cbclientes_SelectedIndexChanged(Nothing, Nothing)
     End Sub
@@ -79,7 +85,33 @@
     End Sub
 
     Private Sub cbclientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedIndexChanged
+        If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
+            'If sinanexo = False Then
+            '  Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
+            'Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+            'Else
+            'Dim gris As String = "dddd"
 
+            '  If txtcliente.TextLength > 4 Then
+
+
+            'Dim ocli As Integer = cbclientes.SelectedValue
+
+            'Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+
+
+            '        End If
+
+
+            'End If
+
+            '  If txtanexo.TextLength > 0 Then
+            ' sinanexo = False
+            'Anexo = txtanexo.Text
+            'Ciclo = ET_CICLO.Text
+
+            'End If
+        End If
     End Sub
 
     Private Sub cb_rama_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_rama.SelectedIndexChanged
@@ -148,8 +180,8 @@
     End Sub
 
     Private Sub BT_IMPRIMIR_Click(sender As Object, e As EventArgs) Handles BT_IMPRIMIR.Click
-        id_contrato = ComboBox1.SelectedValue
-        frm_edo_cuenta.Show()
+        ' id_contrato = ComboBox1.SelectedValue
+        'frm_edo_cuenta.Show()
     End Sub
 
     Private Sub validar_vacios()
@@ -508,16 +540,13 @@
 
     End Sub
 
-    Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
-        If cbclientes.SelectedIndex >= 0 Then
-            ' id_subrama = Me.CONT_CPF_subramasTableAdapter.clave_subrama(cb_subrama.SelectedValue)
-            '  Me.CONT_CPF_cadenasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_cadenas, cb_rama.SelectedValue, id_subrama)
-            '  Me.View_cadenas_subramasTableAdapter.Fill(Me.DS_contratos.View_cadenas_subramas, id_subrama, cb_rama.SelectedValue)
-            Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
-        End If
-    End Sub
+
 
     Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
-        id_contrato2 = ComboBox1.SelectedValue
+        'id_contrato2 = ComboBox1.SelectedValue
+    End Sub
+
+    Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
+        'MsgBox(cbclientes.SelectedValue)
     End Sub
 End Class

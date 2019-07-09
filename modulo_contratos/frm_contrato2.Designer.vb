@@ -181,6 +181,8 @@ Partial Class frm_contrato2
         Me.VwconceptosinversionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GENProductosFinagilBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ch_fact = New System.Windows.Forms.CheckBox()
+        Me.Factoraje = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -228,8 +230,8 @@ Partial Class frm_contrato2
         Me.DS_contratos2 = New Fira_Cartera_Pasiva.DS_contratos()
         Me.CONTCPFreestructuraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_reestructuraTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_reestructuraTableAdapter()
-        Me.ch_fact = New System.Windows.Forms.CheckBox()
-        Me.Factoraje = New System.Windows.Forms.Label()
+        Me.VwdescuentoSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Vw_descuentoSATableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.vw_descuentoSATableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -269,6 +271,7 @@ Partial Class frm_contrato2
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFreestructuraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bt_guardar
@@ -434,6 +437,7 @@ Partial Class frm_contrato2
         'DescuentosDS
         '
         Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.Locale = New System.Globalization.CultureInfo("es-ES")
         Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label16
@@ -1765,6 +1769,25 @@ Partial Class frm_contrato2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
         '
+        'ch_fact
+        '
+        Me.ch_fact.AutoSize = True
+        Me.ch_fact.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONTCPFcontratosBindingSource, "Penalizacion", True))
+        Me.ch_fact.Location = New System.Drawing.Point(82, 69)
+        Me.ch_fact.Name = "ch_fact"
+        Me.ch_fact.Size = New System.Drawing.Size(15, 14)
+        Me.ch_fact.TabIndex = 213
+        Me.ch_fact.UseVisualStyleBackColor = True
+        '
+        'Factoraje
+        '
+        Me.Factoraje.AutoSize = True
+        Me.Factoraje.Location = New System.Drawing.Point(7, 69)
+        Me.Factoraje.Name = "Factoraje"
+        Me.Factoraje.Size = New System.Drawing.Size(51, 13)
+        Me.Factoraje.TabIndex = 212
+        Me.Factoraje.Text = "Factoraje"
+        '
         'Label24
         '
         Me.Label24.AutoSize = True
@@ -1777,15 +1800,12 @@ Partial Class frm_contrato2
         'ComboBox1
         '
         Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "Descr", True))
-        Me.ComboBox1.DataSource = Me.CONTCPFcontratosBindingSource
-        Me.ComboBox1.DisplayMember = "id_credito"
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(395, 66)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
         Me.ComboBox1.TabIndex = 44
-        Me.ComboBox1.ValueMember = "id_contrato"
         '
         'ClientesBindingSource
         '
@@ -2013,24 +2033,14 @@ Partial Class frm_contrato2
         '
         Me.CONT_CPF_reestructuraTableAdapter.ClearBeforeFill = True
         '
-        'ch_fact
+        'VwdescuentoSABindingSource
         '
-        Me.ch_fact.AutoSize = True
-        Me.ch_fact.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.CONTCPFcontratosBindingSource, "Penalizacion", True))
-        Me.ch_fact.Location = New System.Drawing.Point(82, 69)
-        Me.ch_fact.Name = "ch_fact"
-        Me.ch_fact.Size = New System.Drawing.Size(15, 14)
-        Me.ch_fact.TabIndex = 213
-        Me.ch_fact.UseVisualStyleBackColor = True
+        Me.VwdescuentoSABindingSource.DataMember = "vw_descuentoSA"
+        Me.VwdescuentoSABindingSource.DataSource = Me.DS_contratos
         '
-        'Factoraje
+        'Vw_descuentoSATableAdapter
         '
-        Me.Factoraje.AutoSize = True
-        Me.Factoraje.Location = New System.Drawing.Point(7, 69)
-        Me.Factoraje.Name = "Factoraje"
-        Me.Factoraje.Size = New System.Drawing.Size(51, 13)
-        Me.Factoraje.TabIndex = 212
-        Me.Factoraje.Text = "Factoraje"
+        Me.Vw_descuentoSATableAdapter.ClearBeforeFill = True
         '
         'frm_contrato2
         '
@@ -2087,6 +2097,7 @@ Partial Class frm_contrato2
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFreestructuraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2297,4 +2308,6 @@ Partial Class frm_contrato2
     Friend WithEvents CONT_CPF_reestructuraTableAdapter As DS_contratosTableAdapters.CONT_CPF_reestructuraTableAdapter
     Friend WithEvents ch_fact As CheckBox
     Friend WithEvents Factoraje As Label
+    Friend WithEvents VwdescuentoSABindingSource As BindingSource
+    Friend WithEvents Vw_descuentoSATableAdapter As DS_contratosTableAdapters.vw_descuentoSATableAdapter
 End Class
