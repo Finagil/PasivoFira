@@ -1,6 +1,6 @@
 
 Public Class FrmGarantiasEjercidas
-    Public Shared idcontrato, garantia As Integer
+    Public Shared idcontrato, garantia, id_saldo_garantia As Integer
     Public Shared fecRec As Date
     Private Sub FrmGarantiasEjercidas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -68,11 +68,15 @@ Public Class FrmGarantiasEjercidas
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        id_saldo_garantia = txt_id_sg.Text
         frm_rpt_solicitud_cargo.Show()
     End Sub
 
     Private Sub TxtCoberEfect_TextChanged(sender As Object, e As EventArgs) Handles TxtCoberEfect.TextChanged
-        garantia = TxtCoberEfect.Text
+        If TxtCoberEfect.Text <> "" Then
+            garantia = TxtCoberEfect.Text
+        End If
+
     End Sub
 
     Private Sub DtpRec_ValueChanged(sender As Object, e As EventArgs) Handles DtpRec.ValueChanged

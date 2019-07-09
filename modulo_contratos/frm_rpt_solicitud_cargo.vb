@@ -4,7 +4,7 @@ Public Class frm_rpt_solicitud_cargo
     Private Sub frm_rpt_solicitud_cargo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Me.Vw_descuentosTableAdapter.FillBy(Me.DescuentosDS.vw_descuentos)
         Me.Vw_descuentosTableAdapter.Fillbyid_contrato(Me.DescuentosDS.vw_descuentos, FrmGarantiasEjercidas.idcontrato)
-        Me.SaldoGarantiaEjercidaTableAdapter.Fill(Me.DescuentosDS.SaldoGarantiaEjercida, FrmGarantiasEjercidas.idcontrato)
+        Me.SaldoGarantiaEjercidaTableAdapter.Fillreporte(Me.DescuentosDS.SaldoGarantiaEjercida, FrmGarantiasEjercidas.idcontrato, FrmGarantiasEjercidas.id_saldo_garantia)
         Dim rpt As New rpt_solicitud_cargo()
         rpt.SetDataSource(DescuentosDS)
         rpt.SetParameterValue("fe_rec", FrmGarantiasEjercidas.fecRec)
