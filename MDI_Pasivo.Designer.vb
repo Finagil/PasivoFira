@@ -49,7 +49,6 @@ Partial Class MDI_Pasivo
         Me.FactorajeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcesarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
-        Me.DescontarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -201,7 +200,7 @@ Partial Class MDI_Pasivo
         '
         'FactorajeToolStripMenuItem1
         '
-        Me.FactorajeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProcesarToolStripMenuItem, Me.DescontarToolStripMenuItem})
+        Me.FactorajeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProcesarToolStripMenuItem})
         Me.FactorajeToolStripMenuItem1.Name = "FactorajeToolStripMenuItem1"
         Me.FactorajeToolStripMenuItem1.Size = New System.Drawing.Size(67, 20)
         Me.FactorajeToolStripMenuItem1.Text = "Factoraje"
@@ -209,18 +208,12 @@ Partial Class MDI_Pasivo
         'ProcesarToolStripMenuItem
         '
         Me.ProcesarToolStripMenuItem.Name = "ProcesarToolStripMenuItem"
-        Me.ProcesarToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.ProcesarToolStripMenuItem.Text = "Generar Layout"
+        Me.ProcesarToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.ProcesarToolStripMenuItem.Text = "Generar Layout/Descontar"
         '
         'ConT_CPF_configuracionTableAdapter
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
-        '
-        'DescontarToolStripMenuItem
-        '
-        Me.DescontarToolStripMenuItem.Name = "DescontarToolStripMenuItem"
-        Me.DescontarToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.DescontarToolStripMenuItem.Text = "Descontar"
         '
         'MDI_Pasivo
         '
@@ -263,5 +256,4 @@ Partial Class MDI_Pasivo
     Friend WithEvents ModificarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FactorajeToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProcesarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DescontarToolStripMenuItem As ToolStripMenuItem
 End Class

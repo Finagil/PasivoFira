@@ -51,6 +51,9 @@ Public Class Frm_DescuentosFAC
         cb_esquema.SelectedValue = 2
         cb_divisa.SelectedValue = 1
         cb_prestamo.SelectedValue = 5
+        cb_periodo_revision.SelectedValue = 6
+        cb_periodo_capital.SelectedValue = 6
+        cb_periodo_int.SelectedValue = 6
     End Sub
 
 

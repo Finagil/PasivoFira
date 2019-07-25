@@ -38,6 +38,16 @@ Partial Class frmLayoutFact
         Me.CONTCPFproductosfiraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DGFACT = New System.Windows.Forms.DataGridView()
+        Me.FacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RFCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RFCCONTRAPARTEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MONTOSOLICITADODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TASAIFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FECHADEEXPEDICIÓNDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FECHADEVENCIMIENTODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CONTCPFFactorFacturasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.clientetxt = New System.Windows.Forms.TextBox()
         Me.WEB_LotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.WEB_LotesTableAdapter()
         Me.DScontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -49,28 +59,21 @@ Partial Class frmLayoutFact
         Me.CONT_CPF_Factor_FacturasTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_Factor_FacturasTableAdapter()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.ClientesTableAdapter()
-        Me.CONTCPFFactorFacturasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RFCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RFCCONTRAPARTEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MONTOSOLICITADODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TASAIFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FECHADEEXPEDICIÓNDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FECHADEVENCIMIENTODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LoteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.DTFecha = New System.Windows.Forms.DateTimePicker()
+        Me.bt_cambiarFecha = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFdivisasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFproductosfiraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFFactorFacturasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DScontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFconfiguracionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CONTCPFFactorFacturasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -203,63 +206,6 @@ Partial Class frmLayoutFact
         Me.DGFACT.Size = New System.Drawing.Size(889, 290)
         Me.DGFACT.TabIndex = 263
         '
-        'clientetxt
-        '
-        Me.clientetxt.Location = New System.Drawing.Point(806, 312)
-        Me.clientetxt.Name = "clientetxt"
-        Me.clientetxt.Size = New System.Drawing.Size(100, 20)
-        Me.clientetxt.TabIndex = 307
-        Me.clientetxt.Text = "0"
-        '
-        'WEB_LotesTableAdapter
-        '
-        Me.WEB_LotesTableAdapter.ClearBeforeFill = True
-        '
-        'DScontratosBindingSource
-        '
-        Me.DScontratosBindingSource.DataSource = Me.DS_contratos
-        Me.DScontratosBindingSource.Position = 0
-        '
-        'CONT_CPF_productos_firaTableAdapter
-        '
-        Me.CONT_CPF_productos_firaTableAdapter.ClearBeforeFill = True
-        '
-        'CONT_CPF_divisasTableAdapter
-        '
-        Me.CONT_CPF_divisasTableAdapter.ClearBeforeFill = True
-        '
-        'CONTCPFconfiguracionBindingSource
-        '
-        Me.CONTCPFconfiguracionBindingSource.DataMember = "CONT_CPF_configuracion"
-        Me.CONTCPFconfiguracionBindingSource.DataSource = Me.DS_contratos
-        '
-        'CONT_CPF_configuracionTableAdapter
-        '
-        Me.CONT_CPF_configuracionTableAdapter.ClearBeforeFill = True
-        '
-        'CONTCPFFactorFacturasBindingSource
-        '
-        Me.CONTCPFFactorFacturasBindingSource.DataMember = "CONT_CPF_Factor_Facturas"
-        Me.CONTCPFFactorFacturasBindingSource.DataSource = Me.FactorajeDS
-        '
-        'CONT_CPF_Factor_FacturasTableAdapter
-        '
-        Me.CONT_CPF_Factor_FacturasTableAdapter.ClearBeforeFill = True
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.DS_contratos
-        '
-        'ClientesTableAdapter
-        '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
-        '
-        'CONTCPFFactorFacturasBindingSource1
-        '
-        Me.CONTCPFFactorFacturasBindingSource1.DataMember = "CONT_CPF_Factor_Facturas"
-        Me.CONTCPFFactorFacturasBindingSource1.DataSource = Me.FactorajeDS
-        '
         'FacturaDataGridViewTextBoxColumn
         '
         Me.FacturaDataGridViewTextBoxColumn.DataPropertyName = "Factura"
@@ -323,6 +269,63 @@ Partial Class frmLayoutFact
         Me.IdFacturaDataGridViewTextBoxColumn.Name = "IdFacturaDataGridViewTextBoxColumn"
         Me.IdFacturaDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'CONTCPFFactorFacturasBindingSource1
+        '
+        Me.CONTCPFFactorFacturasBindingSource1.DataMember = "CONT_CPF_Factor_Facturas"
+        Me.CONTCPFFactorFacturasBindingSource1.DataSource = Me.FactorajeDS
+        '
+        'clientetxt
+        '
+        Me.clientetxt.Location = New System.Drawing.Point(806, 312)
+        Me.clientetxt.Name = "clientetxt"
+        Me.clientetxt.Size = New System.Drawing.Size(100, 20)
+        Me.clientetxt.TabIndex = 307
+        Me.clientetxt.Text = "0"
+        '
+        'WEB_LotesTableAdapter
+        '
+        Me.WEB_LotesTableAdapter.ClearBeforeFill = True
+        '
+        'DScontratosBindingSource
+        '
+        Me.DScontratosBindingSource.DataSource = Me.DS_contratos
+        Me.DScontratosBindingSource.Position = 0
+        '
+        'CONT_CPF_productos_firaTableAdapter
+        '
+        Me.CONT_CPF_productos_firaTableAdapter.ClearBeforeFill = True
+        '
+        'CONT_CPF_divisasTableAdapter
+        '
+        Me.CONT_CPF_divisasTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFconfiguracionBindingSource
+        '
+        Me.CONTCPFconfiguracionBindingSource.DataMember = "CONT_CPF_configuracion"
+        Me.CONTCPFconfiguracionBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_configuracionTableAdapter
+        '
+        Me.CONT_CPF_configuracionTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFFactorFacturasBindingSource
+        '
+        Me.CONTCPFFactorFacturasBindingSource.DataMember = "CONT_CPF_Factor_Facturas"
+        Me.CONTCPFFactorFacturasBindingSource.DataSource = Me.FactorajeDS
+        '
+        'CONT_CPF_Factor_FacturasTableAdapter
+        '
+        Me.CONT_CPF_Factor_FacturasTableAdapter.ClearBeforeFill = True
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.DS_contratos
+        '
+        'ClientesTableAdapter
+        '
+        Me.ClientesTableAdapter.ClearBeforeFill = True
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(401, 417)
@@ -332,11 +335,40 @@ Partial Class frmLayoutFact
         Me.Button1.Text = "Descontar"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'DTFecha
+        '
+        Me.DTFecha.Location = New System.Drawing.Point(971, 95)
+        Me.DTFecha.Name = "DTFecha"
+        Me.DTFecha.Size = New System.Drawing.Size(200, 20)
+        Me.DTFecha.TabIndex = 310
+        Me.DTFecha.Value = New Date(2019, 7, 19, 16, 59, 14, 0)
+        '
+        'bt_cambiarFecha
+        '
+        Me.bt_cambiarFecha.Location = New System.Drawing.Point(970, 121)
+        Me.bt_cambiarFecha.Name = "bt_cambiarFecha"
+        Me.bt_cambiarFecha.Size = New System.Drawing.Size(90, 32)
+        Me.bt_cambiarFecha.TabIndex = 311
+        Me.bt_cambiarFecha.Text = "Cambiar Fecha"
+        Me.bt_cambiarFecha.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(968, 70)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 13)
+        Me.Label2.TabIndex = 312
+        Me.Label2.Text = "Fecha Expedición"
+        '
         'frmLayoutFact
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1429, 646)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.bt_cambiarFecha)
+        Me.Controls.Add(Me.DTFecha)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ComboBox2)
@@ -357,11 +389,11 @@ Partial Class frmLayoutFact
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFproductosfiraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFFactorFacturasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DScontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFconfiguracionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CONTCPFFactorFacturasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -404,4 +436,7 @@ Partial Class frmLayoutFact
     Friend WithEvents LoteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdFacturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
+    Friend WithEvents DTFecha As DateTimePicker
+    Friend WithEvents bt_cambiarFecha As Button
+    Friend WithEvents Label2 As Label
 End Class

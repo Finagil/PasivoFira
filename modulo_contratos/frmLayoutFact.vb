@@ -17,8 +17,8 @@ Public Class frmLayoutFact
         Dim PathArchivo As String
         Dim i As Integer
         '  BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
-        If Directory.Exists("C:\Capeta") = False Then ' si no existe la carpeta se crea
-            Directory.CreateDirectory("C:\carpeta")
+        If Directory.Exists("C:\Factoraje") = False Then ' si no existe la carpeta se crea
+            Directory.CreateDirectory("C:\Factoraje")
         End If
         '  BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
 
@@ -53,7 +53,7 @@ Public Class frmLayoutFact
                 ContenidoArchivo = Nothing
                 contador_archivo = Me.CONT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.ARCHIVOfac)
                 Windows.Forms.Cursor.Current = Cursors.WaitCursor
-                PathArchivo = "C:\carpeta\FACTORAJE" & Format(Today.Date, "ddMMyyyy") & "LOTE " & ComboBox2.SelectedValue & "_" & contador_archivo & ".csv" ' Se determina el nombre del archivo con la fecha actual
+                PathArchivo = "C:\Factoraje\FACTORAJE" & Format(Today.Date, "ddMMyyyy") & "LOTE " & ComboBox2.SelectedValue & "_" & contador_archivo & ".csv" ' Se determina el nombre del archivo con la fecha actual
 
                 'verificamos si existe el archivo
 
@@ -96,7 +96,7 @@ Public Class frmLayoutFact
         Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
         strStreamWriter.Close() ' cerramos
         Me.CONT_CPF_configuracionTableAdapter.CONSUMEARCHIVOFACT()
-        MessageBox.Show("Layout generado", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        MessageBox.Show("Layout generado en C:\Factoraje\", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
 
     Private Sub frmLayoutFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -123,5 +123,15 @@ Public Class frmLayoutFact
         lote = ComboBox2.SelectedValue
         Dim f As New Frm_DescuentosFAC
         f.Show()
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub bt_cambiarFecha_Click(sender As Object, e As EventArgs) Handles bt_cambiarFecha.Click
+        Me.CONT_CPF_Factor_FacturasTableAdapter.UpdateFechaExp(DTFecha.Text, ComboBox2.SelectedValue)
+        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
+        MessageBox.Show("Fecha de Exp. se cambió correctamente", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
 End Class

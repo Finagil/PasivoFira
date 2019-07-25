@@ -124,7 +124,7 @@ Public Class MDI_Pasivo
         f.Show()
     End Sub
 
-    Private Sub DescontarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DescontarToolStripMenuItem.Click
+    Private Sub DescontarToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dim f As New Frm_DescuentosFAC
 
         f.Show()
