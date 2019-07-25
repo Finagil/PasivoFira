@@ -63,6 +63,9 @@ Partial Class frmLayoutFact
         Me.DTFecha = New System.Windows.Forms.DateTimePicker()
         Me.bt_cambiarFecha = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.FactorajeDS1 = New Fira_Cartera_Pasiva.FactorajeDS()
+        Me.GENCorreosSistemaFinagilBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GEN_Correos_SistemaFinagilTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFdivisasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +77,8 @@ Partial Class frmLayoutFact
         CType(Me.CONTCPFconfiguracionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GENCorreosSistemaFinagilBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -361,6 +366,21 @@ Partial Class frmLayoutFact
         Me.Label2.TabIndex = 312
         Me.Label2.Text = "Fecha Expedición"
         '
+        'FactorajeDS1
+        '
+        Me.FactorajeDS1.DataSetName = "FactorajeDS"
+        Me.FactorajeDS1.Locale = New System.Globalization.CultureInfo("es-ES")
+        Me.FactorajeDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GENCorreosSistemaFinagilBindingSource
+        '
+        Me.GENCorreosSistemaFinagilBindingSource.DataMember = "GEN_Correos_SistemaFinagil"
+        Me.GENCorreosSistemaFinagilBindingSource.DataSource = Me.FactorajeDS1
+        '
+        'GEN_Correos_SistemaFinagilTableAdapter
+        '
+        Me.GEN_Correos_SistemaFinagilTableAdapter.ClearBeforeFill = True
+        '
         'frmLayoutFact
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -394,6 +414,8 @@ Partial Class frmLayoutFact
         CType(Me.CONTCPFconfiguracionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GENCorreosSistemaFinagilBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -439,4 +461,7 @@ Partial Class frmLayoutFact
     Friend WithEvents DTFecha As DateTimePicker
     Friend WithEvents bt_cambiarFecha As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents FactorajeDS1 As FactorajeDS
+    Friend WithEvents GENCorreosSistemaFinagilBindingSource As BindingSource
+    Friend WithEvents GEN_Correos_SistemaFinagilTableAdapter As FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
 End Class
