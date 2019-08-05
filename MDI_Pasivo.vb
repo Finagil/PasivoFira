@@ -129,4 +129,16 @@ Public Class MDI_Pasivo
 
         f.Show()
     End Sub
+
+    Private Sub GenerarContratosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarContratosToolStripMenuItem.Click
+        Dim f As New Frm_DescuentosFAC
+
+        f.Show()
+    End Sub
+
+    Private Sub AplicarPagosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AplicarPagosToolStripMenuItem.Click
+        Dim f As New Frm_PagosFAC
+
+        f.Show()
+    End Sub
 End Class

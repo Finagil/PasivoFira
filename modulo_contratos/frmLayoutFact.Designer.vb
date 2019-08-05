@@ -59,7 +59,6 @@ Partial Class frmLayoutFact
         Me.CONT_CPF_Factor_FacturasTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_Factor_FacturasTableAdapter()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.ClientesTableAdapter()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.DTFecha = New System.Windows.Forms.DateTimePicker()
         Me.bt_cambiarFecha = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -331,15 +330,6 @@ Partial Class frmLayoutFact
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(401, 417)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 32)
-        Me.Button1.TabIndex = 309
-        Me.Button1.Text = "Descontar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'DTFecha
         '
         Me.DTFecha.Location = New System.Drawing.Point(971, 95)
@@ -389,7 +379,6 @@ Partial Class frmLayoutFact
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.bt_cambiarFecha)
         Me.Controls.Add(Me.DTFecha)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label7)
@@ -457,7 +446,6 @@ Partial Class frmLayoutFact
     Friend WithEvents FECHADEVENCIMIENTODataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LoteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdFacturaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As Button
     Friend WithEvents DTFecha As DateTimePicker
     Friend WithEvents bt_cambiarFecha As Button
     Friend WithEvents Label2 As Label

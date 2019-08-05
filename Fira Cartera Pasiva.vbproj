@@ -192,6 +192,12 @@
     <Compile Include="modulo_contratos\frm_ministraciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modulo_contratos\Frm_PagosFAC.Designer.vb">
+      <DependentUpon>Frm_PagosFAC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\Frm_PagosFAC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modulo_contratos\frm_rpt_solicitud_cargo.Designer.vb">
       <DependentUpon>frm_rpt_solicitud_cargo.vb</DependentUpon>
     </Compile>
@@ -411,6 +417,9 @@
     <EmbeddedResource Include="modulo_contratos\frm_ministraciones.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frm_ministraciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\Frm_PagosFAC.resx">
+      <DependentUpon>Frm_PagosFAC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_contratos\frm_rpt_solicitud_cargo.resx">
       <SubType>Designer</SubType>

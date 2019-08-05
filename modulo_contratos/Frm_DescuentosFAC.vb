@@ -1,6 +1,13 @@
 ﻿Imports System.IO
+
+
 Public Class Frm_DescuentosFAC
+    Public lote As Integer
     Private Sub Frm_DescuentosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_lotes' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_lotesTableAdapter.FillByLAYOUT(Me.FactorajeDS.CONT_CPF_lotes)
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_lotes' Puede moverla o quitarla según sea necesario.
+        '  Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_lotes)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_saldos_contingente' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_saldos_contingenteTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_saldos_contingente)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.WEB_Lotes' Puede moverla o quitarla según sea necesario.
@@ -54,6 +61,7 @@ Public Class Frm_DescuentosFAC
         cb_periodo_revision.SelectedValue = 6
         cb_periodo_capital.SelectedValue = 6
         cb_periodo_int.SelectedValue = 6
+        DTFecha.Text = Date.Now
     End Sub
 
 
@@ -241,7 +249,8 @@ Public Class Frm_DescuentosFAC
     End Sub
 
     Private Sub ComboBox2_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedValueChanged
-        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
+        lote = ComboBox2.SelectedValue
+        Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, lote)
     End Sub
 
     Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
@@ -444,6 +453,10 @@ Public Class Frm_DescuentosFAC
         Dim cont As Integer
         Dim logs() As String
         Dim CONFACT As Integer
+        Dim ta As New DescuentosDSTableAdapters.TIIETableAdapter
+        ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid2;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production"
+        Dim tipotasatiie As String
+        Dim fechat As Date
 
 
         Dim sRenglon As String = Nothing
@@ -459,6 +472,23 @@ Public Class Frm_DescuentosFAC
         End If
         'LEER EL ARCHIVO DE SIIOF
 
+
+        fechat = DTFecha.Text
+        TIIE28 = ta.SacaTIIE28(fechat.ToString("yyyyMMdd"))
+        TIIE91 = ta.SacaTIIE91(fechat.ToString("yyyyMMdd"))
+        TIIE182 = ta.SacaTIIE182(fechat.ToString("yyyyMMdd"))
+        'TIIE365 = ta.SacaTIIE365(fechat.ToString("yyyyMMdd"))
+        If TIIE28 = 0 Or TIIE182 = 0 Or TIIE91 = 0 Then
+            MessageBox.Show("Falta registrar alguna de las tasas TIIE, favor de verificar ", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+
+        TIIE28 = 0
+        TIIE91 = 0
+        TIIE182 = 0
+        TIIE365 = 0
+
+
         'PROCESO PARA DESCONTAR FACTORAJE
         Dim Ruta As String = "C:\Files\FACTORAJE.TXT"
         'If File.Exists(Ruta) = True Then
@@ -470,7 +500,7 @@ Public Class Frm_DescuentosFAC
             Dim LineaX As String()
             Dim doc As String
             Dim existe As Boolean
-            Dim lote As Integer
+
             While Not Arch.EndOfStream
                 CAD = ""
                 If Linea = "Primera" Then
@@ -492,7 +522,7 @@ Public Class Frm_DescuentosFAC
                 If Trim(LineaX(3)) = "ETP380888" Then
                     Dim s As String = "checar"
                 End If
-                lote = frmLayoutFact.lote
+                ' lote = ComboBox2.SelectedValue
 
                 Dim documento = Me.CONT_CPF_Factor_FacturasTableAdapter.factura(doc, lote)
 
@@ -527,6 +557,7 @@ Public Class Frm_DescuentosFAC
                     BP = CDec(Trim(LineaX(23)))
                     FB = 0.1
                     FN = 0  ' cuando es tasa fija 
+
                     Dim fecha As Date = Trim(LineaX(33))
                     Dim fechaVen As Date = Trim(LineaX(34))
                     Dim producto, operacion, prestamo, divisa, intermediario, esquema, tipotasa As Integer
@@ -539,9 +570,6 @@ Public Class Frm_DescuentosFAC
                     tipotasa = cb_tasa.SelectedValue
                     Dim totaldias As Integer
                     totaldias = DateDiff(DateInterval.Day, fecha, fechaVen)
-                    Dim ta As New DescuentosDSTableAdapters.TIIETableAdapter
-                    ta.Connection.ConnectionString = "Provider=SQLOLEDB;Data Source=server-raid2;Persist Security Info=True;Password=User_PRO2015;User ID=User_PRO;Initial Catalog=Production"
-                    Dim tipotasatiie As String
                     If totaldias < 32 Then
                         TIIE28 = ta.SacaTIIE28(fecha.ToString("yyyyMMdd"))
                         tipotasatiie = "TIIE28"
@@ -568,15 +596,15 @@ Public Class Frm_DescuentosFAC
                     idcreditofact = Trim(LineaX(15))
 
                     Me.CONT_CPF_contratosTableAdapter.InsertQueryFactoraje(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
-                            cb_prestamo.SelectedValue, cb_divisa.SelectedValue, monto, 0, idcreditofact, 1,
-                            cb_esquema.SelectedValue, cb_tasa.SelectedValue, BP, FN, FB, 0, 0,
-                            0, 1, secuencial_banco, 1, 1, 0,
-                            0, 0, 1, 0, 0, 0, 0,
-                            0, 0, 0, monto, 0, 0, 0,
-                            0, 0, 0, 0, 0, fecha, 0, 0,
-                            0, 0, 0, 0, 0, 0, 0,
-                            pcsx, 0, 0, 0, fecha, ch_subsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue,
-                             cb_periodo_revision.SelectedValue, clientetxt.Text, TIIE182, tipotasatiie, ch_subsidio.Checked, TASA, doc)
+                                cb_prestamo.SelectedValue, cb_divisa.SelectedValue, monto, 0, idcreditofact, 1,
+                                cb_esquema.SelectedValue, cb_tasa.SelectedValue, BP, FN, FB, 0, 0,
+                                0, 1, secuencial_banco, 1, 1, 0,
+                                0, 0, 1, 0, 0, 0, 0,
+                                0, 0, 0, monto, 0, 0, 0,
+                                0, 0, 0, 0, 0, fecha, 0, 0,
+                                0, 0, 0, 0, 0, 0, 0,
+                                pcsx, 0, 0, 0, fecha, ch_subsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue,
+                                 cb_periodo_revision.SelectedValue, clientetxt.Text, TIIE182, tipotasatiie, ch_subsidio.Checked, TASA, doc)
                     Inserto = True
 
 
@@ -713,12 +741,21 @@ Public Class Frm_DescuentosFAC
                 'CREAR LOGS DE DOCUMENTOS NO ENCONTRADOS 
 
             End While
-            MessageBox.Show(CONFACT & "Documentos Registrados ", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(CONFACT & " Documentos Registrados ", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             'CAMBIO ESTATUS LOTE A PROCESADO
+            Me.CONT_CPF_lotesTableAdapter.Updatelotedescontado(lote)
             Me.WEB_LotesTableAdapter.Updateestatus(ComboBox2.SelectedValue)
-
+            Me.Close()
 
             ' End If
         End If
+    End Sub
+
+    Private Sub Label2_Click_1(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub DTFecha_ValueChanged(sender As Object, e As EventArgs) Handles DTFecha.ValueChanged
+
     End Sub
 End Class

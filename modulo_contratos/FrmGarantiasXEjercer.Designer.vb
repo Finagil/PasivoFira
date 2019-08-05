@@ -23,8 +23,8 @@ Partial Class FrmGarantiasXEjercer
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CmbCli = New System.Windows.Forms.ComboBox()
         Me.CliGarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -40,6 +40,8 @@ Partial Class FrmGarantiasXEjercer
         Me.BtnEjercer = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtSaldo = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.CliGarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +76,7 @@ Partial Class FrmGarantiasXEjercer
         'DescuentosDS
         '
         Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.Locale = New System.Globalization.CultureInfo("es-ES")
         Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CliGarantiasTableAdapter
@@ -113,10 +116,10 @@ Partial Class FrmGarantiasXEjercer
         'SaldocontingenteDataGridViewTextBoxColumn
         '
         Me.SaldocontingenteDataGridViewTextBoxColumn.DataPropertyName = "saldo_contingente"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.Format = "N2"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.SaldocontingenteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.SaldocontingenteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.SaldocontingenteDataGridViewTextBoxColumn.HeaderText = "Saldo Contingente"
         Me.SaldocontingenteDataGridViewTextBoxColumn.Name = "SaldocontingenteDataGridViewTextBoxColumn"
         Me.SaldocontingenteDataGridViewTextBoxColumn.ReadOnly = True
@@ -124,8 +127,8 @@ Partial Class FrmGarantiasXEjercer
         'id_credito
         '
         Me.id_credito.DataPropertyName = "id_credito"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.id_credito.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.id_credito.DefaultCellStyle = DataGridViewCellStyle4
         Me.id_credito.HeaderText = "ID Credito"
         Me.id_credito.Name = "id_credito"
         Me.id_credito.ReadOnly = True
@@ -153,24 +156,42 @@ Partial Class FrmGarantiasXEjercer
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(13, 194)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 13)
+        Me.Label2.Size = New System.Drawing.Size(110, 13)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Saldo Anexo"
+        Me.Label2.Text = "Monto Incumplimiento"
         '
         'TxtSaldo
         '
-        Me.TxtSaldo.Location = New System.Drawing.Point(85, 191)
+        Me.TxtSaldo.Location = New System.Drawing.Point(138, 187)
         Me.TxtSaldo.Name = "TxtSaldo"
-        Me.TxtSaldo.ReadOnly = True
         Me.TxtSaldo.Size = New System.Drawing.Size(100, 20)
         Me.TxtSaldo.TabIndex = 5
         Me.TxtSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(138, 216)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 7
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(13, 219)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(124, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Monto Garantia Aplicada"
         '
         'FrmGarantiasXEjercer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(453, 228)
+        Me.ClientSize = New System.Drawing.Size(603, 292)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TxtSaldo)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnEjercer)
@@ -202,4 +223,6 @@ Partial Class FrmGarantiasXEjercer
     Friend WithEvents BtnEjercer As System.Windows.Forms.Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtSaldo As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label3 As Label
 End Class

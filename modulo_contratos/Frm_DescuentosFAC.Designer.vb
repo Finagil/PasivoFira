@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Frm_DescuentosFAC
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Frm_DescuentosFAC
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.CONTCPFFactorFacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -99,6 +99,7 @@ Partial Class Frm_DescuentosFAC
         Me.CONTCPFperiodicidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_periodicidadTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_periodicidadTableAdapter()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CONTCPFlotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.WEBLotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label7 = New System.Windows.Forms.Label()
         Me.WEB_LotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.WEB_LotesTableAdapter()
@@ -112,6 +113,10 @@ Partial Class Frm_DescuentosFAC
         Me.Label69 = New System.Windows.Forms.Label()
         Me.CK_FONAGA = New System.Windows.Forms.CheckBox()
         Me.TXT_NOM = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DTFecha = New System.Windows.Forms.DateTimePicker()
+        Me.CONTCPFlotesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_lotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_lotesTableAdapter()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGFACT, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,10 +142,12 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosgarantiasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFsaldoscontingenteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFlotesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CONTCPFFactorFacturasBindingSource
@@ -263,7 +270,7 @@ Partial Class Frm_DescuentosFAC
         '
         'TxtIntermediario
         '
-        Me.TxtIntermediario.Location = New System.Drawing.Point(326, 356)
+        Me.TxtIntermediario.Location = New System.Drawing.Point(326, 363)
         Me.TxtIntermediario.Name = "TxtIntermediario"
         Me.TxtIntermediario.ReadOnly = True
         Me.TxtIntermediario.Size = New System.Drawing.Size(30, 20)
@@ -276,7 +283,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_prestamo.DisplayMember = "descripcion_prestamo"
         Me.cb_prestamo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_prestamo.FormattingEnabled = True
-        Me.cb_prestamo.Location = New System.Drawing.Point(116, 432)
+        Me.cb_prestamo.Location = New System.Drawing.Point(116, 439)
         Me.cb_prestamo.Name = "cb_prestamo"
         Me.cb_prestamo.Size = New System.Drawing.Size(242, 21)
         Me.cb_prestamo.TabIndex = 197
@@ -298,7 +305,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_operacion.DisplayMember = "desc"
         Me.cb_operacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_operacion.FormattingEnabled = True
-        Me.cb_operacion.Location = New System.Drawing.Point(116, 380)
+        Me.cb_operacion.Location = New System.Drawing.Point(116, 387)
         Me.cb_operacion.Name = "cb_operacion"
         Me.cb_operacion.Size = New System.Drawing.Size(241, 21)
         Me.cb_operacion.TabIndex = 196
@@ -312,7 +319,7 @@ Partial Class Frm_DescuentosFAC
         'Label62
         '
         Me.Label62.AutoSize = True
-        Me.Label62.Location = New System.Drawing.Point(23, 389)
+        Me.Label62.Location = New System.Drawing.Point(23, 396)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(86, 13)
         Me.Label62.TabIndex = 195
@@ -324,7 +331,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_intermediario.DisplayMember = "nombre_intermediario"
         Me.cb_intermediario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_intermediario.FormattingEnabled = True
-        Me.cb_intermediario.Location = New System.Drawing.Point(117, 356)
+        Me.cb_intermediario.Location = New System.Drawing.Point(117, 363)
         Me.cb_intermediario.Name = "cb_intermediario"
         Me.cb_intermediario.Size = New System.Drawing.Size(203, 21)
         Me.cb_intermediario.TabIndex = 194
@@ -338,7 +345,7 @@ Partial Class Frm_DescuentosFAC
         'Label57
         '
         Me.Label57.AutoSize = True
-        Me.Label57.Location = New System.Drawing.Point(43, 362)
+        Me.Label57.Location = New System.Drawing.Point(43, 369)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(67, 13)
         Me.Label57.TabIndex = 193
@@ -350,7 +357,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_producto.DisplayMember = "descripcion_producto_fira"
         Me.cb_producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_producto.FormattingEnabled = True
-        Me.cb_producto.Location = New System.Drawing.Point(116, 407)
+        Me.cb_producto.Location = New System.Drawing.Point(116, 414)
         Me.cb_producto.Name = "cb_producto"
         Me.cb_producto.Size = New System.Drawing.Size(242, 21)
         Me.cb_producto.TabIndex = 192
@@ -364,7 +371,7 @@ Partial Class Frm_DescuentosFAC
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(34, 441)
+        Me.Label5.Location = New System.Drawing.Point(34, 448)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(75, 13)
         Me.Label5.TabIndex = 191
@@ -373,7 +380,7 @@ Partial Class Frm_DescuentosFAC
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(59, 412)
+        Me.Label4.Location = New System.Drawing.Point(59, 419)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 13)
         Me.Label4.TabIndex = 190
@@ -385,7 +392,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_esquema.DisplayMember = "esquema_cobro"
         Me.cb_esquema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_esquema.FormattingEnabled = True
-        Me.cb_esquema.Location = New System.Drawing.Point(116, 456)
+        Me.cb_esquema.Location = New System.Drawing.Point(116, 463)
         Me.cb_esquema.Name = "cb_esquema"
         Me.cb_esquema.Size = New System.Drawing.Size(243, 21)
         Me.cb_esquema.TabIndex = 200
@@ -399,7 +406,7 @@ Partial Class Frm_DescuentosFAC
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(12, 464)
+        Me.Label15.Location = New System.Drawing.Point(12, 471)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(97, 13)
         Me.Label15.TabIndex = 199
@@ -452,7 +459,7 @@ Partial Class Frm_DescuentosFAC
         Me.cb_divisa.DisplayMember = "codigo"
         Me.cb_divisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_divisa.FormattingEnabled = True
-        Me.cb_divisa.Location = New System.Drawing.Point(116, 483)
+        Me.cb_divisa.Location = New System.Drawing.Point(116, 490)
         Me.cb_divisa.Name = "cb_divisa"
         Me.cb_divisa.Size = New System.Drawing.Size(85, 21)
         Me.cb_divisa.TabIndex = 243
@@ -466,7 +473,7 @@ Partial Class Frm_DescuentosFAC
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(59, 491)
+        Me.Label1.Location = New System.Drawing.Point(59, 498)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(36, 13)
         Me.Label1.TabIndex = 244
@@ -490,7 +497,7 @@ Partial Class Frm_DescuentosFAC
         'ch_subsidio
         '
         Me.ch_subsidio.AutoSize = True
-        Me.ch_subsidio.Location = New System.Drawing.Point(334, 485)
+        Me.ch_subsidio.Location = New System.Drawing.Point(334, 492)
         Me.ch_subsidio.Name = "ch_subsidio"
         Me.ch_subsidio.Size = New System.Drawing.Size(15, 14)
         Me.ch_subsidio.TabIndex = 248
@@ -499,7 +506,7 @@ Partial Class Frm_DescuentosFAC
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(273, 486)
+        Me.Label6.Location = New System.Drawing.Point(273, 493)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(47, 13)
         Me.Label6.TabIndex = 247
@@ -659,15 +666,20 @@ Partial Class Frm_DescuentosFAC
         '
         'ComboBox2
         '
-        Me.ComboBox2.DataSource = Me.WEBLotesBindingSource
-        Me.ComboBox2.DisplayMember = "Id_Lote"
+        Me.ComboBox2.DataSource = Me.CONTCPFlotesBindingSource1
+        Me.ComboBox2.DisplayMember = "lote"
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(86, 3)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(203, 21)
         Me.ComboBox2.TabIndex = 259
-        Me.ComboBox2.ValueMember = "Id_Lote"
+        Me.ComboBox2.ValueMember = "lote"
+        '
+        'CONTCPFlotesBindingSource
+        '
+        Me.CONTCPFlotesBindingSource.DataMember = "CONT_CPF_lotes"
+        Me.CONTCPFlotesBindingSource.DataSource = Me.FactorajeDS
         '
         'WEBLotesBindingSource
         '
@@ -754,11 +766,40 @@ Partial Class Frm_DescuentosFAC
         Me.TXT_NOM.TabIndex = 263
         Me.TXT_NOM.Visible = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 343)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 13)
+        Me.Label2.TabIndex = 314
+        Me.Label2.Text = "Fecha Descuento"
+        '
+        'DTFecha
+        '
+        Me.DTFecha.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFFactorFacturasBindingSource, "FECHA DE VENCIMIENTO", True))
+        Me.DTFecha.Location = New System.Drawing.Point(117, 337)
+        Me.DTFecha.Name = "DTFecha"
+        Me.DTFecha.Size = New System.Drawing.Size(200, 20)
+        Me.DTFecha.TabIndex = 313
+        Me.DTFecha.Value = New Date(2019, 7, 19, 16, 59, 14, 0)
+        '
+        'CONTCPFlotesBindingSource1
+        '
+        Me.CONTCPFlotesBindingSource1.DataMember = "CONT_CPF_lotes"
+        Me.CONTCPFlotesBindingSource1.DataSource = Me.FactorajeDS
+        '
+        'CONT_CPF_lotesTableAdapter
+        '
+        Me.CONT_CPF_lotesTableAdapter.ClearBeforeFill = True
+        '
         'Frm_DescuentosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1005, 597)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.DTFecha)
         Me.Controls.Add(Me.TXT_NOM)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.ComboBox2)
@@ -817,10 +858,12 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosgarantiasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFsaldoscontingenteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFlotesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -914,4 +957,9 @@ Partial Class Frm_DescuentosFAC
     Friend WithEvents Label69 As Label
     Friend WithEvents CK_FONAGA As CheckBox
     Friend WithEvents TXT_NOM As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents DTFecha As DateTimePicker
+    Friend WithEvents CONTCPFlotesBindingSource As BindingSource
+    Friend WithEvents CONTCPFlotesBindingSource1 As BindingSource
+    Friend WithEvents CONT_CPF_lotesTableAdapter As FactorajeDSTableAdapters.CONT_CPF_lotesTableAdapter
 End Class

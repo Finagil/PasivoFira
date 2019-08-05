@@ -2477,9 +2477,10 @@ Partial Class frm_contratos_alta
         'txt_id_contrato
         '
         Me.txt_id_contrato.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONT_CPF_contratosBindingSource, "id_contrato", True))
-        Me.txt_id_contrato.Location = New System.Drawing.Point(746, 186)
+        Me.txt_id_contrato.Location = New System.Drawing.Point(719, 190)
         Me.txt_id_contrato.Name = "txt_id_contrato"
-        Me.txt_id_contrato.Size = New System.Drawing.Size(100, 20)
+        Me.txt_id_contrato.ReadOnly = True
+        Me.txt_id_contrato.Size = New System.Drawing.Size(58, 20)
         Me.txt_id_contrato.TabIndex = 207
         '
         'CONTCPFgarantiasBindingSource
@@ -2551,10 +2552,10 @@ Partial Class frm_contratos_alta
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(858, 717)
-        Me.Controls.Add(Me.txt_id_contrato)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.txt_id_contrato)
         Me.Name = "frm_contratos_alta"
         Me.Text = "Consultas"
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

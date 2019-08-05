@@ -48,6 +48,8 @@ Partial Class MDI_Pasivo
         Me.ModificarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FactorajeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcesarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarContratosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AplicarPagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -200,7 +202,7 @@ Partial Class MDI_Pasivo
         '
         'FactorajeToolStripMenuItem1
         '
-        Me.FactorajeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProcesarToolStripMenuItem})
+        Me.FactorajeToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProcesarToolStripMenuItem, Me.GenerarContratosToolStripMenuItem, Me.AplicarPagosToolStripMenuItem})
         Me.FactorajeToolStripMenuItem1.Name = "FactorajeToolStripMenuItem1"
         Me.FactorajeToolStripMenuItem1.Size = New System.Drawing.Size(67, 20)
         Me.FactorajeToolStripMenuItem1.Text = "Factoraje"
@@ -208,8 +210,20 @@ Partial Class MDI_Pasivo
         'ProcesarToolStripMenuItem
         '
         Me.ProcesarToolStripMenuItem.Name = "ProcesarToolStripMenuItem"
-        Me.ProcesarToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.ProcesarToolStripMenuItem.Text = "Generar Layout/Descontar"
+        Me.ProcesarToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.ProcesarToolStripMenuItem.Text = "Generar Layout"
+        '
+        'GenerarContratosToolStripMenuItem
+        '
+        Me.GenerarContratosToolStripMenuItem.Name = "GenerarContratosToolStripMenuItem"
+        Me.GenerarContratosToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.GenerarContratosToolStripMenuItem.Text = "Generar Contratos"
+        '
+        'AplicarPagosToolStripMenuItem
+        '
+        Me.AplicarPagosToolStripMenuItem.Name = "AplicarPagosToolStripMenuItem"
+        Me.AplicarPagosToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.AplicarPagosToolStripMenuItem.Text = "Aplicar Pagos"
         '
         'ConT_CPF_configuracionTableAdapter
         '
@@ -256,4 +270,6 @@ Partial Class MDI_Pasivo
     Friend WithEvents ModificarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FactorajeToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProcesarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarContratosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AplicarPagosToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -39,6 +39,7 @@ Public Class frm_contratos_alta
         ' Me.Vw_Anexos1TableAdapter.Fill(Me.DS_contratos6.Vw_Anexos1)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos5.CONT_CPF_conceptos_inversion' Puede moverla o quitarla según sea necesario.
         ' Me.CONT_CPF_conceptos_inversionTableAdapter.Fill(Me.DS_contratos5.CONT_CPF_conceptos_inversion)
+        ' txt_id_contrato.Text = 0
         If sinanexo = False Then
             cbanexos.Visible = True
             cbanexos2.Visible = False
@@ -847,6 +848,10 @@ Public Class frm_contratos_alta
 
     End Sub
 
+    Private Sub txt_credito_TextChanged(sender As Object, e As EventArgs) Handles txt_credito.TextChanged
+
+    End Sub
+
     Private Sub cb_subrama_SelectedValueChanged(sender As Object, e As EventArgs) Handles cb_subrama.SelectedValueChanged
         If cb_subrama.SelectedIndex >= 0 Then
             id_subrama = Me.CONT_CPF_subramasTableAdapter.clave_subrama(cb_subrama.SelectedValue)
@@ -863,6 +868,15 @@ Public Class frm_contratos_alta
     Private Sub cbanexos2_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos2.SelectedValueChanged
         'Me.ClientesTableAdapter.FillByAnexo(Me.DS_contratos.Clientes, Anexo)
         Reestructura_txt.Text = ""
+        If txt_id_contrato.Text <> "" Then
+            Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
+            If res <> 0 Then
+                Reestructura_txt.Text = res
+                'If txt_id_contrato.Text = "1022" Then
+                ' Dim XX As Integer = 0
+
+            End If
+        End If
 
 
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
@@ -919,13 +933,17 @@ Public Class frm_contratos_alta
 
     Private Sub txt_id_contrato_TextChanged(sender As Object, e As EventArgs) Handles txt_id_contrato.TextChanged
         Reestructura_txt.Text = ""
-        ' Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
-        'If res <> 0 Then
-        'Reestructura_txt.Text = res
-        ' If txt_id_contrato.Text = "1022" Then
-        'Dim XX As Integer = 0
+        If txt_id_contrato.Text = "" Then
+            txt_id_contrato.Text = 0
+        End If
 
-        'End If
+        Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
+        If res <> 0 Then
+            Reestructura_txt.Text = res
+            ' If txt_id_contrato.Text = "1022" Then
+            'Dim XX As Integer = 0
+
+        End If
         'If Ministracion1 = False Then
         'CargaDatosFira()
         'End If
