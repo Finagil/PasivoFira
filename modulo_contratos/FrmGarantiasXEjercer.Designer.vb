@@ -23,8 +23,8 @@ Partial Class FrmGarantiasXEjercer
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CmbCli = New System.Windows.Forms.ComboBox()
         Me.CliGarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -40,12 +40,31 @@ Partial Class FrmGarantiasXEjercer
         Me.BtnEjercer = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtSaldo = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Texgar = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Txtnom = New System.Windows.Forms.TextBox()
+        Me.CONTCPFcontratosgarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Txtefec = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtmonto = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CONT_CPF_contratos_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ch_fonaga = New System.Windows.Forms.CheckBox()
+        Me.CONTCPFgarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter()
+        Me.DTFecha = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.CliGarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GarantiasEjerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFcontratosgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -116,10 +135,10 @@ Partial Class FrmGarantiasXEjercer
         'SaldocontingenteDataGridViewTextBoxColumn
         '
         Me.SaldocontingenteDataGridViewTextBoxColumn.DataPropertyName = "saldo_contingente"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.SaldocontingenteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.SaldocontingenteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.SaldocontingenteDataGridViewTextBoxColumn.HeaderText = "Saldo Contingente"
         Me.SaldocontingenteDataGridViewTextBoxColumn.Name = "SaldocontingenteDataGridViewTextBoxColumn"
         Me.SaldocontingenteDataGridViewTextBoxColumn.ReadOnly = True
@@ -127,8 +146,8 @@ Partial Class FrmGarantiasXEjercer
         'id_credito
         '
         Me.id_credito.DataPropertyName = "id_credito"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.id_credito.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.id_credito.DefaultCellStyle = DataGridViewCellStyle2
         Me.id_credito.HeaderText = "ID Credito"
         Me.id_credito.Name = "id_credito"
         Me.id_credito.ReadOnly = True
@@ -144,7 +163,7 @@ Partial Class FrmGarantiasXEjercer
         '
         'BtnEjercer
         '
-        Me.BtnEjercer.Location = New System.Drawing.Point(367, 194)
+        Me.BtnEjercer.Location = New System.Drawing.Point(368, 197)
         Me.BtnEjercer.Name = "BtnEjercer"
         Me.BtnEjercer.Size = New System.Drawing.Size(75, 23)
         Me.BtnEjercer.TabIndex = 3
@@ -154,7 +173,7 @@ Partial Class FrmGarantiasXEjercer
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 194)
+        Me.Label2.Location = New System.Drawing.Point(487, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(110, 13)
         Me.Label2.TabIndex = 4
@@ -162,35 +181,167 @@ Partial Class FrmGarantiasXEjercer
         '
         'TxtSaldo
         '
-        Me.TxtSaldo.Location = New System.Drawing.Point(138, 187)
+        Me.TxtSaldo.Location = New System.Drawing.Point(602, 51)
         Me.TxtSaldo.Name = "TxtSaldo"
         Me.TxtSaldo.Size = New System.Drawing.Size(100, 20)
         Me.TxtSaldo.TabIndex = 5
         Me.TxtSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox1
+        'Texgar
         '
-        Me.TextBox1.Location = New System.Drawing.Point(138, 216)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 7
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Texgar.Location = New System.Drawing.Point(603, 80)
+        Me.Texgar.Name = "Texgar"
+        Me.Texgar.Size = New System.Drawing.Size(100, 20)
+        Me.Texgar.TabIndex = 7
+        Me.Texgar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 219)
+        Me.Label3.Location = New System.Drawing.Point(477, 83)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(124, 13)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Monto Garantia Aplicada"
         '
+        'Txtnom
+        '
+        Me.Txtnom.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosgarantiasBindingSource, "cobertura_nominal", True))
+        Me.Txtnom.Location = New System.Drawing.Point(604, 109)
+        Me.Txtnom.Name = "Txtnom"
+        Me.Txtnom.Size = New System.Drawing.Size(33, 20)
+        Me.Txtnom.TabIndex = 9
+        Me.Txtnom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CONTCPFcontratosgarantiasBindingSource
+        '
+        Me.CONTCPFcontratosgarantiasBindingSource.DataMember = "CONT_CPF_contratos_garantias"
+        Me.CONTCPFcontratosgarantiasBindingSource.DataSource = Me.DS_contratos
+        '
+        'DS_contratos
+        '
+        Me.DS_contratos.DataSetName = "DS_contratos"
+        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(560, 112)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "%Nom"
+        '
+        'Txtefec
+        '
+        Me.Txtefec.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosgarantiasBindingSource, "cobertura_efectiva", True))
+        Me.Txtefec.Location = New System.Drawing.Point(605, 137)
+        Me.Txtefec.Name = "Txtefec"
+        Me.Txtefec.Size = New System.Drawing.Size(31, 20)
+        Me.Txtefec.TabIndex = 11
+        Me.Txtefec.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(563, 140)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(37, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "%Efec"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(727, 171)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Cálcular Gar."
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txtmonto
+        '
+        Me.txtmonto.Location = New System.Drawing.Point(605, 171)
+        Me.txtmonto.Name = "txtmonto"
+        Me.txtmonto.Size = New System.Drawing.Size(100, 20)
+        Me.txtmonto.TabIndex = 14
+        Me.txtmonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(480, 174)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(124, 13)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Monto Garantia Aplicada"
+        '
+        'CONT_CPF_contratos_garantiasTableAdapter
+        '
+        Me.CONT_CPF_contratos_garantiasTableAdapter.ClearBeforeFill = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GarantiasEjerBindingSource, "id_contrato", True))
+        Me.TextBox1.Location = New System.Drawing.Point(410, 167)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(33, 20)
+        Me.TextBox1.TabIndex = 15
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ch_fonaga
+        '
+        Me.ch_fonaga.AutoSize = True
+        Me.ch_fonaga.Location = New System.Drawing.Point(710, 111)
+        Me.ch_fonaga.Name = "ch_fonaga"
+        Me.ch_fonaga.Size = New System.Drawing.Size(62, 17)
+        Me.ch_fonaga.TabIndex = 16
+        Me.ch_fonaga.Text = "Fonaga"
+        Me.ch_fonaga.UseVisualStyleBackColor = True
+        '
+        'CONTCPFgarantiasBindingSource
+        '
+        Me.CONTCPFgarantiasBindingSource.DataMember = "CONT_CPF_garantias"
+        Me.CONTCPFgarantiasBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_garantiasTableAdapter
+        '
+        Me.CONT_CPF_garantiasTableAdapter.ClearBeforeFill = True
+        '
+        'DTFecha
+        '
+        Me.DTFecha.Location = New System.Drawing.Point(602, 23)
+        Me.DTFecha.Name = "DTFecha"
+        Me.DTFecha.Size = New System.Drawing.Size(200, 20)
+        Me.DTFecha.TabIndex = 311
+        Me.DTFecha.Value = New Date(2019, 7, 19, 16, 59, 14, 0)
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(557, 29)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(40, 13)
+        Me.Label7.TabIndex = 312
+        Me.Label7.Text = "Fecha "
+        '
         'FrmGarantiasXEjercer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(603, 292)
-        Me.Controls.Add(Me.TextBox1)
+        Me.ClientSize = New System.Drawing.Size(834, 247)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.DTFecha)
+        Me.Controls.Add(Me.ch_fonaga)
+        Me.Controls.Add(Me.txtmonto)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Txtefec)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Txtnom)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Texgar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TxtSaldo)
         Me.Controls.Add(Me.Label2)
@@ -198,12 +349,16 @@ Partial Class FrmGarantiasXEjercer
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.CmbCli)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TextBox1)
         Me.Name = "FrmGarantiasXEjercer"
         Me.Text = "Saldo Garantias Ejercidas"
         CType(Me.CliGarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GarantiasEjerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFcontratosgarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFgarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -223,6 +378,22 @@ Partial Class FrmGarantiasXEjercer
     Friend WithEvents BtnEjercer As System.Windows.Forms.Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtSaldo As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Texgar As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Txtnom As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Txtefec As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txtmonto As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents DS_contratos As DS_contratos
+    Friend WithEvents CONTCPFcontratosgarantiasBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_contratos_garantiasTableAdapter As DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ch_fonaga As CheckBox
+    Friend WithEvents CONTCPFgarantiasBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_garantiasTableAdapter As DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter
+    Friend WithEvents DTFecha As DateTimePicker
+    Friend WithEvents Label7 As Label
 End Class

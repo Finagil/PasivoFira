@@ -207,11 +207,11 @@ Public Class frm_edo_cuenta
         If sinanexo = True Then
             'IDataAdapter = id_contrato2
             '  Dim idcont As Integer
-            If frm_contratos_alta.id_contrato = 0 Then
-                idcont = frm_contrato2.id_contrato
-            Else
-                idcont = frm_contratos_alta.id_contrato
-            End If
+            'If frm_contratos_alta.id_contrato = 0 Then
+            'idcont = frm_contrato2.id_contrato
+            'Else
+            idcont = frm_contratos_alta.id_contrato
+            'End If
             ta.FillByContrato2(ds.ContratoDatos, idcont)
         Else
             idcont = frm_contratos_alta.id_contrato

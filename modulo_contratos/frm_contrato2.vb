@@ -86,21 +86,23 @@
 
     Private Sub cbclientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedIndexChanged
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
+
+
             'If sinanexo = False Then
             '  Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
             'Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
             'Else
             'Dim gris As String = "dddd"
 
-            '  If txtcliente.TextLength > 4 Then
+            If txtcliente.TextLength > 4 Then
+
+                Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+                'Dim ocli As Integer = cbclientes.SelectedValue
+
+                'Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
 
 
-            'Dim ocli As Integer = cbclientes.SelectedValue
-
-            'Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
-
-
-            '        End If
+            End If
 
 
             'End If
@@ -285,6 +287,9 @@
         Dim Inserto As Boolean = False
         Dim Pcxsg As Decimal
         Dim id_contrato_padre As Integer
+        ' id_contrato_padre = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, ComboBox1.SelectedValue)
+
+
 
         Dim secuencial_banco As Integer
         Dim FECMIN As Date
@@ -362,7 +367,9 @@
             id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, txt_credito.Text)
             'INGRESAR REESTRUCTURA
             If ch_res.Checked = True Then
-                id_contrato_padre = ComboBox1.SelectedValue
+                '  id_contrato_padre = ComboBox1.SelectedValue
+                id_contrato_padre = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, ComboBox1.SelectedValue)
+
                 If id_contrato_padre <> 0 Then
                     Me.CONT_CPF_reestructuraTableAdapter.InsertQuery(id_contrato_padre, id_contrato2)
                     MessageBox.Show("Reestructura Registrada", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

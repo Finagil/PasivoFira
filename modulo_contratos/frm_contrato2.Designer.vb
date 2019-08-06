@@ -186,6 +186,7 @@ Partial Class frm_contrato2
         Me.Label24 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VwdescuentoSABindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbclientes = New System.Windows.Forms.ComboBox()
         Me.txtcliente = New System.Windows.Forms.TextBox()
@@ -263,6 +264,7 @@ Partial Class frm_contrato2
         CType(Me.GENProductosFinagilBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwdescuentoSABindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ViewcadenassubramasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFconceptosinversionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFconfiguracionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1800,17 +1802,25 @@ Partial Class frm_contrato2
         'ComboBox1
         '
         Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "Descr", True))
+        Me.ComboBox1.DataSource = Me.VwdescuentoSABindingSource1
+        Me.ComboBox1.DisplayMember = "ANEXO"
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(395, 66)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
         Me.ComboBox1.TabIndex = 44
+        Me.ComboBox1.ValueMember = "id_credito"
         '
         'ClientesBindingSource
         '
         Me.ClientesBindingSource.DataMember = "Clientes"
         Me.ClientesBindingSource.DataSource = Me.DS_contratos
+        '
+        'VwdescuentoSABindingSource1
+        '
+        Me.VwdescuentoSABindingSource1.DataMember = "vw_descuentoSA"
+        Me.VwdescuentoSABindingSource1.DataSource = Me.DS_contratos
         '
         'Label1
         '
@@ -2089,6 +2099,7 @@ Partial Class frm_contrato2
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwdescuentoSABindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ViewcadenassubramasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFconceptosinversionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFconfiguracionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2310,4 +2321,5 @@ Partial Class frm_contrato2
     Friend WithEvents Factoraje As Label
     Friend WithEvents VwdescuentoSABindingSource As BindingSource
     Friend WithEvents Vw_descuentoSATableAdapter As DS_contratosTableAdapters.vw_descuentoSATableAdapter
+    Friend WithEvents VwdescuentoSABindingSource1 As BindingSource
 End Class

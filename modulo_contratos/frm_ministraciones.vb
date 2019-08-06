@@ -47,7 +47,7 @@ Public Class frm_ministraciones
             smonto = smonto + Me.CONT_CPF_ministracionesDataGridView.Item(2, Renglones).Value
         Next
 
-        If MontoFinanciado <> smonto Then
+        If MontoFinanciado < smonto Then
             MessageBox.Show("La suma del monto " & monto & " no coincide con el monto Financiado: " & MontoFinanciado, "MINISTRACIONES", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             ' MsgBox("La suma del monto " & monto & " no coincide con el monto Financiado: " & MontoFinanciado)
         Else

@@ -882,7 +882,21 @@ Public Class frm_contratos_alta
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
             If cbanexos2.SelectedIndex >= 0 Then
                 Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
-                Anexo = Anexo.Replace("/", "")
+
+                If Anexo <> "" Then
+                    Anexo = Anexo.Replace("/", "")
+                    If Anexo.Length > 0 Then
+                        '   Dim CREDITO As Integer = cbanexos2.SelectedValue
+                        Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
+                        Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
+                        ' Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, CREDITO)
+                        Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
+                        Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+
+                    End If
+
+                End If
+
                 ' Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
                 '  If Ciclo = 0 Then
                 ' Ciclo = ""
@@ -895,15 +909,7 @@ Public Class frm_contratos_alta
                 'Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
                 'Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, CREDITO)
 
-                If Anexo.Length > 0 Then
-                    '   Dim CREDITO As Integer = cbanexos2.SelectedValue
-                    Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
-                    Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
-                    ' Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, CREDITO)
-                    Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
-                    Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
 
-                End If
 
                 If txt_id_contrato.TextLength > 0 Then
 
@@ -936,7 +942,9 @@ Public Class frm_contratos_alta
         If txt_id_contrato.Text = "" Then
             txt_id_contrato.Text = 0
         End If
-
+        If txt_id_contrato.Text = 14092 Then
+            Reestructura_txt.Text = "0"
+        End If
         Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
         If res <> 0 Then
             Reestructura_txt.Text = res
@@ -948,5 +956,9 @@ Public Class frm_contratos_alta
         'CargaDatosFira()
         'End If
         'End If
+    End Sub
+
+    Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
+
     End Sub
 End Class

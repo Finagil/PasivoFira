@@ -461,7 +461,7 @@ Partial Class frm_contratos_alta
         Me.cbanexos2.Name = "cbanexos2"
         Me.cbanexos2.Size = New System.Drawing.Size(116, 21)
         Me.cbanexos2.TabIndex = 44
-        Me.cbanexos2.ValueMember = "id_credito"
+        Me.cbanexos2.ValueMember = "id_contrato"
         '
         'VwdescuentoSABindingSource
         '
@@ -472,7 +472,7 @@ Partial Class frm_contratos_alta
         '
         Me.TabControl1.Controls.Add(Me.lb_ciclo)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 190)
+        Me.TabControl1.Location = New System.Drawing.Point(18, 216)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(780, 486)
