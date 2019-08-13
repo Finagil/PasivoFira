@@ -107,6 +107,9 @@ Public Class frmLayoutFact
         'total1 = FormatNumber(total, , TriState.True)
         ' total = total.ToString("n2")
 
+        'guarda el lote en cont_cpf_lotes
+
+        Me.CONT_CPF_lotesTableAdapter.Insert(ComboBox2.SelectedValue, 0, 0, 1)
         MessageBox.Show("Layout generado en C:\Factoraje\", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Descuento Fira Factoraje lote " & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para solicitar recurso el " & DTFecha.Text & " por $" & total.ToString("n2"), False, Date.Now, "")
         taCorreos.Insert("PasivoFira@finagil.com.mx", "atorres@finagil.com.mx", "Descuento Fira Factoraje lote " & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para solicitar recurso el " & DTFecha.Text & " por $" & total.ToString("n2"), False, Date.Now, "")
@@ -119,6 +122,8 @@ Public Class frmLayoutFact
     End Sub
 
     Private Sub frmLayoutFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_lotes' Puede moverla o quitarla según sea necesario.
+        '   Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_lotes)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS1.GEN_Correos_SistemaFinagil' Puede moverla o quitarla según sea necesario.
         Me.GEN_Correos_SistemaFinagilTableAdapter.Fill(Me.FactorajeDS1.GEN_Correos_SistemaFinagil)
 

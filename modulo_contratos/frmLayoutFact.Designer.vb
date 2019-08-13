@@ -65,6 +65,8 @@ Partial Class frmLayoutFact
         Me.FactorajeDS1 = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.GENCorreosSistemaFinagilBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GEN_Correos_SistemaFinagilTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter()
+        Me.CONTCPFlotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_lotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_lotesTableAdapter()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFdivisasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,6 +80,7 @@ Partial Class frmLayoutFact
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GENCorreosSistemaFinagilBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button2
@@ -371,6 +374,15 @@ Partial Class frmLayoutFact
         '
         Me.GEN_Correos_SistemaFinagilTableAdapter.ClearBeforeFill = True
         '
+        'CONTCPFlotesBindingSource
+        '
+        Me.CONTCPFlotesBindingSource.DataMember = "CONT_CPF_lotes"
+        Me.CONTCPFlotesBindingSource.DataSource = Me.FactorajeDS
+        '
+        'CONT_CPF_lotesTableAdapter
+        '
+        Me.CONT_CPF_lotesTableAdapter.ClearBeforeFill = True
+        '
         'frmLayoutFact
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -405,6 +417,7 @@ Partial Class frmLayoutFact
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GENCorreosSistemaFinagilBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -452,4 +465,6 @@ Partial Class frmLayoutFact
     Friend WithEvents FactorajeDS1 As FactorajeDS
     Friend WithEvents GENCorreosSistemaFinagilBindingSource As BindingSource
     Friend WithEvents GEN_Correos_SistemaFinagilTableAdapter As FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+    Friend WithEvents CONTCPFlotesBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_lotesTableAdapter As FactorajeDSTableAdapters.CONT_CPF_lotesTableAdapter
 End Class

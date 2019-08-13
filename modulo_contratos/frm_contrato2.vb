@@ -94,9 +94,11 @@
             'Else
             'Dim gris As String = "dddd"
 
-            If txtcliente.TextLength > 4 Then
+            If txtcliente.TextLength > 7 Then
 
-                Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+                Dim cliente As Integer = cbclientes.SelectedValue
+                Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
+                ' Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
                 'Dim ocli As Integer = cbclientes.SelectedValue
 
                 'Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
@@ -173,8 +175,16 @@
 
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim id_credito As Integer = ComboBox1.SelectedValue
+        If id_credito <> 0 Then
+            '  id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, id_credito)
+            ' If id_credito <> 0 Then
+            'Me.Vw_descuentoSATableAdapter.FillByCONTRATO(Me.DS_contratos.vw_descuentoSA, id_contrato2)
+            'Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, id_credito)
+            'End If
 
+        End If
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
@@ -280,6 +290,11 @@
 
     End Sub
 
+    Private Sub ComboBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        '  id_contrato2 = Me.CONTCPFcontratosBindingSource.Current("id_contrato")
+
+    End Sub
+
     Private Sub bt_guardar_Click(sender As Object, e As EventArgs) Handles bt_guardar.Click
         Dim FN, FB, BP As Decimal
         '  Dim año As String = Year(Now)
@@ -380,157 +395,157 @@
             Me.CONT_CPF_contratosTableAdapter.penalizacionupdate(ch_pen.Checked, id_contrato2) 'dagl 02/07/2018 guardar penalizacion 
 
 
-                Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato2))
-                Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
+            Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato2))
+            Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
 
 
 
 
-                ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato2)
+            ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato2)
 
-                'If Me.CONT_CPF_clasificacion_garantiasTableAdapter.categoria(tipo_ga) = "OTRO" Then
-                'If CK_FEGA.Checked = True Then
-                '
-                'ID_garantina = 1
-                'Else
-                '   ID_garantina = 2
+            'If Me.CONT_CPF_clasificacion_garantiasTableAdapter.categoria(tipo_ga) = "OTRO" Then
+            'If CK_FEGA.Checked = True Then
+            '
+            'ID_garantina = 1
+            'Else
+            '   ID_garantina = 2
 
-                'End If
+            'End If
 
-                'Nominal = TXT_NOM.Text
-                'Efectiva = TXT_EFEC.Text
-                'Else
-
-
-                'Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
+            'Nominal = TXT_NOM.Text
+            'Efectiva = TXT_EFEC.Text
+            'Else
 
 
-                'If ga_fonaga = "SI" Then
+            'Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
-                'ID_garantina = 2 ' id tabla de garantias
-                'If PGLM = "0" Then
-                'Nominal = 45
-                'Efectiva = 45
-                'Else
-                '   Nominal = 50
-                '  Efectiva = 45
-                'End If
-                'Else
-                '
-                'ID_garantina = 1 ' id tabla de garantias
-                'Nominal = 50
-                'Efectiva = 50
-                'End If
-                If cb_gl.SelectedIndex = 4 Then
-                    If CK_FONAGA.Checked = True Then
-                        ID_garantina = 2
-                        'F2.PCXSG = PCXSG_FEGA
-                    Else
-                        'F2.PCXSG = PCXSG_FONAGA
 
-                        ID_garantina = 1
-                    End If
+            'If ga_fonaga = "SI" Then
 
-                    Pcxsg = Pcxsg
-                    Nominal = TXT_NOM.Text
-                    Efectiva = TXT_EFEC.Text
+            'ID_garantina = 2 ' id tabla de garantias
+            'If PGLM = "0" Then
+            'Nominal = 45
+            'Efectiva = 45
+            'Else
+            '   Nominal = 50
+            '  Efectiva = 45
+            'End If
+            'Else
+            '
+            'ID_garantina = 1 ' id tabla de garantias
+            'Nominal = 50
+            'Efectiva = 50
+            'End If
+            If cb_gl.SelectedIndex = 4 Then
+                If CK_FONAGA.Checked = True Then
+                    ID_garantina = 2
+                    'F2.PCXSG = PCXSG_FEGA
                 Else
-                    ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
-                    '  Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
+                    'F2.PCXSG = PCXSG_FONAGA
 
-                    If CK_FONAGA.Checked = True Then
+                    ID_garantina = 1
+                End If
 
-                        ID_garantina = 2
+                Pcxsg = Pcxsg
+                Nominal = TXT_NOM.Text
+                Efectiva = TXT_EFEC.Text
+            Else
+                ' Dim tipo_ga As Integer = Me.CONT_CPF_contratosTableAdapter.tipo_garantia(id_contrato)
+                '  Dim ga_fonaga As String = Me.CONT_CPF_clasificacion_garantiasTableAdapter.fonaga(tipo_ga)
 
-                        Dim GL As Integer = cb_gl.SelectedValue
+                If CK_FONAGA.Checked = True Then
 
-                        Select Case GL
-                            Case 1
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
-                            Case 2
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
-                            Case 3
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
-                            Case 4
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
-                        End Select
-                    Else 'FEGA
+                    ID_garantina = 2
 
-                        ID_garantina = 1
+                    Dim GL As Integer = cb_gl.SelectedValue
 
-                        Dim GL As Integer = cb_gl.SelectedValue
+                    Select Case GL
+                        Case 1
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
+                        Case 2
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
+                        Case 3
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
+                        Case 4
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
+                    End Select
+                Else 'FEGA
 
-                        Select Case GL
-                            Case 1
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA0(periodo)
-                            Case 2
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA10(periodo)
-                            Case 3
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA15(periodo)
-                            Case 4
-                                Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA20(periodo)
-                        End Select
+                    ID_garantina = 1
 
-                    End If
+                    Dim GL As Integer = cb_gl.SelectedValue
 
-                    'If ga_fonaga = "SI" Then
-                    ''F2.PCXSG = PCXSG_FONAGA 'comentado el valor real lo trae el campo pCXSG
-                    'F2.PCXSG = Pcxsg
-                    ' F2.ID_garantina = 2 ' id tabla de garantias
-                    'If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
-                    'F2.Nominal = 45
-                    'F2.Efectiva = 45
-                    'Else
-                    'F2.Nominal = 50
-                    'F2.Efectiva = 45
-                    'End If
-                    '   Else
-                    '  'F2.PCXSG = PCXSG_FEGA
-                    ' F2.PCXSG = Pcxsg
-                    'F2.ID_garantina = 1 ' id tabla de garantias
-                    'F2.Nominal = 50
-                    'F2.Efectiva = 50
-                    'End If
-
-                    Nominal = coberturanominal
-                    Dim vgl As Integer = Me.CONT_CPF_GLTableAdapter.gliquida(cb_gl.SelectedValue)
-                    Efectiva = (100 - vgl) * coberturanominal / 100
-                    Me.CONT_CPF_contratosTableAdapter.UpdateCXSG(Pcxsg, vgl, id_contrato) 'dagl 26/06/2018 guardar PCXG Y GL
-
-                    Dim montobase As Decimal = txt_monto.Text
-
-                    Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
-
-                    Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato2)
-                    If NoGarantias = 0 Then
-                        taGarantias.Insert(id_contrato2, ID_garantina, Nominal, montobase * (Nominal / 100), Efectiva, True)
-                        ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(CheckBox1.Checked, id_contrato)
-
-                    End If
+                    Select Case GL
+                        Case 1
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA0(periodo)
+                        Case 2
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA10(periodo)
+                        Case 3
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA15(periodo)
+                        Case 4
+                            Pcxsg = Me.CONT_CPF_configuracionTableAdapter.FEGA20(periodo)
+                    End Select
 
                 End If
-            Else 'UPDATE
-                '   If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
-                '  cb_tasa.SelectedIndex = 0
-                ' Else
-                'cb_tasa.SelectedIndex = 2
+
+                'If ga_fonaga = "SI" Then
+                ''F2.PCXSG = PCXSG_FONAGA 'comentado el valor real lo trae el campo pCXSG
+                'F2.PCXSG = Pcxsg
+                ' F2.ID_garantina = 2 ' id tabla de garantias
+                'If CONT_CPF_clasificacion_garantiasBindingSource.Current("gl_mosusa") = "0" Then
+                'F2.Nominal = 45
+                'F2.Efectiva = 45
+                'Else
+                'F2.Nominal = 50
+                'F2.Efectiva = 45
                 'End If
-                '   id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+                '   Else
+                '  'F2.PCXSG = PCXSG_FEGA
+                ' F2.PCXSG = Pcxsg
+                'F2.ID_garantina = 1 ' id tabla de garantias
+                'F2.Nominal = 50
+                'F2.Efectiva = 50
+                'End If
 
+                Nominal = coberturanominal
+                Dim vgl As Integer = Me.CONT_CPF_GLTableAdapter.gliquida(cb_gl.SelectedValue)
+                Efectiva = (100 - vgl) * coberturanominal / 100
+                Me.CONT_CPF_contratosTableAdapter.UpdateCXSG(Pcxsg, vgl, id_contrato) 'dagl 26/06/2018 guardar PCXG Y GL
 
-                '    Me.CONT_CPF_contratosTableAdapter.UPDATE_CONTRATOS(cb_producto.SelectedValue, cb_operacion.SelectedValue,
-                '   cb_prestamo.SelectedValue, cb_divisa.SelectedValue, txt_monto.Text, Vw_AnexosBindingSource.Current("Anexo"), txt_credito.Text, cb_sucursal.SelectedValue,
-                '  cb_esquema.SelectedValue, cb_tasa.SelectedValue, txt_tasa.Text, FN, FB, Vw_AnexosBindingSource.Current("Ciclo"), ch_ifnd.Checked,
-                ' txt_socios.Text, cb_seguro.SelectedValue, cb_periodo.SelectedValue, cb_estatus.SelectedValue, txt_autorizacion.Text,
-                'txt_id_contrato_siiof.Text, txt_capacidad.Text, cb_medida.SelectedValue, txt_aportacion.Text, txt_estrato.Text, txt_sieban.Text,
-                'cb_actividad.SelectedValue, cb_rama.SelectedValue, cb_subrama.SelectedValue, cb_programa.SelectedValue, LB_LINEA.Text, txt_clave.Text,
-                'txt_nvsm.Text, txt_BP.Text, txt_jornales.Text, txt_ingresoneto.Text, txt_capital.Text, txt_programaespecial.Text, z25, fecha,
-                'txt_activofijo.Text, txt_activototal.Text, txt_ingresos.Text, txt_egresos.Text, txt_utilidad.Text, cb_concepto.SelectedValue,
-                'txt_localidad.Text, txt_fondo.Text, cb_cadena.SelectedValue, Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue,
-                'Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue, cb_periodo_revision.SelectedValue, id_contrato)
-                'Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), id_contrato)
+                Dim montobase As Decimal = txt_monto.Text
+
+                Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
+
+                Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato2)
+                If NoGarantias = 0 Then
+                    taGarantias.Insert(id_contrato2, ID_garantina, Nominal, montobase * (Nominal / 100), Efectiva, True)
+                    ' Me.CONT_CPF_contratosTableAdapter.Updatesubsidio(CheckBox1.Checked, id_contrato)
+
+                End If
 
             End If
+        Else 'UPDATE
+            '   If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
+            '  cb_tasa.SelectedIndex = 0
+            ' Else
+            'cb_tasa.SelectedIndex = 2
+            'End If
+            '   id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+
+
+            '    Me.CONT_CPF_contratosTableAdapter.UPDATE_CONTRATOS(cb_producto.SelectedValue, cb_operacion.SelectedValue,
+            '   cb_prestamo.SelectedValue, cb_divisa.SelectedValue, txt_monto.Text, Vw_AnexosBindingSource.Current("Anexo"), txt_credito.Text, cb_sucursal.SelectedValue,
+            '  cb_esquema.SelectedValue, cb_tasa.SelectedValue, txt_tasa.Text, FN, FB, Vw_AnexosBindingSource.Current("Ciclo"), ch_ifnd.Checked,
+            ' txt_socios.Text, cb_seguro.SelectedValue, cb_periodo.SelectedValue, cb_estatus.SelectedValue, txt_autorizacion.Text,
+            'txt_id_contrato_siiof.Text, txt_capacidad.Text, cb_medida.SelectedValue, txt_aportacion.Text, txt_estrato.Text, txt_sieban.Text,
+            'cb_actividad.SelectedValue, cb_rama.SelectedValue, cb_subrama.SelectedValue, cb_programa.SelectedValue, LB_LINEA.Text, txt_clave.Text,
+            'txt_nvsm.Text, txt_BP.Text, txt_jornales.Text, txt_ingresoneto.Text, txt_capital.Text, txt_programaespecial.Text, z25, fecha,
+            'txt_activofijo.Text, txt_activototal.Text, txt_ingresos.Text, txt_egresos.Text, txt_utilidad.Text, cb_concepto.SelectedValue,
+            'txt_localidad.Text, txt_fondo.Text, cb_cadena.SelectedValue, Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue,
+            'Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue, cb_periodo_revision.SelectedValue, id_contrato)
+            'Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), id_contrato)
+
+        End If
         ' ComboBox1.SelectedValue = id_contrato2
         MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
@@ -549,11 +564,17 @@
 
 
 
-    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
-        'id_contrato2 = ComboBox1.SelectedValue
-    End Sub
+
 
     Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
         'MsgBox(cbclientes.SelectedValue)
+    End Sub
+
+    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+        If ComboBox1.SelectedValue <> 0 Then
+            id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, ComboBox1.SelectedValue)
+        End If
+
+
     End Sub
 End Class

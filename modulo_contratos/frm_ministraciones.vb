@@ -6,6 +6,8 @@ Public Class frm_ministraciones
         '    Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         'TODO: This line of code loads data into the 'DS_contratos.CONT_CPF_ministraciones' table. You can move, or remove it, as needed.
         If sinanexo = True And frm_contratos_alta.id_contrato = 0 Then
+            Dim i As Integer
+            i = frm_contrato2.id_contrato2
             Me.CONT_CPF_ministracionesTableAdapter.FillByCONTRATO(Me.DS_contratos.CONT_CPF_ministraciones, frm_contrato2.id_contrato2)
         Else
             Me.CONT_CPF_ministracionesTableAdapter.FillByCONTRATO(Me.DS_contratos.CONT_CPF_ministraciones, frm_contratos_alta.id_contrato)

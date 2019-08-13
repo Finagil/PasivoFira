@@ -181,16 +181,16 @@ Partial Class frm_contrato2
         Me.VwconceptosinversionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GENProductosFinagilBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ch_fact = New System.Windows.Forms.CheckBox()
         Me.Factoraje = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VwdescuentoSABindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbclientes = New System.Windows.Forms.ComboBox()
         Me.txtcliente = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.VwdescuentoSABindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.ClientesTableAdapter()
         Me.CONT_CPF_intermediariosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_intermediariosTableAdapter()
         Me.CONT_CPF_operacionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_operacionTableAdapter()
@@ -233,6 +233,7 @@ Partial Class frm_contrato2
         Me.CONT_CPF_reestructuraTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_reestructuraTableAdapter()
         Me.VwdescuentoSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Vw_descuentoSATableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.vw_descuentoSATableAdapter()
+        Me.VwdescuentoSABindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -274,6 +275,7 @@ Partial Class frm_contrato2
         CType(Me.DS_contratos2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFreestructuraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwdescuentoSABindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bt_guardar
@@ -289,7 +291,7 @@ Partial Class frm_contrato2
         '
         Me.TabControl1.Controls.Add(Me.lb_ciclo)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(21, 126)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 139)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(761, 500)
@@ -572,6 +574,7 @@ Partial Class frm_contrato2
         '
         'TXT_FN
         '
+        Me.TXT_FN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "FN", True))
         Me.TXT_FN.Location = New System.Drawing.Point(549, 240)
         Me.TXT_FN.Name = "TXT_FN"
         Me.TXT_FN.Size = New System.Drawing.Size(100, 20)
@@ -588,6 +591,7 @@ Partial Class frm_contrato2
         '
         'TXT_FB
         '
+        Me.TXT_FB.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "FB", True))
         Me.TXT_FB.Location = New System.Drawing.Point(549, 189)
         Me.TXT_FB.Name = "TXT_FB"
         Me.TXT_FB.Size = New System.Drawing.Size(100, 20)
@@ -853,6 +857,7 @@ Partial Class frm_contrato2
         '
         'txt_BP
         '
+        Me.txt_BP.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "BP", True))
         Me.txt_BP.Location = New System.Drawing.Point(549, 217)
         Me.txt_BP.Name = "txt_BP"
         Me.txt_BP.Size = New System.Drawing.Size(100, 20)
@@ -961,6 +966,7 @@ Partial Class frm_contrato2
         '
         'txt_monto
         '
+        Me.txt_monto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "monto", True))
         Me.txt_monto.Location = New System.Drawing.Point(125, 293)
         Me.txt_monto.Name = "txt_monto"
         Me.txt_monto.Size = New System.Drawing.Size(100, 20)
@@ -1756,10 +1762,10 @@ Partial Class frm_contrato2
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.ch_fact)
         Me.GroupBox1.Controls.Add(Me.Factoraje)
         Me.GroupBox1.Controls.Add(Me.Label24)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cbclientes)
         Me.GroupBox1.Controls.Add(Me.txtcliente)
@@ -1770,6 +1776,24 @@ Partial Class frm_contrato2
         Me.GroupBox1.TabIndex = 170
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "Descr", True))
+        Me.ComboBox1.DataSource = Me.CONTCPFcontratosBindingSource
+        Me.ComboBox1.DisplayMember = "id_credito"
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(395, 66)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
+        Me.ComboBox1.TabIndex = 214
+        Me.ComboBox1.ValueMember = "id_credito"
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.DS_contratos
         '
         'ch_fact
         '
@@ -1798,29 +1822,6 @@ Partial Class frm_contrato2
         Me.Label24.Size = New System.Drawing.Size(72, 13)
         Me.Label24.TabIndex = 45
         Me.Label24.Text = "ID_CREDITO"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "Descr", True))
-        Me.ComboBox1.DataSource = Me.VwdescuentoSABindingSource1
-        Me.ComboBox1.DisplayMember = "ANEXO"
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(395, 66)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
-        Me.ComboBox1.TabIndex = 44
-        Me.ComboBox1.ValueMember = "id_credito"
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.DS_contratos
-        '
-        'VwdescuentoSABindingSource1
-        '
-        Me.VwdescuentoSABindingSource1.DataMember = "vw_descuentoSA"
-        Me.VwdescuentoSABindingSource1.DataSource = Me.DS_contratos
         '
         'Label1
         '
@@ -1859,6 +1860,11 @@ Partial Class frm_contrato2
         Me.Label2.Size = New System.Drawing.Size(156, 13)
         Me.Label2.TabIndex = 41
         Me.Label2.Text = "Selecciona un cliente de la lista"
+        '
+        'VwdescuentoSABindingSource1
+        '
+        Me.VwdescuentoSABindingSource1.DataMember = "vw_descuentoSA"
+        Me.VwdescuentoSABindingSource1.DataSource = Me.DS_contratos
         '
         'ClientesTableAdapter
         '
@@ -2052,6 +2058,11 @@ Partial Class frm_contrato2
         '
         Me.Vw_descuentoSATableAdapter.ClearBeforeFill = True
         '
+        'VwdescuentoSABindingSource2
+        '
+        Me.VwdescuentoSABindingSource2.DataMember = "vw_descuentoSA"
+        Me.VwdescuentoSABindingSource2.DataSource = Me.DS_contratos
+        '
         'frm_contrato2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2063,6 +2074,7 @@ Partial Class frm_contrato2
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.bt_guardar)
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "TasaTiie", True))
         Me.Name = "frm_contrato2"
         Me.Text = "frm_contrato2"
         Me.TabControl1.ResumeLayout(False)
@@ -2109,6 +2121,7 @@ Partial Class frm_contrato2
         CType(Me.DS_contratos2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFreestructuraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwdescuentoSABindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2296,7 +2309,6 @@ Partial Class frm_contrato2
     Friend WithEvents txt_tiie As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label24 As Label
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ch_pen As CheckBox
     Friend WithEvents Label65 As Label
     Friend WithEvents CK_FONAGA As CheckBox
@@ -2322,4 +2334,6 @@ Partial Class frm_contrato2
     Friend WithEvents VwdescuentoSABindingSource As BindingSource
     Friend WithEvents Vw_descuentoSATableAdapter As DS_contratosTableAdapters.vw_descuentoSATableAdapter
     Friend WithEvents VwdescuentoSABindingSource1 As BindingSource
+    Friend WithEvents VwdescuentoSABindingSource2 As BindingSource
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
