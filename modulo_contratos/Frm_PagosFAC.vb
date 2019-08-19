@@ -3,6 +3,10 @@ Public Class Frm_PagosFAC
     Public taCorreos As New FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
     Public LOTE As Integer
     Private Sub Frm_PagosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS3.CONT_CPF_FacturasERROR' Puede moverla o quitarla según sea necesario.
+        'Me.CONT_CPF_FacturasERRORTableAdapter.FillFACTERROR(Me.FactorajeDS3.CONT_CPF_FacturasERROR)
+        'TODO: esta línea de código carga datos en la tabla 'FactorajeDS3.WEB_Lotes' Puede moverla o quitarla según sea necesario.
+        Me.WEB_LotesTableAdapter.FillByPAGOS(Me.FactorajeDS3.WEB_Lotes)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS2.CONT_CPF_PagosFira' Puede moverla o quitarla según sea necesario.
         '   Me.CONT_CPF_PagosFiraTableAdapter.Fill(Me.FactorajeDS2.CONT_CPF_PagosFira)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos1.CONT_CPF_configuracion' Puede moverla o quitarla según sea necesario.
@@ -10,11 +14,12 @@ Public Class Frm_PagosFAC
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
         ' Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS1.CONT_CPF_lotes' Puede moverla o quitarla según sea necesario.
-        Me.CONT_CPF_lotesTableAdapter.FillBydescontados(Me.FactorajeDS1.CONT_CPF_lotes)
+        '   Me.CONT_CPF_lotesTableAdapter.FillBydescontados(Me.FactorajeDS1.CONT_CPF_lotes)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_Factor_Pagos' Puede moverla o quitarla según sea necesario.
 
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.WEB_Lotes' Puede moverla o quitarla según sea necesario.
         '  Me.WEB_LotesTableAdapter.FillByPAGADOS(Me.FactorajeDS.WEB_Lotes)
+
 
     End Sub
 
@@ -58,7 +63,13 @@ Public Class Frm_PagosFAC
 
         For Renglones As Integer = 0 To DG_pagos.RowCount - 1
 
+
             Dim fac As String = Me.DG_pagos.Item(1, Renglones).Value
+            'fac = "EPG7010"
+            Dim fac_aux As String = Me.CONT_CPF_FacturasERRORTableAdapter.facturanueva(fac)
+            If fac_aux <> "" Then
+                fac = fac_aux
+            End If
             monto = Me.DG_pagos.Item(2, Renglones).Value
             Dim fecha As Date = Me.DG_pagos.Item(3, Renglones).Value
 
@@ -84,14 +95,17 @@ Public Class Frm_PagosFAC
 
 
                 strStreamWriter = New StreamWriter(strStreamW, System.Text.Encoding.Default) ' tipo de codificacion para escritura
-            End If
-
-
-            If contador <= 100 Then
-                Dim id_credito As Integer = Me.CONT_CPF_contratosTableAdapter.IDCREDITOBYDOC(fac)
-                strStreamWriter.WriteLine(id_credito & "," & monto & "," & fecha & "A" & ",N")
+                strStreamWriter.WriteLine("id_credito" & "," & "monto" & "," & "fecha" & ",A" & ",N")
 
             End If
+
+
+
+            'If contador <= 1000 Then
+            Dim id_credito As Integer = Me.CONT_CPF_contratosTableAdapter.IDCREDITOBYDOC(fac)
+                strStreamWriter.WriteLine(id_credito & "," & monto & "," & fecha & ",A" & ",N")
+
+            'End If
 
             ' If contador = 100 Then
             '  strStreamWriter.Close() ' cerramos
@@ -127,6 +141,7 @@ Public Class Frm_PagosFAC
         taCorreos.Insert("PasivoFira@finagil.com.mx", "ajoshin@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
         taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
         taCorreos.Insert("PasivoFira@finagil.com.mx", "layala@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
+        taCorreos.Insert("PasivoFira@finagil.com.mx", "atorres@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
 
     End Sub
 
@@ -138,6 +153,12 @@ Public Class Frm_PagosFAC
         For Renglones As Integer = 0 To DG_pagos.RowCount - 1
 
             Dim fac As String = Me.DG_pagos.Item(1, Renglones).Value
+            'Dim fac As String = Me.DG_pagos.Item(1, Renglones).Value
+            'fac = "EPG7010"
+            Dim fac_aux As String = Me.CONT_CPF_FacturasERRORTableAdapter.facturanueva(fac)
+            If fac_aux <> "" Then
+                fac = fac_aux
+            End If
             monto = Me.DG_pagos.Item(2, Renglones).Value
             Dim fecha As Date = Me.DG_pagos.Item(3, Renglones).Value
             Dim fechapago As String = Format(fecha, "yyyyMMdd")
@@ -156,9 +177,14 @@ Public Class Frm_PagosFAC
         Next
 
         Me.CONT_CPF_lotesTableAdapter.Updatelote_pagado(LOTE)
+        Me.CONT_CPF_Factor_PagosTableAdapter.UpdatePROCESADO(LOTE)
         Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_lotes)
         MessageBox.Show("Se han procesado " & procesado & "registros para pago", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Me.Close()
+
+    End Sub
+
+    Private Sub txttotal_TextChanged(sender As Object, e As EventArgs) Handles txttotal.TextChanged
 
     End Sub
 End Class

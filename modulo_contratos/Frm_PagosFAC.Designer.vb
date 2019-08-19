@@ -24,6 +24,8 @@ Partial Class Frm_PagosFAC
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CONTCPFlotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FactorajeDS1 = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.WEBLotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FactorajeDS = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -42,8 +44,6 @@ Partial Class Frm_PagosFAC
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btlayput = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.FactorajeDS1 = New Fira_Cartera_Pasiva.FactorajeDS()
-        Me.CONTCPFlotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_lotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_lotesTableAdapter()
         Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.DScontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -60,14 +60,18 @@ Partial Class Frm_PagosFAC
         Me.FactorajeDS2 = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.CONTCPFPagosFiraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_PagosFiraTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_PagosFiraTableAdapter()
+        Me.FactorajeDS3 = New Fira_Cartera_Pasiva.FactorajeDS()
+        Me.WEBLotesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONTCPFFacturasERRORBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_FacturasERRORTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_FacturasERRORTableAdapter()
+        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFFactorPagosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFFactorPagosBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_pagos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFFactorPagosBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DScontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,19 +83,33 @@ Partial Class Frm_PagosFAC
         CType(Me.PagosFiraBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFPagosFiraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FactorajeDS3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WEBLotesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFFacturasERRORBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ComboBox2
         '
-        Me.ComboBox2.DataSource = Me.CONTCPFlotesBindingSource
-        Me.ComboBox2.DisplayMember = "lote"
+        Me.ComboBox2.DataSource = Me.WEBLotesBindingSource1
+        Me.ComboBox2.DisplayMember = "Id_Lote"
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(83, 11)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(203, 21)
         Me.ComboBox2.TabIndex = 316
-        Me.ComboBox2.ValueMember = "lote"
+        Me.ComboBox2.ValueMember = "Id_Lote"
+        '
+        'CONTCPFlotesBindingSource
+        '
+        Me.CONTCPFlotesBindingSource.DataMember = "CONT_CPF_lotes"
+        Me.CONTCPFlotesBindingSource.DataSource = Me.FactorajeDS1
+        '
+        'FactorajeDS1
+        '
+        Me.FactorajeDS1.DataSetName = "FactorajeDS"
+        Me.FactorajeDS1.Locale = New System.Globalization.CultureInfo("es-ES")
+        Me.FactorajeDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'WEBLotesBindingSource
         '
@@ -213,17 +231,6 @@ Partial Class Frm_PagosFAC
         Me.Button2.Text = "Aplicar Pagos"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'FactorajeDS1
-        '
-        Me.FactorajeDS1.DataSetName = "FactorajeDS"
-        Me.FactorajeDS1.Locale = New System.Globalization.CultureInfo("es-ES")
-        Me.FactorajeDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CONTCPFlotesBindingSource
-        '
-        Me.CONTCPFlotesBindingSource.DataMember = "CONT_CPF_lotes"
-        Me.CONTCPFlotesBindingSource.DataSource = Me.FactorajeDS1
-        '
         'CONT_CPF_lotesTableAdapter
         '
         Me.CONT_CPF_lotesTableAdapter.ClearBeforeFill = True
@@ -300,6 +307,26 @@ Partial Class Frm_PagosFAC
         '
         Me.CONT_CPF_PagosFiraTableAdapter.ClearBeforeFill = True
         '
+        'FactorajeDS3
+        '
+        Me.FactorajeDS3.DataSetName = "FactorajeDS"
+        Me.FactorajeDS3.Locale = New System.Globalization.CultureInfo("es-ES")
+        Me.FactorajeDS3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'WEBLotesBindingSource1
+        '
+        Me.WEBLotesBindingSource1.DataMember = "WEB_Lotes"
+        Me.WEBLotesBindingSource1.DataSource = Me.FactorajeDS3
+        '
+        'CONTCPFFacturasERRORBindingSource
+        '
+        Me.CONTCPFFacturasERRORBindingSource.DataMember = "CONT_CPF_FacturasERROR"
+        Me.CONTCPFFacturasERRORBindingSource.DataSource = Me.FactorajeDS3
+        '
+        'CONT_CPF_FacturasERRORTableAdapter
+        '
+        Me.CONT_CPF_FacturasERRORTableAdapter.ClearBeforeFill = True
+        '
         'Frm_PagosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -314,14 +341,14 @@ Partial Class Frm_PagosFAC
         Me.Controls.Add(Me.Label7)
         Me.Name = "Frm_PagosFAC"
         Me.Text = "Frm_PagosFAC"
+        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFFactorPagosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFFactorPagosBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_pagos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFFactorPagosBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FactorajeDS1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DScontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -333,6 +360,9 @@ Partial Class Frm_PagosFAC
         CType(Me.PagosFiraBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FactorajeDS2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFPagosFiraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FactorajeDS3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WEBLotesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFFacturasERRORBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -374,4 +404,8 @@ Partial Class Frm_PagosFAC
     Friend WithEvents FactorajeDS2 As FactorajeDS
     Friend WithEvents CONTCPFPagosFiraBindingSource As BindingSource
     Friend WithEvents CONT_CPF_PagosFiraTableAdapter As FactorajeDSTableAdapters.CONT_CPF_PagosFiraTableAdapter
+    Friend WithEvents FactorajeDS3 As FactorajeDS
+    Friend WithEvents WEBLotesBindingSource1 As BindingSource
+    Friend WithEvents CONTCPFFacturasERRORBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_FacturasERRORTableAdapter As FactorajeDSTableAdapters.CONT_CPF_FacturasERRORTableAdapter
 End Class
