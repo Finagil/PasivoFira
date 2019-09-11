@@ -243,6 +243,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PagosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Pagos_Cierre\frmPagoManual.Designer.vb">
+      <DependentUpon>frmPagoManual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos_Cierre\frmPagoManual.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos_Cierre\frm_pagoAnticipo.Designer.vb">
+      <DependentUpon>frm_pagoAnticipo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos_Cierre\frm_pagoAnticipo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos_Cierre\frm_pagos_cierre.Designer.vb">
+      <DependentUpon>frm_pagos_cierre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos_Cierre\frm_pagos_cierre.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportes\DS_reportes.vb">
       <DependentUpon>DS_reportes.xsd</DependentUpon>
     </Compile>
@@ -441,6 +459,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pagos\FrmImportaPagos.resx">
       <DependentUpon>FrmImportaPagos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos_Cierre\frmPagoManual.resx">
+      <DependentUpon>frmPagoManual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos_Cierre\frm_pagoAnticipo.resx">
+      <DependentUpon>frm_pagoAnticipo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos_Cierre\frm_pagos_cierre.resx">
+      <DependentUpon>frm_pagos_cierre.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reportes\frm_cl_plazo.resx">
       <DependentUpon>frm_cl_plazo.vb</DependentUpon>

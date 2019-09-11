@@ -485,7 +485,7 @@ Public Class frm_contratos_alta
         txt_tasa.Text = 0
         txt_monto.Text = LB_LINEA.Text
         txt_sieban.Text = "SUSPENDIDO"
-        Cksubsidio.Checked = True
+        Cksubsidio.Checked = False
         If txt_monto.TextLength > 0 Then
             monto = Convert.ToDecimal(txt_monto.Text)
             txt_aportacion.Text = Math.Round((monto / 0.9) * 0.1)

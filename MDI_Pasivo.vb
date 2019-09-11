@@ -138,7 +138,16 @@ Public Class MDI_Pasivo
 
     Private Sub AplicarPagosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AplicarPagosToolStripMenuItem.Click
         Dim f As New Frm_PagosFAC
+        f.Show()
+    End Sub
 
+    Private Sub ImportarPagosPorFechaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarPagosPorFechaToolStripMenuItem.Click
+        Dim f As New frm_pagos_cierre
+        f.Show()
+    End Sub
+
+    Private Sub ManualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManualToolStripMenuItem.Click
+        Dim f As New frm_pagoAnticipo
         f.Show()
     End Sub
 End Class
