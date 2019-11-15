@@ -14,13 +14,16 @@
 
 
     Private Sub txtcliente_TextChanged(sender As Object, e As EventArgs) Handles txtcliente.TextChanged
-        '    If txtcliente.TextLength > 5 Then
-        '  Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
-
-        '   End If
+        If txtcliente.TextLength > 5 Then
+            Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
+            cbclientes_SelectedIndexChanged(Nothing, Nothing)
+        End If
         'cbclientes_SelectedIndexChanged(Nothing, Nothing)
 
-        Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
+        'Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
+        'cbclientes_SelectedIndexChanged(Nothing, Nothing)
+
+        'Me.ClientesBindingSource.Filter = "descr like '%" & txtcliente.Text.Trim & "%'"
         'cbclientes_SelectedIndexChanged(Nothing, Nothing)
     End Sub
 
@@ -80,43 +83,12 @@
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_intermediarios' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_intermediariosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_intermediarios)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.Clientes' Puede moverla o quitarla según sea necesario.
+        '  Me.ClientesTableAdapter.Fill(Me.DS_contratos.Clientes)
         Me.ClientesTableAdapter.Fill(Me.DS_contratos.Clientes)
+      '  cbclientes_SelectedIndexChanged(Nothing, Nothing)
 
     End Sub
 
-    Private Sub cbclientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedIndexChanged
-        If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
-
-
-            'If sinanexo = False Then
-            '  Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
-            'Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
-            'Else
-            'Dim gris As String = "dddd"
-
-            If txtcliente.TextLength > 7 Then
-
-                Dim cliente As Integer = cbclientes.SelectedValue
-                Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
-                ' Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
-                'Dim ocli As Integer = cbclientes.SelectedValue
-
-                'Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
-
-
-            End If
-
-
-            'End If
-
-            '  If txtanexo.TextLength > 0 Then
-            ' sinanexo = False
-            'Anexo = txtanexo.Text
-            'Ciclo = ET_CICLO.Text
-
-            'End If
-        End If
-    End Sub
 
     Private Sub cb_rama_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_rama.SelectedIndexChanged
 
@@ -295,6 +267,111 @@
 
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        '   If txt_credito.Text = "" Then
+        txt_credito.Text = 0
+        '  End If
+        ' If txt_autorizacion.Text = "" Then
+        txt_autorizacion.Text = 0
+        ' End If
+
+        'If txt_aportacion.Text = "" Then
+        txt_aportacion.Text = 0
+        'End If
+        'If txt_id_contrato_siiof.Text = "" Then
+        txt_id_contrato_siiof.Text = 0
+        'End If
+        'If txt_monto.Text = "" Then
+        txt_monto.Text = 0
+        'End If
+        'If txt_socios.Text = "" Then
+        txt_socios.Text = 0
+        'End If
+        'If txt_nvsm.Text = "" Then
+        txt_nvsm.Text = 0
+        'End If
+        ' If txt_tasafija.Text = "" Then
+        'txt_tasafija.Text = 0
+        'End If
+        'If txt_jornales.Text = "" Then
+        txt_jornales.Text = 0
+        'End If
+        'If txt_capacidad.Text = "" Then
+        txt_capacidad.Text = 0
+        'End If
+        'If txt_ingresoneto.Text = "" Then
+        txt_ingresoneto.Text = 0
+        'End If
+        'If txt_capital.Text = "" Then
+        txt_capital.Text = 0
+        'End If
+        'If txt_activofijo.Text = "" Then
+        txt_activofijo.Text = 0
+        'End If
+        'If txt_activototal.Text = "" Then
+        txt_activototal.Text = 0
+        'End If
+        'If txt_ingresos.Text = "" Then
+        txt_ingresos.Text = 0
+        'End If
+        'If txt_utilidad.Text = "" Then
+        txt_utilidad.Text = 0
+        'End If
+        'If txt_fondo.Text = "" Then
+        txt_fondo.Text = 0
+        'End If
+        '  If txt_tasa.Text = "" Then
+        ' txt_tasa.Text = 0
+        '  End If
+        'If txt_sieban.Text = "" Then
+        txt_sieban.Text = "SUSPENDIDO"
+        'End If
+        'If txt_egresos.Text = "" Then
+        txt_egresos.Text = 0
+        'End If
+
+        'If PCXSG_TXT.Text = "" Then
+        PCXSG_TXT.Text = 0
+        'End If
+
+        'If dt_febalance.Text = "" Then
+        fecha = "01/01/1900"
+        'Else
+       ' fecha = dt_febalance.Text
+        'End If
+        'If txt_BP.Text = "" Then
+        txt_BP.Text = 0
+        'End If
+        'If TXT_FB.Text = "" Then
+        TXT_FB.Text = 0
+        'End If
+        'If TXT_FN.Text = "" Then
+        TXT_FN.Text = 0
+        'End If
+    End Sub
+
+    Private Sub cbclientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedIndexChanged
+        If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
+            'If sinanexo = False Then
+            '  Me.Vw_AnexosTableAdapter.FillBy_anexoporcliente(Me.DS_contratos.Vw_Anexos, cbclientes.SelectedValue)
+            'Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
+            'Else
+
+            ' Me.Vw_descuentoSATableAdapter.FillBYCLIENTE(Me.DS_contratos.vw_descuentoSA, cbclientes.SelectedValue)
+
+
+
+            'End If
+
+            '  If txtanexo.TextLength > 0 Then
+            ' sinanexo = False
+            'Anexo = txtanexo.Text
+            'Ciclo = ET_CICLO.Text
+
+            'End If
+        End If
+    End Sub
+
     Private Sub bt_guardar_Click(sender As Object, e As EventArgs) Handles bt_guardar.Click
         Dim FN, FB, BP As Decimal
         '  Dim año As String = Year(Now)
@@ -332,6 +409,12 @@
             Ministracion1 = True
         End If
         If Ministracion1 = True Then 'INSERT
+
+
+            If Me.CONT_CPF_contratosTableAdapter.contratobycredito(txt_credito.Text) > 0 Then
+                MessageBox.Show("Ya existe un contrato con ese id_credito", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
             'Select Case CB_TIPAR.SelectedValue
             'Case "H", "C", "A"
             'FN = 0
@@ -383,8 +466,8 @@
             'INGRESAR REESTRUCTURA
             If ch_res.Checked = True Then
                 '  id_contrato_padre = ComboBox1.SelectedValue
-                id_contrato_padre = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, ComboBox1.SelectedValue)
-
+                id_contrato_padre = TXT_CONTRATO_PADRE.Text
+                Me.CONT_CPF_vencimientosTableAdapter.updateFECHAVENCIMIENTO(Date.Now, id_contrato_padre)
                 If id_contrato_padre <> 0 Then
                     Me.CONT_CPF_reestructuraTableAdapter.InsertQuery(id_contrato_padre, id_contrato2)
                     MessageBox.Show("Reestructura Registrada", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -524,6 +607,9 @@
                 End If
 
             End If
+            ' ComboBox1.SelectedValue = id_contrato2
+            MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
         Else 'UPDATE
             '   If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
             '  cb_tasa.SelectedIndex = 0
@@ -544,10 +630,9 @@
             'txt_localidad.Text, txt_fondo.Text, cb_cadena.SelectedValue, Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue,
             'Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue, cb_periodo_revision.SelectedValue, id_contrato)
             'Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), id_contrato)
+            MessageBox.Show("El contrato ya cuenta con ministracion anterior", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         End If
-        ' ComboBox1.SelectedValue = id_contrato2
-        MessageBox.Show("Contrato Guardado", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
 
     End Sub
@@ -567,12 +652,27 @@
 
 
     Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
-        'MsgBox(cbclientes.SelectedValue)
+        ' Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
+
+
+
+        If cbclientes.SelectedIndex > -1 Then
+
+            If Not cbclientes.SelectedItem Is Nothing Then
+                If cbclientes.SelectedValue <> 0 Then
+                    Me.CONT_CPF_contratosTableAdapter.FillBycliente(Me.DS_contratos.CONT_CPF_contratos, cbclientes.SelectedValue)
+
+                End If
+
+            End If
+
+            End If
     End Sub
 
     Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
         If ComboBox1.SelectedValue <> 0 Then
-            id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, ComboBox1.SelectedValue)
+            id_contrato2 = Me.CONT_CPF_contratosTableAdapter.idcontrato(ComboBox1.SelectedValue)
+            '  id_contrato2 = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, ComboBox1.SelectedValue)
         End If
 
 

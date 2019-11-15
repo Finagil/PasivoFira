@@ -2,6 +2,8 @@ Public Class FrmGarantiasXEjercer
     Dim efectivo, saldo, garantia, monto As Decimal
     Dim manual As Boolean
     Private Sub FrmGarantiasEjercidas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         '     'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_garantias' Puede moverla o quitarla según sea necesario.
         ' Me.CONT_CPF_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_garantias)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos_garantias' Puede moverla o quitarla según sea necesario.
@@ -62,7 +64,7 @@ Public Class FrmGarantiasXEjercer
                 '  ta.Insert(GarantiasEjerBindingSource.Current("id_contrato"), SaldoContingente,
                 '0, 0, 0, FechaVenc, FechaVenc, Date.Now, FechaVenc, 0, CDec(TxtSaldo.Text), GarantiasEjerBindingSource.Current("saldo_contingente"))
                 '               End If
-
+                Me.CONT_CPF_contratosTableAdapter.UpdateIDSUSTITUCION(ID_TEXT.text, GarantiasEjerBindingSource.Current("id_contrato"))
                 MessageBox.Show("Garantia ejercida", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 CmbCli_SelectedIndexChanged(Nothing, Nothing)
 

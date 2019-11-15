@@ -99,6 +99,7 @@ Partial Class Frm_DescuentosFAC
         Me.CONTCPFperiodicidadBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_periodicidadTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_periodicidadTableAdapter()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.CONTCPFlotesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONTCPFlotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.WEBLotesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label7 = New System.Windows.Forms.Label()
@@ -115,7 +116,6 @@ Partial Class Frm_DescuentosFAC
         Me.TXT_NOM = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DTFecha = New System.Windows.Forms.DateTimePicker()
-        Me.CONTCPFlotesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_lotesTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_lotesTableAdapter()
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,12 +142,12 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFlotesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosgarantiasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFsaldoscontingenteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CONTCPFlotesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CONTCPFFactorFacturasBindingSource
@@ -670,11 +670,16 @@ Partial Class Frm_DescuentosFAC
         Me.ComboBox2.DisplayMember = "lote"
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(86, 3)
+        Me.ComboBox2.Location = New System.Drawing.Point(62, 1)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(203, 21)
         Me.ComboBox2.TabIndex = 259
         Me.ComboBox2.ValueMember = "lote"
+        '
+        'CONTCPFlotesBindingSource1
+        '
+        Me.CONTCPFlotesBindingSource1.DataMember = "CONT_CPF_lotes"
+        Me.CONTCPFlotesBindingSource1.DataSource = Me.FactorajeDS
         '
         'CONTCPFlotesBindingSource
         '
@@ -784,11 +789,6 @@ Partial Class Frm_DescuentosFAC
         Me.DTFecha.TabIndex = 313
         Me.DTFecha.Value = New Date(2019, 7, 19, 16, 59, 14, 0)
         '
-        'CONTCPFlotesBindingSource1
-        '
-        Me.CONTCPFlotesBindingSource1.DataMember = "CONT_CPF_lotes"
-        Me.CONTCPFlotesBindingSource1.DataSource = Me.FactorajeDS
-        '
         'CONT_CPF_lotesTableAdapter
         '
         Me.CONT_CPF_lotesTableAdapter.ClearBeforeFill = True
@@ -858,12 +858,12 @@ Partial Class Frm_DescuentosFAC
         CType(Me.CONTCPFperiodicidadBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFperiodicidadBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFlotesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WEBLotesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosgarantiasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFsaldoscontingenteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CONTCPFlotesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

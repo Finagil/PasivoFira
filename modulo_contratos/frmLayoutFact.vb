@@ -125,7 +125,7 @@ Public Class frmLayoutFact
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_lotes' Puede moverla o quitarla según sea necesario.
         '   Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_lotes)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS1.GEN_Correos_SistemaFinagil' Puede moverla o quitarla según sea necesario.
-        Me.GEN_Correos_SistemaFinagilTableAdapter.Fill(Me.FactorajeDS1.GEN_Correos_SistemaFinagil)
+        ' Me.GEN_Correos_SistemaFinagilTableAdapter.Fill(Me.FactorajeDS1.GEN_Correos_SistemaFinagil)
 
         Me.CONT_CPF_divisasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_divisas)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_productos_fira' Puede moverla o quitarla según sea necesario.

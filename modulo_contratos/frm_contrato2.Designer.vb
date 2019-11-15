@@ -234,6 +234,8 @@ Partial Class frm_contrato2
         Me.VwdescuentoSABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Vw_descuentoSATableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.vw_descuentoSATableAdapter()
         Me.VwdescuentoSABindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.TXT_CONTRATO_PADRE = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1762,6 +1764,7 @@ Partial Class frm_contrato2
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TXT_CONTRATO_PADRE)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.ch_fact)
         Me.GroupBox1.Controls.Add(Me.Factoraje)
@@ -2063,11 +2066,29 @@ Partial Class frm_contrato2
         Me.VwdescuentoSABindingSource2.DataMember = "vw_descuentoSA"
         Me.VwdescuentoSABindingSource2.DataSource = Me.DS_contratos
         '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(788, 161)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(93, 23)
+        Me.Button4.TabIndex = 175
+        Me.Button4.Text = "Nuevo"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'TXT_CONTRATO_PADRE
+        '
+        Me.TXT_CONTRATO_PADRE.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "id_contrato", True))
+        Me.TXT_CONTRATO_PADRE.Location = New System.Drawing.Point(590, 69)
+        Me.TXT_CONTRATO_PADRE.Name = "TXT_CONTRATO_PADRE"
+        Me.TXT_CONTRATO_PADRE.Size = New System.Drawing.Size(27, 20)
+        Me.TXT_CONTRATO_PADRE.TabIndex = 224
+        '
         'frm_contrato2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 651)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -2336,4 +2357,6 @@ Partial Class frm_contrato2
     Friend WithEvents VwdescuentoSABindingSource1 As BindingSource
     Friend WithEvents VwdescuentoSABindingSource2 As BindingSource
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Button4 As Button
+    Friend WithEvents TXT_CONTRATO_PADRE As TextBox
 End Class

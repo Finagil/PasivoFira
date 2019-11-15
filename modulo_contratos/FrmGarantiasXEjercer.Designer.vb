@@ -58,6 +58,10 @@ Partial Class FrmGarantiasXEjercer
         Me.CONT_CPF_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter()
         Me.DTFecha = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.CONTCPFcontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
+        Me.id_text = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.CliGarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +69,7 @@ Partial Class FrmGarantiasXEjercer
         CType(Me.CONTCPFcontratosgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -326,11 +331,39 @@ Partial Class FrmGarantiasXEjercer
         Me.Label7.TabIndex = 312
         Me.Label7.Text = "Fecha "
         '
+        'CONTCPFcontratosBindingSource
+        '
+        Me.CONTCPFcontratosBindingSource.DataMember = "CONT_CPF_contratos"
+        Me.CONTCPFcontratosBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_contratosTableAdapter
+        '
+        Me.CONT_CPF_contratosTableAdapter.ClearBeforeFill = True
+        '
+        'id_text
+        '
+        Me.id_text.Location = New System.Drawing.Point(244, 199)
+        Me.id_text.Name = "id_text"
+        Me.id_text.Size = New System.Drawing.Size(100, 20)
+        Me.id_text.TabIndex = 313
+        Me.id_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(174, 202)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(64, 13)
+        Me.Label8.TabIndex = 314
+        Me.Label8.Text = "ID_Garantia"
+        '
         'FrmGarantiasXEjercer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(834, 247)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.id_text)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.DTFecha)
         Me.Controls.Add(Me.ch_fonaga)
@@ -359,6 +392,7 @@ Partial Class FrmGarantiasXEjercer
         CType(Me.CONTCPFcontratosgarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFgarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,4 +430,8 @@ Partial Class FrmGarantiasXEjercer
     Friend WithEvents CONT_CPF_garantiasTableAdapter As DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter
     Friend WithEvents DTFecha As DateTimePicker
     Friend WithEvents Label7 As Label
+    Friend WithEvents CONTCPFcontratosBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_contratosTableAdapter As DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter
+    Friend WithEvents id_text As TextBox
+    Friend WithEvents Label8 As Label
 End Class

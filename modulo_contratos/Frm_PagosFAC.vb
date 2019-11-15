@@ -94,6 +94,7 @@ Public Class Frm_PagosFAC
                 End If
 
 
+
                 strStreamWriter = New StreamWriter(strStreamW, System.Text.Encoding.Default) ' tipo de codificacion para escritura
                 strStreamWriter.WriteLine("id_credito" & "," & "monto" & "," & "fecha" & ",A" & ",N")
 
@@ -103,7 +104,14 @@ Public Class Frm_PagosFAC
 
             'If contador <= 1000 Then
             Dim id_credito As Integer = Me.CONT_CPF_contratosTableAdapter.IDCREDITOBYDOC(fac)
+
+            If id_credito = 0 Then
+                strStreamWriter.WriteLine(fac & "," & monto & "," & fecha & ",A" & ",N")
+
+            Else
                 strStreamWriter.WriteLine(id_credito & "," & monto & "," & fecha & ",A" & ",N")
+
+            End If
 
             'End If
 
@@ -149,6 +157,7 @@ Public Class Frm_PagosFAC
         Dim RENG As Integer = DG_pagos.RowCount
         Dim monto As Decimal
         Dim procesado As Integer = 0
+        Dim total_registros As Integer = 0
 
         For Renglones As Integer = 0 To DG_pagos.RowCount - 1
 
@@ -164,22 +173,25 @@ Public Class Frm_PagosFAC
             Dim fechapago As String = Format(fecha, "yyyyMMdd")
             Dim id_contrato As Integer = Me.CONT_CPF_contratosTableAdapter.idcontrato_by_factura(fac)
             Dim id_credito As Integer = Me.CONT_CPF_contratosTableAdapter.IDCREDITOBYDOC(fac)
+            Dim estatus As Integer = Me.CONT_CPF_contratosTableAdapter.ESTATUSCONTRATO(id_contrato)
 
             Dim existe As Integer = Me.CONT_CPF_PagosFiraTableAdapter.id_contrato_pago(id_contrato, fechapago)
+            If estatus <> 0 Then
 
-            If existe = 0 Then
-                Me.CONT_CPF_PagosFiraTableAdapter.InsertQuery(id_contrato, fecha, monto, 0, fechapago, 0, id_credito, 0, 0)
-                procesado = procesado + 1
+
+                If existe = 0 Then
+                    Me.CONT_CPF_PagosFiraTableAdapter.InsertQuery(id_contrato, fecha, monto, 0, fechapago, 0, id_credito, 0, 0)
+                    procesado = procesado + 1
+                End If
             End If
 
-
-
+            total_registros = total_registros + 1
         Next
 
         Me.CONT_CPF_lotesTableAdapter.Updatelote_pagado(LOTE)
         Me.CONT_CPF_Factor_PagosTableAdapter.UpdatePROCESADO(LOTE)
         Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_lotes)
-        MessageBox.Show("Se han procesado " & procesado & "registros para pago", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        MessageBox.Show("Se han procesado " & procesado & "registros de " & total_registros, "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Me.Close()
 
     End Sub

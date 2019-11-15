@@ -42,13 +42,14 @@ Public Class frm_contratos_alta
         ' txt_id_contrato.Text = 0
         If sinanexo = False Then
             cbanexos.Visible = True
-            cbanexos2.Visible = False
+            ' cbanexos2.Visible = False
+            ListBox1.Visible = False
 
         Else
             cbanexos.Visible = False
-            cbanexos2.Visible = True
+            ' cbanexos2.Visible = True
             bt_guardar.Enabled = False
-
+            '  ListBox1.Visible = False
             cb_esquema.Enabled = False
             cb_clasificacion.Enabled = False
             Cksubsidio.Enabled = False
@@ -66,6 +67,7 @@ Public Class frm_contratos_alta
             cb_periodo_capital.Enabled = False
             cb_periodo_int.Enabled = False
             cb_periodo_revision.Enabled = False
+
         End If
 
         Me.CONT_CPF_vencimientosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_vencimientos)
@@ -148,40 +150,58 @@ Public Class frm_contratos_alta
         End If
 
         If Ministracion1 = True Then 'INSERT
-            Select Case Vw_AnexosBindingSource.Current("Tipar")
-                Case "H", "C", "A"
-                    FN = 0
-                    FB = 0.1
-                Case Else
-                    FN = 0.1
-                    FB = 0.1
-            End Select
-            If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
-                cb_tasa.SelectedIndex = 0
-                If Me.Vw_AnexosBindingSource.Current("Ciclo").ToString.Trim = "" Then
-                    BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
-                Else
-                    BP = Me.Vw_AnexosTableAdapter.SacaTasaAVI(Me.Vw_AnexosBindingSource.Current("Anexo"), Me.Vw_AnexosBindingSource.Current("Ciclo"))
-                End If
-            Else
-                cb_tasa.SelectedIndex = 2
-                If Me.Vw_AnexosBindingSource.Current("Ciclo").ToString.Trim = "" Then
-                    BP = Me.Vw_AnexosTableAdapter.SacaDiferTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
-                Else
-                    BP = Me.Vw_AnexosTableAdapter.SacaDiferAVI(Me.Vw_AnexosBindingSource.Current("Anexo"), Me.Vw_AnexosBindingSource.Current("Ciclo"))
-                End If
-            End If
-            secuencial_banco = Me.CONT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.secuencial_banco)
-            año = año.ToString().Substring(año.Length - 3, 3)
-            sucursal = Me.CONT_CPF_sucursalesTableAdapter.ScalarQueryclave(cb_sucursal.SelectedValue)
-            num_control = cb_prestamo.SelectedValue & "/" & TxtIntermediario.Text & "/" & sucursal & "/" & secuencial_banco & "/" & año
-            PGLM = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLMOSUSA(cb_clasificacion.SelectedValue)
-            PGLP = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLproductor(cb_clasificacion.SelectedValue)
-            If PGLM = 0 And PGLP = 0 Then
-                ' Pcxsg = 0 se aplica o no?
+
+            '  id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+            '  If Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo")) > 0 Then
+            ' MessageBox.Show("Ya existe un contrato para ese contrato y ciclo", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            'Exit Sub
+            'End If
+            ' id_contrato = Me.CONT_CPF_contratosTableAdapter.contratobycredito(txt_credito.Text)
+
+            If Me.CONT_CPF_contratosTableAdapter.contratobycredito(txt_credito.Text) > 0 Then
+                MessageBox.Show("Ya existe un contrato con ese id_credito", "CONTRATOS CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
             End If
 
-            Me.CONT_CPF_contratosTableAdapter.InsertQueryprueba(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
+            If txt_credito.Text = "" Then
+                txt_credito.Text = Me.CONT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.idcreditofac)
+                Me.CONT_CPF_configuracionTableAdapter.consumeidcreditofact()
+            End If
+
+            Select Case Vw_AnexosBindingSource.Current("Tipar")
+                    Case "H", "C", "A"
+                        FN = 0
+                        FB = 0.1
+                    Case Else
+                        FN = 0.1
+                        FB = 0.1
+                End Select
+                If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
+                    cb_tasa.SelectedIndex = 0
+                    If Me.Vw_AnexosBindingSource.Current("Ciclo").ToString.Trim = "" Then
+                        BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
+                    Else
+                        BP = Me.Vw_AnexosTableAdapter.SacaTasaAVI(Me.Vw_AnexosBindingSource.Current("Anexo"), Me.Vw_AnexosBindingSource.Current("Ciclo"))
+                    End If
+                Else
+                    cb_tasa.SelectedIndex = 2
+                    If Me.Vw_AnexosBindingSource.Current("Ciclo").ToString.Trim = "" Then
+                        BP = Me.Vw_AnexosTableAdapter.SacaDiferTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
+                    Else
+                        BP = Me.Vw_AnexosTableAdapter.SacaDiferAVI(Me.Vw_AnexosBindingSource.Current("Anexo"), Me.Vw_AnexosBindingSource.Current("Ciclo"))
+                    End If
+                End If
+                secuencial_banco = Me.CONT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.secuencial_banco)
+                año = año.ToString().Substring(año.Length - 3, 3)
+                sucursal = Me.CONT_CPF_sucursalesTableAdapter.ScalarQueryclave(cb_sucursal.SelectedValue)
+                num_control = cb_prestamo.SelectedValue & "/" & TxtIntermediario.Text & "/" & sucursal & "/" & secuencial_banco & "/" & año
+                PGLM = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLMOSUSA(cb_clasificacion.SelectedValue)
+                PGLP = Me.CONT_CPF_clasificacion_garantiasTableAdapter.ScalarQueryGLproductor(cb_clasificacion.SelectedValue)
+                If PGLM = 0 And PGLP = 0 Then
+                    ' Pcxsg = 0 se aplica o no?
+                End If
+
+                Me.CONT_CPF_contratosTableAdapter.InsertQueryprueba(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
             cb_prestamo.SelectedValue, cb_divisa.SelectedValue, txt_monto.Text, Vw_AnexosBindingSource.Current("Anexo"), txt_credito.Text, cb_sucursal.SelectedValue,
             cb_esquema.SelectedValue, cb_tasa.SelectedValue, BP, FN, FB, Vw_AnexosBindingSource.Current("Ciclo"), ch_ifnd.Checked,
             txt_socios.Text, cb_seguro.SelectedValue, secuencial_banco, cb_periodo.SelectedValue, cb_estatus.SelectedValue, txt_autorizacion.Text,
@@ -191,32 +211,32 @@ Public Class frm_contratos_alta
             txt_ingresos.Text, txt_egresos.Text, txt_utilidad.Text, cb_concepto.SelectedValue, txt_localidad.Text, txt_fondo.Text, cb_cadena.SelectedValue,
             Pcxsg, PGLP, PGLM, cb_clasificacion.SelectedValue, "01/01/1900", Cksubsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue,
             cb_periodo_revision.SelectedValue, Me.Vw_AnexosBindingSource.Current("Cliente"))
-            Inserto = True
-            id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
+                Inserto = True
+                id_contrato = Me.CONT_CPF_contratosTableAdapter.ScalarQueryID_CONTRATO(Vw_AnexosBindingSource.Current("Anexo"), Vw_AnexosBindingSource.Current("Ciclo"))
 
-            Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato))
-            Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
-            'ACTUALIZA IDCREDITO EN LA CARPETA ACTIVA
+                Me.CONT_CPF_contratosTableAdapter.id_inter(CInt(cb_intermediario.SelectedValue), CInt(id_contrato))
+                Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
+                'ACTUALIZA IDCREDITO EN LA CARPETA ACTIVA
 
-            'revisar que no este bloqueado por mc
-            Dim bloqueo As String
-            bloqueo = Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC, Vw_AnexosBindingSource.Current("Anexo"))
-            If bloqueo <> "" Then 'desbloquear
-                Me.AnexosBloqueadosMCTableAdapter.desbloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
-            End If
-            If AVIO = True Then
-                Me.AviosTableAdapter.UpdateQueryidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Ciclo"), Vw_AnexosBindingSource.Current("Anexo"))
-            Else
-                Me.AnexosTableAdapter.updateidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Anexo"))
+                'revisar que no este bloqueado por mc
+                Dim bloqueo As String
+                bloqueo = Me.AnexosBloqueadosMCTableAdapter.Fill(Me.DescuentosDS.AnexosBloqueadosMC, Vw_AnexosBindingSource.Current("Anexo"))
+                If bloqueo <> "" Then 'desbloquear
+                    Me.AnexosBloqueadosMCTableAdapter.desbloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
+                End If
+                If AVIO = True Then
+                    Me.AviosTableAdapter.UpdateQueryidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Ciclo"), Vw_AnexosBindingSource.Current("Anexo"))
+                Else
+                    Me.AnexosTableAdapter.updateidcredito(txt_credito.Text, Vw_AnexosBindingSource.Current("Anexo"))
 
-            End If
-            If bloqueo <> "0" Then 'bloqueo
-                Me.AnexosBloqueadosMCTableAdapter.bloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
-            End If
+                End If
+                If bloqueo <> "0" Then 'bloqueo
+                    Me.AnexosBloqueadosMCTableAdapter.bloquearMC(Vw_AnexosBindingSource.Current("Anexo"))
+                End If
 
 
-        Else 'UPDATE
-            If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
+            Else 'UPDATE
+                If Me.Vw_AnexosBindingSource.Current("Tipta") = "7" Then ' saca la tasa del cliente 7=FIJA
                 cb_tasa.SelectedIndex = 0
             Else
                 cb_tasa.SelectedIndex = 2
@@ -753,7 +773,7 @@ Public Class frm_contratos_alta
         End If
     End Sub
 
-    Private Sub cbanexos2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbanexos2.SelectedIndexChanged
+    Private Sub cbanexos2_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -861,11 +881,46 @@ Public Class frm_contratos_alta
 
     End Sub
 
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
     Private Sub cbanexos_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos.SelectedValueChanged
 
     End Sub
 
-    Private Sub cbanexos2_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbanexos2.SelectedValueChanged
+
+
+    Private Sub txt_id_contrato_TextChanged(sender As Object, e As EventArgs) Handles txt_id_contrato.TextChanged
+        Reestructura_txt.Text = ""
+        If txt_id_contrato.Text = "" Then
+            txt_id_contrato.Text = 0
+        End If
+        If txt_id_contrato.Text = 14092 Then
+            Reestructura_txt.Text = "0"
+        End If
+        Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
+        If res <> 0 Then
+            Reestructura_txt.Text = res
+            ' If txt_id_contrato.Text = "1022" Then
+            'Dim XX As Integer = 0
+
+        End If
+        'If Ministracion1 = False Then
+        'CargaDatosFira()
+        'End If
+        'End If
+    End Sub
+
+    Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
+
+    End Sub
+
+    Private Sub ListBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedValueChanged
         'Me.ClientesTableAdapter.FillByAnexo(Me.DS_contratos.Clientes, Anexo)
         Reestructura_txt.Text = ""
         If txt_id_contrato.Text <> "" Then
@@ -874,21 +929,22 @@ Public Class frm_contratos_alta
                 Reestructura_txt.Text = res
                 'If txt_id_contrato.Text = "1022" Then
                 ' Dim XX As Integer = 0
-
             End If
         End If
 
 
         If cbclientes.SelectedIndex >= 0 And Ministracion1 = False Then
-            If cbanexos2.SelectedIndex >= 0 Then
-                Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
+            If ListBox1.SelectedIndex >= 0 Then
+                Dim idcredito_aux As Integer = ListBox1.SelectedValue
+
+                Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(idcredito_aux)
 
                 If Anexo <> "" Then
                     Anexo = Anexo.Replace("/", "")
                     If Anexo.Length > 0 Then
                         '   Dim CREDITO As Integer = cbanexos2.SelectedValue
-                        Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(cbanexos2.SelectedValue)
-                        Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(cbanexos2.SelectedValue)
+                        Anexo = Me.Vw_descuentoSATableAdapter.ANEXO(idcredito_aux)
+                        Ciclo = Me.Vw_descuentoSATableAdapter.ciclo(idcredito_aux)
                         ' Me.CONT_CPF_contratosTableAdapter.FillByIDCREDITO(Me.DS_contratos.CONT_CPF_contratos, CREDITO)
                         Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
                         Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
@@ -913,7 +969,7 @@ Public Class frm_contratos_alta
 
                 If txt_id_contrato.TextLength > 0 Then
 
-                    Dim CREDITO1 As Integer = cbanexos2.SelectedValue
+                    Dim CREDITO1 As Integer = ListBox1.SelectedValue
                     Dim id_contrato1 As Integer = txt_id_contrato.Text
                     'cb_gl.SelectedValue = Me.CONT_CPF_contratosTableAdapter.gliquida(id_contrato1)
                     Dim gfonaga As Integer = Me.CONT_CPF_contratosTableAdapter.id_garantia(id_contrato1)
@@ -927,38 +983,12 @@ Public Class frm_contratos_alta
                 ' Dim id_contrato1 As Integer = Me.CONT_CPF_contratosBindingSource("id_contrato")
                 '  cb_gl.SelectedValue = Me.CONT_CPF_contratosTableAdapter.gliquida(id_contrato1)
 
-                CargaDatosFira()
+                ' CargaDatosFira()
             End If
 
         End If
 
 
-
-
-    End Sub
-
-    Private Sub txt_id_contrato_TextChanged(sender As Object, e As EventArgs) Handles txt_id_contrato.TextChanged
-        Reestructura_txt.Text = ""
-        If txt_id_contrato.Text = "" Then
-            txt_id_contrato.Text = 0
-        End If
-        If txt_id_contrato.Text = 14092 Then
-            Reestructura_txt.Text = "0"
-        End If
-        Dim res As Integer = Me.CONT_CPF_reestructuraTableAdapter.reestructura_credito(txt_id_contrato.Text)
-        If res <> 0 Then
-            Reestructura_txt.Text = res
-            ' If txt_id_contrato.Text = "1022" Then
-            'Dim XX As Integer = 0
-
-        End If
-        'If Ministracion1 = False Then
-        'CargaDatosFira()
-        'End If
-        'End If
-    End Sub
-
-    Private Sub cbclientes_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedValueChanged
 
     End Sub
 End Class

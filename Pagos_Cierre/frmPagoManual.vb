@@ -38,9 +38,9 @@
 
         'agregar pagofira SOLO SI ES NUEVO
         Dim id_contrato_pago = Me.CONT_CPF_PagosFiraTableAdapter.ID_CONTRATO_PAGO(id_contrato, fecha_pago)
-        If id_contrato_pago = 0 Then
-            Me.CONT_CPF_PagosFiraTableAdapter.InsertQuery(id_contrato, fecha_aplicacion, txt_monto.Text, 0, fecha_pago, 0, frm_pagoAnticipo.id_credito, 0, 0)
-        End If
+        '  If id_contrato_pago = 0 Then
+        ' Me.CONT_CPF_PagosFiraTableAdapter.InsertQuery(id_contrato, fecha_aplicacion, txt_monto.Text, 0, fecha_pago, 0, frm_pagoAnticipo.id_credito, 0, 0)
+        'End If
 
         'Agregar calendario tasa
         Dim id_calendario As Integer = Me.CONT_CPF_CalendariosRevisionTasaTableAdapter.id_calendario(fecha_aplicacion, id_contrato)

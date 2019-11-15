@@ -518,8 +518,8 @@ Public Class Frm_DescuentosFAC
 
 
                 doc = Trim(LineaX(3))
-
-                If Trim(LineaX(3)) = "ETP380888" Then
+                Dim conaux = Trim(LineaX(15))
+                If Trim(LineaX(3)) = "EBA15604" Then
                     Dim s As String = "checar"
                 End If
                 ' lote = ComboBox2.SelectedValue
@@ -744,7 +744,7 @@ Public Class Frm_DescuentosFAC
             MessageBox.Show(CONFACT & " Documentos Registrados ", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             'CAMBIO ESTATUS LOTE A PROCESADO
             Me.CONT_CPF_lotesTableAdapter.Updatelotedescontado(lote)
-            Me.WEB_LotesTableAdapter.Updateestatus(ComboBox2.SelectedValue)
+            'Me.WEB_LotesTableAdapter.Updateestatus(ComboBox2.SelectedValue) DAGL 17/09/2019 SE QUITA EL CAMBIO DE ESTATUS
             Me.Close()
 
             ' End If
