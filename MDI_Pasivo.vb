@@ -150,4 +150,9 @@ Public Class MDI_Pasivo
         Dim f As New frm_pagoAnticipo
         f.Show()
     End Sub
+
+    Private Sub GenerarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarToolStripMenuItem.Click
+        Dim f As New Form1
+        f.Show()
+    End Sub
 End Class
