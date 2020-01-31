@@ -31,7 +31,7 @@ Public Class frmLayoutFact
 
         'BP = Me.Vw_AnexosTableAdapter.SacaDiferAVI(Me.Vw_AnexosBindingSource.Current("Anexo"), Me.Vw_AnexosBindingSource.Current("Ciclo"))
         Dim RENG As Integer = DGFACT.RowCount
-
+        total = 0
         For Renglones As Integer = 0 To DGFACT.RowCount - 1
 
             Dim rfc As String = Me.DGFACT.Item(2, Renglones).Value
