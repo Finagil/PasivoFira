@@ -314,19 +314,34 @@ Public Class frm_contratos_alta
 
                     Dim GL As Integer = cb_gl.SelectedValue
 
-                    Select Case GL
-                        Case 1
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
-                        Case 2
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
-                        Case 3
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
-                        Case 4
-                            F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
-                    End Select
+                    If CH_q09.Checked = True Then 'PROGRAMAQ09
+                        Select Case GL
+                            Case 1
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGAQ09_0(periodo)
+                            Case 2
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGAQ09_10(periodo)
+                            Case 3
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGAQ09_15(periodo)
+                            Case 4
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGAQ09_20(periodo)
+                        End Select
+                    Else 'PROGRAMAZ16
+                        Select Case GL
+                            Case 1
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA0(periodo)
+                            Case 2
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA10(periodo)
+                            Case 3
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA15(periodo)
+                            Case 4
+                                F2.PCXSG = Me.CONT_CPF_configuracionTableAdapter.FONAGA20(periodo)
+                        End Select
+
+                    End If
+
                 Else 'FEGA
 
-                    F2.ID_garantina = 1
+                        F2.ID_garantina = 1
 
                     Dim GL As Integer = cb_gl.SelectedValue
 
@@ -886,6 +901,10 @@ Public Class frm_contratos_alta
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
+    Private Sub txt_tasafija_TextChanged(sender As Object, e As EventArgs) Handles txt_tasafija.TextChanged
 
     End Sub
 

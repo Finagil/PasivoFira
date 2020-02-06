@@ -17,7 +17,7 @@ Public Class frm_pagos_cierre
 
         fechat = dt_fecha.Text
         fech_aux = Now
-        fech_aux = fech_aux.AddDays(-2) 'Resta 2 días
+        fech_aux = fech_aux.AddDays(-35) 'Resta 2 días
         If fechat < fech_aux Then
             MessageBox.Show("Fecha no disponible ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
@@ -28,8 +28,10 @@ Public Class frm_pagos_cierre
 
         'PROCESO PARA CAMBIAR VALORES SEGUN FIRA
         Dim Ruta As String = "\\SERVER-RAID2\Fira\Detalle de cargos y abonos " & FECHA1 & ".txt"
+        'Path = Ruta
 
-        If File.Exists("path") Then
+
+        If File.Exists(Ruta) Then
             Dim Arch As New StreamReader(Ruta)
 
 

@@ -22,8 +22,14 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TextFile = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.DataSet1 = New Fira_Cartera_Pasiva.DataSet1()
+        Me.ZS976SDOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ZS976SDOTableAdapter = New Fira_Cartera_Pasiva.DataSet1TableAdapters.ZS976SDOTableAdapter()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ZS976SDOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextFile
@@ -43,15 +49,31 @@ Partial Class Form1
         Me.Button1.Text = "Abrir"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ZS976SDOBindingSource
+        '
+        Me.ZS976SDOBindingSource.DataMember = "ZS976SDO"
+        Me.ZS976SDOBindingSource.DataSource = Me.DataSet1
+        '
+        'ZS976SDOTableAdapter
+        '
+        Me.ZS976SDOTableAdapter.ClearBeforeFill = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(439, 41)
+        Me.ClientSize = New System.Drawing.Size(490, 50)
         Me.Controls.Add(Me.TextFile)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Form1"
-        Me.Text = "Carga de Estado de Cuenta Fira"
+        Me.Text = "Form1"
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ZS976SDOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -59,4 +81,7 @@ Partial Class Form1
 
     Friend WithEvents TextFile As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents DataSet1 As DataSet1
+    Friend WithEvents ZS976SDOBindingSource As BindingSource
+    Friend WithEvents ZS976SDOTableAdapter As DataSet1TableAdapters.ZS976SDOTableAdapter
 End Class

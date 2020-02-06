@@ -6,7 +6,8 @@ Public Class Form1
     Dim Hoja As Excel.Worksheet
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim OpenFileDialog1 As Object = Nothing
+        Dim OpenFileDialog1 As New System.Windows.Forms.OpenFileDialog
+
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
             Dim path As String = OpenFileDialog1.FileName
             TextFile.Text = path
@@ -75,5 +76,13 @@ Public Class Form1
         Finally
             GC.Collect()
         End Try
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.ZS976SDO' Puede moverla o quitarla según sea necesario.
+        Me.ZS976SDOTableAdapter.Fill(Me.DataSet1.ZS976SDO)
+        'TODO: esta línea de código carga datos en la tabla 'DataSet1.ZS976SDO' Puede moverla o quitarla según sea necesario.
+        Me.ZS976SDOTableAdapter.Fill(Me.DataSet1.ZS976SDO)
+
     End Sub
 End Class
