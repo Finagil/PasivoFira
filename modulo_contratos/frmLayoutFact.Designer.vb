@@ -387,7 +387,7 @@ Partial Class frmLayoutFact
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1429, 646)
+        Me.ClientSize = New System.Drawing.Size(1370, 646)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.bt_cambiarFecha)
         Me.Controls.Add(Me.DTFecha)

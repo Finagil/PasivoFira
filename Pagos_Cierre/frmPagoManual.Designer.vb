@@ -60,6 +60,8 @@ Partial Class frmPagoManual
         Me.PagosFiraBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONTCPFPagosFiraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_PagosFiraTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.CONT_CPF_PagosFiraTableAdapter()
+        Me.txt_intereses = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFCalendariosRevisionTasaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -283,9 +285,9 @@ Partial Class frmPagoManual
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(30, 118)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(37, 13)
+        Me.Label6.Size = New System.Drawing.Size(39, 13)
         Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Monto"
+        Me.Label6.Text = "Capital"
         '
         'PagosFiraBindingSource
         '
@@ -310,11 +312,29 @@ Partial Class frmPagoManual
         '
         Me.CONT_CPF_PagosFiraTableAdapter.ClearBeforeFill = True
         '
+        'txt_intereses
+        '
+        Me.txt_intereses.Location = New System.Drawing.Point(303, 115)
+        Me.txt_intereses.Name = "txt_intereses"
+        Me.txt_intereses.Size = New System.Drawing.Size(100, 20)
+        Me.txt_intereses.TabIndex = 14
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(235, 118)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(50, 13)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "Intereses"
+        '
         'frmPagoManual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1037, 517)
+        Me.Controls.Add(Me.txt_intereses)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt_monto)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.bt_aplicar)
@@ -383,4 +403,6 @@ Partial Class frmPagoManual
     Friend WithEvents PagosFiraBindingSource1 As BindingSource
     Friend WithEvents CONTCPFPagosFiraBindingSource As BindingSource
     Friend WithEvents CONT_CPF_PagosFiraTableAdapter As PagosDSTableAdapters.CONT_CPF_PagosFiraTableAdapter
+    Friend WithEvents txt_intereses As TextBox
+    Friend WithEvents Label7 As Label
 End Class

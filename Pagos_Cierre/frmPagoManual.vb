@@ -63,8 +63,13 @@
         ' cambiar vencimientos 
         Me.CONT_CPF_vencimientosTableAdapter.DeleteQuery(id_contrato)
         'Agregar vencimiento del anticipo
+        If txt_intereses.Text = "" Then
+            txt_intereses.Text = 0
+        End If
 
-        Me.CONT_CPF_vencimientosTableAdapter.InsertVencimiento(fecha_aplicacion, txt_monto.Text, fecha_aplicacion, "pagada", 0, id_contrato, 0)
+
+
+        Me.CONT_CPF_vencimientosTableAdapter.InsertVencimiento(fecha_aplicacion, txt_monto.Text, fecha_aplicacion, "pagada", txt_intereses.Text, id_contrato, 0)
 
         For Renglones As Integer = 0 To CONT_CPF_vencimientosDataGridView.RowCount - 2
             consecutivo = consecutivo + 1

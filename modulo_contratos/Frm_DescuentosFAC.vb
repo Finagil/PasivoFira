@@ -553,7 +553,7 @@ Public Class Frm_DescuentosFAC
 
                     'doc = documento
                     Dim TASA As Decimal = Trim(LineaX(24))
-                    Dim pcsx = CDec(Trim(LineaX(30)))
+                    'Dim pcsx = CDec(Trim(LineaX(30)))
                     BP = CDec(Trim(LineaX(23)))
                     FB = 0.1
                     FN = 0  ' cuando es tasa fija 
@@ -561,41 +561,50 @@ Public Class Frm_DescuentosFAC
                     Dim fecha As Date = Trim(LineaX(33))
                     Dim fechaVen As Date = Trim(LineaX(34))
                     Dim producto, operacion, prestamo, divisa, intermediario, esquema, tipotasa As Integer
+                    Dim pcsx As Decimal
                     producto = cb_producto.SelectedValue
+                    If producto = 1 Then
+
+                        pcsx = 0
+                    Else
+
+                        pcsx = CDec(Trim(LineaX(30)))
+                    End If
+
                     operacion = cb_operacion.SelectedValue
-                    prestamo = cb_prestamo.SelectedValue
-                    divisa = cb_divisa.SelectedValue
-                    intermediario = cb_intermediario.SelectedValue
-                    esquema = cb_esquema.SelectedValue
-                    tipotasa = cb_tasa.SelectedValue
-                    Dim totaldias As Integer
-                    totaldias = DateDiff(DateInterval.Day, fecha, fechaVen)
-                    If totaldias < 32 Then
-                        TIIE28 = ta.SacaTIIE28(fecha.ToString("yyyyMMdd"))
-                        tipotasatiie = "TIIE28"
-                        TIIE_Aplica = TIIE182
-                    End If
-                    If totaldias > 31 And totaldias < 92 Then
-                        TIIE91 = ta.SacaTIIE91(fecha.ToString("yyyyMMdd"))
-                        tipotasatiie = "TIIE91"
-                        TIIE_Aplica = TIIE91
-                    End If
-                    If totaldias > 91 And totaldias < 182 Then
-                        TIIE182 = ta.SacaTIIE182(fecha.ToString("yyyyMMdd"))
-                        tipotasatiie = "TIIE182"
-                        TIIE_Aplica = TIIE182
-                    End If
+                        prestamo = cb_prestamo.SelectedValue
+                        divisa = cb_divisa.SelectedValue
+                        intermediario = cb_intermediario.SelectedValue
+                        esquema = cb_esquema.SelectedValue
+                        tipotasa = cb_tasa.SelectedValue
+                        Dim totaldias As Integer
+                        totaldias = DateDiff(DateInterval.Day, fecha, fechaVen)
+                        If totaldias < 32 Then
+                            TIIE28 = ta.SacaTIIE28(fecha.ToString("yyyyMMdd"))
+                            tipotasatiie = "TIIE28"
+                            TIIE_Aplica = TIIE182
+                        End If
+                        If totaldias > 31 And totaldias < 92 Then
+                            TIIE91 = ta.SacaTIIE91(fecha.ToString("yyyyMMdd"))
+                            tipotasatiie = "TIIE91"
+                            TIIE_Aplica = TIIE91
+                        End If
+                        If totaldias > 91 And totaldias < 182 Then
+                            TIIE182 = ta.SacaTIIE182(fecha.ToString("yyyyMMdd"))
+                            tipotasatiie = "TIIE182"
+                            TIIE_Aplica = TIIE182
+                        End If
 
-                    If totaldias > 182 And totaldias < 366 Then
-                        TIIE365 = ta.SacaTIIE365(fecha.ToString("yyyyMMdd"))
-                        tipotasatiie = "TIIE365"
-                        TIIE_Aplica = TIIE365
-                    End If
+                        If totaldias > 182 And totaldias < 366 Then
+                            TIIE365 = ta.SacaTIIE365(fecha.ToString("yyyyMMdd"))
+                            tipotasatiie = "TIIE365"
+                            TIIE_Aplica = TIIE365
+                        End If
 
 
-                    idcreditofact = Trim(LineaX(15))
+                        idcreditofact = Trim(LineaX(15))
 
-                    Me.CONT_CPF_contratosTableAdapter.InsertQueryFactoraje(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
+                        Me.CONT_CPF_contratosTableAdapter.InsertQueryFactoraje(cb_producto.SelectedValue, num_control, cb_operacion.SelectedValue,
                                 cb_prestamo.SelectedValue, cb_divisa.SelectedValue, monto, 0, idcreditofact, 1,
                                 cb_esquema.SelectedValue, cb_tasa.SelectedValue, BP, FN, FB, 0, 0,
                                 0, 1, secuencial_banco, 1, 1, 0,
@@ -605,138 +614,157 @@ Public Class Frm_DescuentosFAC
                                 0, 0, 0, 0, 0, 0, 0,
                                 pcsx, 0, 0, 0, fecha, ch_subsidio.Checked, cb_periodo_capital.SelectedValue, cb_periodo_int.SelectedValue,
                                  cb_periodo_revision.SelectedValue, clientetxt.Text, TIIE182, tipotasatiie, ch_subsidio.Checked, TASA, doc)
-                    Inserto = True
+                        Inserto = True
 
 
 
-                    If Inserto = True Then  'GENERAMOS CALCULO Y EDITAMOS PROCESADO
+                        If Inserto = True Then  'GENERAMOS CALCULO Y EDITAMOS PROCESADO
 
-                        Me.CONT_CPF_Factor_FacturasTableAdapter.UpdateQuery(lote, doc)
+                            Me.CONT_CPF_Factor_FacturasTableAdapter.UpdateQuery(lote, doc)
 
-                        CONFACT = CONFACT + 1
-                        'Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
-                        id_contrato = Me.CONT_CPF_contratosTableAdapter.IDCONTRATOXDOC(clientetxt.Text, doc)
+                            CONFACT = CONFACT + 1
+                            'Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS1.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
+                            id_contrato = Me.CONT_CPF_contratosTableAdapter.IDCONTRATOXDOC(clientetxt.Text, doc)
 
-                        Pcxsg = CDec(Trim(LineaX(30)))
-                        nominal = Trim(LineaX(28))
-                        efectiva = Trim(LineaX(29))
+                        Pcxsg = pcsx
+                        'If Trim(LineaX(28)) Is Nothing Then
+                        ' nominal = Trim(LineaX(28))
+                        ' Else
+                        ' nominal = 0
+                        ' End If
+
+                        If String.IsNullOrEmpty(LineaX(28)) Then
+                            nominal = 0
+                        Else
+                            nominal = Trim(LineaX(28))
+                        End If
+
+
+                        If String.IsNullOrEmpty(LineaX(29)) Then
+                            efectiva = 0
+                        Else
+                            efectiva = Trim(LineaX(29))
+                        End If
+
+
+
 
                         If CK_FONAGA.Checked = True Then
-                            id_garantia = 2
+                                id_garantia = 2
 
-                        Else 'FEGA
-                            id_garantia = 1
+                            Else 'FEGA
+                                id_garantia = 1
+
+                            End If
+
+                            If LineaX(27) = "" Then
+                                LineaX(27) = "0"
+
+                            End If
+                            Dim GL As Integer = Trim(LineaX(27))
+
+                            ' cobro por servicios
+
+                            Dim Subsidio As Decimal
+                            Dim subsidiox As Boolean
+                            Dim FECHAPAGO, fechafinal As Date
+                            Dim dias As Integer
+
+                            FECHAPAGO = fecha
+                            ' If MinistracionesBindingSource.Current("Tipar") = "H" Or MinistracionesBindingSource.Current("Tipar") = "C" Or MinistracionesBindingSource.Current("Tipar") = "A" Then
+                            fechafinal = fechaVen
+                            monto = monto
+                            dias = DateDiff(DateInterval.Day, FECHAPAGO, fechafinal)
+
+                            'dias = DateDiff(DateInterval.Day, dt_descuento.Value.Date, fechafinal)
+                            subsidiox = ch_subsidio.Checked
+                            If subsidiox = True Then
+                                Subsidio = 2
+                            Else
+                                Subsidio = 1
+                            End If
+
+                            Dim Cobro As Decimal = ((((monto / Subsidio) * (Pcxsg / 100)) / 360)) * (dias)
+                            Dim PCXSG_Aux As Decimal = Pcxsg / Subsidio
+
+                            'nominal = TXT_NOM.Text
+                            Dim vgl As Integer
+
+                            vgl = GL
+
+
+
+
+                            ' efectiva = TXT_EFEC.Text
+                            Me.CONT_CPF_contratosTableAdapter.UpdateCXSG(Pcxsg, vgl, id_contrato) 'dagl 26/06/2018 guardar PCXG Y GL
+
+                            Dim montobase As Decimal = monto
+
+                            Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
+
+                            Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato)
+                            If NoGarantias = 0 Then
+                                taGarantias.Insert(id_contrato, id_garantia, nominal, montobase * (nominal / 100), efectiva, True)
+                            End If
+
+                            Dim id_cg As Integer
+                            id_cg = Me.CONT_CPF_contratos_garantiasTableAdapter.sacaidcontratogarantia(id_contrato, id_garantia)
+
+                            'AGREGANDO MINISTRACIONES
+
+
+                            Dim taEdoCta As New DS_contratosTableAdapters.CONT_CPF_edocuentaTableAdapter
+                            Dim taCargosXservico As New DS_contratosTableAdapters.CONT_CPF_csgTableAdapter
+                            Dim SaldoCont As New DS_contratosTableAdapters.CONT_CPF_saldos_contingenteTableAdapter
+                            Dim SaldoINI, SaldoFIN, InteORD, InteORDFN, InteORDFB As Decimal
+                            Dim FechaUltimoMov As Date
+
+                            SaldoINI = taEdoCta.SaldoContrato(id_contrato)
+                            SaldoFIN = SaldoINI + monto
+                            FechaUltimoMov = fecha
+
+                            Dim porcentaje As Decimal = Pcxsg
+                            Dim importe As Decimal = Cobro
+                            Dim estatus As String = "OTORGADO"
+                            Dim descuento As Date = FECHAPAGO
+                            Dim iva As Decimal = Cobro + (16 / 100)
+
+
+                            InteORD = SaldoINI * ((BP + TIIE_Aplica) / 100 / 360) * dias
+                            InteORDFB = SaldoINI * ((FB + TIIE_Aplica) / 100 / 360) * dias
+
+                            Me.MinistracionesTableAdapter.InsertQuery(monto, FECHAPAGO, 1, porcentaje, iva, importe, id_contrato, estatus, descuento)
+
+                            'AGREGAR VENCIMIENTO
+                            Me.CONT_CPF_vencimientosTableAdapter.InsertQuerymanual(fechaVen, monto, "VIGENTE", 0, id_contrato)
+
+                            ' Me.CONT_CPF_csgTableAdapter.InsertQueryCSG(fecha, fechaVen, dias, fecha, monto, importe, iva, importe + iva, Pcxsg, id_cg, ch_subsidio.Checked)
+                            taCargosXservico.Insert(fecha, fechafinal, dias, Date.Now, montobase, Cobro, Cobro * TasaIVA, Cobro * (1 + TasaIVA), porcentaje, id_cg, subsidiox)
+                            SaldoCont.Insert(fecha, Nothing, Nothing, Nothing, Nothing, montobase, SaldoFIN, nominal, efectiva, SaldoFIN * (nominal / 100), SaldoFIN * (efectiva / 100), id_cg)
+
+                            taEdoCta.Insert("BP", fecha, fecha, SaldoINI, SaldoFIN, 0, Nothing, 0, 0, 0, 0, 0, 0, montobase, id_contrato, BP + TIIE_Aplica, 0, InteORD, 0)
+                            taEdoCta.Insert("FB", fecha, fecha, SaldoINI, SaldoFIN, 0, Nothing, 0, 0, 0, 0, 0, 0, montobase, id_contrato, FB + TIIE_Aplica, 0, InteORDFB, 0)
+
+
+                            ' Me.CONT_CPF_saldos_contingenteTableAdapter.InsertQuery(fecha, fecha, monto,)
+                            ' Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
+
+
+                            'CREAR CALENDARIO
+
+
+                            CreaCalendarioRevisoinTasa(id_contrato, "")
+                            ' Me.CONT_CPF_Factor_FacturasTableAdapter.UpdateQuery(doc, lote)
+                            'procesado = procesado + 1
+
+                            Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
 
                         End If
 
-                        If LineaX(27) = "" Then
-                            LineaX(27) = "0"
 
-                        End If
-                        Dim GL As Integer = Trim(LineaX(27))
-
-                        ' cobro por servicios
-
-                        Dim Subsidio As Decimal
-                        Dim subsidiox As Boolean
-                        Dim FECHAPAGO, fechafinal As Date
-                        Dim dias As Integer
-
-                        FECHAPAGO = fecha
-                        ' If MinistracionesBindingSource.Current("Tipar") = "H" Or MinistracionesBindingSource.Current("Tipar") = "C" Or MinistracionesBindingSource.Current("Tipar") = "A" Then
-                        fechafinal = fechaVen
-                        monto = monto
-                        dias = DateDiff(DateInterval.Day, FECHAPAGO, fechafinal)
-
-                        'dias = DateDiff(DateInterval.Day, dt_descuento.Value.Date, fechafinal)
-                        subsidiox = ch_subsidio.Checked
-                        If subsidiox = True Then
-                            Subsidio = 2
-                        Else
-                            Subsidio = 1
-                        End If
-
-                        Dim Cobro As Decimal = ((((monto / Subsidio) * (Pcxsg / 100)) / 360)) * (dias)
-                        Dim PCXSG_Aux As Decimal = Pcxsg / Subsidio
-
-                        'nominal = TXT_NOM.Text
-                        Dim vgl As Integer
-
-                        vgl = GL
-
-
-
-
-                        ' efectiva = TXT_EFEC.Text
-                        Me.CONT_CPF_contratosTableAdapter.UpdateCXSG(Pcxsg, vgl, id_contrato) 'dagl 26/06/2018 guardar PCXG Y GL
-
-                        Dim montobase As Decimal = monto
-
-                        Dim taGarantias As New DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
-
-                        Dim NoGarantias As Integer = taGarantias.ExistenGarantias(id_contrato)
-                        If NoGarantias = 0 Then
-                            taGarantias.Insert(id_contrato, id_garantia, nominal, montobase * (nominal / 100), efectiva, True)
-                        End If
-
-                        Dim id_cg As Integer
-                        id_cg = Me.CONT_CPF_contratos_garantiasTableAdapter.sacaidcontratogarantia(id_contrato, id_garantia)
-
-                        'AGREGANDO MINISTRACIONES
-
-
-                        Dim taEdoCta As New DS_contratosTableAdapters.CONT_CPF_edocuentaTableAdapter
-                        Dim taCargosXservico As New DS_contratosTableAdapters.CONT_CPF_csgTableAdapter
-                        Dim SaldoCont As New DS_contratosTableAdapters.CONT_CPF_saldos_contingenteTableAdapter
-                        Dim SaldoINI, SaldoFIN, InteORD, InteORDFN, InteORDFB As Decimal
-                        Dim FechaUltimoMov As Date
-
-                        SaldoINI = taEdoCta.SaldoContrato(id_contrato)
-                        SaldoFIN = SaldoINI + monto
-                        FechaUltimoMov = fecha
-
-                        Dim porcentaje As Decimal = Pcxsg
-                        Dim importe As Decimal = Cobro
-                        Dim estatus As String = "OTORGADO"
-                        Dim descuento As Date = FECHAPAGO
-                        Dim iva As Decimal = Cobro + (16 / 100)
-
-
-                        InteORD = SaldoINI * ((BP + TIIE_Aplica) / 100 / 360) * dias
-                        InteORDFB = SaldoINI * ((FB + TIIE_Aplica) / 100 / 360) * dias
-
-                        Me.MinistracionesTableAdapter.InsertQuery(monto, FECHAPAGO, 1, porcentaje, iva, importe, id_contrato, estatus, descuento)
-
-                        'AGREGAR VENCIMIENTO
-                        Me.CONT_CPF_vencimientosTableAdapter.InsertQuerymanual(fechaVen, monto, "VIGENTE", 0, id_contrato)
-
-                        ' Me.CONT_CPF_csgTableAdapter.InsertQueryCSG(fecha, fechaVen, dias, fecha, monto, importe, iva, importe + iva, Pcxsg, id_cg, ch_subsidio.Checked)
-                        taCargosXservico.Insert(fecha, fechafinal, dias, Date.Now, montobase, Cobro, Cobro * TasaIVA, Cobro * (1 + TasaIVA), porcentaje, id_cg, subsidiox)
-                        SaldoCont.Insert(fecha, Nothing, Nothing, Nothing, Nothing, montobase, SaldoFIN, nominal, efectiva, SaldoFIN * (nominal / 100), SaldoFIN * (efectiva / 100), id_cg)
-
-                        taEdoCta.Insert("BP", fecha, fecha, SaldoINI, SaldoFIN, 0, Nothing, 0, 0, 0, 0, 0, 0, montobase, id_contrato, BP + TIIE_Aplica, 0, InteORD, 0)
-                        taEdoCta.Insert("FB", fecha, fecha, SaldoINI, SaldoFIN, 0, Nothing, 0, 0, 0, 0, 0, 0, montobase, id_contrato, FB + TIIE_Aplica, 0, InteORDFB, 0)
-
-
-                        ' Me.CONT_CPF_saldos_contingenteTableAdapter.InsertQuery(fecha, fecha, monto,)
-                        ' Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
-
-
-                        'CREAR CALENDARIO
-
-
-                        CreaCalendarioRevisoinTasa(id_contrato, "")
-                        ' Me.CONT_CPF_Factor_FacturasTableAdapter.UpdateQuery(doc, lote)
-                        'procesado = procesado + 1
-
-                        Me.CONT_CPF_configuracionTableAdapter.ConsumeSecuencial() 'consume el secuencial banco
+                    Else
 
                     End If
-
-
-                Else
-
-                End If
 
                 'CREAR LOGS DE DOCUMENTOS NO ENCONTRADOS 
 

@@ -161,4 +161,8 @@ Public Class frmLayoutFact
         Me.CONT_CPF_Factor_FacturasTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_Factor_Facturas, ComboBox2.SelectedValue)
         MessageBox.Show("Fecha de Exp. se cambió correctamente", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
+
+    Private Sub DGFACT_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGFACT.CellContentClick
+
+    End Sub
 End Class

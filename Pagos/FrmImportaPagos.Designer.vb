@@ -26,10 +26,6 @@ Partial Class FrmImportaPagos
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DTP_FechaFira = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.AnexoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CicloPagareDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IdCreditoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,6 +35,10 @@ Partial Class FrmImportaPagos
         Me.AdelantoDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.PagosFiraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PagosDS = New Fira_Cartera_Pasiva.PagosDS()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.DTP_FechaFira = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PagosFiraTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.PagosFiraTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosFiraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,42 +58,6 @@ Partial Class FrmImportaPagos
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(838, 292)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(12, 306)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(108, 23)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Importar Pagos"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(587, 306)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(91, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Aplicar Pagos"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'DTP_FechaFira
-        '
-        Me.DTP_FechaFira.Enabled = False
-        Me.DTP_FechaFira.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTP_FechaFira.Location = New System.Drawing.Point(747, 306)
-        Me.DTP_FechaFira.Name = "DTP_FechaFira"
-        Me.DTP_FechaFira.Size = New System.Drawing.Size(103, 20)
-        Me.DTP_FechaFira.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(684, 311)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Fecha Fira"
         '
         'AnexoDataGridViewTextBoxColumn
         '
@@ -166,6 +130,42 @@ Partial Class FrmImportaPagos
         Me.PagosDS.DataSetName = "PagosDS"
         Me.PagosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(12, 306)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(108, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Importar Pagos"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(587, 306)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(91, 23)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "Aplicar Pagos"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'DTP_FechaFira
+        '
+        Me.DTP_FechaFira.Enabled = False
+        Me.DTP_FechaFira.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTP_FechaFira.Location = New System.Drawing.Point(747, 306)
+        Me.DTP_FechaFira.Name = "DTP_FechaFira"
+        Me.DTP_FechaFira.Size = New System.Drawing.Size(103, 20)
+        Me.DTP_FechaFira.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(684, 311)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Fecha Fira"
+        '
         'PagosFiraTableAdapter
         '
         Me.PagosFiraTableAdapter.ClearBeforeFill = True
@@ -181,7 +181,7 @@ Partial Class FrmImportaPagos
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "FrmImportaPagos"
-        Me.Text = "Importar Pagos del Sistema Finagil"
+        Me.Text = "66666666666666666666t"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosFiraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).EndInit()
