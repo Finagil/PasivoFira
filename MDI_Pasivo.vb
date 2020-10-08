@@ -155,4 +155,9 @@ Public Class MDI_Pasivo
         Dim f As New Form1
         f.Show()
     End Sub
+
+    Private Sub PorClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorClienteToolStripMenuItem.Click
+        Dim f As New frmconsulta
+        f.Show()
+    End Sub
 End Class

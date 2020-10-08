@@ -105,6 +105,7 @@ Public Class frmLayoutFact
         'otal = FormatCurrency(total)
         'Dim total1 As Double
         'total1 = FormatNumber(total, , TriState.True)
+
         ' total = total.ToString("n2")
 
         'guarda el lote en cont_cpf_lotes
@@ -123,7 +124,7 @@ Public Class frmLayoutFact
 
     Private Sub frmLayoutFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS.CONT_CPF_lotes' Puede moverla o quitarla según sea necesario.
-        '   Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_lotes)
+        'Me.CONT_CPF_lotesTableAdapter.Fill(Me.FactorajeDS.CONT_CPF_lotes)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS1.GEN_Correos_SistemaFinagil' Puede moverla o quitarla según sea necesario.
         ' Me.GEN_Correos_SistemaFinagilTableAdapter.Fill(Me.FactorajeDS1.GEN_Correos_SistemaFinagil)
 

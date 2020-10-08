@@ -124,6 +124,12 @@
     <Compile Include="modulo_contratos\FactorajeDS.vb">
       <DependentUpon>FactorajeDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="modulo_contratos\frmconsulta.Designer.vb">
+      <DependentUpon>frmconsulta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_contratos\frmconsulta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="modulo_contratos\FrmGarantiasEjercidas.Designer.vb">
       <DependentUpon>FrmGarantiasEjercidas.vb</DependentUpon>
     </Compile>
@@ -408,6 +414,9 @@
     <EmbeddedResource Include="MDI_Pasivo.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MDI_Pasivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_contratos\frmconsulta.resx">
+      <DependentUpon>frmconsulta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_contratos\FrmGarantiasEjercidas.resx">
       <SubType>Designer</SubType>

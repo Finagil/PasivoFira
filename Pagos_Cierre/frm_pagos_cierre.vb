@@ -21,7 +21,7 @@ Public Class frm_pagos_cierre
 
         fechat = dt_fecha.Text
         fech_aux = Now
-        fech_aux = fech_aux.AddDays(-30) 'Resta 2 días
+        fech_aux = fech_aux.AddDays(-9) 'Resta 2 días
         If fechat < fech_aux Then
             MessageBox.Show("Fecha no disponible ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
@@ -49,7 +49,10 @@ Public Class frm_pagos_cierre
             Dim LineaX As String()
             Dim doc As String
             Dim existe As Boolean
-            Dim filename As String = Application.StartupPath & "\test" & FECHA1 & ".log"
+            If Directory.Exists("C:\CierreFira") = False Then ' si no existe la carpeta se crea
+                Directory.CreateDirectory("C:\CierreFira")
+            End If
+            Dim filename As String = "C:\CierreFira\test" & FECHA1 & ".log"
             Dim sw As StreamWriter = AppendText(filename)
 
 
@@ -131,7 +134,7 @@ Public Class frm_pagos_cierre
                 Else
                     sw.WriteLine(FECHA1 & " " & "No se ha cargado el id_credito" & Trim(LineaX(9)))
                     cont_obs = cont_obs + 1
-                    MENSAJE = MENSAJE & "No se ha cargado el id_credito" & Trim(LineaX(9)) & contrato & "<br>"
+                    MENSAJE = MENSAJE & "No se ha cargado el id_credito" & Trim(LineaX(9)) & "<br>"
                 End If
 
 
@@ -150,12 +153,23 @@ Public Class frm_pagos_cierre
 
             End If
             MessageBox.Show("Se han aplicado los cambios correspondientes", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE, False, Date.Now, "")
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE, False, Date.Now, "")
+            ' Dim fechacorreo As Date
+            'Fecha = FormatDateTime(Now, DateFormat.ShortDate)
+            If MENSAJE.Length >= 2000 Then
+                MENSAJE = "Revisar Archivo de observaciones en C:\CierreFira" & "\Detalle de cargos y abonos " & FECHA1 & ".txt"
 
-            cont_obs = 0
+            End If
+            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE, False, Date.Now, "")
+                taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE, False, Date.Now, "")
+
+                cont_obs = 0
+
+            Else
+                MessageBox.Show("Detalle de cargos y abonos " & FECHA1 & ".txt  Archivo no encontrado", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         End If
+
+
         '  Me.CONT_CPF_lotesTableAdapter.Insert(ComboBox2.SelectedValue, 0, 0, 1)
 
     End Sub

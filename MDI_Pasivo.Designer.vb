@@ -53,9 +53,10 @@ Partial Class MDI_Pasivo
         Me.PagosCierreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportarPagosPorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
         Me.EdoDeCuentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
+        Me.PorClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -82,32 +83,33 @@ Partial Class MDI_Pasivo
         '
         'AltaToolStripMenuItem
         '
+        Me.AltaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PorClienteToolStripMenuItem})
         Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
-        Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.AltaToolStripMenuItem.Text = "Consultas"
         '
         'DescuentosToolStripMenuItem1
         '
         Me.DescuentosToolStripMenuItem1.Name = "DescuentosToolStripMenuItem1"
-        Me.DescuentosToolStripMenuItem1.Size = New System.Drawing.Size(224, 22)
+        Me.DescuentosToolStripMenuItem1.Size = New System.Drawing.Size(225, 22)
         Me.DescuentosToolStripMenuItem1.Text = "Descuentos &AV"
         '
         'DescuentosTRAToolStripMenuItem
         '
         Me.DescuentosTRAToolStripMenuItem.Name = "DescuentosTRAToolStripMenuItem"
-        Me.DescuentosTRAToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.DescuentosTRAToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.DescuentosTRAToolStripMenuItem.Text = "Descuentos &TRA"
         '
         'MinistracionesToolStripMenuItem
         '
         Me.MinistracionesToolStripMenuItem.Name = "MinistracionesToolStripMenuItem"
-        Me.MinistracionesToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.MinistracionesToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.MinistracionesToolStripMenuItem.Text = "&Ministraciones"
         '
         'AltaDeContratoSinAnexoToolStripMenuItem
         '
         Me.AltaDeContratoSinAnexoToolStripMenuItem.Name = "AltaDeContratoSinAnexoToolStripMenuItem"
-        Me.AltaDeContratoSinAnexoToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.AltaDeContratoSinAnexoToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.AltaDeContratoSinAnexoToolStripMenuItem.Text = "Alta de Contrato (Sin Anexo)"
         '
         'GarantiasEjercidasToolStripMenuItem
@@ -249,10 +251,6 @@ Partial Class MDI_Pasivo
         Me.ManualToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.ManualToolStripMenuItem.Text = "Manual"
         '
-        'ConT_CPF_configuracionTableAdapter
-        '
-        Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
-        '
         'EdoDeCuentaToolStripMenuItem
         '
         Me.EdoDeCuentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerarToolStripMenuItem})
@@ -263,8 +261,18 @@ Partial Class MDI_Pasivo
         'GenerarToolStripMenuItem
         '
         Me.GenerarToolStripMenuItem.Name = "GenerarToolStripMenuItem"
-        Me.GenerarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GenerarToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
         Me.GenerarToolStripMenuItem.Text = "Generar"
+        '
+        'ConT_CPF_configuracionTableAdapter
+        '
+        Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
+        '
+        'PorClienteToolStripMenuItem
+        '
+        Me.PorClienteToolStripMenuItem.Name = "PorClienteToolStripMenuItem"
+        Me.PorClienteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PorClienteToolStripMenuItem.Text = "Por cliente"
         '
         'MDI_Pasivo
         '
@@ -314,4 +322,5 @@ Partial Class MDI_Pasivo
     Friend WithEvents ManualToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EdoDeCuentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GenerarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PorClienteToolStripMenuItem As ToolStripMenuItem
 End Class
