@@ -3,6 +3,12 @@ Imports System.IO.File
 Public Class frm_pagos_cierre
     Public taCorreos As New FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
     Private Sub frm_pagos_cierre_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_CierreContable' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_CierreContableTableAdapter.Fill(Me.DS_contratos.CONT_CPF_CierreContable)
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_vencimiento_interes' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_vencimiento_interesTableAdapter.Fill(Me.DS_contratos.CONT_CPF_vencimiento_interes)
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_vencimientos' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_vencimientosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_vencimientos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos_garantias' Puede moverla o quitarla según sea necesario.
@@ -14,16 +20,35 @@ Public Class frm_pagos_cierre
         Dim fechat, fech_aux As Date
         Dim cont_obs As Integer
         Dim MENSAJE As String
-        Dim estatus As String
+        Dim estatus As Boolean
+        'estatus = True
 
         '  Dim diferencia As Boolean
         'LEER EL ARCHIVO DE SIIOF
 
         fechat = dt_fecha.Text
         fech_aux = Now
-        fech_aux = fech_aux.AddDays(-9) 'Resta 2 días
+        fech_aux = fech_aux.AddDays(-3) 'Resta 2 días
         If fechat < fech_aux Then
             MessageBox.Show("Fecha no disponible ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+        If fechat > fech_aux Then
+            MessageBox.Show("Fecha no disponible ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+
+        estatus = Me.CONT_CPF_CierreContableTableAdapter.Scalarestatus(fechat.AddDays(-1)) 'QUE EL CIERRE ANTERIOR ESTE EN OK
+
+        If estatus = False Then
+            MessageBox.Show("El cierre del día " & fechat.AddDays(-1) & " No se ha cerrado ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    Exit Sub
+        End If
+
+        estatus = Me.CONT_CPF_CierreContableTableAdapter.Scalarestatus(fechat)
+
+        If estatus = True Then ' SI ESTA EN OK EL CIERRE DE HOY NO SE PUEDE CERRAR NUEVAMENTE
+            MessageBox.Show("El cierre del día " & fechat & " Ya se cerró correctamente anteriormente ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
         Dim FECHA1 As String = fechat.ToString("ddMMyyyy")
@@ -54,7 +79,7 @@ Public Class frm_pagos_cierre
             End If
             Dim filename As String = "C:\CierreFira\test" & FECHA1 & ".log"
             Dim sw As StreamWriter = AppendText(filename)
-
+            Me.CONT_CPF_vencimiento_interesTableAdapter.DeleteQuery(fechat)
 
             While Not Arch.EndOfStream
                 ' diferencia = False
@@ -81,7 +106,7 @@ Public Class frm_pagos_cierre
                 If contrato <> 0 Then
 
                     Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
-
+                    Dim csg = Me.CONT_CPF_contratosTableAdapter.cxsg(contrato)
 
                     Dim tipo As Integer = Trim(LineaX(12))
                     Dim movimiento As String = Trim(LineaX(15))
@@ -92,6 +117,23 @@ Public Class frm_pagos_cierre
                     Dim monto_iva As Decimal = CDec(Trim(LineaX(20)))
 
                     If id_cont_gar <> 0 Then
+                        If (tipo = 10) And movimiento = "CARGO" Then  ' PAGO DE CAPITAL
+                            Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
+
+                            If capital <> importe Then
+                                sw.WriteLine(FECHA1 & " " & "Se cambio el capital de vencimiento del contrato " & contrato & "Importe anterior " & capital & "se cambio por " & importe)
+                                MENSAJE = MENSAJE & "Se cambio el capital de vencimiento del contrato " & contrato & " Importe anterior " & capital & "se cambio por " & importe & "<br>"
+
+                                Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(importe, contrato, fechat)
+
+                            End If
+                        End If
+
+                            If (tipo = 11) And movimiento = "CARGO" Then  ' PAGO DE INTERESES
+
+                            Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, importe, contrato)
+
+                        End If
 
                         If (tipo = 16) And movimiento = "CARGO" Then 'COBRO POR SERVICIO
 
@@ -106,21 +148,24 @@ Public Class frm_pagos_cierre
                                 Dim importeIVA As Decimal = Me.CONT_CPF_csgTableAdapter.ImporteIVA(id_cont_gar)
 
                                 If monto_importe <> importe Then
-                                    sw.WriteLine(FECHA1 & " " & "Revisar Monto Importe COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "Importe anterior " & monto_importe & "se cambio por" & importe)
-                                    MENSAJE = MENSAJE & "Revisar Monto Importe COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "<br>"
+                                    'sw.WriteLine(FECHA1 & " " & "Revisar Monto Importe COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "Importe anterior " & monto_importe & "se cambio por" & importe)
+                                    'MENSAJE = MENSAJE & "Revisar Monto Importe COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "<br>"
                                 End If
 
                                 If importeIVA <> monto_iva Then
-                                    sw.WriteLine(FECHA1 & " " & "Revisar Monto IVA COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "Importe anterior " & importeIVA & "se cambio por" & importe_iva)
-                                    MENSAJE = MENSAJE & "Revisar Monto IVA COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "<br>"
+                                    'sw.WriteLine(FECHA1 & " " & "Revisar Monto IVA COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "Importe anterior " & importeIVA & "se cambio por" & importe_iva)
+                                    'MENSAJE = MENSAJE & "Revisar Monto IVA COBRO POR SERVICIO ID_CONT_GAR: " & id_cont_gar & "<br>"
                                 End If
 
-                                Me.CONT_CPF_csgTableAdapter.UpdateQuerymonto(importe, monto_iva, importe + monto_iva, id_cont_gar)
+                                '    Me.CONT_CPF_csgTableAdapter.UpdateQuerymonto(importe, monto_iva, importe + monto_iva, id_cont_gar)
+                                Me.CONT_CPF_csgTableAdapter.DeleteQuery(fechat, importe, id_cont_gar)
+                                Me.CONT_CPF_csgTableAdapter.Insertcsgcierre(fechat, fechat, importe, importeIVA, csg, id_cont_gar)
                             Else
 
-                                sw.WriteLine(FECHA1 & " " & "Revisar no hay registros en CONT_CPF_cxsg contrato " & contrato)
-                                MENSAJE = MENSAJE & "Revisar no hay registros en CONT_CPF_cxsg contrato " & contrato & "<br>"
-                                cont_obs = cont_obs + 1
+                                'sw.WriteLine(FECHA1 & " " & "Revisar no hay registros en CONT_CPF_cxsg contrato " & contrato)
+                                'MENSAJE = MENSAJE & "Revisar no hay registros en CONT_CPF_cxsg contrato " & contrato & "<br>"
+                                'cont_obs = cont_obs + 1
+
 
                             End If
 
@@ -149,20 +194,38 @@ Public Class frm_pagos_cierre
 
             sw.Close()
 
+            Dim mensaje1 As String
+
+
             If cont_obs > 0 Then
 
+                estatus = False
+                mensaje1 = "No se ha cerrado el día, Revisar Archivo de observaciones en C:\CierreFira" & "\Detalle de cargos y abonos " & FECHA1 & ".txt"
+
+
+            Else
+                estatus = True
+                mensaje1 = "Se cerro el día contable correctamente"
+
+
             End If
+            Me.CONT_CPF_CierreContableTableAdapter.DeleteQuery(fechat)
+            Me.CONT_CPF_CierreContableTableAdapter.InsertQuery(estatus, fechat, mensaje1)
+
+
+
             MessageBox.Show("Se han aplicado los cambios correspondientes", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             ' Dim fechacorreo As Date
             'Fecha = FormatDateTime(Now, DateFormat.ShortDate)
-            If MENSAJE.Length >= 2000 Then
-                MENSAJE = "Revisar Archivo de observaciones en C:\CierreFira" & "\Detalle de cargos y abonos " & FECHA1 & ".txt"
+            'If MENSAJE.Length >= 2000 Then
+            'MENSAJE = "Revisar Archivo de observaciones en C:\CierreFira" & "\Detalle de cargos y abonos " & FECHA1 & ".txt"
 
-            End If
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE, False, Date.Now, "")
-                taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE, False, Date.Now, "")
+            'End If
 
-                cont_obs = 0
+            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+            '    taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE1, False, Date.Now, "")
+
+            cont_obs = 0
 
             Else
                 MessageBox.Show("Detalle de cargos y abonos " & FECHA1 & ".txt  Archivo no encontrado", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

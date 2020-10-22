@@ -34,11 +34,20 @@ Partial Class frm_pagos_cierre
         Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
         Me.CONTCPFcsgBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_csgTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_csgTableAdapter()
+        Me.CONTCPFvencimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_vencimientosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter()
+        Me.CONTCPFvencimientointeresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_vencimiento_interesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimiento_interesTableAdapter()
+        Me.CONTCPFCierreContableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_CierreContableTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_CierreContableTableAdapter()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcsgBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFvencimientointeresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFCierreContableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -104,6 +113,33 @@ Partial Class frm_pagos_cierre
         '
         Me.CONT_CPF_csgTableAdapter.ClearBeforeFill = True
         '
+        'CONTCPFvencimientosBindingSource
+        '
+        Me.CONTCPFvencimientosBindingSource.DataMember = "CONT_CPF_vencimientos"
+        Me.CONTCPFvencimientosBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_vencimientosTableAdapter
+        '
+        Me.CONT_CPF_vencimientosTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFvencimientointeresBindingSource
+        '
+        Me.CONTCPFvencimientointeresBindingSource.DataMember = "CONT_CPF_vencimiento_interes"
+        Me.CONTCPFvencimientointeresBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_vencimiento_interesTableAdapter
+        '
+        Me.CONT_CPF_vencimiento_interesTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFCierreContableBindingSource
+        '
+        Me.CONTCPFCierreContableBindingSource.DataMember = "CONT_CPF_CierreContable"
+        Me.CONTCPFCierreContableBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_CierreContableTableAdapter
+        '
+        Me.CONT_CPF_CierreContableTableAdapter.ClearBeforeFill = True
+        '
         'frm_pagos_cierre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -119,6 +155,9 @@ Partial Class frm_pagos_cierre
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcsgBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcsgBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFvencimientointeresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFCierreContableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -134,4 +173,10 @@ Partial Class frm_pagos_cierre
     Friend WithEvents CONTCPFcsgBindingSource As BindingSource
     Friend WithEvents CONT_CPF_csgTableAdapter As DS_contratosTableAdapters.CONT_CPF_csgTableAdapter
     Friend WithEvents CONTCPFcsgBindingSource1 As BindingSource
+    Friend WithEvents CONTCPFvencimientosBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_vencimientosTableAdapter As DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter
+    Friend WithEvents CONTCPFvencimientointeresBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_vencimiento_interesTableAdapter As DS_contratosTableAdapters.CONT_CPF_vencimiento_interesTableAdapter
+    Friend WithEvents CONTCPFCierreContableBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_CierreContableTableAdapter As DS_contratosTableAdapters.CONT_CPF_CierreContableTableAdapter
 End Class
