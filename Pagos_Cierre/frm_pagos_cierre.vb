@@ -28,12 +28,13 @@ Public Class frm_pagos_cierre
 
         fechat = dt_fecha.Text
         fech_aux = Now
-        fech_aux = fech_aux.AddDays(-3) 'Resta 2 días
+
+        fech_aux = fech_aux.AddDays(-5) 'Resta 2 días
         If fechat < fech_aux Then
             MessageBox.Show("Fecha no disponible ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
-        If fechat > fech_aux Then
+        If fechat > Now Then
             MessageBox.Show("Fecha no disponible ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
@@ -42,7 +43,7 @@ Public Class frm_pagos_cierre
 
         If estatus = False Then
             MessageBox.Show("El cierre del día " & fechat.AddDays(-1) & " No se ha cerrado ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            '    Exit Sub
+                Exit Sub
         End If
 
         estatus = Me.CONT_CPF_CierreContableTableAdapter.Scalarestatus(fechat)
@@ -118,15 +119,31 @@ Public Class frm_pagos_cierre
 
                     If id_cont_gar <> 0 Then
                         If (tipo = 10) And movimiento = "CARGO" Then  ' PAGO DE CAPITAL
-                            Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
+                            Dim vencimiento As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientofecha(fechat, contrato)
+                            If vencimiento > 0 Then
 
-                            If capital <> importe Then
-                                sw.WriteLine(FECHA1 & " " & "Se cambio el capital de vencimiento del contrato " & contrato & "Importe anterior " & capital & "se cambio por " & importe)
-                                MENSAJE = MENSAJE & "Se cambio el capital de vencimiento del contrato " & contrato & " Importe anterior " & capital & "se cambio por " & importe & "<br>"
 
-                                Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(importe, contrato, fechat)
+                                Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
+
+                                If capital <> importe Then
+                                    sw.WriteLine(FECHA1 & " " & "Se cambio el capital de vencimiento del contrato " & contrato & "Importe anterior " & capital & "se cambio por " & importe)
+                                    MENSAJE = MENSAJE & "Se cambio el capital de vencimiento del contrato " & contrato & " Importe anterior " & capital & "se cambio por " & importe & "<br>"
+
+                                    Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(importe, contrato, fechat)
+
+                                End If
+                            Else
+                                Dim CONTARven As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(contrato)
+                                If CONTARven = 1 Then
+                                    Me.CONT_CPF_vencimientosTableAdapter.Deletevencimiento(contrato)
+
+                                End If
+
+                                Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fechat, importe, "05/01/1900", "VIGENTE", 0, contrato)
+                                MENSAJE = MENSAJE & "EL CONTRATO" & contrato & " NO TENIA VENCIMIENTO  AL DIA " & fechat & " SE DIO DE ALTA POR " & importe & "<br>"
 
                             End If
+
                         End If
 
                             If (tipo = 11) And movimiento = "CARGO" Then  ' PAGO DE INTERESES
@@ -223,7 +240,7 @@ Public Class frm_pagos_cierre
             'End If
 
             taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
-            '    taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & MENSAJE1, False, Date.Now, "")
+            taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
 
             cont_obs = 0
 
