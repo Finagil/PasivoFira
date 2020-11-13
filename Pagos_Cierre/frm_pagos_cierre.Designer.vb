@@ -26,6 +26,8 @@ Partial Class frm_pagos_cierre
         Me.Label1 = New System.Windows.Forms.Label()
         Me.bt_aplicar = New System.Windows.Forms.Button()
         Me.dt_fecha = New System.Windows.Forms.DateTimePicker()
+        Me.ch_diario = New System.Windows.Forms.CheckBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.CONTCPFcontratosgarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_contratos_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter()
@@ -40,6 +42,11 @@ Partial Class frm_pagos_cierre
         Me.CONT_CPF_vencimiento_interesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimiento_interesTableAdapter()
         Me.CONTCPFCierreContableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_CierreContableTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_CierreContableTableAdapter()
+        Me.CONTCPFcierremesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_cierremesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_cierremesTableAdapter()
+        Me.CONTCPFcierrediarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONT_CPF_cierre_diarioTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_cierre_diarioTableAdapter()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosgarantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,6 +55,8 @@ Partial Class frm_pagos_cierre
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFvencimientointeresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFCierreContableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFcierremesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONTCPFcierrediarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -61,12 +70,14 @@ Partial Class frm_pagos_cierre
         '
         'bt_aplicar
         '
-        Me.bt_aplicar.Location = New System.Drawing.Point(140, 79)
+        Me.bt_aplicar.Enabled = False
+        Me.bt_aplicar.Location = New System.Drawing.Point(101, 194)
         Me.bt_aplicar.Name = "bt_aplicar"
-        Me.bt_aplicar.Size = New System.Drawing.Size(75, 23)
+        Me.bt_aplicar.Size = New System.Drawing.Size(33, 23)
         Me.bt_aplicar.TabIndex = 2
-        Me.bt_aplicar.Text = "Aplicar Pago"
+        Me.bt_aplicar.Text = "Cierre ANTES"
         Me.bt_aplicar.UseVisualStyleBackColor = True
+        Me.bt_aplicar.Visible = False
         '
         'dt_fecha
         '
@@ -75,6 +86,26 @@ Partial Class frm_pagos_cierre
         Me.dt_fecha.Name = "dt_fecha"
         Me.dt_fecha.Size = New System.Drawing.Size(126, 20)
         Me.dt_fecha.TabIndex = 3
+        '
+        'ch_diario
+        '
+        Me.ch_diario.AutoSize = True
+        Me.ch_diario.Location = New System.Drawing.Point(12, 198)
+        Me.ch_diario.Name = "ch_diario"
+        Me.ch_diario.Size = New System.Drawing.Size(83, 17)
+        Me.ch_diario.TabIndex = 4
+        Me.ch_diario.Text = "Cierre Diario"
+        Me.ch_diario.UseVisualStyleBackColor = True
+        Me.ch_diario.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(140, 77)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(115, 23)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Cierre Diario"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'DS_contratos
         '
@@ -140,14 +171,44 @@ Partial Class frm_pagos_cierre
         '
         Me.CONT_CPF_CierreContableTableAdapter.ClearBeforeFill = True
         '
+        'CONTCPFcierremesBindingSource
+        '
+        Me.CONTCPFcierremesBindingSource.DataMember = "CONT_CPF_cierremes"
+        Me.CONTCPFcierremesBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_cierremesTableAdapter
+        '
+        Me.CONT_CPF_cierremesTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFcierrediarioBindingSource
+        '
+        Me.CONTCPFcierrediarioBindingSource.DataMember = "CONT_CPF_cierre_diario"
+        Me.CONTCPFcierrediarioBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_cierre_diarioTableAdapter
+        '
+        Me.CONT_CPF_cierre_diarioTableAdapter.ClearBeforeFill = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(140, 121)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(115, 23)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "Cierre Mensual"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frm_pagos_cierre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(422, 160)
+        Me.ClientSize = New System.Drawing.Size(489, 218)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.dt_fecha)
-        Me.Controls.Add(Me.bt_aplicar)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ch_diario)
+        Me.Controls.Add(Me.bt_aplicar)
         Me.Name = "frm_pagos_cierre"
         Me.Text = "frm_pagos_cierre"
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -158,6 +219,8 @@ Partial Class frm_pagos_cierre
         CType(Me.CONTCPFvencimientosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFvencimientointeresBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFCierreContableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFcierremesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONTCPFcierrediarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -179,4 +242,11 @@ Partial Class frm_pagos_cierre
     Friend WithEvents CONT_CPF_vencimiento_interesTableAdapter As DS_contratosTableAdapters.CONT_CPF_vencimiento_interesTableAdapter
     Friend WithEvents CONTCPFCierreContableBindingSource As BindingSource
     Friend WithEvents CONT_CPF_CierreContableTableAdapter As DS_contratosTableAdapters.CONT_CPF_CierreContableTableAdapter
+    Friend WithEvents CONTCPFcierremesBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_cierremesTableAdapter As DS_contratosTableAdapters.CONT_CPF_cierremesTableAdapter
+    Friend WithEvents ch_diario As CheckBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents CONTCPFcierrediarioBindingSource As BindingSource
+    Friend WithEvents CONT_CPF_cierre_diarioTableAdapter As DS_contratosTableAdapters.CONT_CPF_cierre_diarioTableAdapter
+    Friend WithEvents Button2 As Button
 End Class

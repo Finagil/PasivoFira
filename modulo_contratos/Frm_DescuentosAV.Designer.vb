@@ -151,6 +151,7 @@ Partial Class Frm_DescuentosAV
         'DescuentosDS
         '
         Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.Locale = New System.Globalization.CultureInfo("es-ES")
         Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Button1

@@ -27,6 +27,7 @@ Partial Class MDI_Pasivo
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mncontratos = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PorClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescuentosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescuentosTRAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MinistracionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,7 +57,6 @@ Partial Class MDI_Pasivo
         Me.EdoDeCuentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConT_CPF_configuracionTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_configuracionTableAdapter()
-        Me.PorClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -87,6 +87,12 @@ Partial Class MDI_Pasivo
         Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
         Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.AltaToolStripMenuItem.Text = "Consultas"
+        '
+        'PorClienteToolStripMenuItem
+        '
+        Me.PorClienteToolStripMenuItem.Name = "PorClienteToolStripMenuItem"
+        Me.PorClienteToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.PorClienteToolStripMenuItem.Text = "Por cliente"
         '
         'DescuentosToolStripMenuItem1
         '
@@ -242,13 +248,13 @@ Partial Class MDI_Pasivo
         'ImportarPagosPorFechaToolStripMenuItem
         '
         Me.ImportarPagosPorFechaToolStripMenuItem.Name = "ImportarPagosPorFechaToolStripMenuItem"
-        Me.ImportarPagosPorFechaToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.ImportarPagosPorFechaToolStripMenuItem.Text = "Importar Pagos CXS"
+        Me.ImportarPagosPorFechaToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.ImportarPagosPorFechaToolStripMenuItem.Text = "Cierre Contable"
         '
         'ManualToolStripMenuItem
         '
         Me.ManualToolStripMenuItem.Name = "ManualToolStripMenuItem"
-        Me.ManualToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.ManualToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.ManualToolStripMenuItem.Text = "Manual"
         '
         'EdoDeCuentaToolStripMenuItem
@@ -267,12 +273,6 @@ Partial Class MDI_Pasivo
         'ConT_CPF_configuracionTableAdapter
         '
         Me.ConT_CPF_configuracionTableAdapter.ClearBeforeFill = True
-        '
-        'PorClienteToolStripMenuItem
-        '
-        Me.PorClienteToolStripMenuItem.Name = "PorClienteToolStripMenuItem"
-        Me.PorClienteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.PorClienteToolStripMenuItem.Text = "Por cliente"
         '
         'MDI_Pasivo
         '

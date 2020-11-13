@@ -162,7 +162,7 @@ Public Class frm_contratos_alta
                 If IsNothing(Ciclo) Then Ciclo = ""
                 Me.Vw_AnexosTableAdapter.FillBy_ANEXO(Me.DS_contratos.Vw_Anexos, Anexo, Ciclo)
                 Me.Vw_Anexos1TableAdapter.FillBy_anexo(Me.DS_contratos6.Vw_Anexos1, Anexo, Ciclo)
-                'Me.Vw_descuentoSATableAdapter.FillByANEXO(Me.DS_contratos.vw_descuentoSA, Anexo, Ciclo)
+                ' Me.Vw_descuentoSATableAdapter.FillByANEXO(Me.DS_contratos.vw_descuentoSA, Anexo, Ciclo)
 
                 bt_guardar.Enabled = True
                 ' BT_IMPRIMIR.Enabled = False

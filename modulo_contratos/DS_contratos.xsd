@@ -1044,7 +1044,7 @@ where id_contrato=? and fecha=?
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Deletevencimiento" Modifier="Public" Name="Deletevencimiento" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="Deletevencimiento">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Deletevencimiento" Modifier="Public" Name="Deletevencimiento" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Deletevencimiento">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM CONT_CPF_vencimientos
@@ -1055,7 +1055,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DiasEntreVencimientos" Modifier="Public" Name="DiasEntreVencimientos" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DiasEntreVencimientos">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DiasEntreVencimientos" Modifier="Public" Name="DiasEntreVencimientos" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DiasEntreVencimientos">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(MIN(Diferencia), 0) AS Dias
@@ -1092,7 +1092,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerymanual" Modifier="Public" Name="InsertQuerymanual" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQuerymanual">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerymanual" Modifier="Public" Name="InsertQuerymanual" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertQuerymanual">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO CONT_CPF_vencimientos
@@ -1108,7 +1108,7 @@ VALUES        (?,?,?,?,?)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryVencimiento" Modifier="Public" Name="InsertQueryVencimiento" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertQueryVencimiento">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryVencimiento" Modifier="Public" Name="InsertQueryVencimiento" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InsertQueryVencimiento">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO CONT_CPF_vencimientos
@@ -1125,7 +1125,7 @@ VALUES        (?,?,?,?,?,?)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryvencimientofecha" Modifier="Public" Name="ScalarQueryvencimientofecha" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="ScalarQueryvencimientofecha">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryvencimientofecha" Modifier="Public" Name="ScalarQueryvencimientofecha" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQueryvencimientofecha">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM CONT_CPF_vencimientos
@@ -1137,7 +1137,7 @@ where fecha=? and id_contrato=?</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryvencimientos_contar" Modifier="Public" Name="ScalarQueryvencimientos_contar" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQueryvencimientos_contar">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryvencimientos_contar" Modifier="Public" Name="ScalarQueryvencimientos_contar" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="ScalarQueryvencimientos_contar">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS Expr1
@@ -1149,7 +1149,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryvencimientos_suma" Modifier="Public" Name="ScalarQueryvencimientos_suma" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQueryvencimientos_suma">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryvencimientos_suma" Modifier="Public" Name="ScalarQueryvencimientos_suma" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQueryvencimientos_suma">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        isnull(SUM(capital),0) AS Expr1
@@ -1161,7 +1161,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCapital" Modifier="Public" Name="UpdateCapital" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="UpdateCapital">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCapital" Modifier="Public" Name="UpdateCapital" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="UpdateCapital">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_vencimientos
@@ -1175,7 +1175,7 @@ WHERE        (id_contrato = ? and fecha=?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateFECHAVENCIMIENTO" Modifier="Public" Name="updateFECHAVENCIMIENTO" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="updateFECHAVENCIMIENTO">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateFECHAVENCIMIENTO" Modifier="Public" Name="updateFECHAVENCIMIENTO" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="updateFECHAVENCIMIENTO">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_vencimientos
@@ -1188,7 +1188,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryVencimiento" Modifier="Public" Name="UpdateQueryVencimiento" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="UpdateQueryVencimiento">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryVencimiento" Modifier="Public" Name="UpdateQueryVencimiento" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="UpdateQueryVencimiento">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_vencimientos
@@ -2910,7 +2910,19 @@ where documento_fact = ?</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="IDCONTRATOXDOC" Modifier="Public" Name="IDCONTRATOXDOC" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="IDCONTRATOXDOC">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="idcontratoBYIDSUSTITUCION" Modifier="Public" Name="idcontratoBYIDSUSTITUCION" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="idcontratoBYIDSUSTITUCION">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(id_contrato,0)
+FROM            CONT_CPF_contratos
+WHERE        (id_sustitucion = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_sustitucion" DataSourceName="Production.dbo.CONT_CPF_contratos" DataTypeServer="nchar(10)" DbType="String" Direction="Input" ParameterName="id_sustitucion" Precision="0" ProviderType="WChar" Scale="0" Size="10" SourceColumn="id_sustitucion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="IDCONTRATOXDOC" Modifier="Public" Name="IDCONTRATOXDOC" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="IDCONTRATOXDOC">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        id_contrato
@@ -2923,7 +2935,7 @@ WHERE        (Cliente = ?) AND (documento_fact = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="IDCREDITOBYDOC" Modifier="Public" Name="IDCREDITOBYDOC" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="IDCREDITOBYDOC">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="IDCREDITOBYDOC" Modifier="Public" Name="IDCREDITOBYDOC" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="IDCREDITOBYDOC">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        id_credito
@@ -2935,7 +2947,7 @@ WHERE        (documento_fact = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerycontrato" Modifier="Public" Name="InsertQuerycontrato" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="InsertQuerycontrato">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerycontrato" Modifier="Public" Name="InsertQuerycontrato" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="InsertQuerycontrato">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO CONT_CPF_contratos
@@ -3008,7 +3020,7 @@ VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryFactoraje" Modifier="Public" Name="InsertQueryFactoraje" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="InsertQueryFactoraje">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryFactoraje" Modifier="Public" Name="InsertQueryFactoraje" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy12" UserSourceName="InsertQueryFactoraje">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO CONT_CPF_contratos
@@ -3088,7 +3100,7 @@ VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryprueba" Modifier="Public" Name="InsertQueryprueba" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy12" UserSourceName="InsertQueryprueba">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryprueba" Modifier="Public" Name="InsertQueryprueba" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy13" UserSourceName="InsertQueryprueba">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO CONT_CPF_contratos
@@ -3165,7 +3177,7 @@ VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="monto_contrato" Modifier="Public" Name="monto_contrato" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy13" UserSourceName="monto_contrato">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="monto_contrato" Modifier="Public" Name="monto_contrato" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy14" UserSourceName="monto_contrato">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT monto FROM CONT_CPF_contratos WHERE (id_contrato = ?)</CommandText>
@@ -3175,7 +3187,7 @@ VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="penalizacionupdate" Modifier="Public" Name="penalizacionupdate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy14" UserSourceName="penalizacionupdate">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="penalizacionupdate" Modifier="Public" Name="penalizacionupdate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy15" UserSourceName="penalizacionupdate">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [CONT_CPF_contratos] SET penalizacion = ? where id_contrato=?</CommandText>
@@ -3186,7 +3198,7 @@ VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="scalarid_contratoSINANEXO" Modifier="Public" Name="scalarid_contratoSINANEXO" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy15" UserSourceName="scalarid_contratoSINANEXO">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="scalarid_contratoSINANEXO" Modifier="Public" Name="scalarid_contratoSINANEXO" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy16" UserSourceName="scalarid_contratoSINANEXO">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     isnull(   MAX(id_contrato),0) AS Expr1
@@ -3199,7 +3211,7 @@ WHERE        (Cliente = ?) and id_credito=?</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryanexo" Modifier="Public" Name="ScalarQueryanexo" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy16" UserSourceName="ScalarQueryanexo">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryanexo" Modifier="Public" Name="ScalarQueryanexo" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy17" UserSourceName="ScalarQueryanexo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT anexo, tipo_garantia, TasaTiie, TiieActiva FROM CONT_CPF_contratos WHERE (anexo = ?) AND (ciclo = ?)</CommandText>
@@ -3210,7 +3222,7 @@ WHERE        (Cliente = ?) and id_credito=?</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryID_CONTRATO" Modifier="Public" Name="ScalarQueryID_CONTRATO" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy17" UserSourceName="ScalarQueryID_CONTRATO">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryID_CONTRATO" Modifier="Public" Name="ScalarQueryID_CONTRATO" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy20" UserSourceName="ScalarQueryID_CONTRATO">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id_contrato, tipo_garantia, TasaTiie, TiieActiva FROM CONT_CPF_contratos WHERE (anexo = ?) AND (ciclo = ?)</CommandText>
@@ -3221,7 +3233,7 @@ WHERE        (Cliente = ?) and id_credito=?</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuerysecuencial_banco" Modifier="Public" Name="ScalarQuerysecuencial_banco" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy20" UserSourceName="ScalarQuerysecuencial_banco">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuerysecuencial_banco" Modifier="Public" Name="ScalarQuerysecuencial_banco" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy21" UserSourceName="ScalarQuerysecuencial_banco">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     ISNULL(MAX(secuencial_banco), 0) AS Expr1
@@ -3230,7 +3242,7 @@ FROM         CONT_CPF_contratos</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="subsidio_contrato" Modifier="Public" Name="subsidio_contrato" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy21" UserSourceName="subsidio_contrato">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="subsidio_contrato" Modifier="Public" Name="subsidio_contrato" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy22" UserSourceName="subsidio_contrato">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(subsidio, 'False') AS Expr1
@@ -3242,7 +3254,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="tipo_garantia" Modifier="Public" Name="tipo_garantia" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy22" UserSourceName="tipo_garantia">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_contratos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="tipo_garantia" Modifier="Public" Name="tipo_garantia" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy23" UserSourceName="tipo_garantia">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT tipo_garantia FROM CONT_CPF_contratos WHERE (id_contrato = ?)</CommandText>
@@ -3252,7 +3264,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UPDATE_CONTRATOS" Modifier="Public" Name="UPDATE_CONTRATOS" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy23" UserSourceName="UPDATE_CONTRATOS">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UPDATE_CONTRATOS" Modifier="Public" Name="UPDATE_CONTRATOS" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy24" UserSourceName="UPDATE_CONTRATOS">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    CONT_CPF_contratos
@@ -3327,7 +3339,7 @@ WHERE     (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCXSG" Modifier="Public" Name="UpdateCXSG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy24" UserSourceName="UpdateCXSG">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCXSG" Modifier="Public" Name="UpdateCXSG" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy25" UserSourceName="UpdateCXSG">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3341,7 +3353,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateFechaCorteTiie" Modifier="Public" Name="UpdateFechaCorteTiie" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy25" UserSourceName="UpdateFechaCorteTiie">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateFechaCorteTiie" Modifier="Public" Name="UpdateFechaCorteTiie" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy27" UserSourceName="UpdateFechaCorteTiie">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3355,7 +3367,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateIdCredito" Modifier="Public" Name="UpdateIdCredito" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy27" UserSourceName="UpdateIdCredito">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateIdCredito" Modifier="Public" Name="UpdateIdCredito" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy28" UserSourceName="UpdateIdCredito">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3368,7 +3380,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateIDSUSTITUCION" Modifier="Public" Name="UpdateIDSUSTITUCION" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy28" UserSourceName="UpdateIDSUSTITUCION">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateIDSUSTITUCION" Modifier="Public" Name="UpdateIDSUSTITUCION" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy29" UserSourceName="UpdateIDSUSTITUCION">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3381,7 +3393,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Updatesubsidio" Modifier="Public" Name="Updatesubsidio" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy29" UserSourceName="Updatesubsidio">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Updatesubsidio" Modifier="Public" Name="Updatesubsidio" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy30" UserSourceName="Updatesubsidio">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE CONT_CPF_contratos SET subsidio = ?
@@ -3393,7 +3405,7 @@ where id_contrato=?</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updatetasafija" Modifier="Public" Name="updatetasafija" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy30" UserSourceName="updatetasafija">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updatetasafija" Modifier="Public" Name="updatetasafija" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy31" UserSourceName="updatetasafija">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3406,7 +3418,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updatetasafijafira" Modifier="Public" Name="updatetasafijafira" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy31" UserSourceName="updatetasafijafira">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updatetasafijafira" Modifier="Public" Name="updatetasafijafira" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy32" UserSourceName="updatetasafijafira">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3419,7 +3431,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateTasaTIIE" Modifier="Public" Name="UpdateTasaTIIE" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy32" UserSourceName="UpdateTasaTIIE">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateTasaTIIE" Modifier="Public" Name="UpdateTasaTIIE" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy33" UserSourceName="UpdateTasaTIIE">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       CONT_CPF_contratos
@@ -3432,7 +3444,7 @@ WHERE        (id_contrato = ?)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updatetiie" Modifier="Public" Name="updatetiie" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy33" UserSourceName="updatetiie">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updatetiie" Modifier="Public" Name="updatetiie" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy34" UserSourceName="updatetiie">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [CONT_CPF_contratos] SET TasaTiie = ? where id_contrato=?</CommandText>
@@ -3516,7 +3528,7 @@ FROM            Vw_Anexos LEFT OUTER JOIN
               <Mapping SourceColumn="Z25" DataSetColumn="Z25" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Vw_Anexos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_ANEXO" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_ANEXO" GeneratorSourceName="FillBy_ANEXO" GetMethodModifier="Public" GetMethodName="GetDataBy_ANEXO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_ANEXO" UserSourceName="FillBy_ANEXO">
+              <DbSource ConnectionRef="ConnectionString_servidor (MySettings)" DbObjectName="Production.dbo.Vw_Anexos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_ANEXO" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_ANEXO" GeneratorSourceName="FillBy_ANEXO" GetMethodModifier="Public" GetMethodName="GetDataBy_ANEXO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_ANEXO" UserSourceName="FillBy_ANEXO">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Vw_Anexos.Anexo, Vw_Anexos.AnexoCon, Vw_Anexos.AnexoFull, Vw_Anexos.AnexoSin, Vw_Anexos.Ciclo, Vw_Anexos.CicloPagare, Vw_Anexos.Cliente, Vw_Anexos.Cultivo, Vw_Anexos.DescGiro, Vw_Anexos.DescPlaza, 
@@ -3531,8 +3543,8 @@ FROM            Vw_Anexos LEFT OUTER JOIN
 WHERE        (Vw_Anexos.Flcan IN ('T', 'A', 'C')) AND (Vw_Anexos.Anexo = ?) AND (Vw_Anexos.Ciclo = ?)
 ORDER BY Vw_Anexos.Anexo</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Anexo" DataSourceName="Vw_Anexos" DataTypeServer="nchar(9)" DbType="String" Direction="Input" ParameterName="Anexo" Precision="0" ProviderType="WChar" Scale="0" Size="9" SourceColumn="Anexo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Ciclo" DataSourceName="Vw_Anexos" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="Ciclo" Precision="0" ProviderType="WChar" Scale="0" Size="2" SourceColumn="Ciclo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="Anexo" DataSourceName="Production.dbo.Vw_Anexos" DataTypeServer="nchar(9)" DbType="String" Direction="Input" ParameterName="Anexo" Precision="0" ProviderType="WChar" Scale="0" Size="9" SourceColumn="Anexo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="Ciclo" DataSourceName="Production.dbo.Vw_Anexos" DataTypeServer="nvarchar(2)" DbType="String" Direction="Input" ParameterName="Ciclo" Precision="0" ProviderType="WChar" Scale="0" Size="2" SourceColumn="Ciclo" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -6099,6 +6111,194 @@ WHERE        (fecha = ?)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CONT_CPF_cierremesTableAdapter" GeneratorDataComponentClassName="CONT_CPF_cierremesTableAdapter" Name="CONT_CPF_cierremes" UserDataComponentName="CONT_CPF_cierremesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_cierremes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [CONT_CPF_cierremes] ([fecha_corte], [capital_vigente], [saldo_financiado], [intereses], [subsidio], [id_credito], [divisa], [id_contrato]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="fecha_corte" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="0" SourceColumn="fecha_corte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="capital_vigente" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="capital_vigente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="saldo_financiado" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="saldo_financiado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="intereses" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="intereses" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="subsidio" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="subsidio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="id_credito" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id_credito" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="divisa" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="divisa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="id_contrato" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id_contrato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id_cierremes, fecha_corte, capital_vigente, saldo_financiado, intereses, subsidio, id_credito, divisa, id_contrato
+FROM            CONT_CPF_cierremes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_cierremes" DataSetColumn="id_cierremes" />
+              <Mapping SourceColumn="fecha_corte" DataSetColumn="fecha_corte" />
+              <Mapping SourceColumn="capital_vigente" DataSetColumn="capital_vigente" />
+              <Mapping SourceColumn="saldo_financiado" DataSetColumn="saldo_financiado" />
+              <Mapping SourceColumn="intereses" DataSetColumn="intereses" />
+              <Mapping SourceColumn="subsidio" DataSetColumn="subsidio" />
+              <Mapping SourceColumn="id_credito" DataSetColumn="id_credito" />
+              <Mapping SourceColumn="id_contrato" DataSetColumn="id_contrato" />
+              <Mapping SourceColumn="divisa" DataSetColumn="divisa" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM CONT_CPF_cierremes
+WHERE        (fecha_corte = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="fecha_corte" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fecha_corte" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="8" SourceColumn="fecha_corte" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO CONT_CPF_cierremes
+                         (fecha_corte, capital_vigente, saldo_financiado, intereses, subsidio, id_credito, id_contrato, divisa)
+VALUES        (?,?,?,?,?,?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="fecha_corte" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fecha_corte" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="8" SourceColumn="fecha_corte" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param2" ColumnName="capital_vigente" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="capital_vigente" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="capital_vigente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param3" ColumnName="saldo_financiado" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="saldo_financiado" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="saldo_financiado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param4" ColumnName="intereses" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="intereses" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="intereses" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param5" ColumnName="subsidio" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="subsidio" Precision="0" ProviderType="Boolean" Scale="0" Size="1" SourceColumn="subsidio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param6" ColumnName="id_credito" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="id_credito" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="id_credito" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="id_contrato" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="id_contrato" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="id_contrato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param8" ColumnName="divisa" DataSourceName="Production.dbo.CONT_CPF_cierremes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="divisa" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="divisa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CONT_CPF_cierre_diarioTableAdapter" GeneratorDataComponentClassName="CONT_CPF_cierre_diarioTableAdapter" Name="CONT_CPF_cierre_diario" UserDataComponentName="CONT_CPF_cierre_diarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_cierre_diario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [CONT_CPF_cierre_diario] ([id_credito], [divisa], [fecha_cierre], [fecha_inicial], [fecha_final], [concepto], [descripcion], [importe_cargo], [importe_abono], [iva_cargo], [iva_abono], [archivo], [id_contrato], [estatus]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="id_credito" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id_credito" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="divisa" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="divisa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="fecha_cierre" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="0" SourceColumn="fecha_cierre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="fecha_inicial" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="0" SourceColumn="fecha_inicial" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="fecha_final" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="0" SourceColumn="fecha_final" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="concepto" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="concepto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="importe_cargo" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="importe_cargo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="importe_abono" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="importe_abono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="iva_cargo" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="iva_cargo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="iva_abono" Precision="18" ProviderType="Numeric" Scale="4" Size="0" SourceColumn="iva_abono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="archivo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="archivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="id_contrato" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="id_contrato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="estatus" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="estatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id_cierre_diario, id_credito, divisa, fecha_cierre, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, archivo, id_contrato, estatus
+FROM            CONT_CPF_cierre_diario</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_cierre_diario" DataSetColumn="id_cierre_diario" />
+              <Mapping SourceColumn="id_credito" DataSetColumn="id_credito" />
+              <Mapping SourceColumn="divisa" DataSetColumn="divisa" />
+              <Mapping SourceColumn="fecha_descuento" DataSetColumn="fecha_descuento" />
+              <Mapping SourceColumn="fecha_inicial" DataSetColumn="fecha_inicial" />
+              <Mapping SourceColumn="fecha_final" DataSetColumn="fecha_final" />
+              <Mapping SourceColumn="concepto" DataSetColumn="concepto" />
+              <Mapping SourceColumn="descripcion" DataSetColumn="descripcion" />
+              <Mapping SourceColumn="importe_cargo" DataSetColumn="importe_cargo" />
+              <Mapping SourceColumn="importe_abono" DataSetColumn="importe_abono" />
+              <Mapping SourceColumn="iva_cargo" DataSetColumn="iva_cargo" />
+              <Mapping SourceColumn="iva_abono" DataSetColumn="iva_abono" />
+              <Mapping SourceColumn="archivo" DataSetColumn="archivo" />
+              <Mapping SourceColumn="id_contrato" DataSetColumn="id_contrato" />
+              <Mapping SourceColumn="fecha_cierre" DataSetColumn="fecha_cierre" />
+              <Mapping SourceColumn="estatus" DataSetColumn="estatus" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="Production.dbo.CONT_CPF_cierre_diario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByESTATUS" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillByESTATUS" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByESTATUS">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        id_cierre_diario, id_credito, divisa, fecha_cierre, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, archivo, id_contrato, estatus
+FROM            CONT_CPF_cierre_diario
+WHERE ESTATUS=0 AND fecha_cierre=?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="fecha_cierre" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fecha_cierre" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="8" SourceColumn="fecha_cierre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO CONT_CPF_cierre_diario
+                         (id_credito, divisa, fecha_cierre, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, archivo, id_contrato, estatus)
+VALUES        (?,?,?,?,?,?,?,?,?,?,?,?,?,?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="id_credito" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="id_credito" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="id_credito" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="divisa" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="divisa" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="divisa" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="fecha_cierre" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fecha_cierre" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="8" SourceColumn="fecha_cierre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param4" ColumnName="fecha_inicial" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fecha_inicial" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="8" SourceColumn="fecha_inicial" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param5" ColumnName="fecha_final" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="fecha_final" Precision="0" ProviderType="DBTimeStamp" Scale="0" Size="8" SourceColumn="fecha_final" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param6" ColumnName="concepto" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="concepto" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="concepto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param7" ColumnName="descripcion" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="descripcion" Precision="0" ProviderType="Char" Scale="0" Size="200" SourceColumn="descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param8" ColumnName="importe_cargo" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="importe_cargo" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="importe_cargo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param9" ColumnName="importe_abono" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="importe_abono" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="importe_abono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param10" ColumnName="iva_cargo" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="iva_cargo" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="iva_cargo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param11" ColumnName="iva_abono" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="decimal(18, 4)" DbType="Decimal" Direction="Input" ParameterName="iva_abono" Precision="18" ProviderType="Numeric" Scale="4" Size="9" SourceColumn="iva_abono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param12" ColumnName="archivo" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="archivo" Precision="0" ProviderType="Char" Scale="0" Size="200" SourceColumn="archivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param13" ColumnName="id_contrato" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="id_contrato" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="id_contrato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param14" ColumnName="estatus" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="estatus" Precision="0" ProviderType="Boolean" Scale="0" Size="1" SourceColumn="estatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery" Modifier="Public" Name="ScalarQuery" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT COUNT(*) FROM CONT_CPF_cierre_diario
+where archivo=?
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="archivo" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="archivo" Precision="0" ProviderType="Char" Scale="0" Size="200" SourceColumn="archivo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQContrato" Modifier="Public" Name="UpdateQContrato" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQContrato">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       CONT_CPF_cierre_diario
+SET                estatus = ?, id_contrato = ?
+WHERE        (id_credito = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="estatus" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="estatus" Precision="0" ProviderType="Boolean" Scale="0" Size="1" SourceColumn="estatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param2" ColumnName="id_contrato" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="id_contrato" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="id_contrato" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Param3" ColumnName="id_credito" DataSourceName="Production.dbo.CONT_CPF_cierre_diario" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="Original_id_credito" Precision="0" ProviderType="Integer" Scale="0" Size="4" SourceColumn="id_credito" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -7293,7 +7493,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_RowClassName="ClientesRow" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowEvArgName="ClientesRowChangeEvent">
+        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_RowEvArgName="ClientesRowChangeEvent" msprop:Generator_RowClassName="ClientesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
@@ -7639,7 +7839,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_descuentos" msprop:Generator_TableClassName="vw_descuentosDataTable" msprop:Generator_TableVarName="tablevw_descuentos" msprop:Generator_RowChangedName="vw_descuentosRowChanged" msprop:Generator_TablePropName="vw_descuentos" msprop:Generator_RowDeletingName="vw_descuentosRowDeleting" msprop:Generator_RowChangingName="vw_descuentosRowChanging" msprop:Generator_RowEvHandlerName="vw_descuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentosRowDeleted" msprop:Generator_RowClassName="vw_descuentosRow" msprop:Generator_UserTableName="vw_descuentos" msprop:Generator_RowEvArgName="vw_descuentosRowChangeEvent">
+        <xs:element name="vw_descuentos" msprop:Generator_TableClassName="vw_descuentosDataTable" msprop:Generator_TableVarName="tablevw_descuentos" msprop:Generator_TablePropName="vw_descuentos" msprop:Generator_RowDeletingName="vw_descuentosRowDeleting" msprop:Generator_RowChangingName="vw_descuentosRowChanging" msprop:Generator_RowEvHandlerName="vw_descuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentosRowDeleted" msprop:Generator_UserTableName="vw_descuentos" msprop:Generator_RowChangedName="vw_descuentosRowChanged" msprop:Generator_RowEvArgName="vw_descuentosRowChangeEvent" msprop:Generator_RowClassName="vw_descuentosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -8037,7 +8237,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_unidades_medida" msprop:Generator_TableClassName="CONT_CPF_unidades_medidaDataTable" msprop:Generator_TableVarName="tableCONT_CPF_unidades_medida" msprop:Generator_TablePropName="CONT_CPF_unidades_medida" msprop:Generator_RowDeletingName="CONT_CPF_unidades_medidaRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_unidades_medidaRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_unidades_medidaRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_unidades_medidaRowDeleted" msprop:Generator_UserTableName="CONT_CPF_unidades_medida" msprop:Generator_RowChangedName="CONT_CPF_unidades_medidaRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_unidades_medidaRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_unidades_medidaRow">
+        <xs:element name="CONT_CPF_unidades_medida" msprop:Generator_TableClassName="CONT_CPF_unidades_medidaDataTable" msprop:Generator_TableVarName="tableCONT_CPF_unidades_medida" msprop:Generator_RowChangedName="CONT_CPF_unidades_medidaRowChanged" msprop:Generator_TablePropName="CONT_CPF_unidades_medida" msprop:Generator_RowDeletingName="CONT_CPF_unidades_medidaRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_unidades_medidaRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_unidades_medidaRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_unidades_medidaRowDeleted" msprop:Generator_RowClassName="CONT_CPF_unidades_medidaRow" msprop:Generator_UserTableName="CONT_CPF_unidades_medida" msprop:Generator_RowEvArgName="CONT_CPF_unidades_medidaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_umedida" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_umedida" msprop:Generator_ColumnPropNameInRow="id_umedida" msprop:Generator_ColumnPropNameInTable="id_umedidaColumn" msprop:Generator_UserColumnName="id_umedida" type="xs:int" />
@@ -8051,7 +8251,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_tipoprestamos" msprop:Generator_TableClassName="CONT_CPF_tipoprestamosDataTable" msprop:Generator_TableVarName="tableCONT_CPF_tipoprestamos" msprop:Generator_TablePropName="CONT_CPF_tipoprestamos" msprop:Generator_RowDeletingName="CONT_CPF_tipoprestamosRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_tipoprestamosRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_tipoprestamosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_tipoprestamosRowDeleted" msprop:Generator_UserTableName="CONT_CPF_tipoprestamos" msprop:Generator_RowChangedName="CONT_CPF_tipoprestamosRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_tipoprestamosRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_tipoprestamosRow">
+        <xs:element name="CONT_CPF_tipoprestamos" msprop:Generator_TableClassName="CONT_CPF_tipoprestamosDataTable" msprop:Generator_TableVarName="tableCONT_CPF_tipoprestamos" msprop:Generator_RowChangedName="CONT_CPF_tipoprestamosRowChanged" msprop:Generator_TablePropName="CONT_CPF_tipoprestamos" msprop:Generator_RowDeletingName="CONT_CPF_tipoprestamosRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_tipoprestamosRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_tipoprestamosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_tipoprestamosRowDeleted" msprop:Generator_RowClassName="CONT_CPF_tipoprestamosRow" msprop:Generator_UserTableName="CONT_CPF_tipoprestamos" msprop:Generator_RowEvArgName="CONT_CPF_tipoprestamosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_tipo_prestamo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_tipo_prestamo" msprop:Generator_ColumnPropNameInRow="id_tipo_prestamo" msprop:Generator_ColumnPropNameInTable="id_tipo_prestamoColumn" msprop:Generator_UserColumnName="id_tipo_prestamo" type="xs:int" />
@@ -8065,7 +8265,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_seguros" msprop:Generator_TableClassName="CONT_CPF_segurosDataTable" msprop:Generator_TableVarName="tableCONT_CPF_seguros" msprop:Generator_TablePropName="CONT_CPF_seguros" msprop:Generator_RowDeletingName="CONT_CPF_segurosRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_segurosRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_segurosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_segurosRowDeleted" msprop:Generator_UserTableName="CONT_CPF_seguros" msprop:Generator_RowChangedName="CONT_CPF_segurosRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_segurosRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_segurosRow">
+        <xs:element name="CONT_CPF_seguros" msprop:Generator_TableClassName="CONT_CPF_segurosDataTable" msprop:Generator_TableVarName="tableCONT_CPF_seguros" msprop:Generator_RowChangedName="CONT_CPF_segurosRowChanged" msprop:Generator_TablePropName="CONT_CPF_seguros" msprop:Generator_RowDeletingName="CONT_CPF_segurosRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_segurosRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_segurosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_segurosRowDeleted" msprop:Generator_RowClassName="CONT_CPF_segurosRow" msprop:Generator_UserTableName="CONT_CPF_seguros" msprop:Generator_RowEvArgName="CONT_CPF_segurosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_seguro" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_seguro" msprop:Generator_ColumnPropNameInRow="id_seguro" msprop:Generator_ColumnPropNameInTable="id_seguroColumn" msprop:Generator_UserColumnName="id_seguro" type="xs:int" />
@@ -8079,7 +8279,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_programas" msprop:Generator_TableClassName="CONT_CPF_programasDataTable" msprop:Generator_TableVarName="tableCONT_CPF_programas" msprop:Generator_TablePropName="CONT_CPF_programas" msprop:Generator_RowDeletingName="CONT_CPF_programasRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_programasRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_programasRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_programasRowDeleted" msprop:Generator_UserTableName="CONT_CPF_programas" msprop:Generator_RowChangedName="CONT_CPF_programasRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_programasRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_programasRow">
+        <xs:element name="CONT_CPF_programas" msprop:Generator_TableClassName="CONT_CPF_programasDataTable" msprop:Generator_TableVarName="tableCONT_CPF_programas" msprop:Generator_RowChangedName="CONT_CPF_programasRowChanged" msprop:Generator_TablePropName="CONT_CPF_programas" msprop:Generator_RowDeletingName="CONT_CPF_programasRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_programasRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_programasRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_programasRowDeleted" msprop:Generator_RowClassName="CONT_CPF_programasRow" msprop:Generator_UserTableName="CONT_CPF_programas" msprop:Generator_RowEvArgName="CONT_CPF_programasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_programa" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_programa" msprop:Generator_ColumnPropNameInRow="id_programa" msprop:Generator_ColumnPropNameInTable="id_programaColumn" msprop:Generator_UserColumnName="id_programa" type="xs:int" />
@@ -8100,7 +8300,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="View_cadenas_subramas" msprop:Generator_TableClassName="View_cadenas_subramasDataTable" msprop:Generator_TableVarName="tableView_cadenas_subramas" msprop:Generator_TablePropName="View_cadenas_subramas" msprop:Generator_RowDeletingName="View_cadenas_subramasRowDeleting" msprop:Generator_RowChangingName="View_cadenas_subramasRowChanging" msprop:Generator_RowEvHandlerName="View_cadenas_subramasRowChangeEventHandler" msprop:Generator_RowDeletedName="View_cadenas_subramasRowDeleted" msprop:Generator_UserTableName="View_cadenas_subramas" msprop:Generator_RowChangedName="View_cadenas_subramasRowChanged" msprop:Generator_RowEvArgName="View_cadenas_subramasRowChangeEvent" msprop:Generator_RowClassName="View_cadenas_subramasRow">
+        <xs:element name="View_cadenas_subramas" msprop:Generator_TableClassName="View_cadenas_subramasDataTable" msprop:Generator_TableVarName="tableView_cadenas_subramas" msprop:Generator_RowChangedName="View_cadenas_subramasRowChanged" msprop:Generator_TablePropName="View_cadenas_subramas" msprop:Generator_RowDeletingName="View_cadenas_subramasRowDeleting" msprop:Generator_RowChangingName="View_cadenas_subramasRowChanging" msprop:Generator_RowEvHandlerName="View_cadenas_subramasRowChangeEventHandler" msprop:Generator_RowDeletedName="View_cadenas_subramasRowDeleted" msprop:Generator_RowClassName="View_cadenas_subramasRow" msprop:Generator_UserTableName="View_cadenas_subramas" msprop:Generator_RowEvArgName="View_cadenas_subramasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_cadena" msprop:Generator_ColumnVarNameInTable="columnid_cadena" msprop:Generator_ColumnPropNameInRow="id_cadena" msprop:Generator_ColumnPropNameInTable="id_cadenaColumn" msprop:Generator_UserColumnName="id_cadena" type="xs:int" />
@@ -8122,7 +8322,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_pagos" msprop:Generator_TableClassName="CONT_CPF_pagosDataTable" msprop:Generator_TableVarName="tableCONT_CPF_pagos" msprop:Generator_TablePropName="CONT_CPF_pagos" msprop:Generator_RowDeletingName="CONT_CPF_pagosRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_pagosRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_pagosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_pagosRowDeleted" msprop:Generator_UserTableName="CONT_CPF_pagos" msprop:Generator_RowChangedName="CONT_CPF_pagosRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_pagosRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_pagosRow">
+        <xs:element name="CONT_CPF_pagos" msprop:Generator_TableClassName="CONT_CPF_pagosDataTable" msprop:Generator_TableVarName="tableCONT_CPF_pagos" msprop:Generator_RowChangedName="CONT_CPF_pagosRowChanged" msprop:Generator_TablePropName="CONT_CPF_pagos" msprop:Generator_RowDeletingName="CONT_CPF_pagosRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_pagosRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_pagosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_pagosRowDeleted" msprop:Generator_RowClassName="CONT_CPF_pagosRow" msprop:Generator_UserTableName="CONT_CPF_pagos" msprop:Generator_RowEvArgName="CONT_CPF_pagosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_pago" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_pago" msprop:Generator_ColumnPropNameInRow="id_pago" msprop:Generator_ColumnPropNameInTable="id_pagoColumn" msprop:Generator_UserColumnName="id_pago" type="xs:int" />
@@ -8152,7 +8352,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="mFIRA" msprop:Generator_TableClassName="mFIRADataTable" msprop:Generator_TableVarName="tablemFIRA" msprop:Generator_TablePropName="mFIRA" msprop:Generator_RowDeletingName="mFIRARowDeleting" msprop:Generator_RowChangingName="mFIRARowChanging" msprop:Generator_RowEvHandlerName="mFIRARowChangeEventHandler" msprop:Generator_RowDeletedName="mFIRARowDeleted" msprop:Generator_UserTableName="mFIRA" msprop:Generator_RowChangedName="mFIRARowChanged" msprop:Generator_RowEvArgName="mFIRARowChangeEvent" msprop:Generator_RowClassName="mFIRARow">
+        <xs:element name="mFIRA" msprop:Generator_TableClassName="mFIRADataTable" msprop:Generator_TableVarName="tablemFIRA" msprop:Generator_RowChangedName="mFIRARowChanged" msprop:Generator_TablePropName="mFIRA" msprop:Generator_RowDeletingName="mFIRARowDeleting" msprop:Generator_RowChangingName="mFIRARowChanging" msprop:Generator_RowEvHandlerName="mFIRARowChangeEventHandler" msprop:Generator_RowDeletedName="mFIRARowDeleted" msprop:Generator_RowClassName="mFIRARow" msprop:Generator_UserTableName="mFIRA" msprop:Generator_RowEvArgName="mFIRARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FechaProgramada" msprop:Generator_ColumnVarNameInTable="columnFechaProgramada" msprop:Generator_ColumnPropNameInRow="FechaProgramada" msprop:Generator_ColumnPropNameInTable="FechaProgramadaColumn" msprop:Generator_UserColumnName="FechaProgramada" minOccurs="0">
@@ -8180,7 +8380,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_anexo_vagar" msprop:Generator_TableClassName="CONT_CPF_anexo_vagarDataTable" msprop:Generator_TableVarName="tableCONT_CPF_anexo_vagar" msprop:Generator_RowChangedName="CONT_CPF_anexo_vagarRowChanged" msprop:Generator_TablePropName="CONT_CPF_anexo_vagar" msprop:Generator_RowDeletingName="CONT_CPF_anexo_vagarRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_anexo_vagarRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_anexo_vagarRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_anexo_vagarRowDeleted" msprop:Generator_RowClassName="CONT_CPF_anexo_vagarRow" msprop:Generator_UserTableName="CONT_CPF_anexo_vagar" msprop:Generator_RowEvArgName="CONT_CPF_anexo_vagarRowChangeEvent">
+        <xs:element name="CONT_CPF_anexo_vagar" msprop:Generator_TableClassName="CONT_CPF_anexo_vagarDataTable" msprop:Generator_TableVarName="tableCONT_CPF_anexo_vagar" msprop:Generator_TablePropName="CONT_CPF_anexo_vagar" msprop:Generator_RowDeletingName="CONT_CPF_anexo_vagarRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_anexo_vagarRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_anexo_vagarRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_anexo_vagarRowDeleted" msprop:Generator_UserTableName="CONT_CPF_anexo_vagar" msprop:Generator_RowChangedName="CONT_CPF_anexo_vagarRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_anexo_vagarRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_anexo_vagarRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idcredito" msprop:Generator_ColumnVarNameInTable="columnidcredito" msprop:Generator_ColumnPropNameInRow="idcredito" msprop:Generator_ColumnPropNameInTable="idcreditoColumn" msprop:Generator_UserColumnName="idcredito" type="xs:int" minOccurs="0" />
@@ -8204,7 +8404,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GEN_ProductosFinagil" msprop:Generator_TableClassName="GEN_ProductosFinagilDataTable" msprop:Generator_TableVarName="tableGEN_ProductosFinagil" msprop:Generator_TablePropName="GEN_ProductosFinagil" msprop:Generator_RowDeletingName="GEN_ProductosFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_ProductosFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_ProductosFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_ProductosFinagilRowDeleted" msprop:Generator_UserTableName="GEN_ProductosFinagil" msprop:Generator_RowChangedName="GEN_ProductosFinagilRowChanged" msprop:Generator_RowEvArgName="GEN_ProductosFinagilRowChangeEvent" msprop:Generator_RowClassName="GEN_ProductosFinagilRow">
+        <xs:element name="GEN_ProductosFinagil" msprop:Generator_TableClassName="GEN_ProductosFinagilDataTable" msprop:Generator_TableVarName="tableGEN_ProductosFinagil" msprop:Generator_RowChangedName="GEN_ProductosFinagilRowChanged" msprop:Generator_TablePropName="GEN_ProductosFinagil" msprop:Generator_RowDeletingName="GEN_ProductosFinagilRowDeleting" msprop:Generator_RowChangingName="GEN_ProductosFinagilRowChanging" msprop:Generator_RowEvHandlerName="GEN_ProductosFinagilRowChangeEventHandler" msprop:Generator_RowDeletedName="GEN_ProductosFinagilRowDeleted" msprop:Generator_RowClassName="GEN_ProductosFinagilRow" msprop:Generator_UserTableName="GEN_ProductosFinagil" msprop:Generator_RowEvArgName="GEN_ProductosFinagilRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Tipar" msprop:Generator_ColumnVarNameInTable="columnTipar" msprop:Generator_ColumnPropNameInRow="Tipar" msprop:Generator_ColumnPropNameInTable="TiparColumn" msprop:Generator_UserColumnName="Tipar">
@@ -8231,7 +8431,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_descuentoSA" msprop:Generator_TableClassName="vw_descuentoSADataTable" msprop:Generator_TableVarName="tablevw_descuentoSA" msprop:Generator_TablePropName="vw_descuentoSA" msprop:Generator_RowDeletingName="vw_descuentoSARowDeleting" msprop:Generator_RowChangingName="vw_descuentoSARowChanging" msprop:Generator_RowEvHandlerName="vw_descuentoSARowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentoSARowDeleted" msprop:Generator_UserTableName="vw_descuentoSA" msprop:Generator_RowChangedName="vw_descuentoSARowChanged" msprop:Generator_RowEvArgName="vw_descuentoSARowChangeEvent" msprop:Generator_RowClassName="vw_descuentoSARow">
+        <xs:element name="vw_descuentoSA" msprop:Generator_TableClassName="vw_descuentoSADataTable" msprop:Generator_TableVarName="tablevw_descuentoSA" msprop:Generator_RowChangedName="vw_descuentoSARowChanged" msprop:Generator_TablePropName="vw_descuentoSA" msprop:Generator_RowDeletingName="vw_descuentoSARowDeleting" msprop:Generator_RowChangingName="vw_descuentoSARowChanging" msprop:Generator_RowEvHandlerName="vw_descuentoSARowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentoSARowDeleted" msprop:Generator_RowClassName="vw_descuentoSARow" msprop:Generator_UserTableName="vw_descuentoSA" msprop:Generator_RowEvArgName="vw_descuentoSARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Ciclo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCiclo" msprop:Generator_ColumnPropNameInRow="Ciclo" msprop:Generator_ColumnPropNameInTable="CicloColumn" msprop:Generator_UserColumnName="Ciclo" minOccurs="0">
@@ -8643,7 +8843,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vw_Anexos1" msprop:Generator_TableClassName="Vw_Anexos1DataTable" msprop:Generator_TableVarName="tableVw_Anexos1" msprop:Generator_RowChangedName="Vw_Anexos1RowChanged" msprop:Generator_TablePropName="Vw_Anexos1" msprop:Generator_RowDeletingName="Vw_Anexos1RowDeleting" msprop:Generator_RowChangingName="Vw_Anexos1RowChanging" msprop:Generator_RowEvHandlerName="Vw_Anexos1RowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_Anexos1RowDeleted" msprop:Generator_RowClassName="Vw_Anexos1Row" msprop:Generator_UserTableName="Vw_Anexos1" msprop:Generator_RowEvArgName="Vw_Anexos1RowChangeEvent">
+        <xs:element name="Vw_Anexos1" msprop:Generator_TableClassName="Vw_Anexos1DataTable" msprop:Generator_TableVarName="tableVw_Anexos1" msprop:Generator_TablePropName="Vw_Anexos1" msprop:Generator_RowDeletingName="Vw_Anexos1RowDeleting" msprop:Generator_RowChangingName="Vw_Anexos1RowChanging" msprop:Generator_RowEvHandlerName="Vw_Anexos1RowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_Anexos1RowDeleted" msprop:Generator_UserTableName="Vw_Anexos1" msprop:Generator_RowChangedName="Vw_Anexos1RowChanged" msprop:Generator_RowEvArgName="Vw_Anexos1RowChangeEvent" msprop:Generator_RowClassName="Vw_Anexos1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -8925,7 +9125,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_reestructura" msprop:Generator_TableClassName="CONT_CPF_reestructuraDataTable" msprop:Generator_TableVarName="tableCONT_CPF_reestructura" msprop:Generator_RowChangedName="CONT_CPF_reestructuraRowChanged" msprop:Generator_TablePropName="CONT_CPF_reestructura" msprop:Generator_RowDeletingName="CONT_CPF_reestructuraRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_reestructuraRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_reestructuraRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_reestructuraRowDeleted" msprop:Generator_RowClassName="CONT_CPF_reestructuraRow" msprop:Generator_UserTableName="CONT_CPF_reestructura" msprop:Generator_RowEvArgName="CONT_CPF_reestructuraRowChangeEvent">
+        <xs:element name="CONT_CPF_reestructura" msprop:Generator_TableClassName="CONT_CPF_reestructuraDataTable" msprop:Generator_TableVarName="tableCONT_CPF_reestructura" msprop:Generator_TablePropName="CONT_CPF_reestructura" msprop:Generator_RowDeletingName="CONT_CPF_reestructuraRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_reestructuraRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_reestructuraRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_reestructuraRowDeleted" msprop:Generator_UserTableName="CONT_CPF_reestructura" msprop:Generator_RowChangedName="CONT_CPF_reestructuraRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_reestructuraRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_reestructuraRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_reestructura" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_reestructura" msprop:Generator_ColumnPropNameInRow="id_reestructura" msprop:Generator_ColumnPropNameInTable="id_reestructuraColumn" msprop:Generator_UserColumnName="id_reestructura" type="xs:decimal" />
@@ -8934,7 +9134,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_vencimiento_interes" msprop:Generator_TableClassName="CONT_CPF_vencimiento_interesDataTable" msprop:Generator_TableVarName="tableCONT_CPF_vencimiento_interes" msprop:Generator_RowChangedName="CONT_CPF_vencimiento_interesRowChanged" msprop:Generator_TablePropName="CONT_CPF_vencimiento_interes" msprop:Generator_RowDeletingName="CONT_CPF_vencimiento_interesRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_vencimiento_interesRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_vencimiento_interesRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_vencimiento_interesRowDeleted" msprop:Generator_RowClassName="CONT_CPF_vencimiento_interesRow" msprop:Generator_UserTableName="CONT_CPF_vencimiento_interes" msprop:Generator_RowEvArgName="CONT_CPF_vencimiento_interesRowChangeEvent">
+        <xs:element name="CONT_CPF_vencimiento_interes" msprop:Generator_TableClassName="CONT_CPF_vencimiento_interesDataTable" msprop:Generator_TableVarName="tableCONT_CPF_vencimiento_interes" msprop:Generator_TablePropName="CONT_CPF_vencimiento_interes" msprop:Generator_RowDeletingName="CONT_CPF_vencimiento_interesRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_vencimiento_interesRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_vencimiento_interesRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_vencimiento_interesRowDeleted" msprop:Generator_UserTableName="CONT_CPF_vencimiento_interes" msprop:Generator_RowChangedName="CONT_CPF_vencimiento_interesRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_vencimiento_interesRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_vencimiento_interesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_vencimiento_int" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_vencimiento_int" msprop:Generator_ColumnPropNameInRow="id_vencimiento_int" msprop:Generator_ColumnPropNameInTable="id_vencimiento_intColumn" msprop:Generator_UserColumnName="id_vencimiento_int" type="xs:int" />
@@ -8944,7 +9144,7 @@ WHERE        (fecha = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_CierreContable" msprop:Generator_TableClassName="CONT_CPF_CierreContableDataTable" msprop:Generator_TableVarName="tableCONT_CPF_CierreContable" msprop:Generator_TablePropName="CONT_CPF_CierreContable" msprop:Generator_RowDeletingName="CONT_CPF_CierreContableRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_CierreContableRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_CierreContableRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_CierreContableRowDeleted" msprop:Generator_UserTableName="CONT_CPF_CierreContable" msprop:Generator_RowChangedName="CONT_CPF_CierreContableRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_CierreContableRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_CierreContableRow">
+        <xs:element name="CONT_CPF_CierreContable" msprop:Generator_TableClassName="CONT_CPF_CierreContableDataTable" msprop:Generator_TableVarName="tableCONT_CPF_CierreContable" msprop:Generator_RowChangedName="CONT_CPF_CierreContableRowChanged" msprop:Generator_TablePropName="CONT_CPF_CierreContable" msprop:Generator_RowDeletingName="CONT_CPF_CierreContableRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_CierreContableRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_CierreContableRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_CierreContableRowDeleted" msprop:Generator_RowClassName="CONT_CPF_CierreContableRow" msprop:Generator_UserTableName="CONT_CPF_CierreContable" msprop:Generator_RowEvArgName="CONT_CPF_CierreContableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_cierre_contable" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_cierre_contable" msprop:Generator_ColumnPropNameInRow="id_cierre_contable" msprop:Generator_ColumnPropNameInTable="id_cierre_contableColumn" msprop:Generator_UserColumnName="id_cierre_contable" type="xs:int" />
@@ -8957,6 +9157,55 @@ WHERE        (fecha = ?)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CONT_CPF_cierremes" msprop:Generator_TableClassName="CONT_CPF_cierremesDataTable" msprop:Generator_TableVarName="tableCONT_CPF_cierremes" msprop:Generator_TablePropName="CONT_CPF_cierremes" msprop:Generator_RowDeletingName="CONT_CPF_cierremesRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_cierremesRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_cierremesRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_cierremesRowDeleted" msprop:Generator_UserTableName="CONT_CPF_cierremes" msprop:Generator_RowChangedName="CONT_CPF_cierremesRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_cierremesRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_cierremesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cierremes" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_cierremes" msprop:Generator_ColumnPropNameInRow="id_cierremes" msprop:Generator_ColumnPropNameInTable="id_cierremesColumn" msprop:Generator_UserColumnName="id_cierremes" type="xs:int" />
+              <xs:element name="fecha_corte" msprop:Generator_ColumnVarNameInTable="columnfecha_corte" msprop:Generator_ColumnPropNameInRow="fecha_corte" msprop:Generator_ColumnPropNameInTable="fecha_corteColumn" msprop:Generator_UserColumnName="fecha_corte" type="xs:dateTime" />
+              <xs:element name="capital_vigente" msprop:Generator_ColumnVarNameInTable="columncapital_vigente" msprop:Generator_ColumnPropNameInRow="capital_vigente" msprop:Generator_ColumnPropNameInTable="capital_vigenteColumn" msprop:Generator_UserColumnName="capital_vigente" type="xs:decimal" />
+              <xs:element name="saldo_financiado" msprop:Generator_ColumnVarNameInTable="columnsaldo_financiado" msprop:Generator_ColumnPropNameInRow="saldo_financiado" msprop:Generator_ColumnPropNameInTable="saldo_financiadoColumn" msprop:Generator_UserColumnName="saldo_financiado" type="xs:decimal" />
+              <xs:element name="intereses" msprop:Generator_ColumnVarNameInTable="columnintereses" msprop:Generator_ColumnPropNameInRow="intereses" msprop:Generator_ColumnPropNameInTable="interesesColumn" msprop:Generator_UserColumnName="intereses" type="xs:decimal" />
+              <xs:element name="subsidio" msprop:Generator_ColumnVarNameInTable="columnsubsidio" msprop:Generator_ColumnPropNameInRow="subsidio" msprop:Generator_ColumnPropNameInTable="subsidioColumn" msprop:Generator_UserColumnName="subsidio" type="xs:boolean" />
+              <xs:element name="id_credito" msprop:Generator_ColumnVarNameInTable="columnid_credito" msprop:Generator_ColumnPropNameInRow="id_credito" msprop:Generator_ColumnPropNameInTable="id_creditoColumn" msprop:Generator_UserColumnName="id_credito" type="xs:int" />
+              <xs:element name="id_contrato" msprop:Generator_ColumnVarNameInTable="columnid_contrato" msprop:Generator_ColumnPropNameInRow="id_contrato" msprop:Generator_ColumnPropNameInTable="id_contratoColumn" msprop:Generator_UserColumnName="id_contrato" type="xs:int" minOccurs="0" />
+              <xs:element name="divisa" msprop:Generator_ColumnVarNameInTable="columndivisa" msprop:Generator_ColumnPropNameInRow="divisa" msprop:Generator_ColumnPropNameInTable="divisaColumn" msprop:Generator_UserColumnName="divisa" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CONT_CPF_cierre_diario" msprop:Generator_TableClassName="CONT_CPF_cierre_diarioDataTable" msprop:Generator_TableVarName="tableCONT_CPF_cierre_diario" msprop:Generator_RowChangedName="CONT_CPF_cierre_diarioRowChanged" msprop:Generator_TablePropName="CONT_CPF_cierre_diario" msprop:Generator_RowDeletingName="CONT_CPF_cierre_diarioRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_cierre_diarioRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_cierre_diarioRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_cierre_diarioRowDeleted" msprop:Generator_RowClassName="CONT_CPF_cierre_diarioRow" msprop:Generator_UserTableName="CONT_CPF_cierre_diario" msprop:Generator_RowEvArgName="CONT_CPF_cierre_diarioRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_cierre_diario" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_cierre_diario" msprop:Generator_ColumnPropNameInRow="id_cierre_diario" msprop:Generator_ColumnPropNameInTable="id_cierre_diarioColumn" msprop:Generator_UserColumnName="id_cierre_diario" type="xs:int" />
+              <xs:element name="id_credito" msprop:Generator_ColumnVarNameInTable="columnid_credito" msprop:Generator_ColumnPropNameInRow="id_credito" msprop:Generator_ColumnPropNameInTable="id_creditoColumn" msprop:Generator_UserColumnName="id_credito" type="xs:int" minOccurs="0" />
+              <xs:element name="divisa" msprop:Generator_ColumnVarNameInTable="columndivisa" msprop:Generator_ColumnPropNameInRow="divisa" msprop:Generator_ColumnPropNameInTable="divisaColumn" msprop:Generator_UserColumnName="divisa" type="xs:int" minOccurs="0" />
+              <xs:element name="fecha_descuento" msprop:Generator_ColumnVarNameInTable="columnfecha_descuento" msprop:Generator_ColumnPropNameInRow="fecha_descuento" msprop:Generator_ColumnPropNameInTable="fecha_descuentoColumn" msprop:Generator_UserColumnName="fecha_descuento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_inicial" msprop:Generator_ColumnVarNameInTable="columnfecha_inicial" msprop:Generator_ColumnPropNameInRow="fecha_inicial" msprop:Generator_ColumnPropNameInTable="fecha_inicialColumn" msprop:Generator_UserColumnName="fecha_inicial" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecha_final" msprop:Generator_ColumnVarNameInTable="columnfecha_final" msprop:Generator_ColumnPropNameInRow="fecha_final" msprop:Generator_ColumnPropNameInTable="fecha_finalColumn" msprop:Generator_UserColumnName="fecha_final" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="concepto" msprop:Generator_ColumnVarNameInTable="columnconcepto" msprop:Generator_ColumnPropNameInRow="concepto" msprop:Generator_ColumnPropNameInTable="conceptoColumn" msprop:Generator_UserColumnName="concepto" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="importe_cargo" msprop:Generator_ColumnVarNameInTable="columnimporte_cargo" msprop:Generator_ColumnPropNameInRow="importe_cargo" msprop:Generator_ColumnPropNameInTable="importe_cargoColumn" msprop:Generator_UserColumnName="importe_cargo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="importe_abono" msprop:Generator_ColumnVarNameInTable="columnimporte_abono" msprop:Generator_ColumnPropNameInRow="importe_abono" msprop:Generator_ColumnPropNameInTable="importe_abonoColumn" msprop:Generator_UserColumnName="importe_abono" type="xs:decimal" minOccurs="0" />
+              <xs:element name="iva_cargo" msprop:Generator_ColumnVarNameInTable="columniva_cargo" msprop:Generator_ColumnPropNameInRow="iva_cargo" msprop:Generator_ColumnPropNameInTable="iva_cargoColumn" msprop:Generator_UserColumnName="iva_cargo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="iva_abono" msprop:Generator_ColumnVarNameInTable="columniva_abono" msprop:Generator_ColumnPropNameInRow="iva_abono" msprop:Generator_ColumnPropNameInTable="iva_abonoColumn" msprop:Generator_UserColumnName="iva_abono" type="xs:decimal" minOccurs="0" />
+              <xs:element name="archivo" msprop:Generator_ColumnVarNameInTable="columnarchivo" msprop:Generator_ColumnPropNameInRow="archivo" msprop:Generator_ColumnPropNameInTable="archivoColumn" msprop:Generator_UserColumnName="archivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_contrato" msprop:Generator_ColumnVarNameInTable="columnid_contrato" msprop:Generator_ColumnPropNameInRow="id_contrato" msprop:Generator_ColumnPropNameInTable="id_contratoColumn" msprop:Generator_UserColumnName="id_contrato" type="xs:int" minOccurs="0" />
+              <xs:element name="fecha_cierre" msprop:Generator_ColumnVarNameInTable="columnfecha_cierre" msprop:Generator_ColumnPropNameInRow="fecha_cierre" msprop:Generator_ColumnPropNameInTable="fecha_cierreColumn" msprop:Generator_UserColumnName="fecha_cierre" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="estatus" msprop:Generator_ColumnVarNameInTable="columnestatus" msprop:Generator_ColumnPropNameInRow="estatus" msprop:Generator_ColumnPropNameInTable="estatusColumn" msprop:Generator_UserColumnName="estatus" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -9118,7 +9367,7 @@ WHERE        (fecha = ?)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_CONT_CPF_subramas_CONT_CPF_ramas" msdata:parent="CONT_CPF_ramas" msdata:child="CONT_CPF_subramas" msdata:parentkey="id_rama" msdata:childkey="id_rama" msprop:Generator_UserChildTable="CONT_CPF_subramas" msprop:Generator_ChildPropName="GetCONT_CPF_subramasRows" msprop:Generator_UserRelationName="FK_CONT_CPF_subramas_CONT_CPF_ramas" msprop:Generator_ParentPropName="CONT_CPF_ramasRow" msprop:Generator_RelationVarName="relationFK_CONT_CPF_subramas_CONT_CPF_ramas" msprop:Generator_UserParentTable="CONT_CPF_ramas" />
+      <msdata:Relationship name="FK_CONT_CPF_subramas_CONT_CPF_ramas" msdata:parent="CONT_CPF_ramas" msdata:child="CONT_CPF_subramas" msdata:parentkey="id_rama" msdata:childkey="id_rama" msprop:Generator_UserChildTable="CONT_CPF_subramas" msprop:Generator_ChildPropName="GetCONT_CPF_subramasRows" msprop:Generator_UserRelationName="FK_CONT_CPF_subramas_CONT_CPF_ramas" msprop:Generator_RelationVarName="relationFK_CONT_CPF_subramas_CONT_CPF_ramas" msprop:Generator_UserParentTable="CONT_CPF_ramas" msprop:Generator_ParentPropName="CONT_CPF_ramasRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
