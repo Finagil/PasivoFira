@@ -181,7 +181,7 @@ Partial Class FrmImportaPagos
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "FrmImportaPagos"
-        Me.Text = "66666666666666666666t"
+        Me.Text = "IMPORTACION DE PAGOS"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosFiraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).EndInit()

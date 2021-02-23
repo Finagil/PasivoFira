@@ -2404,7 +2404,7 @@ WHERE        (Anexo = ?)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Importe" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Ministracion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMinistracion" msprop:Generator_ColumnPropNameInRow="Ministracion" msprop:Generator_ColumnPropNameInTable="MinistracionColumn" msprop:Generator_UserColumnName="Ministracion" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="Ministracion" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMinistracion" msprop:Generator_ColumnPropNameInRow="Ministracion" msprop:Generator_ColumnPropNameInTable="MinistracionColumn" msprop:Generator_UserColumnName="Ministracion" type="xs:unsignedByte" />
               <xs:element name="id_contrato" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid_contrato" msprop:Generator_ColumnPropNameInRow="id_contrato" msprop:Generator_ColumnPropNameInTable="id_contratoColumn" msprop:Generator_UserColumnName="id_contrato" type="xs:int" minOccurs="0" />
               <xs:element name="FechaPago" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaPago" msprop:Generator_ColumnPropNameInRow="FechaPago" msprop:Generator_ColumnPropNameInTable="FechaPagoColumn" msprop:Generator_UserColumnName="FechaPago" type="xs:dateTime" minOccurs="0" />
               <xs:element name="TasaIVACliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTasaIVACliente" msprop:Generator_ColumnPropNameInRow="TasaIVACliente" msprop:Generator_ColumnPropNameInTable="TasaIVAClienteColumn" msprop:Generator_UserColumnName="TasaIVACliente" type="xs:decimal" minOccurs="0" />
@@ -2641,7 +2641,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DescuentosTRA" msprop:Generator_TableClassName="DescuentosTRADataTable" msprop:Generator_TableVarName="tableDescuentosTRA" msprop:Generator_TablePropName="DescuentosTRA" msprop:Generator_RowDeletingName="DescuentosTRARowDeleting" msprop:Generator_RowChangingName="DescuentosTRARowChanging" msprop:Generator_RowEvHandlerName="DescuentosTRARowChangeEventHandler" msprop:Generator_RowDeletedName="DescuentosTRARowDeleted" msprop:Generator_UserTableName="DescuentosTRA" msprop:Generator_RowChangedName="DescuentosTRARowChanged" msprop:Generator_RowEvArgName="DescuentosTRARowChangeEvent" msprop:Generator_RowClassName="DescuentosTRARow">
+        <xs:element name="DescuentosTRA" msprop:Generator_TableClassName="DescuentosTRADataTable" msprop:Generator_TableVarName="tableDescuentosTRA" msprop:Generator_RowChangedName="DescuentosTRARowChanged" msprop:Generator_TablePropName="DescuentosTRA" msprop:Generator_RowDeletingName="DescuentosTRARowDeleting" msprop:Generator_RowChangingName="DescuentosTRARowChanging" msprop:Generator_RowEvHandlerName="DescuentosTRARowChangeEventHandler" msprop:Generator_RowDeletedName="DescuentosTRARowDeleted" msprop:Generator_RowClassName="DescuentosTRARow" msprop:Generator_UserTableName="DescuentosTRA" msprop:Generator_RowEvArgName="DescuentosTRARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -2678,7 +2678,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DiasFestivos" msprop:Generator_TableClassName="DiasFestivosDataTable" msprop:Generator_TableVarName="tableDiasFestivos" msprop:Generator_RowChangedName="DiasFestivosRowChanged" msprop:Generator_TablePropName="DiasFestivos" msprop:Generator_RowDeletingName="DiasFestivosRowDeleting" msprop:Generator_RowChangingName="DiasFestivosRowChanging" msprop:Generator_RowEvHandlerName="DiasFestivosRowChangeEventHandler" msprop:Generator_RowDeletedName="DiasFestivosRowDeleted" msprop:Generator_RowClassName="DiasFestivosRow" msprop:Generator_UserTableName="DiasFestivos" msprop:Generator_RowEvArgName="DiasFestivosRowChangeEvent">
+        <xs:element name="DiasFestivos" msprop:Generator_TableClassName="DiasFestivosDataTable" msprop:Generator_TableVarName="tableDiasFestivos" msprop:Generator_TablePropName="DiasFestivos" msprop:Generator_RowDeletingName="DiasFestivosRowDeleting" msprop:Generator_RowChangingName="DiasFestivosRowChanging" msprop:Generator_RowEvHandlerName="DiasFestivosRowChangeEventHandler" msprop:Generator_RowDeletedName="DiasFestivosRowDeleted" msprop:Generator_UserTableName="DiasFestivos" msprop:Generator_RowChangedName="DiasFestivosRowChanged" msprop:Generator_RowEvArgName="DiasFestivosRowChangeEvent" msprop:Generator_RowClassName="DiasFestivosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" />
@@ -2692,7 +2692,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="vw_descuentos" msprop:Generator_TableClassName="vw_descuentosDataTable" msprop:Generator_TableVarName="tablevw_descuentos" msprop:Generator_TablePropName="vw_descuentos" msprop:Generator_RowDeletingName="vw_descuentosRowDeleting" msprop:Generator_RowChangingName="vw_descuentosRowChanging" msprop:Generator_RowEvHandlerName="vw_descuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentosRowDeleted" msprop:Generator_UserTableName="vw_descuentos" msprop:Generator_RowChangedName="vw_descuentosRowChanged" msprop:Generator_RowEvArgName="vw_descuentosRowChangeEvent" msprop:Generator_RowClassName="vw_descuentosRow">
+        <xs:element name="vw_descuentos" msprop:Generator_TableClassName="vw_descuentosDataTable" msprop:Generator_TableVarName="tablevw_descuentos" msprop:Generator_RowChangedName="vw_descuentosRowChanged" msprop:Generator_TablePropName="vw_descuentos" msprop:Generator_RowDeletingName="vw_descuentosRowDeleting" msprop:Generator_RowChangingName="vw_descuentosRowChanging" msprop:Generator_RowEvHandlerName="vw_descuentosRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_descuentosRowDeleted" msprop:Generator_RowClassName="vw_descuentosRow" msprop:Generator_UserTableName="vw_descuentos" msprop:Generator_RowEvArgName="vw_descuentosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AnexoCon" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnexoCon" msprop:Generator_ColumnPropNameInRow="AnexoCon" msprop:Generator_ColumnPropNameInTable="AnexoConColumn" msprop:Generator_UserColumnName="AnexoCon" minOccurs="0">
@@ -2973,7 +2973,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONT_CPF_GL" msprop:Generator_TableClassName="CONT_CPF_GLDataTable" msprop:Generator_TableVarName="tableCONT_CPF_GL" msprop:Generator_RowChangedName="CONT_CPF_GLRowChanged" msprop:Generator_TablePropName="CONT_CPF_GL" msprop:Generator_RowDeletingName="CONT_CPF_GLRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_GLRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_GLRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_GLRowDeleted" msprop:Generator_RowClassName="CONT_CPF_GLRow" msprop:Generator_UserTableName="CONT_CPF_GL" msprop:Generator_RowEvArgName="CONT_CPF_GLRowChangeEvent">
+        <xs:element name="CONT_CPF_GL" msprop:Generator_TableClassName="CONT_CPF_GLDataTable" msprop:Generator_TableVarName="tableCONT_CPF_GL" msprop:Generator_TablePropName="CONT_CPF_GL" msprop:Generator_RowDeletingName="CONT_CPF_GLRowDeleting" msprop:Generator_RowChangingName="CONT_CPF_GLRowChanging" msprop:Generator_RowEvHandlerName="CONT_CPF_GLRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_CPF_GLRowDeleted" msprop:Generator_UserTableName="CONT_CPF_GL" msprop:Generator_RowChangedName="CONT_CPF_GLRowChanged" msprop:Generator_RowEvArgName="CONT_CPF_GLRowChangeEvent" msprop:Generator_RowClassName="CONT_CPF_GLRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_gl" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_gl" msprop:Generator_ColumnPropNameInRow="id_gl" msprop:Generator_ColumnPropNameInTable="id_glColumn" msprop:Generator_UserColumnName="id_gl" type="xs:int" />
@@ -2981,7 +2981,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Anexos" msprop:Generator_TableClassName="AnexosDataTable" msprop:Generator_TableVarName="tableAnexos" msprop:Generator_RowChangedName="AnexosRowChanged" msprop:Generator_TablePropName="Anexos" msprop:Generator_RowDeletingName="AnexosRowDeleting" msprop:Generator_RowChangingName="AnexosRowChanging" msprop:Generator_RowEvHandlerName="AnexosRowChangeEventHandler" msprop:Generator_RowDeletedName="AnexosRowDeleted" msprop:Generator_RowClassName="AnexosRow" msprop:Generator_UserTableName="Anexos" msprop:Generator_RowEvArgName="AnexosRowChangeEvent">
+        <xs:element name="Anexos" msprop:Generator_TableClassName="AnexosDataTable" msprop:Generator_TableVarName="tableAnexos" msprop:Generator_TablePropName="Anexos" msprop:Generator_RowDeletingName="AnexosRowDeleting" msprop:Generator_RowChangingName="AnexosRowChanging" msprop:Generator_RowEvHandlerName="AnexosRowChangeEventHandler" msprop:Generator_RowDeletedName="AnexosRowDeleted" msprop:Generator_UserTableName="Anexos" msprop:Generator_RowChangedName="AnexosRowChanged" msprop:Generator_RowEvArgName="AnexosRowChangeEvent" msprop:Generator_RowClassName="AnexosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Anexo" msprop:Generator_ColumnVarNameInTable="columnAnexo" msprop:Generator_ColumnPropNameInRow="Anexo" msprop:Generator_ColumnPropNameInTable="AnexoColumn" msprop:Generator_UserColumnName="Anexo">
@@ -3467,7 +3467,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Avios" msprop:Generator_TableClassName="AviosDataTable" msprop:Generator_TableVarName="tableAvios" msprop:Generator_RowChangedName="AviosRowChanged" msprop:Generator_TablePropName="Avios" msprop:Generator_RowDeletingName="AviosRowDeleting" msprop:Generator_RowChangingName="AviosRowChanging" msprop:Generator_RowEvHandlerName="AviosRowChangeEventHandler" msprop:Generator_RowDeletedName="AviosRowDeleted" msprop:Generator_RowClassName="AviosRow" msprop:Generator_UserTableName="Avios" msprop:Generator_RowEvArgName="AviosRowChangeEvent">
+        <xs:element name="Avios" msprop:Generator_TableClassName="AviosDataTable" msprop:Generator_TableVarName="tableAvios" msprop:Generator_TablePropName="Avios" msprop:Generator_RowDeletingName="AviosRowDeleting" msprop:Generator_RowChangingName="AviosRowChanging" msprop:Generator_RowEvHandlerName="AviosRowChangeEventHandler" msprop:Generator_RowDeletedName="AviosRowDeleted" msprop:Generator_UserTableName="Avios" msprop:Generator_RowChangedName="AviosRowChanged" msprop:Generator_RowEvArgName="AviosRowChangeEvent" msprop:Generator_RowClassName="AviosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Ciclo" msprop:Generator_ColumnVarNameInTable="columnCiclo" msprop:Generator_ColumnPropNameInRow="Ciclo" msprop:Generator_ColumnPropNameInTable="CicloColumn" msprop:Generator_UserColumnName="Ciclo">
@@ -3901,7 +3901,7 @@ WHERE        (Anexo = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AnexosBloqueadosMC" msprop:Generator_TableClassName="AnexosBloqueadosMCDataTable" msprop:Generator_TableVarName="tableAnexosBloqueadosMC" msprop:Generator_TablePropName="AnexosBloqueadosMC" msprop:Generator_RowDeletingName="AnexosBloqueadosMCRowDeleting" msprop:Generator_RowChangingName="AnexosBloqueadosMCRowChanging" msprop:Generator_RowEvHandlerName="AnexosBloqueadosMCRowChangeEventHandler" msprop:Generator_RowDeletedName="AnexosBloqueadosMCRowDeleted" msprop:Generator_UserTableName="AnexosBloqueadosMC" msprop:Generator_RowChangedName="AnexosBloqueadosMCRowChanged" msprop:Generator_RowEvArgName="AnexosBloqueadosMCRowChangeEvent" msprop:Generator_RowClassName="AnexosBloqueadosMCRow">
+        <xs:element name="AnexosBloqueadosMC" msprop:Generator_TableClassName="AnexosBloqueadosMCDataTable" msprop:Generator_TableVarName="tableAnexosBloqueadosMC" msprop:Generator_RowChangedName="AnexosBloqueadosMCRowChanged" msprop:Generator_TablePropName="AnexosBloqueadosMC" msprop:Generator_RowDeletingName="AnexosBloqueadosMCRowDeleting" msprop:Generator_RowChangingName="AnexosBloqueadosMCRowChanging" msprop:Generator_RowEvHandlerName="AnexosBloqueadosMCRowChangeEventHandler" msprop:Generator_RowDeletedName="AnexosBloqueadosMCRowDeleted" msprop:Generator_RowClassName="AnexosBloqueadosMCRow" msprop:Generator_UserTableName="AnexosBloqueadosMC" msprop:Generator_RowEvArgName="AnexosBloqueadosMCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ANEXO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnANEXO" msprop:Generator_ColumnPropNameInRow="ANEXO" msprop:Generator_ColumnPropNameInTable="ANEXOColumn" msprop:Generator_UserColumnName="ANEXO" minOccurs="0">

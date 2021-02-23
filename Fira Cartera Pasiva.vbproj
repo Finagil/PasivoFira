@@ -260,6 +260,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PagosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Pagos\PagosDS.vb">
+      <DependentUpon>PagosDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Pagos_Cierre\frmPagoManual.Designer.vb">
       <DependentUpon>frmPagoManual.vb</DependentUpon>
     </Compile>

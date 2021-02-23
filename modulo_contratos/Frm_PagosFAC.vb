@@ -3,6 +3,10 @@ Public Class Frm_PagosFAC
     Public taCorreos As New FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
     Public LOTE As Integer
     Private Sub Frm_PagosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'PagosDS1.CONT_CPF_PagosFira' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_PagosFiraTableAdapter1.Fill(Me.PagosDS1.CONT_CPF_PagosFira)
+        'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_vencimientos' Puede moverla o quitarla según sea necesario.
+        Me.CONT_CPF_vencimientosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_vencimientos)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS3.CONT_CPF_FacturasERROR' Puede moverla o quitarla según sea necesario.
         'Me.CONT_CPF_FacturasERRORTableAdapter.FillFACTERROR(Me.FactorajeDS3.CONT_CPF_FacturasERROR)
         'TODO: esta línea de código carga datos en la tabla 'FactorajeDS3.WEB_Lotes' Puede moverla o quitarla según sea necesario.
@@ -46,6 +50,7 @@ Public Class Frm_PagosFAC
         Dim strStreamW As Stream = Nothing
         Dim strStreamWriter As StreamWriter = Nothing
         Dim ContenidoArchivo As String = Nothing
+        Dim adelantado As String
         ' Donde guardamos los paths de los archivos que vamos a estar utilizando ..
         Dim PathArchivo As String
         Dim i As Integer
@@ -72,7 +77,11 @@ Public Class Frm_PagosFAC
             End If
             monto = Me.DG_pagos.Item(2, Renglones).Value
             Dim fecha As Date = Me.DG_pagos.Item(3, Renglones).Value
-
+            If chk_adelantado.Checked = True Then
+                adelantado = "S"
+            Else
+                adelantado = "N"
+            End If
             'GENERAR ARCHIVO
             'creamos archivo 
             If contador = 1 Then
@@ -96,7 +105,7 @@ Public Class Frm_PagosFAC
 
 
                 strStreamWriter = New StreamWriter(strStreamW, System.Text.Encoding.Default) ' tipo de codificacion para escritura
-                strStreamWriter.WriteLine("id_credito" & "," & "monto" & "," & "fecha" & ",A" & ",N")
+                strStreamWriter.WriteLine("id_credito" & "," & "monto" & "," & "fecha" & ",A" & ",N" & ",S")
 
             End If
 
@@ -106,10 +115,10 @@ Public Class Frm_PagosFAC
             Dim id_credito As Integer = Me.CONT_CPF_contratosTableAdapter.IDCREDITOBYDOC(fac)
 
             If id_credito = 0 Then
-                strStreamWriter.WriteLine(fac & "," & monto & "," & fecha & ",A" & ",N")
+                strStreamWriter.WriteLine(fac & "," & monto & "," & fecha & ",A" & ",N" & ",S")
 
             Else
-                strStreamWriter.WriteLine(id_credito & "," & monto & "," & fecha & ",A" & ",N")
+                strStreamWriter.WriteLine(id_credito & "," & monto & "," & fecha & ",A" & ",N" & "," & adelantado)
 
             End If
 
@@ -183,9 +192,22 @@ Public Class Frm_PagosFAC
                     Me.CONT_CPF_PagosFiraTableAdapter.InsertQuery(id_contrato, fecha, monto, 0, fechapago, 0, id_credito, 0, 0)
                     procesado = procesado + 1
                 End If
+
+
+                If chk_adelantado.Checked = True Then
+
+                    'Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(monto, id_contrato, fecha)
+                    Me.CONT_CPF_vencimientosTableAdapter1.DeleteQuery(id_contrato)
+                    Me.CONT_CPF_vencimientosTableAdapter1.InsertVencimiento(fecha, monto, "01/01/1900", "VIGENTE", 0, id_contrato, 0)
+                    Me.CONT_CPF_PagosFiraTableAdapter1.UpdateQueryPROCESADO(id_contrato, fecha)
+                    Me.CONT_CPF_CalendariosRevisionTasaTableAdapter.InsertCalendario(id_contrato, fecha, 1, 0, 1, 1, 0)
+
+
+                End If
+
             End If
 
-            total_registros = total_registros + 1
+                total_registros = total_registros + 1
         Next
 
         Me.CONT_CPF_lotesTableAdapter.Updatelote_pagado(LOTE)
@@ -197,6 +219,10 @@ Public Class Frm_PagosFAC
     End Sub
 
     Private Sub txttotal_TextChanged(sender As Object, e As EventArgs) Handles txttotal.TextChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class

@@ -271,6 +271,10 @@ Public Class Frm_MinistracionesADD
 
     End Sub
 
+    Private Sub dt_solicitud_ValueChanged(sender As Object, e As EventArgs) Handles dt_solicitud.ValueChanged
+
+    End Sub
+
     Private Sub DataGridView1_DataMemberChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DataMemberChanged
         CArgadatos()
     End Sub

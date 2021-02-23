@@ -353,334 +353,368 @@ Public Class frm_pagos_cierre
             Dim fecha_archivo As String = Strings.Left(palabracortada, 8)
             Dim inteh As Integer = 1
 
+            'QUE NO LEA ARCHIVOS DE CIERRE
 
-            Dim contrato As Integer
+            Dim ARCHIVODIA As String
+            ARCHIVODIA = Strings.Left(file.Name, 6)
 
+            If ARCHIVODIA <> "CIERRE" Then
 
-            'LEER EL ARCHIVO DE SIIOF
-
-            fechat = dt_fecha.Text
-            fech_aux = Now
-            cont_obs = 0
-
-            FECHA1 = fechat.ToString("ddMMyyyy")
-            If FECHA1 = fecha_archivo Then
+                Dim contrato As Integer
 
 
-                lectura_archivo = lectura_archivo + 1
+                'LEER EL ARCHIVO DE SIIOF
+
+                fechat = dt_fecha.Text
+                fech_aux = Now
+                cont_obs = 0
+
+                FECHA1 = fechat.ToString("ddMMyyyy")
+                If FECHA1 = fecha_archivo Then
 
 
-                Dim Arch As New StreamReader(Ruta & file.Name)
+                    lectura_archivo = lectura_archivo + 1
 
-                Dim Linea As String = "Primera"
-                Dim CAD As String = ""
-                Dim cTipop As String = ""
-                Dim LineaX As String()
-                Dim doc As String
-                Dim existe As Boolean
-                If Directory.Exists("C:\logsPASIVO") = False Then ' si no existe la carpeta se crea
-                    Directory.CreateDirectory("C:\logsPASIVO")
-                End If
-                Dim filename As String = "C:\logsPASIVO\cierreDIARIO" & FECHA1 & ".log"
-                Dim sw As StreamWriter = AppendText(filename)
 
-                If ch_diario.Checked = True Then
-                    Me.CONT_CPF_vencimiento_interesTableAdapter.DeleteQuery(fechat)
-                End If
+                    Dim Arch As New StreamReader(Ruta & file.Name)
 
-                Dim cuenta As Integer = Me.CONT_CPF_cierre_diarioTableAdapter.ScalarQuery(file.Name) 'NO DUPLICAR ARCHIVO
+                    Dim Linea As String = "Primera"
+                    Dim CAD As String = ""
+                    Dim cTipop As String = ""
+                    Dim LineaX As String()
+                    Dim doc As String
+                    Dim existe As Boolean
+                    If Directory.Exists("C:\logsPASIVO") = False Then ' si no existe la carpeta se crea
+                        Directory.CreateDirectory("C:\logsPASIVO")
+                    End If
+                    Dim filename As String = "C:\logsPASIVO\cierreDIARIO" & FECHA1 & ".log"
+                    Dim sw As StreamWriter = AppendText(filename)
 
-                If cuenta = 0 Then
+                    If ch_diario.Checked = True Then
+                        Me.CONT_CPF_vencimiento_interesTableAdapter.DeleteQuery(fechat)
+                    End If
 
-                    While Not Arch.EndOfStream
-                        ' diferencia = False
+                    Dim cuenta As Integer = Me.CONT_CPF_cierre_diarioTableAdapter.ScalarQuery(file.Name) 'NO DUPLICAR ARCHIVO
 
-                        CAD = ""
-                        If Linea = "Primera" Then
-                            Linea = Arch.ReadLine
-                        End If
-                        Linea = Arch.ReadLine
-                        For X As Integer = 1 To Linea.Length
-                            If Mid(Linea, X, 1) <> """" Then
-                                CAD = CAD & Mid(Linea, X, 1)
+                    If cuenta = 0 Then
+
+                        While Not Arch.EndOfStream
+                            ' diferencia = False
+
+                            CAD = ""
+                            If Linea = "Primera" Then
+                                Linea = Arch.ReadLine
                             End If
-                        Next
-                        Linea = CAD
-                        LineaX = Linea.Split(vbTab)
+                            Linea = Arch.ReadLine
+                            For X As Integer = 1 To Linea.Length
+                                If Mid(Linea, X, 1) <> """" Then
+                                    CAD = CAD & Mid(Linea, X, 1)
+                                End If
+                            Next
+                            Linea = CAD
+                            LineaX = Linea.Split(vbTab)
 
 
-                        Dim idcredito As Integer
-                        If Trim(LineaX(20)) <> "" Then
+                            Dim idcredito As Integer
+                            If Trim(LineaX(20)) <> "" Then
 
 
-                            idcredito = Trim(LineaX(20))
+                                idcredito = Trim(LineaX(20))
 
-                            contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(idcredito)
-                            ' contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(Trim(LineaX(8)))
+                                contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(idcredito)
+                                ' contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(Trim(LineaX(8)))
 
-                            If contrato = 0 Then 'BUSCAR POR ID_SUSTITUCION  SE EJERCIO GARANTÍA
-                                contrato = Me.CONT_CPF_contratosTableAdapter.idcontratoBYIDSUSTITUCION(idcredito)
+                                If contrato = 0 Then 'BUSCAR POR ID_SUSTITUCION  SE EJERCIO GARANTÍA
+                                    contrato = Me.CONT_CPF_contratosTableAdapter.idcontratoBYIDSUSTITUCION(idcredito)
 
-                                If contrato = 0 Then
-                                    estatus_contrato = False
+                                    If contrato = 0 Then
+                                        estatus_contrato = False
+                                    Else
+                                        estatus_contrato = True
+                                    End If
                                 Else
                                     estatus_contrato = True
+
                                 End If
-                            Else
-                                estatus_contrato = True
 
-                            End If
+                                Dim divisa As Integer  'F
 
-                            Dim divisa As Integer  'F
+                                If Trim(LineaX(5)) = "DOLARES" Then
+                                    divisa = 2
+                                Else
+                                    divisa = 1
+                                End If
 
-                            If Trim(LineaX(5)) = "DOLARES" Then
-                                divisa = 2
-                            Else
-                                divisa = 1
-                            End If
+                                ' Dim fecha_inicial As String = Trim(LineaX(28)) 'AC
+                                '  Dim TestString As String = "Shopping List"
+                                ' Returns "Shipping List".  
+                                Dim fecha_inicial As String
 
-                            Dim fecha_inicial As String = Trim(LineaX(28)) 'AC
-                            Dim fecha_final As String = "01/01/1900" 'AD
-                            Dim concepto As Integer
-                            If Trim(LineaX(45)) <> "" Then
-                                concepto = Trim(LineaX(45)) 'AT
-                            Else
-                                concepto = 0 'AT
-                            End If
+                                fecha_inicial = Trim(LineaX(28))
+                                fecha_inicial = fecha_inicial.Replace("ene", "01")
+                                fecha_inicial = fecha_inicial.Replace("feb", "02")
+                                fecha_inicial = fecha_inicial.Replace("mar", "03")
+                                fecha_inicial = fecha_inicial.Replace("abr", "04")
+                                fecha_inicial = fecha_inicial.Replace("may", "05")
+                                fecha_inicial = fecha_inicial.Replace("jun", "06")
+                                fecha_inicial = fecha_inicial.Replace("jul", "07")
+                                fecha_inicial = fecha_inicial.Replace("ago", "08")
+                                fecha_inicial = fecha_inicial.Replace("sep", "09")
+                                fecha_inicial = fecha_inicial.Replace("oct", "10")
+                                fecha_inicial = fecha_inicial.Replace("nov", "11")
+                                fecha_inicial = fecha_inicial.Replace("dic", "12")
+                                Dim fecha_final As String = "01/01/1900" 'AD
+                                Dim concepto As Integer
+                                If Trim(LineaX(45)) <> "" Then
+                                    concepto = Trim(LineaX(45)) 'AT
+                                Else
+                                    concepto = 0 'AT
+                                End If
 
-                            Dim descripcion As String = Trim(LineaX(46)) 'AU
-                            Dim importe_cargo As Decimal
-                            Dim importe_abono As Decimal
-                            Dim iva_cargo As Decimal
-                            Dim iva_abono As Decimal
+                                Dim descripcion As String = Trim(LineaX(46)) 'AU
+                                Dim importe_cargo As Decimal
+                                Dim importe_abono As Decimal
+                                Dim iva_cargo As Decimal
+                                Dim iva_abono As Decimal
 
-                            ' Dim concepto = Trim(LineaX(19))
-                            If Trim(LineaX(49)) = "" Then
-                                importe_cargo = 0
-                            Else
-                                importe_cargo = CDec(Trim(LineaX(49)))
-                            End If
-                            If Trim(LineaX(50)) = "" Then
-                                importe_abono = 0
-                            Else
-                                importe_abono = CDec(Trim(LineaX(50)))
-                            End If
-                            If Trim(LineaX(51)) = "" Then
-                                iva_cargo = 0
-                            Else
-                                iva_cargo = CDec(Trim(LineaX(51)))
-                            End If
-                            If Trim(LineaX(52)) = "" Then
-                                iva_abono = 0
-                            Else
-                                iva_abono = CDec(Trim(LineaX(52)))
-                            End If
-
-
-
-
-                            Me.CONT_CPF_cierre_diarioTableAdapter.InsertQuery(idcredito, divisa, fechat, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, file.Name, contrato, estatus_contrato)
-
-                            'CAMBIAR CXS Y VENCIMIENTOS DE CAPITAL E INTERESES
-
-                            If contrato <> 0 Then
-
-                                Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
-                                Dim csg = Me.CONT_CPF_contratosTableAdapter.cxsg(contrato)
-
-                                If id_cont_gar <> 0 Then
+                                ' Dim concepto = Trim(LineaX(19))
+                                If Trim(LineaX(49)) = "" Then
+                                    importe_cargo = 0
+                                Else
+                                    importe_cargo = CDec(Trim(LineaX(49)))
+                                End If
+                                If Trim(LineaX(50)) = "" Then
+                                    importe_abono = 0
+                                Else
+                                    importe_abono = CDec(Trim(LineaX(50)))
+                                End If
+                                If Trim(LineaX(51)) = "" Then
+                                    iva_cargo = 0
+                                Else
+                                    iva_cargo = CDec(Trim(LineaX(51)))
+                                End If
+                                If Trim(LineaX(52)) = "" Then
+                                    iva_abono = 0
+                                Else
+                                    iva_abono = CDec(Trim(LineaX(52)))
+                                End If
 
 
-                                    ''''
 
-                                    If (concepto = 16) And importe_cargo > 0 Then 'COBRO POR SERVICIO
 
-                                        Dim id_csg As Integer = Me.CONT_CPF_csgTableAdapter.saca_idcsg(id_cont_gar)
-                                        If id_csg = 0 Then
-                                            Dim ii As Integer = 1
+                                Me.CONT_CPF_cierre_diarioTableAdapter.InsertQuery(idcredito, divisa, fechat, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, file.Name, contrato, estatus_contrato)
+
+                                'CAMBIAR CXS Y VENCIMIENTOS DE CAPITAL E INTERESES
+
+                                If contrato <> 0 Then
+
+                                    Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
+                                    Dim csg = Me.CONT_CPF_contratosTableAdapter.cxsg(contrato)
+
+                                    If id_cont_gar <> 0 Then
+
+
+                                        ''''
+
+                                        If (concepto = 16) And importe_cargo > 0 Then 'COBRO POR SERVICIO
+
+                                            Dim id_csg As Integer = Me.CONT_CPF_csgTableAdapter.saca_idcsg(id_cont_gar)
+                                            If id_csg = 0 Then
+                                                Dim ii As Integer = 1
+                                            End If
+
+
+                                            If id_csg <> 0 Then
+
+                                                Me.CONT_CPF_csgTableAdapter.DeleteQuery(fechat, importe_cargo, id_cont_gar)
+                                                Me.CONT_CPF_csgTableAdapter.Insertcsgcierre(fechat, fechat, importe_cargo, iva_cargo, csg, id_cont_gar)
+
+                                            End If
                                         End If
 
 
-                                        If id_csg <> 0 Then
+                                    Else
+                                        'mandar aviso que den de alta contrato garantia
 
-                                            Me.CONT_CPF_csgTableAdapter.DeleteQuery(fechat, importe_cargo, id_cont_gar)
-                                            Me.CONT_CPF_csgTableAdapter.Insertcsgcierre(fechat, fechat, importe_cargo, iva_cargo, csg, id_cont_gar)
-
-                                        End If
                                     End If
+
+                                    'DAR DE ALTA VENCIMIENTOS DE INTERES
+
+
+
+                                    If (concepto = 10) And importe_cargo > 0 Then  ' PAGO DE CAPITAL
+                                        Dim vencimiento As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientofecha(fechat, contrato)
+                                        If vencimiento > 0 Then
+
+
+                                            Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
+
+                                            If capital <> importe_cargo Then
+
+                                                Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(importe_cargo, contrato, fechat)
+
+                                            End If
+                                        Else
+                                            Dim CONTARven As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(contrato)
+                                            If CONTARven = 1 Then
+                                                Me.CONT_CPF_vencimientosTableAdapter.Deletevencimiento(contrato)
+
+                                            End If
+
+                                            Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fechat, importe_cargo, "05/01/1900", "VIGENTE", 0, contrato)
+                                            'MENSAJE = MENSAJE & "EL CONTRATO" & contrato & " NO TENIA VENCIMIENTO  AL DIA " & fechat & " SE DIO DE ALTA POR " & importe & "<br>"
+
+                                        End If
+
+                                    End If
+
+                                    If (concepto = 11) And importe_cargo > 0 Then  ' PAGO DE INTERESES AUTOMATICOS
+
+                                        Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, importe_cargo, contrato)
+
+                                    End If
+
+                                    If (concepto = 501) And importe_cargo > 0 Then  ' PAGO DE INTERESES POR REFINANCIAMIENTO
+
+                                        Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, importe_cargo, contrato)
+
+                                    End If
+
+
 
 
                                 Else
-                                    'mandar aviso que den de alta contrato garantia
+                                    'mandar aviso que no se ha dado de alta
 
-                                End If
-
-                                'DAR DE ALTA VENCIMIENTOS DE INTERES
-
-
-
-                                If (concepto = 10) And importe_cargo > 0 Then  ' PAGO DE CAPITAL
-                                    Dim vencimiento As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientofecha(fechat, contrato)
-                                    If vencimiento > 0 Then
-
-
-                                        Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
-
-                                        If capital <> importe_cargo Then
-
-                                            Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(importe_cargo, contrato, fechat)
-
-                                        End If
-                                    Else
-                                        Dim CONTARven As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(contrato)
-                                        If CONTARven = 1 Then
-                                            Me.CONT_CPF_vencimientosTableAdapter.Deletevencimiento(contrato)
-
-                                        End If
-
-                                        Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fechat, importe_cargo, "05/01/1900", "VIGENTE", 0, contrato)
-                                        'MENSAJE = MENSAJE & "EL CONTRATO" & contrato & " NO TENIA VENCIMIENTO  AL DIA " & fechat & " SE DIO DE ALTA POR " & importe & "<br>"
-
-                                    End If
-
-                                End If
-
-                                If (concepto = 11) And importe_cargo > 0 Then  ' PAGO DE INTERESES AUTOMATICOS
-
-                                    Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, importe_cargo, contrato)
-
-                                End If
-
-                                If (concepto = 501) And importe_cargo > 0 Then  ' PAGO DE INTERESES POR REFINANCIAMIENTO
-
-                                    Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, importe_cargo, contrato)
+                                    sw.WriteLine(FECHA1 & " " & "No se ha cargado el id_credito " & idcredito)
+                                    cont_obs = cont_obs + 1
 
                                 End If
 
 
-
-
-                            Else
-                                'mandar aviso que no se ha dado de alta
-
-                                sw.WriteLine(FECHA1 & " " & "No se ha cargado el id_credito " & idcredito)
-                                cont_obs = cont_obs + 1
 
                             End If
 
 
+                        End While
+
+
+
+                    Else 'CUANDO YA ESTA leido el archivo Y EL DIA ESTA PENDIENTE POR CERRAR
+
+                        estatus = Me.CONT_CPF_CierreContableTableAdapter.Scalarestatus(fechat)
+
+                        If estatus = True Then ' SI ESTA EN OK EL CIERRE DE HOY NO SE PUEDE CERRAR NUEVAMENTE
+                            MessageBox.Show("El cierre del día " & fechat & " Ya se cerró correctamente anteriormente ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            Exit Sub
+
+                        Else 'VOY A LEER TODO LO DEL CIERRE QUE NO SE HA CARGADO
+                            If CONT_CPF_cierre_diarioTableAdapter.GetDataBy2(fechat).Rows.Count = 0 Then
+                                estatus = True
+                                ' MessageBox.Show("El cierre del día " & fechat & " Ya se cerró correctamente anteriormente ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                'Exit Sub
+                            Else
+
+
+
+                                For Each row As DataRow In CONT_CPF_cierre_diarioTableAdapter.GetDataBy2(fechat) 'TRAER TODOS LOS CONTRATOS QUE NO SE HAN CARGADO
+
+                                    contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(row("id_credito"))
+
+
+                                    If contrato <> 0 Then
+
+                                        estatus_contrato = True
+                                        Me.CONT_CPF_cierre_diarioTableAdapter.UpdateQContrato(estatus_contrato, contrato, row("id_credito"))
+
+                                        Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
+                                        Dim csg = Me.CONT_CPF_contratosTableAdapter.cxsg(contrato)
+
+                                        If id_cont_gar <> 0 Then
+
+
+                                            ''''
+
+                                            If (row("concepto") = 16) And row("importe_cargo") > 0 Then 'COBRO POR SERVICIO
+
+                                                Dim id_csg As Integer = Me.CONT_CPF_csgTableAdapter.saca_idcsg(id_cont_gar)
+                                                If id_csg = 0 Then
+                                                    Dim ii As Integer = 1
+                                                End If
+
+
+                                                If id_csg <> 0 Then
+
+                                                    Me.CONT_CPF_csgTableAdapter.DeleteQuery(fechat, row("importe_cargo"), id_cont_gar)
+                                                    Me.CONT_CPF_csgTableAdapter.Insertcsgcierre(fechat, fechat, row("importe_cargo"), row("iva_cargo"), csg, id_cont_gar)
+
+                                                End If
+                                            End If
+
+
+                                        Else
+                                            'mandar aviso que den de alta contrato garantia
+
+                                        End If
+
+                                        'DAR DE ALTA VENCIMIENTOS DE INTERES
+
+
+
+                                        If (row("concepto") = 10) And row("importe_cargo") > 0 Then  ' PAGO DE CAPITAL
+                                            Dim vencimiento As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientofecha(fechat, contrato)
+                                            If vencimiento > 0 Then
+
+
+                                                Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
+
+                                                If capital <> row("importe_cargo") Then
+
+                                                    Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(row("importe_cargo"), contrato, fechat)
+
+                                                End If
+                                            Else
+                                                Dim CONTARven As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(contrato)
+                                                If CONTARven = 1 Then
+                                                    Me.CONT_CPF_vencimientosTableAdapter.Deletevencimiento(contrato)
+
+                                                End If
+
+                                                Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fechat, row("importe_cargo"), "05/01/1900", "VIGENTE", 0, contrato)
+                                                'MENSAJE = MENSAJE & "EL CONTRATO" & contrato & " NO TENIA VENCIMIENTO  AL DIA " & fechat & " SE DIO DE ALTA POR " & importe & "<br>"
+
+                                            End If
+
+                                        End If
+
+                                        If row("concepto") = 11 And row("importe_cargo") > 0 Then  ' PAGO DE INTERESES
+
+                                            Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, row("importe_cargo"), contrato)
+
+                                        End If
+                                        If row("concepto") = 501 And row("importe_cargo") > 0 Then  ' PAGO DE INTERESES
+
+                                            Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, row("importe_cargo"), contrato)
+
+                                        End If
+                                    Else
+
+                                        sw.WriteLine(FECHA1 & " " & "No se ha cargado el id_credito " & row("id_credito"))
+                                        cont_obs = cont_obs + 1
+
+
+
+
+                                    End If
+
+
+
+                                Next
+
+                            End If
 
                         End If
 
-
-                    End While
-
-
-
-                Else 'CUANDO YA ESTA leido el archivo Y EL DIA ESTA PENDIENTE POR CERRAR
-
-                    estatus = Me.CONT_CPF_CierreContableTableAdapter.Scalarestatus(fechat)
-
-                    If estatus = True Then ' SI ESTA EN OK EL CIERRE DE HOY NO SE PUEDE CERRAR NUEVAMENTE
-                        MessageBox.Show("El cierre del día " & fechat & " Ya se cerró correctamente anteriormente ", "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        Exit Sub
-
-                    Else 'VOY A LEER TODO LO DEL CIERRE QUE NO SE HA CARGADO
-
-
-                        For Each row As DataRow In CONT_CPF_cierre_diarioTableAdapter.GetDataBy2(fechat) 'TRAER TODOS LOS CONTRATOS QUE NO SE HAN CARGADO
-
-                            contrato = Me.CONT_CPF_contratosTableAdapter.idcontrato(row("id_credito"))
-
-
-                            If contrato <> 0 Then
-
-                                estatus_contrato = True
-                                Me.CONT_CPF_cierre_diarioTableAdapter.UpdateQContrato(estatus_contrato, contrato, row("id_credito"))
-
-                                Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
-                                Dim csg = Me.CONT_CPF_contratosTableAdapter.cxsg(contrato)
-
-                                If id_cont_gar <> 0 Then
-
-
-                                    ''''
-
-                                    If (row("concepto") = 16) And row("importe_cargo") > 0 Then 'COBRO POR SERVICIO
-
-                                        Dim id_csg As Integer = Me.CONT_CPF_csgTableAdapter.saca_idcsg(id_cont_gar)
-                                        If id_csg = 0 Then
-                                            Dim ii As Integer = 1
-                                        End If
-
-
-                                        If id_csg <> 0 Then
-
-                                            Me.CONT_CPF_csgTableAdapter.DeleteQuery(fechat, row("importe_cargo"), id_cont_gar)
-                                            Me.CONT_CPF_csgTableAdapter.Insertcsgcierre(fechat, fechat, row("importe_cargo"), row("iva_cargo"), csg, id_cont_gar)
-
-                                        End If
-                                    End If
-
-
-                                Else
-                                    'mandar aviso que den de alta contrato garantia
-
-                                End If
-
-                                'DAR DE ALTA VENCIMIENTOS DE INTERES
-
-
-
-                                If (row("concepto") = 10) And row("importe_cargo") > 0 Then  ' PAGO DE CAPITAL
-                                    Dim vencimiento As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientofecha(fechat, contrato)
-                                    If vencimiento > 0 Then
-
-
-                                        Dim capital As Decimal = Me.CONT_CPF_vencimientosTableAdapter.CapitalVencimiento(contrato, fechat)
-
-                                        If capital <> row("importe_cargo") Then
-
-                                            Me.CONT_CPF_vencimientosTableAdapter.UpdateCapital(row("importe_cargo"), contrato, fechat)
-
-                                        End If
-                                    Else
-                                        Dim CONTARven As Integer = Me.CONT_CPF_vencimientosTableAdapter.ScalarQueryvencimientos_contar(contrato)
-                                        If CONTARven = 1 Then
-                                            Me.CONT_CPF_vencimientosTableAdapter.Deletevencimiento(contrato)
-
-                                        End If
-
-                                        Me.CONT_CPF_vencimientosTableAdapter.InsertQueryVencimiento(fechat, row("importe_cargo"), "05/01/1900", "VIGENTE", 0, contrato)
-                                        'MENSAJE = MENSAJE & "EL CONTRATO" & contrato & " NO TENIA VENCIMIENTO  AL DIA " & fechat & " SE DIO DE ALTA POR " & importe & "<br>"
-
-                                    End If
-
-                                End If
-
-                                If row("concepto") = 11 And row("importe_cargo") > 0 Then  ' PAGO DE INTERESES
-
-                                    Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, row("importe_cargo"), contrato)
-
-                                End If
-                                If row("concepto") = 501 And row("importe_cargo") > 0 Then  ' PAGO DE INTERESES
-
-                                    Me.CONT_CPF_vencimiento_interesTableAdapter.InsertVencimientoInteres(fechat, row("importe_cargo"), contrato)
-
-                                End If
-                            Else
-
-                                sw.WriteLine(FECHA1 & " " & "No se ha cargado el id_credito " & row("id_credito"))
-                                cont_obs = cont_obs + 1
-
-
-
-
-                            End If
-
-
-
-                        Next
 
 
 
@@ -688,21 +722,16 @@ Public Class frm_pagos_cierre
 
 
 
+                    sw.Close()
+
+
+
+
+
+
 
                 End If
-
-
-
-                sw.Close()
-
-
-
-
-
-
-
             End If
-
 
         Next
 
@@ -713,6 +742,8 @@ Public Class frm_pagos_cierre
 
             If cont_obs > 0 Then
                 estatus = False 'el dia aun no se ha cerrado
+            Else
+                estatus = True 'cerrar  el dia si no hay observaciones
 
             End If
             Dim mensaje1 As String
@@ -722,18 +753,18 @@ Public Class frm_pagos_cierre
                     MessageBox.Show("El día  se cerro correctamente", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Else
                     mensaje1 = "No se cerro el día contable correctamente"
-                    MessageBox.Show("No se cerro el día", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                End If
+                MessageBox.Show("No se cerro el día, revisar archivo generado", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
 
                 Me.CONT_CPF_CierreContableTableAdapter.DeleteQuery(fechat)
                 Me.CONT_CPF_CierreContableTableAdapter.InsertQuery(estatus, fechat, mensaje1)
 
 
-                taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
-                taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+            taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
 
 
-            Else
+        Else
 
                 MessageBox.Show("No hay archivo para el día seleccionado", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
