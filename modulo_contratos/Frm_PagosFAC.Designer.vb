@@ -76,6 +76,7 @@ Partial Class Frm_PagosFAC
         Me.CONTCPFPagosFiraBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_PagosFiraTableAdapter1 = New Fira_Cartera_Pasiva.PagosDSTableAdapters.CONT_CPF_PagosFiraTableAdapter()
         Me.PagosFiraBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.chk_anticipo = New System.Windows.Forms.CheckBox()
         CType(Me.WEBLotesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -349,12 +350,15 @@ Partial Class Frm_PagosFAC
         'chk_adelantado
         '
         Me.chk_adelantado.AutoSize = True
-        Me.chk_adelantado.Location = New System.Drawing.Point(572, 147)
+        Me.chk_adelantado.Checked = True
+        Me.chk_adelantado.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chk_adelantado.Location = New System.Drawing.Point(562, 146)
         Me.chk_adelantado.Name = "chk_adelantado"
-        Me.chk_adelantado.Size = New System.Drawing.Size(80, 17)
+        Me.chk_adelantado.Size = New System.Drawing.Size(104, 17)
         Me.chk_adelantado.TabIndex = 323
-        Me.chk_adelantado.Text = "Adelantado"
+        Me.chk_adelantado.Text = "Pago Anticipado"
         Me.chk_adelantado.UseVisualStyleBackColor = True
+        Me.chk_adelantado.Visible = False
         '
         'CONTCPFvencimientosBindingSource
         '
@@ -407,11 +411,22 @@ Partial Class Frm_PagosFAC
         Me.PagosFiraBindingSource3.DataMember = "PagosFira"
         Me.PagosFiraBindingSource3.DataSource = Me.PagosDS
         '
+        'chk_anticipo
+        '
+        Me.chk_anticipo.AutoSize = True
+        Me.chk_anticipo.Location = New System.Drawing.Point(661, 94)
+        Me.chk_anticipo.Name = "chk_anticipo"
+        Me.chk_anticipo.Size = New System.Drawing.Size(118, 17)
+        Me.chk_anticipo.TabIndex = 324
+        Me.chk_anticipo.Text = "Anticipo Acreditado"
+        Me.chk_anticipo.UseVisualStyleBackColor = True
+        '
         'Frm_PagosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(687, 263)
+        Me.ClientSize = New System.Drawing.Size(806, 239)
+        Me.Controls.Add(Me.chk_anticipo)
         Me.Controls.Add(Me.chk_adelantado)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btlayput)
@@ -508,4 +523,5 @@ Partial Class Frm_PagosFAC
     Friend WithEvents CONTCPFPagosFiraBindingSource1 As BindingSource
     Friend WithEvents CONT_CPF_PagosFiraTableAdapter1 As PagosDSTableAdapters.CONT_CPF_PagosFiraTableAdapter
     Friend WithEvents PagosFiraBindingSource3 As BindingSource
+    Friend WithEvents chk_anticipo As CheckBox
 End Class

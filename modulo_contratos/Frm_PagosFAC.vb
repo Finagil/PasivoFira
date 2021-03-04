@@ -77,7 +77,7 @@ Public Class Frm_PagosFAC
             End If
             monto = Me.DG_pagos.Item(2, Renglones).Value
             Dim fecha As Date = Me.DG_pagos.Item(3, Renglones).Value
-            If chk_adelantado.Checked = True Then
+            If chk_anticipo.Checked = True Then
                 adelantado = "S"
             Else
                 adelantado = "N"
