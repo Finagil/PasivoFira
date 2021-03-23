@@ -77,6 +77,8 @@ Partial Class Frm_PagosFAC
         Me.CONT_CPF_PagosFiraTableAdapter1 = New Fira_Cartera_Pasiva.PagosDSTableAdapters.CONT_CPF_PagosFiraTableAdapter()
         Me.PagosFiraBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.chk_anticipo = New System.Windows.Forms.CheckBox()
+        Me.GENComandosCMDBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GEN_ComandosCMDTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.GEN_ComandosCMDTableAdapter()
         CType(Me.WEBLotesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FactorajeDS3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFlotesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,6 +108,7 @@ Partial Class Frm_PagosFAC
         CType(Me.PagosDS1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFPagosFiraBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosFiraBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ComboBox2
@@ -421,6 +424,15 @@ Partial Class Frm_PagosFAC
         Me.chk_anticipo.Text = "Anticipo Acreditado"
         Me.chk_anticipo.UseVisualStyleBackColor = True
         '
+        'GENComandosCMDBindingSource
+        '
+        Me.GENComandosCMDBindingSource.DataMember = "GEN_ComandosCMD"
+        Me.GENComandosCMDBindingSource.DataSource = Me.PagosDS
+        '
+        'GEN_ComandosCMDTableAdapter
+        '
+        Me.GEN_ComandosCMDTableAdapter.ClearBeforeFill = True
+        '
         'Frm_PagosFAC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -466,6 +478,7 @@ Partial Class Frm_PagosFAC
         CType(Me.PagosDS1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFPagosFiraBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosFiraBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -524,4 +537,6 @@ Partial Class Frm_PagosFAC
     Friend WithEvents CONT_CPF_PagosFiraTableAdapter1 As PagosDSTableAdapters.CONT_CPF_PagosFiraTableAdapter
     Friend WithEvents PagosFiraBindingSource3 As BindingSource
     Friend WithEvents chk_anticipo As CheckBox
+    Friend WithEvents GENComandosCMDBindingSource As BindingSource
+    Friend WithEvents GEN_ComandosCMDTableAdapter As PagosDSTableAdapters.GEN_ComandosCMDTableAdapter
 End Class

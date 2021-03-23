@@ -23,8 +23,8 @@ Partial Class FrmImportaPagos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.AnexoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CicloPagareDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,11 +38,13 @@ Partial Class FrmImportaPagos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DTP_FechaFira = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.PagosFiraTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.PagosFiraTableAdapter()
+        Me.GENComandosCMDBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GEN_ComandosCMDTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.GEN_ComandosCMDTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosFiraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -93,10 +95,10 @@ Partial Class FrmImportaPagos
         'FechaAplicacionDataGridViewTextBoxColumn
         '
         Me.FechaAplicacionDataGridViewTextBoxColumn.DataPropertyName = "FechaAplicacion"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.Format = "d"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.FechaAplicacionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.Format = "d"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.FechaAplicacionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.FechaAplicacionDataGridViewTextBoxColumn.HeaderText = "Fecha Aplicación"
         Me.FechaAplicacionDataGridViewTextBoxColumn.Name = "FechaAplicacionDataGridViewTextBoxColumn"
         Me.FechaAplicacionDataGridViewTextBoxColumn.ReadOnly = True
@@ -104,10 +106,10 @@ Partial Class FrmImportaPagos
         'ImporteDataGridViewTextBoxColumn
         '
         Me.ImporteDataGridViewTextBoxColumn.DataPropertyName = "Importe"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.ImporteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.ImporteDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         Me.ImporteDataGridViewTextBoxColumn.HeaderText = "Importe Pago"
         Me.ImporteDataGridViewTextBoxColumn.Name = "ImporteDataGridViewTextBoxColumn"
         Me.ImporteDataGridViewTextBoxColumn.ReadOnly = True
@@ -157,25 +159,24 @@ Partial Class FrmImportaPagos
         Me.DTP_FechaFira.Size = New System.Drawing.Size(103, 20)
         Me.DTP_FechaFira.TabIndex = 3
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(684, 311)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Fecha Fira"
-        '
         'PagosFiraTableAdapter
         '
         Me.PagosFiraTableAdapter.ClearBeforeFill = True
+        '
+        'GENComandosCMDBindingSource
+        '
+        Me.GENComandosCMDBindingSource.DataMember = "GEN_ComandosCMD"
+        Me.GENComandosCMDBindingSource.DataSource = Me.PagosDS
+        '
+        'GEN_ComandosCMDTableAdapter
+        '
+        Me.GEN_ComandosCMDTableAdapter.ClearBeforeFill = True
         '
         'FrmImportaPagos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(861, 335)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DTP_FechaFira)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -185,8 +186,8 @@ Partial Class FrmImportaPagos
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosFiraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -204,5 +205,6 @@ Partial Class FrmImportaPagos
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents DTP_FechaFira As DateTimePicker
-    Friend WithEvents Label1 As Label
+    Friend WithEvents GENComandosCMDBindingSource As BindingSource
+    Friend WithEvents GEN_ComandosCMDTableAdapter As PagosDSTableAdapters.GEN_ComandosCMDTableAdapter
 End Class

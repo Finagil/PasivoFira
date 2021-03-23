@@ -1,4 +1,7 @@
+Imports System
+Imports Microsoft.Win32
 Module ModuleGlobal
+
 
     Public P1000, P1001, PR, PCXSG_FEGA, PCXSG_FONAGA, GLP, GLM, PGLP, PGLM As Decimal
     Public TasaIVA As Decimal = 0.16
@@ -14,6 +17,10 @@ Module ModuleGlobal
     Public AVIO As Boolean
     Public id_acreditado As Boolean
     Public fonaga0, fonaga10, fonaga15, fonaga20, fega0, fega10, fega15, fega20, cnominal As Decimal
+    Public usuarioglobal As String
+
+    ' Public tacorreos As New PagosDSTableAdapters.GEN_CorreosFasesTableAdapter
+    Public taCorreos As New FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
     Public Enum EsquemaCobro As Integer
         SIMFA = 20
         SIMPLE = 71
@@ -47,12 +54,62 @@ Module ModuleGlobal
 
     End Enum
 
+
     Public Function CTOD(ByVal cFecha As String) As Date
         Dim nDia, nMes, nYear As Integer
         nDia = Val(Right(cFecha, 2))
         nMes = Val(Mid(cFecha, 5, 2))
         nYear = Val(Left(cFecha, 4))
         CTOD = DateSerial(nYear, nMes, nDia)
+    End Function
+    Public Function Mandacorreofase(de As String, fase As String, asunto As String, mensaje As String, Optional ByVal archivo As String = "") As Boolean
+        asunto = asunto.Trim
+        Dim users As New PagosDSTableAdapters.GEN_CorreosFasesTableAdapter
+        Dim usuariosnva As New PagosDSTableAdapters.USUARIOTableAdapter
+
+        Dim tu As New PagosDS.GEN_CorreosFasesDataTable
+        Dim r As PagosDS.GEN_CorreosFasesRow
+
+        Mandacorreofase = False
+        users.Fill(tu, fase)
+
+        Dim correo As String = usuariosnva.Scalarcorreo(de)
+
+
+        For Each r In tu.Rows
+            taCorreos.Insert(correo, r.Correo, asunto, mensaje, False, Date.Now, archivo)
+
+            ' tacorreosfase.Insertcorreofase()(de, r.Correo, asunto, mensaje, False, Date.Now, archivo)
+            '    taCorreos.Insert()
+        Next
+
+        'tacorreos2.in
+        ' tacorreosfase.Insertcorreofase()
+
+    End Function
+    Public Function usuariogl()
+
+
+        Dim rkcurrentuser As RegistryKey = Registry.CurrentUser
+        Dim rktest As RegistryKey = rkcurrentuser.OpenSubKey("Software\INFO100\FINANCIERA")
+        rktest.Close()
+        rkcurrentuser.Close()
+        rktest = Registry.CurrentUser.OpenSubKey("Software\INFO100\FINANCIERA")
+        rktest.Close()
+        rktest = Registry.CurrentUser.OpenSubKey("Software\INFO100\FINANCIERA", True)
+
+        ' Dim strConnectionSecurity As My.Settings.SeguridadNvaConnectionString
+        Dim cadenacon As String
+        cadenacon = rktest.GetValue("FINANCIERA").ToString
+        'Usuario = Mid(cadenacon, InStr(cadenacon, "user ID ="), 10)
+        'Public usuarioglobal As String
+
+        'Password = rkTest.GetValue("Contrasena").ToString
+        usuarioglobal = rktest.GetValue("Usuario").ToString
+        'USUARIOX = Usuario
+        'varGlUser = Usuario
+        ' Password = rktest.GetValue("Contrasena").ToString
+        rktest.Close()
     End Function
 
     Public Function CargaTIIE(ByVal Fecha As Date, ByVal Tipta As String, ByVal claveCobro As String) As Boolean

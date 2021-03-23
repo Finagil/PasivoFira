@@ -156,7 +156,7 @@ Partial Class frm_rpt_estado
         Me.crv.Location = New System.Drawing.Point(0, 0)
         Me.crv.Name = "crv"
         Me.crv.SelectionFormula = ""
-        Me.crv.Size = New System.Drawing.Size(1381, 718)
+        Me.crv.Size = New System.Drawing.Size(1370, 718)
         Me.crv.TabIndex = 0
         Me.crv.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         Me.crv.ViewTimeSelectionFormula = ""
@@ -183,7 +183,7 @@ Partial Class frm_rpt_estado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1381, 718)
+        Me.ClientSize = New System.Drawing.Size(1370, 718)
         Me.Controls.Add(Me.crv)
         Me.Name = "frm_rpt_estado"
         Me.Text = "Estado de Cuenta"

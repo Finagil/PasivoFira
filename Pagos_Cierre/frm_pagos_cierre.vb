@@ -17,7 +17,7 @@ Public Class frm_pagos_cierre
         'Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos_garantias' Puede moverla o quitarla según sea necesario.
         ''Me.CONT_CPF_contratos_garantiasTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos_garantias)
-
+        usuariogl()
     End Sub
 
     Private Sub bt_aplicar_Click(sender As Object, e As EventArgs) Handles bt_aplicar.Click
@@ -308,9 +308,11 @@ Public Class frm_pagos_cierre
             'MENSAJE = "Revisar Archivo de observaciones en C:\CierreFira" & "\Detalle de cargos y abonos " & FECHA1 & ".txt"
 
             'End If
+            Mandacorreofase(usuarioglobal, "Cierre Fira", "CIERRE_FIRA", "Se ha efectuado el cierre de " & FECHA1 & " con las sig. observaciones <br>" & mensaje1, usuarioglobal)
 
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+
+            'taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+            'taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
 
             cont_obs = 0
 
@@ -760,8 +762,14 @@ Public Class frm_pagos_cierre
                 Me.CONT_CPF_CierreContableTableAdapter.InsertQuery(estatus, fechat, mensaje1)
 
 
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+
+
+
+            Mandacorreofase(usuarioglobal, "CIERRE_FIRA", "CIERRE_FIRA", "Se ha efectuado el cierre de" & FECHA1 & " con las sig. observaciones <br>" & mensaje1, usuarioglobal)
+
+
+            ' taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+            'taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
 
 
         Else
@@ -886,9 +894,11 @@ Public Class frm_pagos_cierre
 
             MessageBox.Show(mensaje1, "PAGOS FIRA CIERRE DIARIO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
+            Mandacorreofase(usuarioglobal, "CIERRE_FIRA", "CIERRE_FIRA", "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, usuarioglobal)
 
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
-            taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+
+            'taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
+            'taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "Cierre Fira " & FECHA1, "Se ha efectuado el cierre con las sig. observaciones <br>" & mensaje1, False, Date.Now, "")
 
 
         Else

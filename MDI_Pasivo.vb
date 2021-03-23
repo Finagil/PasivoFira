@@ -1,3 +1,6 @@
+Imports System
+Imports Microsoft.Win32
+
 Public Class MDI_Pasivo
     Private Sub AltaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AltaToolStripMenuItem.Click
         Dim f As New frm_contratos_alta
@@ -27,6 +30,12 @@ Public Class MDI_Pasivo
         PR = Me.ConT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.REFAC)
         PCXSG_FEGA = Me.ConT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.CXSG_FEGA)
         PCXSG_FONAGA = Me.ConT_CPF_configuracionTableAdapter.ScalarQueryconfiguracion(CONFIG.CXSG_FONAGA)
+
+
+        'USUARIOX = Usuario
+        'varGlUser = Usuario
+        ' Password = rktest.GetValue("Contrasena").ToString
+
     End Sub
 
     Private Sub DescuentosPoFechaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -37,7 +46,7 @@ Public Class MDI_Pasivo
 
     Private Sub DescuentosPorFechaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DescuentosPorFechaToolStripMenuItem.Click
 
-        Dim f As New frm_descuentos_porfecha
+        Dim f As New Frm_descuentos_porfecha
         f.Show()
     End Sub
 

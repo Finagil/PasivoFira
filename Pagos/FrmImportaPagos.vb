@@ -18,6 +18,8 @@
     End Sub
 
     Private Sub FrmImportaPagos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'PagosDS.GEN_ComandosCMD' Puede moverla o quitarla según sea necesario.
+        Me.GEN_ComandosCMDTableAdapter.Fill(Me.PagosDS.GEN_ComandosCMD)
         Me.PagosFiraTableAdapter.Fill(PagosDS.PagosFira, False)
         Boton()
     End Sub
@@ -28,7 +30,11 @@
             For Each r As PagosDS.PagosFiraRow In PagosDS.PagosFira.Rows
                 Me.PagosFiraTableAdapter.UpdatePagos(DTP_FechaFira.Value.Date, r.id_contrato, r.FechaAplicacion.ToString("yyyyMMdd"))
             Next
-            Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe PROCESA_PAGOS", AppWinStyle.Hide, False)
+            usuariogl()
+
+            Me.GEN_ComandosCMDTableAdapter.InsertQuery("X:\Executables", "MOD_PasivoFiraCalculos", " PROCESA_PAGOS", usuarioglobal)
+            'Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe PROCESA_PAGOS", AppWinStyle.Hide, False)
+            'mandacorrefas
             Me.PagosFiraTableAdapter.Fill(PagosDS.PagosFira, False)
             Boton()
             Cursor.Current = Cursors.Default

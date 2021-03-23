@@ -1,8 +1,14 @@
 ﻿Imports System.IO
+Imports System
+Imports Microsoft.Win32
 Public Class Frm_PagosFAC
     Public taCorreos As New FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+    Public tacorreos2 As New PagosDSTableAdapters.GEN_ComandosCMDTableAdapter
+
     Public LOTE As Integer
     Private Sub Frm_PagosFAC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'PagosDS.GEN_ComandosCMD' Puede moverla o quitarla según sea necesario.
+        Me.GEN_ComandosCMDTableAdapter.Fill(Me.PagosDS.GEN_ComandosCMD)
         'TODO: esta línea de código carga datos en la tabla 'PagosDS1.CONT_CPF_PagosFira' Puede moverla o quitarla según sea necesario.
         Me.CONT_CPF_PagosFiraTableAdapter1.Fill(Me.PagosDS1.CONT_CPF_PagosFira)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_vencimientos' Puede moverla o quitarla según sea necesario.
@@ -53,6 +59,22 @@ Public Class Frm_PagosFAC
         Dim adelantado As String
         ' Donde guardamos los paths de los archivos que vamos a estar utilizando ..
         Dim PathArchivo As String
+
+        'usuariogl()
+
+
+
+
+        'tacorreos2.InsertQuery("C:\Jobs\", "Pago Factoraje", " PAGOFACT", UsuarioGlobal)
+
+        'MessageBox.Show("Layout generado en C:\Factoraje\", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+
+        usuariogl()
+        Dim u As String = usuarioglobal
+
+        'Mandacorreofase(usuarioglobal, "PAGOS_FACT", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), usuarioglobal)
+
         Dim i As Integer
         '  BP = Me.Vw_AnexosTableAdapter.SacaTasaTRA(Me.Vw_AnexosBindingSource.Current("Anexo"))
         If Directory.Exists("C:\Factoraje") = False Then ' si no existe la carpeta se crea
@@ -152,12 +174,24 @@ Public Class Frm_PagosFAC
         'total1 = FormatNumber(total, , TriState.True)
         ' total = total.ToString("n2")
 
+
+
+        usuariogl()
+
+
+
+
+        'tacorreos2.InsertQuery("C:\Jobs\", "Pago Factoraje", " PAGOFACT", UsuarioGlobal)
+
         MessageBox.Show("Layout generado en C:\Factoraje\", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
-        taCorreos.Insert("PasivoFira@finagil.com.mx", "ecacerest@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
-        taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
-        taCorreos.Insert("PasivoFira@finagil.com.mx", "layala@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
-        taCorreos.Insert("PasivoFira@finagil.com.mx", "atorres@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
+        Mandacorreofase(usuarioglobal, "PAGOS_FACT", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $", usuarioglobal)
+
+        'Mandacorreofase(usuarioglobal, "PAGOS_FACT", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), usuarioglobal)
+        'taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
+        'taCorreos.Insert("PasivoFira@finagil.com.mx", "ecacerest@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
+        'taCorreos.Insert("PasivoFira@finagil.com.mx", "maria.bautista@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
+        'taCorreos.Insert("PasivoFira@finagil.com.mx", "layala@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
+        ' taCorreos.Insert("PasivoFira@finagil.com.mx", "atorres@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
 
     End Sub
 
