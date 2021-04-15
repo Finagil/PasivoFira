@@ -75,9 +75,10 @@ Module ModuleGlobal
 
         Dim correo As String = usuariosnva.Scalarcorreo(de)
 
+        correo = "pasivofira@cmoderna.com"
 
         For Each r In tu.Rows
-            taCorreos.Insert(correo, r.Correo, asunto, mensaje, False, Date.Now, archivo)
+            taCorreos.Insert(correo, r.Correo, asunto, mensaje, False, Date.Now, "")
 
             ' tacorreosfase.Insertcorreofase()(de, r.Correo, asunto, mensaje, False, Date.Now, archivo)
             '    taCorreos.Insert()
