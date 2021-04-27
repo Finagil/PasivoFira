@@ -474,6 +474,7 @@ Public Class frm_pagos_cierre
                                 End If
 
                                 Dim descripcion As String = Trim(LineaX(46)) 'AU
+                                Dim descripcion_aux As String = Trim(LineaX(47)) 'AUxiliar
                                 Dim importe_cargo As Decimal
                                 Dim importe_abono As Decimal
                                 Dim iva_cargo As Decimal
@@ -504,10 +505,10 @@ Public Class frm_pagos_cierre
 
 
 
-                                Me.CONT_CPF_cierre_diarioTableAdapter.InsertQuery(idcredito, divisa, fechat, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, file.Name, contrato, estatus_contrato)
+                                Me.CONT_CPF_cierre_diarioTableAdapter.InsertQuery(idcredito, divisa, fechat, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, file.Name, contrato, estatus_contrato, descripcion_aux)
 
                                 'CAMBIAR CXS Y VENCIMIENTOS DE CAPITAL E INTERESES
-
+                                ' contrato = 0
                                 If contrato <> 0 Then
 
                                     Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
