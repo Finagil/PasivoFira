@@ -184,7 +184,7 @@ Public Class Frm_PagosFAC
         'tacorreos2.InsertQuery("C:\Jobs\", "Pago Factoraje", " PAGOFACT", UsuarioGlobal)
 
         MessageBox.Show("Layout generado en C:\Factoraje\", "FACTORAJE CARTERA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        Mandacorreofase(usuarioglobal, "PAGOS_FACT", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $", usuarioglobal)
+        Mandacorreofase(usuarioglobal, "PAGOS_FACT", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), usuarioglobal)
 
         'Mandacorreofase(usuarioglobal, "PAGOS_FACT", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), usuarioglobal)
         'taCorreos.Insert("PasivoFira@finagil.com.mx", "denise.gonzalez@finagil.com.mx", "PAGO FACTORAJE LOTE" & ComboBox2.SelectedValue, "Se ha generado el layout del lote " & ComboBox2.SelectedValue & " para aplicar pagos por $" & total.ToString("n2"), False, Date.Now, "")
@@ -233,6 +233,7 @@ Public Class Frm_PagosFAC
                     Me.CONT_CPF_vencimientosTableAdapter1.DeleteQuery(id_contrato)
                     Me.CONT_CPF_vencimientosTableAdapter1.InsertVencimiento(fecha, monto, "01/01/1900", "VIGENTE", 0, id_contrato, 0)
                     Me.CONT_CPF_PagosFiraTableAdapter1.UpdateQueryPROCESADO(id_contrato, fecha)
+                    Me.CONT_CPF_CalendariosRevisionTasaTableAdapter.DeleteQuery(id_contrato)
                     Me.CONT_CPF_CalendariosRevisionTasaTableAdapter.InsertCalendario(id_contrato, fecha, 1, 0, 1, 1, 0)
 
 

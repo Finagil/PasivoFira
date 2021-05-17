@@ -5856,7 +5856,7 @@ Namespace PagosDSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        ID_Calendario, Id_Contrato, Fecha, VencimientoCapital, AcumulaInter"& _ 
@@ -5866,30 +5866,21 @@ Namespace PagosDSTableAdapters
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT       isnull(ID_Calendario,0)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_CalendariosRevisio"& _ 
-                "nTasa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Fecha = ?) AND (Id_Contrato = ?)"
+            Me._commandCollection(1).CommandText = "DELETE FROM CONT_CPF_CalendariosRevisionTasa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Id_Contrato = ?)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "INSERT INTO [CONT_CPF_CalendariosRevisionTasa] ([Id_Contrato], [Fecha], [Vencimie"& _ 
-                "ntoCapital], [AcumulaInteres], [VencimientoInteres], [RevisionTasa], [Procesado]"& _ 
-                ") VALUES (?, ?, ?, ?, ?, ?, ?)"
+            Me._commandCollection(2).CommandText = "SELECT       isnull(ID_Calendario,0)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            CONT_CPF_CalendariosRevisio"& _ 
+                "nTasa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Fecha = ?) AND (Id_Contrato = ?)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("VencimientoCapital", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "VencimientoCapital", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AcumulaInteres", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AcumulaInteres", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("VencimientoInteres", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "VencimientoInteres", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("RevisionTasa", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RevisionTasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Procesado", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Procesado", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "UPDATE       CONT_CPF_CalendariosRevisionTasa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Id_Contrato = ?"& _ 
-                ", Fecha = ?, VencimientoCapital = ?, AcumulaInteres = ?, VencimientoInteres = ?,"& _ 
-                " RevisionTasa = ?, Procesado = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Id_Contrato = ?) AND (Fecha = ?)"& _ 
-                ""
+            Me._commandCollection(3).CommandText = "INSERT INTO [CONT_CPF_CalendariosRevisionTasa] ([Id_Contrato], [Fecha], [Vencimie"& _ 
+                "ntoCapital], [AcumulaInteres], [VencimientoInteres], [RevisionTasa], [Procesado]"& _ 
+                ") VALUES (?, ?, ?, ?, ?, ?, ?)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -5898,8 +5889,22 @@ Namespace PagosDSTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("VencimientoInteres", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "VencimientoInteres", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("RevisionTasa", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RevisionTasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Procesado", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Procesado", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "UPDATE       CONT_CPF_CalendariosRevisionTasa"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Id_Contrato = ?"& _ 
+                ", Fecha = ?, VencimientoCapital = ?, AcumulaInteres = ?, VencimientoInteres = ?,"& _ 
+                " RevisionTasa = ?, Procesado = ?"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Id_Contrato = ?) AND (Fecha = ?)"& _ 
+                ""
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("VencimientoCapital", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "VencimientoCapital", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AcumulaInteres", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AcumulaInteres", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("VencimientoInteres", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "VencimientoInteres", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("RevisionTasa", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "RevisionTasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Procesado", Global.System.Data.OleDb.OleDbType.[Boolean], 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Procesado", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Id_Contrato", Global.System.Data.OleDb.OleDbType.[Integer], 4, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Id_Contrato", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Fecha", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 8, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6196,9 +6201,36 @@ Namespace PagosDSTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function DeleteQuery(ByVal Id_Contrato As Global.System.Nullable(Of Integer)) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
+            If (Id_Contrato.HasValue = true) Then
+                command.Parameters(0).Value = CType(Id_Contrato.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function id_calendario(ByVal Fecha As Global.System.Nullable(Of Date), ByVal Id_Contrato As Global.System.Nullable(Of Integer)) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
             If (Fecha.HasValue = true) Then
                 command.Parameters(0).Value = CType(Fecha.Value,Date)
             Else
@@ -6235,7 +6267,7 @@ Namespace PagosDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertCalendario(ByVal Id_Contrato As Global.System.Nullable(Of Integer), ByVal Fecha As Global.System.Nullable(Of Date), ByVal VencimientoCapital As Global.System.Nullable(Of Boolean), ByVal AcumulaInteres As Global.System.Nullable(Of Boolean), ByVal VencimientoInteres As Global.System.Nullable(Of Boolean), ByVal RevisionTasa As Global.System.Nullable(Of Boolean), ByVal Procesado As Global.System.Nullable(Of Boolean)) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
             If (Id_Contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(Id_Contrato.Value,Integer)
             Else
@@ -6292,7 +6324,7 @@ Namespace PagosDSTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateCalendario(ByVal Id_Contrato As Global.System.Nullable(Of Integer), ByVal Fecha As Global.System.Nullable(Of Date), ByVal VencimientoCapital As Global.System.Nullable(Of Boolean), ByVal AcumulaInteres As Global.System.Nullable(Of Boolean), ByVal VencimientoInteres As Global.System.Nullable(Of Boolean), ByVal RevisionTasa As Global.System.Nullable(Of Boolean), ByVal Procesado As Global.System.Nullable(Of Boolean), ByVal Original_Id_Contrato As Global.System.Nullable(Of Integer), ByVal Original_Fecha As Global.System.Nullable(Of Date)) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(4)
             If (Id_Contrato.HasValue = true) Then
                 command.Parameters(0).Value = CType(Id_Contrato.Value,Integer)
             Else

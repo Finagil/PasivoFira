@@ -1,7 +1,7 @@
 ﻿Public Class frm_contrato2
     Dim num_control, z25 As String
     Public Shared id_contrato, id_subrama As Integer
-    Public Ministracion1, existe As Boolean
+    Public Ministracion1, existe, nuevosa As Boolean
     Dim fecha As Date
     Public PCXSG As Decimal = 0
     Public PCXSG_Aux As Decimal = 0
@@ -348,6 +348,8 @@
         'If TXT_FN.Text = "" Then
         TXT_FN.Text = 0
         'End If
+        nuevosa = 1
+
     End Sub
 
     Private Sub cbclientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbclientes.SelectedIndexChanged
@@ -398,8 +400,15 @@
         ' If CB_TIPAR.Text = "CREDITO DE AVÍO" Then
         'cb_periodo_capital.Text = "AL VENCIMIENTO"
         'End If
+
+        If nuevosa = True Then
+            txt_credito.Text = 0
+        Else
+
+        End If
         id_contrato_padre = 0
         id_contrato = Me.CONT_CPF_contratosTableAdapter.scalarid_contratoSINANEXO(cbclientes.SelectedValue, txt_credito.Text)
+
         If id_contrato > 0 Then
             FECMIN = Me.CONT_CPF_ministracionesTableAdapter.PrimeraMinistracion(id_contrato)
             If FECMIN = "01/01/1900" Then

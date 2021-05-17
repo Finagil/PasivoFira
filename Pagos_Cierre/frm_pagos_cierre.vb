@@ -2,6 +2,7 @@
 Imports System.IO.File
 Public Class frm_pagos_cierre
     Public taCorreos As New FactorajeDSTableAdapters.GEN_Correos_SistemaFinagilTableAdapter
+    Public cont_obs As Integer
     Private Sub frm_pagos_cierre_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_cierre_diario' Puede moverla o quitarla según sea necesario.
         'Me.CONT_CPF_cierre_diarioTableAdapter.Fill(Me.DS_contratos.CONT_CPF_cierre_diario)
@@ -22,7 +23,7 @@ Public Class frm_pagos_cierre
 
     Private Sub bt_aplicar_Click(sender As Object, e As EventArgs) Handles bt_aplicar.Click
         Dim fechat, fech_aux As Date
-        Dim cont_obs As Integer
+
         Dim MENSAJE As String
         Dim estatus As Boolean
         Dim archivo As String
@@ -369,9 +370,21 @@ Public Class frm_pagos_cierre
 
                 fechat = dt_fecha.Text
                 fech_aux = Now
-                cont_obs = 0
+                'cont_obs = 0
 
                 FECHA1 = fechat.ToString("ddMMyyyy")
+                estatus = Me.CONT_CPF_CierreContableTableAdapter.SCALAR_CIERREANTERIOR(fechat)
+                If estatus = False Then
+
+                    MessageBox.Show("El dia anterior no se ha cerrado correctamente", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Exit Sub
+
+
+                End If
+
+
+
+
                 If FECHA1 = fecha_archivo Then
 
 
@@ -475,6 +488,7 @@ Public Class frm_pagos_cierre
 
                                 Dim descripcion As String = Trim(LineaX(46)) 'AU
                                 Dim descripcion_aux As String = Trim(LineaX(47)) 'AUxiliar
+                                Dim anexo As String = Trim(LineaX(21)) 'AUxiliar
                                 Dim importe_cargo As Decimal
                                 Dim importe_abono As Decimal
                                 Dim iva_cargo As Decimal
@@ -505,10 +519,10 @@ Public Class frm_pagos_cierre
 
 
 
-                                Me.CONT_CPF_cierre_diarioTableAdapter.InsertQuery(idcredito, divisa, fechat, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, file.Name, contrato, estatus_contrato, descripcion_aux)
+                                Me.CONT_CPF_cierre_diarioTableAdapter.InsertQuery(idcredito, divisa, fechat, fecha_inicial, fecha_final, concepto, descripcion, importe_cargo, importe_abono, iva_cargo, iva_abono, file.Name, contrato, estatus_contrato, descripcion_aux, anexo)
 
                                 'CAMBIAR CXS Y VENCIMIENTOS DE CAPITAL E INTERESES
-                                ' contrato = 0
+                                'contrato = 0
                                 If contrato <> 0 Then
 
                                     Dim id_cont_gar As Integer = Me.CONT_CPF_contratos_garantiasTableAdapter.id_contrato_garantia(contrato)
@@ -777,6 +791,8 @@ Public Class frm_pagos_cierre
 
                 MessageBox.Show("No hay archivo para el día seleccionado", "CIERRE FIRA PASIVA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+
+
 
 
         cont_obs = 0

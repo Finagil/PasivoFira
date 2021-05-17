@@ -23,6 +23,7 @@ Partial Class MDI_Pasivo
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDI_Pasivo))
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mncontratos = New System.Windows.Forms.ToolStripMenuItem()
@@ -280,6 +281,7 @@ Partial Class MDI_Pasivo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(780, 356)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MDI_Pasivo"
         Me.Text = "Cartera Pasiva"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
