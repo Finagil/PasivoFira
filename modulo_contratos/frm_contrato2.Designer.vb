@@ -23,6 +23,7 @@ Partial Class frm_contrato2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_contrato2))
         Me.bt_guardar = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.lb_ciclo = New System.Windows.Forms.TabPage()
@@ -181,6 +182,7 @@ Partial Class frm_contrato2
         Me.VwconceptosinversionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GENProductosFinagilBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TXT_CONTRATO_PADRE = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ch_fact = New System.Windows.Forms.CheckBox()
@@ -235,7 +237,6 @@ Partial Class frm_contrato2
         Me.Vw_descuentoSATableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.vw_descuentoSATableAdapter()
         Me.VwdescuentoSABindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.TXT_CONTRATO_PADRE = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.lb_ciclo.SuspendLayout()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1780,6 +1781,14 @@ Partial Class frm_contrato2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
         '
+        'TXT_CONTRATO_PADRE
+        '
+        Me.TXT_CONTRATO_PADRE.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "id_contrato", True))
+        Me.TXT_CONTRATO_PADRE.Location = New System.Drawing.Point(590, 69)
+        Me.TXT_CONTRATO_PADRE.Name = "TXT_CONTRATO_PADRE"
+        Me.TXT_CONTRATO_PADRE.Size = New System.Drawing.Size(27, 20)
+        Me.TXT_CONTRATO_PADRE.TabIndex = 224
+        '
         'ComboBox1
         '
         Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ClientesBindingSource, "Descr", True))
@@ -2075,14 +2084,6 @@ Partial Class frm_contrato2
         Me.Button4.Text = "Nuevo"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'TXT_CONTRATO_PADRE
-        '
-        Me.TXT_CONTRATO_PADRE.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "id_contrato", True))
-        Me.TXT_CONTRATO_PADRE.Location = New System.Drawing.Point(590, 69)
-        Me.TXT_CONTRATO_PADRE.Name = "TXT_CONTRATO_PADRE"
-        Me.TXT_CONTRATO_PADRE.Size = New System.Drawing.Size(27, 20)
-        Me.TXT_CONTRATO_PADRE.TabIndex = 224
-        '
         'frm_contrato2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2096,6 +2097,7 @@ Partial Class frm_contrato2
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.bt_guardar)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONTCPFcontratosBindingSource, "TasaTiie", True))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frm_contrato2"
         Me.Text = "frm_contrato2"
         Me.TabControl1.ResumeLayout(False)

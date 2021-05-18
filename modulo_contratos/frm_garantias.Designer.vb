@@ -22,18 +22,19 @@ Partial Class frm_garantias
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_garantias))
         Me.CONT_CPF_contratos_garantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos
+        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.CONT_CPF_garantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CONT_CPF_contratos_garantiasDataGridView = New System.Windows.Forms.DataGridView
-        Me.CONT_CPF_contratos_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter
-        Me.CONT_CPF_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn
+        Me.CONT_CPF_contratos_garantiasDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.CONT_CPF_contratos_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratos_garantiasTableAdapter()
+        Me.CONT_CPF_garantiasTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_garantiasTableAdapter()
         CType(Me.CONT_CPF_contratos_garantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_garantiasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,14 +70,6 @@ Partial Class frm_garantias
         Me.CONT_CPF_contratos_garantiasDataGridView.Size = New System.Drawing.Size(659, 146)
         Me.CONT_CPF_contratos_garantiasDataGridView.TabIndex = 30
         '
-        'CONT_CPF_contratos_garantiasTableAdapter
-        '
-        Me.CONT_CPF_contratos_garantiasTableAdapter.ClearBeforeFill = True
-        '
-        'CONT_CPF_garantiasTableAdapter
-        '
-        Me.CONT_CPF_garantiasTableAdapter.ClearBeforeFill = True
-        '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "cobertura_nominal"
@@ -108,12 +101,21 @@ Partial Class frm_garantias
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         '
+        'CONT_CPF_contratos_garantiasTableAdapter
+        '
+        Me.CONT_CPF_contratos_garantiasTableAdapter.ClearBeforeFill = True
+        '
+        'CONT_CPF_garantiasTableAdapter
+        '
+        Me.CONT_CPF_garantiasTableAdapter.ClearBeforeFill = True
+        '
         'frm_garantias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 177)
         Me.Controls.Add(Me.CONT_CPF_contratos_garantiasDataGridView)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frm_garantias"
         Me.Text = "Garantías"
         CType(Me.CONT_CPF_contratos_garantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

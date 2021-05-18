@@ -23,19 +23,20 @@ Partial Class FrmGarantiasEjercidas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle53 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle54 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle55 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle56 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle57 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle58 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle59 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle60 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle61 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle62 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle63 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle64 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle65 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGarantiasEjercidas))
         Me.CmbCli = New System.Windows.Forms.ComboBox()
         Me.CliGarantiasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
@@ -159,9 +160,9 @@ Partial Class FrmGarantiasEjercidas
         'ImporteGarantiaDataGridViewTextBoxColumn
         '
         Me.ImporteGarantiaDataGridViewTextBoxColumn.DataPropertyName = "ImporteGarantia"
-        DataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle53.Format = "n2"
-        Me.ImporteGarantiaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle53
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "n2"
+        Me.ImporteGarantiaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
         Me.ImporteGarantiaDataGridViewTextBoxColumn.HeaderText = "Importe Garantía"
         Me.ImporteGarantiaDataGridViewTextBoxColumn.Name = "ImporteGarantiaDataGridViewTextBoxColumn"
         Me.ImporteGarantiaDataGridViewTextBoxColumn.ReadOnly = True
@@ -170,9 +171,9 @@ Partial Class FrmGarantiasEjercidas
         'CapitalRecuperadoDataGridViewTextBoxColumn
         '
         Me.CapitalRecuperadoDataGridViewTextBoxColumn.DataPropertyName = "CapitalRecuperado"
-        DataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle54.Format = "N2"
-        Me.CapitalRecuperadoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle54
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N2"
+        Me.CapitalRecuperadoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.CapitalRecuperadoDataGridViewTextBoxColumn.HeaderText = "Capital Recuperado"
         Me.CapitalRecuperadoDataGridViewTextBoxColumn.Name = "CapitalRecuperadoDataGridViewTextBoxColumn"
         Me.CapitalRecuperadoDataGridViewTextBoxColumn.ReadOnly = True
@@ -181,9 +182,9 @@ Partial Class FrmGarantiasEjercidas
         'InteresDataGridViewTextBoxColumn
         '
         Me.InteresDataGridViewTextBoxColumn.DataPropertyName = "Interes"
-        DataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle55.Format = "N2"
-        Me.InteresDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle55
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        Me.InteresDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.InteresDataGridViewTextBoxColumn.HeaderText = "Interes"
         Me.InteresDataGridViewTextBoxColumn.Name = "InteresDataGridViewTextBoxColumn"
         Me.InteresDataGridViewTextBoxColumn.ReadOnly = True
@@ -192,10 +193,10 @@ Partial Class FrmGarantiasEjercidas
         'CoberturanominalDataGridViewTextBoxColumn
         '
         Me.CoberturanominalDataGridViewTextBoxColumn.DataPropertyName = "cobertura_nominal"
-        DataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle56.Format = "N0"
-        DataGridViewCellStyle56.NullValue = Nothing
-        Me.CoberturanominalDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle56
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N0"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.CoberturanominalDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         Me.CoberturanominalDataGridViewTextBoxColumn.HeaderText = "Cob. Nominal"
         Me.CoberturanominalDataGridViewTextBoxColumn.Name = "CoberturanominalDataGridViewTextBoxColumn"
         Me.CoberturanominalDataGridViewTextBoxColumn.ReadOnly = True
@@ -204,9 +205,9 @@ Partial Class FrmGarantiasEjercidas
         'CoberturaefectivaDataGridViewTextBoxColumn
         '
         Me.CoberturaefectivaDataGridViewTextBoxColumn.DataPropertyName = "cobertura_efectiva"
-        DataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle57.Format = "N0"
-        Me.CoberturaefectivaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle57
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Format = "N0"
+        Me.CoberturaefectivaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
         Me.CoberturaefectivaDataGridViewTextBoxColumn.HeaderText = "Cob. Efectiva"
         Me.CoberturaefectivaDataGridViewTextBoxColumn.Name = "CoberturaefectivaDataGridViewTextBoxColumn"
         Me.CoberturaefectivaDataGridViewTextBoxColumn.ReadOnly = True
@@ -215,10 +216,10 @@ Partial Class FrmGarantiasEjercidas
         'SaldoGarantia
         '
         Me.SaldoGarantia.DataPropertyName = "SaldoGarantia"
-        DataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle58.Format = "N2"
-        DataGridViewCellStyle58.NullValue = Nothing
-        Me.SaldoGarantia.DefaultCellStyle = DataGridViewCellStyle58
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.SaldoGarantia.DefaultCellStyle = DataGridViewCellStyle6
         Me.SaldoGarantia.HeaderText = "Saldo Garantía"
         Me.SaldoGarantia.Name = "SaldoGarantia"
         Me.SaldoGarantia.ReadOnly = True
@@ -259,10 +260,10 @@ Partial Class FrmGarantiasEjercidas
         'ImporteGarantiaDataGridViewTextBoxColumn1
         '
         Me.ImporteGarantiaDataGridViewTextBoxColumn1.DataPropertyName = "ImporteGarantia"
-        DataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle59.Format = "N2"
-        DataGridViewCellStyle59.NullValue = Nothing
-        Me.ImporteGarantiaDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle59
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.ImporteGarantiaDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle7
         Me.ImporteGarantiaDataGridViewTextBoxColumn1.HeaderText = "Importe Garantia"
         Me.ImporteGarantiaDataGridViewTextBoxColumn1.Name = "ImporteGarantiaDataGridViewTextBoxColumn1"
         Me.ImporteGarantiaDataGridViewTextBoxColumn1.ReadOnly = True
@@ -271,9 +272,9 @@ Partial Class FrmGarantiasEjercidas
         'CapitalRecuperadoDataGridViewTextBoxColumn1
         '
         Me.CapitalRecuperadoDataGridViewTextBoxColumn1.DataPropertyName = "CapitalRecuperado"
-        DataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle60.Format = "N2"
-        Me.CapitalRecuperadoDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle60
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Format = "N2"
+        Me.CapitalRecuperadoDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle8
         Me.CapitalRecuperadoDataGridViewTextBoxColumn1.HeaderText = "Capital Recuperado"
         Me.CapitalRecuperadoDataGridViewTextBoxColumn1.Name = "CapitalRecuperadoDataGridViewTextBoxColumn1"
         Me.CapitalRecuperadoDataGridViewTextBoxColumn1.ReadOnly = True
@@ -282,9 +283,9 @@ Partial Class FrmGarantiasEjercidas
         'InteresDataGridViewTextBoxColumn1
         '
         Me.InteresDataGridViewTextBoxColumn1.DataPropertyName = "Interes"
-        DataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle61.Format = "N2"
-        Me.InteresDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle61
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Format = "N2"
+        Me.InteresDataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle9
         Me.InteresDataGridViewTextBoxColumn1.HeaderText = "Intereses"
         Me.InteresDataGridViewTextBoxColumn1.Name = "InteresDataGridViewTextBoxColumn1"
         Me.InteresDataGridViewTextBoxColumn1.ReadOnly = True
@@ -292,10 +293,10 @@ Partial Class FrmGarantiasEjercidas
         'TasaDataGridViewTextBoxColumn
         '
         Me.TasaDataGridViewTextBoxColumn.DataPropertyName = "Tasa"
-        DataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle62.Format = "N4"
-        DataGridViewCellStyle62.NullValue = Nothing
-        Me.TasaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle62
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.Format = "N4"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.TasaDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
         Me.TasaDataGridViewTextBoxColumn.HeaderText = "Tasa Inte."
         Me.TasaDataGridViewTextBoxColumn.Name = "TasaDataGridViewTextBoxColumn"
         Me.TasaDataGridViewTextBoxColumn.ReadOnly = True
@@ -303,10 +304,10 @@ Partial Class FrmGarantiasEjercidas
         'FechaInicialDataGridViewTextBoxColumn
         '
         Me.FechaInicialDataGridViewTextBoxColumn.DataPropertyName = "FechaInicial"
-        DataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle63.Format = "d"
-        DataGridViewCellStyle63.NullValue = Nothing
-        Me.FechaInicialDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle63
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.Format = "d"
+        DataGridViewCellStyle11.NullValue = Nothing
+        Me.FechaInicialDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle11
         Me.FechaInicialDataGridViewTextBoxColumn.HeaderText = "Fecha Inicial"
         Me.FechaInicialDataGridViewTextBoxColumn.Name = "FechaInicialDataGridViewTextBoxColumn"
         Me.FechaInicialDataGridViewTextBoxColumn.ReadOnly = True
@@ -315,9 +316,9 @@ Partial Class FrmGarantiasEjercidas
         'FechaFinalDataGridViewTextBoxColumn
         '
         Me.FechaFinalDataGridViewTextBoxColumn.DataPropertyName = "FechaFinal"
-        DataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle64.Format = "d"
-        Me.FechaFinalDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle64
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.Format = "d"
+        Me.FechaFinalDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle12
         Me.FechaFinalDataGridViewTextBoxColumn.HeaderText = "Fecha Final"
         Me.FechaFinalDataGridViewTextBoxColumn.Name = "FechaFinalDataGridViewTextBoxColumn"
         Me.FechaFinalDataGridViewTextBoxColumn.ReadOnly = True
@@ -326,10 +327,10 @@ Partial Class FrmGarantiasEjercidas
         'FechaRecuperacion
         '
         Me.FechaRecuperacion.DataPropertyName = "FechaRecuperacion"
-        DataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle65.Format = "d"
-        DataGridViewCellStyle65.NullValue = Nothing
-        Me.FechaRecuperacion.DefaultCellStyle = DataGridViewCellStyle65
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle13.Format = "d"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.FechaRecuperacion.DefaultCellStyle = DataGridViewCellStyle13
         Me.FechaRecuperacion.HeaderText = "Fecha de Recuperación"
         Me.FechaRecuperacion.Name = "FechaRecuperacion"
         Me.FechaRecuperacion.ReadOnly = True
@@ -536,6 +537,7 @@ Partial Class FrmGarantiasEjercidas
         Me.Controls.Add(Me.CmbCli)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_id_sg)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmGarantiasEjercidas"
         Me.Text = "Garantias Ejercidas (Saldos)"
         CType(Me.CliGarantiasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

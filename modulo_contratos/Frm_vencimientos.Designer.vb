@@ -25,16 +25,17 @@ Partial Class Nuevo
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Nuevo))
         Me.CONT_CPF_vencimientosDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CONT_CPF_vencimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
-        Me.CONT_CPF_vencimientosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter()
-        Me.bt_agregar = New System.Windows.Forms.Button()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CONT_CPF_vencimientosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
+        Me.CONT_CPF_vencimientosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_vencimientosTableAdapter()
+        Me.bt_agregar = New System.Windows.Forms.Button()
         CType(Me.CONT_CPF_vencimientosDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_vencimientosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,29 +51,6 @@ Partial Class Nuevo
         Me.CONT_CPF_vencimientosDataGridView.Name = "CONT_CPF_vencimientosDataGridView"
         Me.CONT_CPF_vencimientosDataGridView.Size = New System.Drawing.Size(599, 179)
         Me.CONT_CPF_vencimientosDataGridView.TabIndex = 1
-        '
-        'CONT_CPF_vencimientosBindingSource
-        '
-        Me.CONT_CPF_vencimientosBindingSource.DataMember = "CONT_CPF_vencimientos"
-        Me.CONT_CPF_vencimientosBindingSource.DataSource = Me.DS_contratos
-        '
-        'DS_contratos
-        '
-        Me.DS_contratos.DataSetName = "DS_contratos"
-        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CONT_CPF_vencimientosTableAdapter
-        '
-        Me.CONT_CPF_vencimientosTableAdapter.ClearBeforeFill = True
-        '
-        'bt_agregar
-        '
-        Me.bt_agregar.Location = New System.Drawing.Point(527, 190)
-        Me.bt_agregar.Name = "bt_agregar"
-        Me.bt_agregar.Size = New System.Drawing.Size(81, 23)
-        Me.bt_agregar.TabIndex = 149
-        Me.bt_agregar.Text = "Agregar"
-        Me.bt_agregar.UseVisualStyleBackColor = True
         '
         'DataGridViewTextBoxColumn2
         '
@@ -112,6 +90,29 @@ Partial Class Nuevo
         Me.DataGridViewTextBoxColumn6.HeaderText = "Intereses"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
+        'CONT_CPF_vencimientosBindingSource
+        '
+        Me.CONT_CPF_vencimientosBindingSource.DataMember = "CONT_CPF_vencimientos"
+        Me.CONT_CPF_vencimientosBindingSource.DataSource = Me.DS_contratos
+        '
+        'DS_contratos
+        '
+        Me.DS_contratos.DataSetName = "DS_contratos"
+        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CONT_CPF_vencimientosTableAdapter
+        '
+        Me.CONT_CPF_vencimientosTableAdapter.ClearBeforeFill = True
+        '
+        'bt_agregar
+        '
+        Me.bt_agregar.Location = New System.Drawing.Point(527, 190)
+        Me.bt_agregar.Name = "bt_agregar"
+        Me.bt_agregar.Size = New System.Drawing.Size(81, 23)
+        Me.bt_agregar.TabIndex = 149
+        Me.bt_agregar.Text = "Agregar"
+        Me.bt_agregar.UseVisualStyleBackColor = True
+        '
         'Nuevo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -119,6 +120,7 @@ Partial Class Nuevo
         Me.ClientSize = New System.Drawing.Size(633, 230)
         Me.Controls.Add(Me.bt_agregar)
         Me.Controls.Add(Me.CONT_CPF_vencimientosDataGridView)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Nuevo"
         Me.Text = "Vencimientos"
         CType(Me.CONT_CPF_vencimientosDataGridView, System.ComponentModel.ISupportInitialize).EndInit()

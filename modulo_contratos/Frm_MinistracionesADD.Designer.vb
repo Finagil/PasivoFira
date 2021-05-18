@@ -25,6 +25,7 @@ Partial Class Frm_MinistracionesADD
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_MinistracionesADD))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.AnexoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CicloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -444,6 +445,7 @@ Partial Class Frm_MinistracionesADD
         Me.Controls.Add(Me.txtCicloPago)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_MinistracionesADD"
         Me.Text = "Agregar Ministraciones"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

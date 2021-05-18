@@ -23,6 +23,7 @@ Partial Class Frm_PagosFAC
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_PagosFAC))
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.WEBLotesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.FactorajeDS3 = New Fira_Cartera_Pasiva.FactorajeDS()
@@ -447,6 +448,7 @@ Partial Class Frm_PagosFAC
         Me.Controls.Add(Me.DG_pagos)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Label7)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_PagosFAC"
         Me.Text = "Frm_PagosFAC"
         CType(Me.WEBLotesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()

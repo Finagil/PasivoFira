@@ -23,6 +23,7 @@ Partial Class frm_contratos_alta
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_contratos_alta))
         Me.cbclientes = New System.Windows.Forms.ComboBox()
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
@@ -2610,6 +2611,7 @@ Partial Class frm_contratos_alta
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frm_contratos_alta"
         Me.Text = "Consultas"
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

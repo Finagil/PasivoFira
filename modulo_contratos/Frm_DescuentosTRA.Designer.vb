@@ -23,19 +23,20 @@ Partial Class Frm_DescuentosTRA
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_DescuentosTRA))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TxtAnexoCon = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TxtAnexo = New System.Windows.Forms.TextBox()
-        Me.DescuentosTRABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
-        Me.DescuentosTRATableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.DescuentosTRATableAdapter()
         Me.AnexoConDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescrDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MontoFinanciadoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoCreditoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescuentosTRABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DescuentosDS = New Fira_Cartera_Pasiva.DescuentosDS()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TxtAnexoCon = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TxtAnexo = New System.Windows.Forms.TextBox()
+        Me.DescuentosTRATableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.DescuentosTRATableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosTRABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +56,50 @@ Partial Class Frm_DescuentosTRA
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(763, 354)
         Me.DataGridView1.TabIndex = 0
+        '
+        'AnexoConDataGridViewTextBoxColumn
+        '
+        Me.AnexoConDataGridViewTextBoxColumn.DataPropertyName = "AnexoCon"
+        Me.AnexoConDataGridViewTextBoxColumn.HeaderText = "Anexo"
+        Me.AnexoConDataGridViewTextBoxColumn.Name = "AnexoConDataGridViewTextBoxColumn"
+        Me.AnexoConDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DescrDataGridViewTextBoxColumn
+        '
+        Me.DescrDataGridViewTextBoxColumn.DataPropertyName = "Descr"
+        Me.DescrDataGridViewTextBoxColumn.HeaderText = "Cliente"
+        Me.DescrDataGridViewTextBoxColumn.Name = "DescrDataGridViewTextBoxColumn"
+        Me.DescrDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescrDataGridViewTextBoxColumn.Width = 250
+        '
+        'MontoFinanciadoDataGridViewTextBoxColumn
+        '
+        Me.MontoFinanciadoDataGridViewTextBoxColumn.DataPropertyName = "MontoFinanciado"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "n2"
+        Me.MontoFinanciadoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        Me.MontoFinanciadoDataGridViewTextBoxColumn.HeaderText = "Monto Financiado"
+        Me.MontoFinanciadoDataGridViewTextBoxColumn.Name = "MontoFinanciadoDataGridViewTextBoxColumn"
+        Me.MontoFinanciadoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TipoCreditoDataGridViewTextBoxColumn
+        '
+        Me.TipoCreditoDataGridViewTextBoxColumn.DataPropertyName = "TipoCredito"
+        Me.TipoCreditoDataGridViewTextBoxColumn.HeaderText = "Tipo Credito"
+        Me.TipoCreditoDataGridViewTextBoxColumn.Name = "TipoCreditoDataGridViewTextBoxColumn"
+        Me.TipoCreditoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TipoCreditoDataGridViewTextBoxColumn.Width = 200
+        '
+        'DescuentosTRABindingSource
+        '
+        Me.DescuentosTRABindingSource.DataMember = "DescuentosTRA"
+        Me.DescuentosTRABindingSource.DataSource = Me.DescuentosDS
+        '
+        'DescuentosDS
+        '
+        Me.DescuentosDS.DataSetName = "DescuentosDS"
+        Me.DescuentosDS.Locale = New System.Globalization.CultureInfo("es-ES")
+        Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Button1
         '
@@ -92,52 +137,9 @@ Partial Class Frm_DescuentosTRA
         Me.TxtAnexo.Size = New System.Drawing.Size(23, 20)
         Me.TxtAnexo.TabIndex = 7
         '
-        'DescuentosTRABindingSource
-        '
-        Me.DescuentosTRABindingSource.DataMember = "DescuentosTRA"
-        Me.DescuentosTRABindingSource.DataSource = Me.DescuentosDS
-        '
-        'DescuentosDS
-        '
-        Me.DescuentosDS.DataSetName = "DescuentosDS"
-        Me.DescuentosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'DescuentosTRATableAdapter
         '
         Me.DescuentosTRATableAdapter.ClearBeforeFill = True
-        '
-        'AnexoConDataGridViewTextBoxColumn
-        '
-        Me.AnexoConDataGridViewTextBoxColumn.DataPropertyName = "AnexoCon"
-        Me.AnexoConDataGridViewTextBoxColumn.HeaderText = "Anexo"
-        Me.AnexoConDataGridViewTextBoxColumn.Name = "AnexoConDataGridViewTextBoxColumn"
-        Me.AnexoConDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DescrDataGridViewTextBoxColumn
-        '
-        Me.DescrDataGridViewTextBoxColumn.DataPropertyName = "Descr"
-        Me.DescrDataGridViewTextBoxColumn.HeaderText = "Cliente"
-        Me.DescrDataGridViewTextBoxColumn.Name = "DescrDataGridViewTextBoxColumn"
-        Me.DescrDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescrDataGridViewTextBoxColumn.Width = 250
-        '
-        'MontoFinanciadoDataGridViewTextBoxColumn
-        '
-        Me.MontoFinanciadoDataGridViewTextBoxColumn.DataPropertyName = "MontoFinanciado"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "n2"
-        Me.MontoFinanciadoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
-        Me.MontoFinanciadoDataGridViewTextBoxColumn.HeaderText = "Monto Financiado"
-        Me.MontoFinanciadoDataGridViewTextBoxColumn.Name = "MontoFinanciadoDataGridViewTextBoxColumn"
-        Me.MontoFinanciadoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TipoCreditoDataGridViewTextBoxColumn
-        '
-        Me.TipoCreditoDataGridViewTextBoxColumn.DataPropertyName = "TipoCredito"
-        Me.TipoCreditoDataGridViewTextBoxColumn.HeaderText = "Tipo Credito"
-        Me.TipoCreditoDataGridViewTextBoxColumn.Name = "TipoCreditoDataGridViewTextBoxColumn"
-        Me.TipoCreditoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TipoCreditoDataGridViewTextBoxColumn.Width = 200
         '
         'Frm_DescuentosTRA
         '
@@ -149,6 +151,7 @@ Partial Class Frm_DescuentosTRA
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtAnexoCon)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_DescuentosTRA"
         Me.Text = "Descuentos Tradicionales"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

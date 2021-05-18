@@ -23,6 +23,7 @@ Partial Class Frm_DescuentosFAC
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frm_DescuentosFAC))
         Me.CONTCPFFactorFacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FactorajeDS = New Fira_Cartera_Pasiva.FactorajeDS()
         Me.CONT_CPF_Factor_FacturasTableAdapter = New Fira_Cartera_Pasiva.FactorajeDSTableAdapters.CONT_CPF_Factor_FacturasTableAdapter()
@@ -831,6 +832,7 @@ Partial Class Frm_DescuentosFAC
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.DGFACT)
         Me.Controls.Add(Me.clientetxt)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Frm_DescuentosFAC"
         Me.Text = "Frm_DescuentosFAC"
         CType(Me.CONTCPFFactorFacturasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

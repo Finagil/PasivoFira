@@ -23,6 +23,7 @@ Partial Class frmconsulta
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmconsulta))
         Me.lblAnexos = New System.Windows.Forms.Label()
         Me.lblClientes = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -121,6 +122,7 @@ Partial Class frmconsulta
         Me.Controls.Add(Me.lblClientes)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.ComboBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmconsulta"
         Me.Text = "frmconsulta"
         CType(Me.VwdescuentoSABindingSource, System.ComponentModel.ISupportInitialize).EndInit()

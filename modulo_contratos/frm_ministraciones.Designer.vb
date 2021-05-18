@@ -26,7 +26,16 @@ Partial Class frm_ministraciones
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_ministraciones))
         Me.CONT_CPF_ministracionesDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CONT_CPF_ministracionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_contratos = New Fira_Cartera_Pasiva.DS_contratos()
         Me.bt_agregar = New System.Windows.Forms.Button()
@@ -36,14 +45,6 @@ Partial Class frm_ministraciones
         Me.CONT_CPF_ministracionesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_ministracionesTableAdapter()
         Me.CONTCPFcontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.CONT_CPF_ministracionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_ministracionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,64 +62,6 @@ Partial Class frm_ministraciones
         Me.CONT_CPF_ministracionesDataGridView.Name = "CONT_CPF_ministracionesDataGridView"
         Me.CONT_CPF_ministracionesDataGridView.Size = New System.Drawing.Size(870, 268)
         Me.CONT_CPF_ministracionesDataGridView.TabIndex = 10
-        '
-        'CONT_CPF_ministracionesBindingSource
-        '
-        Me.CONT_CPF_ministracionesBindingSource.DataMember = "CONT_CPF_ministraciones"
-        Me.CONT_CPF_ministracionesBindingSource.DataSource = Me.DS_contratos
-        '
-        'DS_contratos
-        '
-        Me.DS_contratos.DataSetName = "DS_contratos"
-        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'bt_agregar
-        '
-        Me.bt_agregar.Location = New System.Drawing.Point(449, 277)
-        Me.bt_agregar.Name = "bt_agregar"
-        Me.bt_agregar.Size = New System.Drawing.Size(81, 23)
-        Me.bt_agregar.TabIndex = 148
-        Me.bt_agregar.Text = "Agregar"
-        Me.bt_agregar.UseVisualStyleBackColor = True
-        '
-        'bt_modificar
-        '
-        Me.bt_modificar.Location = New System.Drawing.Point(536, 277)
-        Me.bt_modificar.Name = "bt_modificar"
-        Me.bt_modificar.Size = New System.Drawing.Size(81, 23)
-        Me.bt_modificar.TabIndex = 149
-        Me.bt_modificar.Text = "Modificar"
-        Me.bt_modificar.UseVisualStyleBackColor = True
-        '
-        'bt_eliminar
-        '
-        Me.bt_eliminar.Location = New System.Drawing.Point(623, 277)
-        Me.bt_eliminar.Name = "bt_eliminar"
-        Me.bt_eliminar.Size = New System.Drawing.Size(81, 23)
-        Me.bt_eliminar.TabIndex = 150
-        Me.bt_eliminar.Text = "Eliminar"
-        Me.bt_eliminar.UseVisualStyleBackColor = True
-        '
-        'txt_id
-        '
-        Me.txt_id.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONT_CPF_ministracionesBindingSource, "id_ministracion", True))
-        Me.txt_id.Location = New System.Drawing.Point(102, 124)
-        Me.txt_id.Name = "txt_id"
-        Me.txt_id.Size = New System.Drawing.Size(100, 20)
-        Me.txt_id.TabIndex = 151
-        '
-        'CONT_CPF_ministracionesTableAdapter
-        '
-        Me.CONT_CPF_ministracionesTableAdapter.ClearBeforeFill = True
-        '
-        'CONTCPFcontratosBindingSource
-        '
-        Me.CONTCPFcontratosBindingSource.DataMember = "CONT_CPF_contratos"
-        Me.CONTCPFcontratosBindingSource.DataSource = Me.DS_contratos
-        '
-        'CONT_CPF_contratosTableAdapter
-        '
-        Me.CONT_CPF_contratosTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn4
         '
@@ -183,6 +126,64 @@ Partial Class frm_ministraciones
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ToolTipText = "Fecha descuento Fira"
         '
+        'CONT_CPF_ministracionesBindingSource
+        '
+        Me.CONT_CPF_ministracionesBindingSource.DataMember = "CONT_CPF_ministraciones"
+        Me.CONT_CPF_ministracionesBindingSource.DataSource = Me.DS_contratos
+        '
+        'DS_contratos
+        '
+        Me.DS_contratos.DataSetName = "DS_contratos"
+        Me.DS_contratos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'bt_agregar
+        '
+        Me.bt_agregar.Location = New System.Drawing.Point(449, 277)
+        Me.bt_agregar.Name = "bt_agregar"
+        Me.bt_agregar.Size = New System.Drawing.Size(81, 23)
+        Me.bt_agregar.TabIndex = 148
+        Me.bt_agregar.Text = "Agregar"
+        Me.bt_agregar.UseVisualStyleBackColor = True
+        '
+        'bt_modificar
+        '
+        Me.bt_modificar.Location = New System.Drawing.Point(536, 277)
+        Me.bt_modificar.Name = "bt_modificar"
+        Me.bt_modificar.Size = New System.Drawing.Size(81, 23)
+        Me.bt_modificar.TabIndex = 149
+        Me.bt_modificar.Text = "Modificar"
+        Me.bt_modificar.UseVisualStyleBackColor = True
+        '
+        'bt_eliminar
+        '
+        Me.bt_eliminar.Location = New System.Drawing.Point(623, 277)
+        Me.bt_eliminar.Name = "bt_eliminar"
+        Me.bt_eliminar.Size = New System.Drawing.Size(81, 23)
+        Me.bt_eliminar.TabIndex = 150
+        Me.bt_eliminar.Text = "Eliminar"
+        Me.bt_eliminar.UseVisualStyleBackColor = True
+        '
+        'txt_id
+        '
+        Me.txt_id.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CONT_CPF_ministracionesBindingSource, "id_ministracion", True))
+        Me.txt_id.Location = New System.Drawing.Point(102, 124)
+        Me.txt_id.Name = "txt_id"
+        Me.txt_id.Size = New System.Drawing.Size(100, 20)
+        Me.txt_id.TabIndex = 151
+        '
+        'CONT_CPF_ministracionesTableAdapter
+        '
+        Me.CONT_CPF_ministracionesTableAdapter.ClearBeforeFill = True
+        '
+        'CONTCPFcontratosBindingSource
+        '
+        Me.CONTCPFcontratosBindingSource.DataMember = "CONT_CPF_contratos"
+        Me.CONTCPFcontratosBindingSource.DataSource = Me.DS_contratos
+        '
+        'CONT_CPF_contratosTableAdapter
+        '
+        Me.CONT_CPF_contratosTableAdapter.ClearBeforeFill = True
+        '
         'frm_ministraciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -193,6 +194,7 @@ Partial Class frm_ministraciones
         Me.Controls.Add(Me.bt_agregar)
         Me.Controls.Add(Me.CONT_CPF_ministracionesDataGridView)
         Me.Controls.Add(Me.txt_id)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frm_ministraciones"
         Me.Text = "Ministraciones"
         CType(Me.CONT_CPF_ministracionesDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
