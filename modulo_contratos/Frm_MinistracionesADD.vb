@@ -18,6 +18,8 @@ Public Class Frm_MinistracionesADD
 
 
     Private Sub Frm_Descuentos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'PagosDS.GEN_ComandosCMD' Puede moverla o quitarla según sea necesario.
+        Me.GEN_ComandosCMDTableAdapter.Fill(Me.PagosDS.GEN_ComandosCMD)
         'TODO: esta línea de código carga datos en la tabla 'DS_contratos.CONT_CPF_contratos' Puede moverla o quitarla según sea necesario.
         ' Me.CONT_CPF_contratosTableAdapter.Fill(Me.DS_contratos.CONT_CPF_contratos)
         CargaDatosDS()
@@ -146,7 +148,11 @@ Public Class Frm_MinistracionesADD
                 Me.MinistracionesTableAdapter.UpdateFechaCorteTIIE(dt_descuento.Value.ToShortDateString, TIIE_Aplica, ID_Contrato)
                 Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
                 CreaCalendarioRevisoinTasa(ID_Contrato, MinistracionesBindingSource.Current("Tipta"))
-                Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe " & ID_Contrato, AppWinStyle.Hide, False)
+                usuariogl()
+
+                Me.GEN_ComandosCMDTableAdapter.InsertQuery("E:\Dropbox (Finagil)\Contratos$\Executables", "MOD_PasivoFiraCalculos.exe", " " & ID_Contrato, usuarioglobal)
+
+                '   Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe " & ID_Contrato, AppWinStyle.Hide, False)
                 Me.DialogResult = Windows.Forms.DialogResult.OK
                 End If
 

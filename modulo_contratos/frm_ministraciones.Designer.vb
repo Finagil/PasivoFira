@@ -45,10 +45,18 @@ Partial Class frm_ministraciones
         Me.CONT_CPF_ministracionesTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_ministracionesTableAdapter()
         Me.CONTCPFcontratosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
+        Me.PagosDS = New Fira_Cartera_Pasiva.PagosDS()
+        Me.GENComandosCMDBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GEN_ComandosCMDTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.GEN_ComandosCMDTableAdapter()
+        Me.GENCorreosFasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GEN_CorreosFasesTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.GEN_CorreosFasesTableAdapter()
         CType(Me.CONT_CPF_ministracionesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONT_CPF_ministracionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GENCorreosFasesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CONT_CPF_ministracionesDataGridView
@@ -184,6 +192,29 @@ Partial Class frm_ministraciones
         '
         Me.CONT_CPF_contratosTableAdapter.ClearBeforeFill = True
         '
+        'PagosDS
+        '
+        Me.PagosDS.DataSetName = "PagosDS"
+        Me.PagosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GENComandosCMDBindingSource
+        '
+        Me.GENComandosCMDBindingSource.DataMember = "GEN_ComandosCMD"
+        Me.GENComandosCMDBindingSource.DataSource = Me.PagosDS
+        '
+        'GEN_ComandosCMDTableAdapter
+        '
+        Me.GEN_ComandosCMDTableAdapter.ClearBeforeFill = True
+        '
+        'GENCorreosFasesBindingSource
+        '
+        Me.GENCorreosFasesBindingSource.DataMember = "GEN_CorreosFases"
+        Me.GENCorreosFasesBindingSource.DataSource = Me.PagosDS
+        '
+        'GEN_CorreosFasesTableAdapter
+        '
+        Me.GEN_CorreosFasesTableAdapter.ClearBeforeFill = True
+        '
         'frm_ministraciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -201,6 +232,9 @@ Partial Class frm_ministraciones
         CType(Me.CONT_CPF_ministracionesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GENCorreosFasesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -223,4 +257,9 @@ Partial Class frm_ministraciones
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents PagosDS As PagosDS
+    Friend WithEvents GENComandosCMDBindingSource As BindingSource
+    Friend WithEvents GEN_ComandosCMDTableAdapter As PagosDSTableAdapters.GEN_ComandosCMDTableAdapter
+    Friend WithEvents GENCorreosFasesBindingSource As BindingSource
+    Friend WithEvents GEN_CorreosFasesTableAdapter As PagosDSTableAdapters.GEN_CorreosFasesTableAdapter
 End Class

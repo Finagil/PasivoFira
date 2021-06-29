@@ -67,12 +67,17 @@ Partial Class Frm_MinistracionesADD
         Me.CONT_CPF_contratosTableAdapter = New Fira_Cartera_Pasiva.DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter()
         Me.TIIEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TIIETableAdapter = New Fira_Cartera_Pasiva.DescuentosDSTableAdapters.TIIETableAdapter()
+        Me.PagosDS = New Fira_Cartera_Pasiva.PagosDS()
+        Me.GENComandosCMDBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GEN_ComandosCMDTableAdapter = New Fira_Cartera_Pasiva.PagosDSTableAdapters.GEN_ComandosCMDTableAdapter()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MinistracionesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DescuentosDS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TIIEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -416,6 +421,20 @@ Partial Class Frm_MinistracionesADD
         '
         Me.TIIETableAdapter.ClearBeforeFill = True
         '
+        'PagosDS
+        '
+        Me.PagosDS.DataSetName = "PagosDS"
+        Me.PagosDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GENComandosCMDBindingSource
+        '
+        Me.GENComandosCMDBindingSource.DataMember = "GEN_ComandosCMD"
+        Me.GENComandosCMDBindingSource.DataSource = Me.PagosDS
+        '
+        'GEN_ComandosCMDTableAdapter
+        '
+        Me.GEN_ComandosCMDTableAdapter.ClearBeforeFill = True
+        '
         'Frm_MinistracionesADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -454,6 +473,8 @@ Partial Class Frm_MinistracionesADD
         CType(Me.CONTCPFcontratosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_contratos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TIIEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PagosDS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GENComandosCMDBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -499,4 +520,7 @@ Partial Class Frm_MinistracionesADD
     Friend WithEvents CONT_CPF_contratosTableAdapter As DS_contratosTableAdapters.CONT_CPF_contratosTableAdapter
     Friend WithEvents TIIEBindingSource As BindingSource
     Friend WithEvents TIIETableAdapter As DescuentosDSTableAdapters.TIIETableAdapter
+    Friend WithEvents PagosDS As PagosDS
+    Friend WithEvents GENComandosCMDBindingSource As BindingSource
+    Friend WithEvents GEN_ComandosCMDTableAdapter As PagosDSTableAdapters.GEN_ComandosCMDTableAdapter
 End Class
