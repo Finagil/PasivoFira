@@ -145,18 +145,20 @@ Public Class Frm_MinistracionesADD
             If ID_Contrato > 0 Then
 
 
+
+
                 Me.MinistracionesTableAdapter.UpdateFechaCorteTIIE(dt_descuento.Value.ToShortDateString, TIIE_Aplica, ID_Contrato)
                 Me.CONT_CPF_contratosTableAdapter.updatetasafijafira(tasafira, ID_Contrato) 'INGRESAMOS VALOR DE LA TASA FIRA FIJA
                 CreaCalendarioRevisoinTasa(ID_Contrato, MinistracionesBindingSource.Current("Tipta"))
                 usuariogl()
 
-                Me.GEN_ComandosCMDTableAdapter.InsertQuery("E:\Dropbox (Finagil)\Contratos$\Executables", "MOD_PasivoFiraCalculos.exe", " " & ID_Contrato, usuarioglobal)
+                Me.GEN_ComandosCMDTableAdapter.InsertQuery("E:\Dropbox (Finagil)\Contratos$\Executables\", "MOD_PasivoFiraCalculos.exe", " " & ID_Contrato, usuarioglobal)
 
                 '   Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe " & ID_Contrato, AppWinStyle.Hide, False)
                 Me.DialogResult = Windows.Forms.DialogResult.OK
-                End If
+            End If
 
-                MessageBox.Show("Se Agregó la ministración", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Se Agregó la ministración", "Ministraciones", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 CargaDatosDS()
             End If
     End Sub

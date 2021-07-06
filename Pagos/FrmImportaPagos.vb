@@ -34,7 +34,7 @@
             Next
             usuariogl()
 
-            Me.GEN_ComandosCMDTableAdapter.InsertQuery("E:\Dropbox (Finagil)\Contratos$\Executables", "MOD_PasivoFiraCalculos.exe", " PROCESA_PAGOS", usuarioglobal)
+            Me.GEN_ComandosCMDTableAdapter.InsertQuery("E:\Dropbox (Finagil)\Contratos$\Executables\", "MOD_PasivoFiraCalculos.exe", " PROCESA_PAGOS", usuarioglobal)
             'Shell("\\SERVER-RAID2\Contratos$\Executables\PsExec.exe \\192.168.10.232 -u AGIL\edgar-caceres -p c4c3r1t0s1 E:\Contratos$\Executables\MOD_PasivoFiraCalculos.exe PROCESA_PAGOS", AppWinStyle.Hide, False)
             'mandacorrefas
             Me.PagosFiraTableAdapter.Fill(PagosDS.PagosFira, False)
